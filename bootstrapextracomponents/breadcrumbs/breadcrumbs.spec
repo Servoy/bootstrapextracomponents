@@ -31,7 +31,7 @@
 		},
 		"removeCrumbsAfter": {
 			"parameters": [
-				{"name": "index", "type": "index"}
+				{"name": "index", "type": "int"}
 			]
 		},
 		"removeLastCrumb": {
