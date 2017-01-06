@@ -1,0 +1,26 @@
+.svy-wrapper > * > .btsextra-btn-radio {
+	width: 100%;
+	height: 100%;
+	
+	overflow: auto;
+    white-space: nowrap;
+	
+}
+
+.svy-wrapper > * > .btsextra-btn-radio .btn {
+	float: initial;
+	display: inline-block;
+	height: 100%;
+	line-height: normal;
+    padding-top: initial;
+    padding-bottom: initial;
+}
+
+.btn-group[disabled] {
+	pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}
