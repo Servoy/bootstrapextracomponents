@@ -1,0 +1,14 @@
+customProperties:"formComponent:false",
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"8A297CE3-4E29-48EC-BEA8-4AD474BA0C75"
+}
+],
+name:"demoInputGroup",
+navigatorID:"-1",
+showInMenu:true,
+typeid:3,
+uuid:"ECDFAA90-A638-4039-9046-93455568C884"
