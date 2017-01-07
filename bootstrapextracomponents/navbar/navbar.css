@@ -1,0 +1,9 @@
+.navbar-brand>img {
+	height: 100%;
+	padding: 10px 15px 10px 15px;
+	width: auto;
+}
+
+nav .navbar-right .dropdown-menu {
+    right: auto;
+}
