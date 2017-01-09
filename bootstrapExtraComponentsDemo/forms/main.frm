@@ -38,6 +38,13 @@ typeid:15,
 uuid:"3EBAF6FA-D207-49F4-A400-613EDC3311D6"
 },
 {
+containsFormID:"FD9927A9-5C6B-4C4D-82F0-33B11AFC9E6E",
+location:"370,267",
+text:"Badges",
+typeid:15,
+uuid:"5F1F6F53-A010-4B57-BCC4-A246D8D5DDE5"
+},
+{
 containsFormID:"CF6FFD6A-2ECA-4CB8-BE39-B00D206AC4B6",
 location:"265,244",
 text:"Navbar",
