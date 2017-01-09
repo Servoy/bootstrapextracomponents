@@ -3,10 +3,13 @@
 	"displayName": "Input Group",
 	"version": 1,
 	"definition": "bootstrapextracomponents/inputgroup/inputgroup.js",
-	"libraries": [],
+	"serverscript": "bootstrapextracomponents/inputgroup/inputgroup_server.js",
+	"libraries": [
+		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"}
+	],
 	"model": 
 	{
-		"dataProviderID": 
+		"dataProvider": 
 		{
 			"type": "dataprovider",
 			"pushToServer": "allow",
@@ -14,10 +17,9 @@
 			{
 				"scope": "design"
 			},
-
 			"ondatachange": 
 			{
-				"onchange": "onDataChangeMethodID",
+				"onchange": "onDataChange",
 				"callback": "onDataChangeCallback"
 			}
 		},
@@ -28,19 +30,19 @@
 			"default": true,
 			"for": 
 			[
-				"dataProviderID",
-				"onActionMethodID",
-				"onDataChangeMethodID",
-				"onFocusGainedMethodID",
-				"onFocusLostMethodID",
-				"onRightClickMethodID"
+				"dataProvider",
+				"onAction",
+				"onDataChange",
+				"onFocusGained",
+				"onFocusLost",
+				"onRightClick"
 			]
 		},
 		"format": 
 		{
 			"for": 
 			[
-				"dataProviderID"
+				"dataProvider"
 			],
 
 			"type": "format"
@@ -68,8 +70,8 @@
 			"default": false,
 			"for": 
 			[
-				"dataProviderID",
-				"onDataChangeMethodID"
+				"dataProvider",
+				"onDataChange"
 			]
 		},
 		"placeholderText": "tagstring",
@@ -110,7 +112,7 @@
 	},
 	"handlers": 
 	{
-		"onActionMethodID": 
+		"onAction": 
 		{
 			"parameters": 
 			[
@@ -120,7 +122,7 @@
 				}
 			]
 		},
-		"onDataChangeMethodID": 
+		"onDataChange": 
 		{
 			"returns": "boolean",
 			"parameters": 
@@ -141,7 +143,7 @@
 				}
 			]
 		},
-		"onFocusGainedMethodID": 
+		"onFocusGained": 
 		{
 			"parameters": 
 			[
@@ -151,7 +153,7 @@
 				}
 			]
 		},
-		"onFocusLostMethodID": 
+		"onFocusLost": 
 		{
 			"parameters": 
 			[
@@ -161,7 +163,7 @@
 				}
 			]
 		},
-		"onRightClickMethodID": 
+		"onRightClick": 
 		{
 			"parameters": 
 			[
@@ -185,7 +187,7 @@
 			[
 				{
 					"name": "addOn",
-					"type": "AddOn"
+					"type": "bootstrapextracomponents-input-group.AddOn"
 				}
 			]
 		},
@@ -194,14 +196,13 @@
 			"parameters": 
 			[
 				{
-					"name": "addOn",
-					"type": "AddOn[]"
+					"name": "addOns",
+					"type": "bootstrapextracomponents-input-group.AddOn[]"
 				}
 			]
 		},
 		"clearAddOns": 
 		{
-			
 		},
 		"addAddOnButton": 
 		{
@@ -209,7 +210,7 @@
 			[
 				{
 					"name": "addOnButton",
-					"type": "AddOnButton"
+					"type": "bootstrapextracomponents-input-group.AddOnButton"
 				}
 			]
 		},
@@ -218,20 +219,13 @@
 			"parameters": 
 			[
 				{
-					"name": "addOnButton",
-					"type": "AddOnButton[]"
+					"name": "addOnButtons",
+					"type": "bootstrapextracomponents-input-group.AddOnButton[]"
 				}
 			]
 		},
 		"clearAddOnButtons": 
 		{
-			"parameters": 
-			[
-				{
-					"name": "addOnButton",
-					"type": "AddOnButton"
-				}
-			]
 		}
 	},
 	"types": 
@@ -261,6 +255,11 @@
 				"type": "tagstring",
 				"initialValue": "addOn"
 			},
+			"name":
+			{
+				"type": "string",
+				"initialValue": "btn"
+			},
 			"position": 
 			{
 				"type": "string",
@@ -271,15 +270,15 @@
 					"RIGHT"
 				]
 			},
-			"onActionMethodID": 
+			"onAction": 
 			{
 				"type": "function"
 			},
-			"onDoubleClickMethodID": 
+			"onDoubleClick": 
 			{
 				"type": "function"
 			},
-			"onRightClickMethodID": 
+			"onRightClick": 
 			{
 				"type": "function"
 			},

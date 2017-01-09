@@ -2,35 +2,37 @@
 	id="{{::model.svyMarkupId}}" 
 	ng-show='model.visible' 
 	ng-class='model.styleClass'>
-
-	<!-- addOns left -->
-	<span ng-repeat="addon in model.addOns" ng-if="addon.position == 'LEFT'" class="input-group-addon">{{addon.text}}</span>
-	<!-- end addOns left -->
 	
 	<!-- addOnButtons left -->
-	<span ng-repeat="button in model.addOnButtons" ng-if="button.position == 'LEFT' && button.text" class="input-group-btn">
+	<div ng-if="hasLeftButtons()" class="input-group-btn">
       	<button 
+			ng-repeat="button in model.addOnButtons" 
+			ng-if="button.position == 'LEFT' && (button.text || button.imageStyleClass)" 
 			ng-disabled="!model.enabled" 
-			class="btn {{button.styleClass}}" 
+			class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}" 
 			type="button"
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
-    </span>
+    </div>
 	<!-- end addOnButtons left -->
+
+	<!-- addOns left -->
+	<span ng-repeat="addon in model.addOns" ng-if="addon.position == 'LEFT'" class="input-group-addon">{{addon.text}}</span>
+	<!-- end addOns left -->
 
 	<input type="{{model.inputType}}"
 		class='form-control bts-textbox'
-	    ng-model="model.dataProviderID"
+	    ng-model="model.dataProvider"
 	    ng-disabled="!model.enabled"
 	    ng-readonly="model.readOnly"
 	    placeholder="{{model.placeholderText}}"
-	    svy-focusgained='handlers.onFocusGainedMethodID($event)'
-	   	svy-focuslost='handlers.onFocusLostMethodID($event)'
-	   	svy-enter='handlers.onActionMethodID($event)'
-	   	svy-rightclick='handlers.onRightClickMethodID($event)'
+	    svy-focusgained='handlers.onFocusGained($event)'
+	   	svy-focuslost='handlers.onFocusLost($event)'
+	   	svy-enter='handlers.onAction($event)'
+	   	svy-rightclick='handlers.onRightClick($event)'
       	svy-autoapply
 		sablo-tabseq='model.tabSeq'
 	    />
@@ -40,17 +42,19 @@
     <!-- end addOns right -->
 
 	<!-- addOnButtons right -->
-	<span ng-repeat="button in model.addOnButtons" ng-if="button.position == 'RIGHT' && button.text" class="input-group-btn">
+	<div ng-if="hasRightButtons()" class="input-group-btn">
       	<button 
+			ng-repeat="button in model.addOnButtons" 
+			ng-if="button.position == 'RIGHT' && (button.text || button.imageStyleClass)" 
 			ng-disabled="!model.enabled" 
-			class='btn {{button.styleClass}}' 
+			class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}" 
 			type="button"
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
-    </span>
+    </div>
 	<!-- end addOnButtons right -->
 
 </div>

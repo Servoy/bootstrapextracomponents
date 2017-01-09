@@ -1,5 +1,4 @@
 customProperties:"formComponent:false",
-encapsulation:60,
 items:[
 {
 json:{

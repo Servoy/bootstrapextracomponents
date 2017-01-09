@@ -22,6 +22,24 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 							}
 						}
 					})
+					
+				$scope.hasLeftButtons = function() {
+					return filterButtons('LEFT').length > 0;
+				}
+					
+				$scope.hasRightButtons = function() {
+					return filterButtons('RIGHT').length > 0;
+				}
+				
+				function filterButtons(position) {
+					if (!$scope.model.addOnButtons) {
+						return [];
+					}
+					function filterButtons(addOnBtn) {
+						return addOnBtn.position == position;
+					}
+					return $scope.model.addOnButtons.filter(filterButtons);
+				}
 
 				/**
 				 * Request the focus to this text field.
@@ -30,94 +48,7 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 				$scope.api.requestFocus = function() {
 					$element.find('input')[0].focus();
 				}
-				
-				/**
-				 * Adds an addOn to this input group
-				 * 
-				 * AddOn has the following properties:
-				 * 
-				 * text - the text of the item
-				 * position - LEFT or RIGHT (defaults to LEFT)
-				 * 
-				 * @param {AddOn} addOnToAdd - object with text, position (LEFT, RIGHT)
-				 */
-				$scope.api.addAddOn = function(addOnToAdd) {
-					if (!$scope.model.addOns) {
-						$scope.model.addOns = [addOnToAdd];
-					} else {
-						$scope.model.addOns.push(addOnToAdd);
-					}
-				}
-				
-				/**
-				 * Sets all addOns of this input group
-				 * 
-				 * AddOn has the following properties:
-				 * 
-				 * text - the text of the item
-				 * position - LEFT or RIGHT (defaults to LEFT)
-				 * 
-				 * @param {Array<AddOn>} addOns - Array of objects with text, position (LEFT, RIGHT)
-				 */
-				$scope.api.setAddOns = function(addOns) {
-					$scope.model.addOns = addOns;
-				}
-				
-				/**
-				 * Removes all addOns from this input group
-				 */
-				$scope.api.clearAddOns = function() {
-					$scope.model.addOns = null;
-				}				
-				
-				/**
-				 * Adds an addOnButton to this input group
-				 * 
-				 * AddOnButton has the following properties:
-				 * 
-				 * text - the button text
-				 * position - LEFT or RIGHT (defaults to RIGHT)
-				 * onActionMethodID - function to be called on button click
-				 * onDoubleClickMethodID - function to be called on button double click
-				 * onRightClickMethodID - function to be called on button right click
-				 * styleClass - the style class of the button (e.g. btn-danger)
-				 * imageStyleClass - image style class of the button
-				 * 
-				 * @param {AddOnButton} addButtonOnToAdd
-				 */
-				$scope.api.addAddOnButton = function(addButtonOnToAdd) {
-					if (!$scope.model.addOnButtons) {
-						$scope.model.addOnButtons = [addButtonOnToAdd];
-					} else {
-						$scope.model.addOnButtons.push(addButtonOnToAdd);
-					}
-				}	
-				
-				/**
-				 * Sets all addOnButtons of this input group
-				 * 
-				 * AddOnButton has the following properties:
-				 * 
-				 * text - the button text
-				 * position - LEFT or RIGHT (defaults to RIGHT)
-				 * onActionMethodID - function to be called on button click
-				 * onDoubleClickMethodID - function to be called on button double click
-				 * onRightClickMethodID - function to be called on button right click
-				 * styleClass - the style class of the button (e.g. btn-danger)
-				 * imageStyleClass - image style class of the button
-				 * 
-				 * @param {Array<AddOnButton>} addOnButtons
-				 */
-				$scope.api.setAddOnButtons = function(addOnButtons) {
-					$scope.model.addOnButtons = addOnButtons;
-				}	
-				
-				/**
-				 * Removes all addOnButtons from this input group
-				 */
-				$scope.api.clearAddOnButtons = function(addOnButtons) {
-					$scope.model.addOnButtons = null;
-				}				
+						
 			},
 			controller: function($scope, $element, $attrs, $window, $parse) {
 				/**
@@ -175,18 +106,18 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 				$scope.buttonClicked = function(event, btnText, btnIndex) {
 					var btn = $scope.model.addOnButtons[btnIndex];
 					var jsEvent;
-					if (btn && btn.onActionMethodID) {
+					if (btn && btn.onAction) {
 						jsEvent = createJSEvent(event);
 						jsEvent.data = btnText;
-						$window.executeInlineScript(btn.onActionMethodID.formname, btn.onActionMethodID.script, [jsEvent, btnText])
-					} else if (btn && event.type == 'dblclick' && btn.onDoubleClickMethodID) {
+						$window.executeInlineScript(btn.onAction.formname, btn.onAction.script, [jsEvent, btn.name, btnText, btnIndex])
+					} else if (btn && event.type == 'dblclick' && btn.onDoubleClick) {
 						jsEvent = createJSEvent(event);
 						jsEvent.data = btnText;
-						$window.executeInlineScript(btn.onDoubleClickMethodID.formname, btn.onDoubleClickMethodID.script, [jsEvent, btnText])
-					} else if (btn && event.type == 'contextmenu' && btn.onRightClickMethodID) {
+						$window.executeInlineScript(btn.onDoubleClick.formname, btn.onDoubleClick.script, [jsEvent, btn.name, btnText, btnIndex])
+					} else if (btn && event.type == 'contextmenu' && btn.onRightClick) {
 						jsEvent = createJSEvent(event);
 						jsEvent.data = btnText;
-						$window.executeInlineScript(btn.onRightClickMethodID.formname, btn.onRightClickMethodID.script, [jsEvent, btnText])
+						$window.executeInlineScript(btn.onRightClick.formname, btn.onRightClick.script, [jsEvent, btn.name, btnText, btnIndex])
 					}
 				}
 			},
