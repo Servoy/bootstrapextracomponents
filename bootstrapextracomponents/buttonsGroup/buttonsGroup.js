@@ -1,4 +1,4 @@
-angular.module('bootstrapextracomponentsButtonsRadio', ['servoy']).directive('bootstrapextracomponentsButtonsRadio', function($utils, $svyProperties, $sabloConstants) {
+angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bootstrapextracomponentsButtonsGroup', function($utils, $svyProperties, $sabloConstants) {
 		return {
 			restrict: 'E',
 			scope: {
@@ -92,6 +92,6 @@ angular.module('bootstrapextracomponentsButtonsRadio', ['servoy']).directive('bo
 					return false;
 				}
 			},
-			templateUrl: 'bootstrapextracomponents/buttonsRadio/buttonsRadio.html'
+			templateUrl: 'bootstrapextracomponents/buttonsGroup/buttonsGroup.html'
 		}
 	})

@@ -15,7 +15,7 @@ Web-Component: True
 Name: breadcrumbs/breadcrumbs.spec
 Web-Component: True
 
-Name: buttonsRadio/buttonsRadio.spec
+Name: buttonsGroup/buttonsGroup.spec
 Web-Component: True
 
 

@@ -1,7 +1,7 @@
-{"name": "bootstrapextracomponents-buttons-radio",
+{"name": "bootstrapextracomponents-buttons-group",
 "displayName": "Group Buttons",
-"definition": "bootstrapextracomponents/buttonsRadio/buttonsRadio.js",
-"libraries": [{"name":"btsextra-buttonsRadio.css", "version":"1.0.0", "url":"bootstrapextracomponents/buttonsRadio/css/btsextra-buttonsRadio.css", "mimetype":"text/css"}],
+"definition": "bootstrapextracomponents/buttonsGroup/buttonsGroup.js",
+"libraries": [{"name":"btsextra-buttonsGroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/buttonsGroup/css/btsextra-buttonsGroup.css", "mimetype":"text/css"}],
 "version": 1,
 	"model":
 	{
