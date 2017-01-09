@@ -1,0 +1,25 @@
+<div class="bootstrap-extra-badge">
+<a href="#" 
+	ng-if="model.displayType == 'LABEL'"
+	class="{{model.styleClass}}"
+	svy-click='handlers.onAction($event)'
+    svy-dblclick='handlers.onDoubleClick($event)'
+ 	svy-rightclick='handlers.onRightClick($event)'
+	ng-disabled='!model.enabled'
+	sablo-tabseq='model.tabSeq'
+ 	ng-if='model.visible'
+ 	id="{{::model.svyMarkupId}}"><span ng-bind-html='model.text| htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span> <span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
+</a>
+<button 
+	ng-if="!model.displayType || model.displayType == 'BUTTON'"
+	class="btn {{model.styleClass ? model.styleClass : 'btn-default'}}"
+	svy-click='handlers.onAction($event)'
+    svy-dblclick='handlers.onDoubleClick($event)'
+ 	svy-rightclick='handlers.onRightClick($event)'
+	sablo-tabseq='model.tabSeq'
+	ng-disabled='!model.enabled'
+ 	ng-if='model.visible' 
+	type="button"
+ 	id="{{::model.svyMarkupId}}"><span ng-bind-html='model.text| htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span> <span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
+</button>
+</div>
