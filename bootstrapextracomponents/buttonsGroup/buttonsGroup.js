@@ -8,9 +8,16 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 				svyServoyapi: '=svyServoyapi'
 			},
 			link: function($scope, $element, $attrs) {
+				
+				var TYPE = {
+					RADIO: 'radio',
+					CHECKBOX: 'checkbox'
+				}
+				
 
 				$scope.notNullOrEmpty = $utils.notNullOrEmpty // adding it to the root scope doesn't fix the resolution of the comparator in the filter (in this directive). it has to be in local scope. TODO remove the need for this
-
+				$scope.selectedValues = {};
+				
 				if ($scope.svyServoyapi.isInDesigner()) {
 					$scope.model.valuelistID = [{
 						displayValue: 'Left',
@@ -31,6 +38,9 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 						configurable: true,
 						value: function(property, value) {
 							switch (property) {
+								case "dataProviderID":
+									updateSelectedValues(value);
+								break;	
 							case "enabled":
 								if (value)
 									element.removeAttr("disabled");
@@ -64,12 +74,44 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 						oldValue = $scope.model.dataProviderID;
 						
 						// allow deselection
-						var selectedValue = item.realValue;
-						if (allowEmptyValuelistItem(item) && oldValue == selectedValue) {
-							selectedValue = null;
+						var newValue;
+						var selectedValue = item.realValue;			
+						
+						if (oldValue == selectedValue) {	// deselect last value
+							if (allowEmptyValuelistItem(item) && oldValue == selectedValue) {	// deselect last option
+								newValue = null;
+								$scope.selectedValues = {};
+							} else { 	// cannot deselect last value
+								// Do nothing
+								newValue = oldValue;
+								return;
+							}
+						} else {	// select/deselect a value
+							if (hasMultiSelection() && isTypeString()) {
+								if ($scope.selectedValues[selectedValue]) {	// value is already selected;
+									// TODO remove it
+									delete $scope.selectedValues[selectedValue];
+									var values = $scope.model.dataProviderID.toString().split("\n");	// dataProviderID should be filled since there is a selectedValue
+									newValue = values.filter(function (value) {
+										return value != selectedValue 
+									}).join("\n");
+								} else { // value was not selected;
+									$scope.selectedValues[selectedValue] = true;
+									if (oldValue !== null && oldValue !== undefined && oldValue !== "") {
+										newValue = oldValue + '\n' + selectedValue;
+									} else {
+										newValue = selectedValue;
+									}
+								}
+							} else {
+								// update selection
+								newValue = selectedValue;
+								delete $scope.selectedValues[oldValue];
+								$scope.selectedValues[selectedValue] = true;
+							}
 						}
 						
-						$scope.model.dataProviderID = selectedValue;
+						$scope.model.dataProviderID = newValue;
 						$scope.svyServoyapi.apply('dataProviderID');
 					}
 				}
@@ -77,10 +119,35 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 				$scope.api.onDataChangeCallback = function(event, returnval) {
 
 					if (returnval == false) { // restore the oldValue
+						updateSelectedValues(oldValue);
 						$scope.model.dataProviderID = oldValue;
 						$scope.svyServoyapi.apply('dataProviderID');
 					} else {
 						oldValue = null;
+					}
+				}
+				
+				function updateSelectedValues(value) {
+					var selectedValues = {};
+					if (value || value == 0) {
+						// store clientside selected values
+						if (hasMultiSelection()) {
+							var values = value.toString().split("\n");
+							for (var i = 0; i < values.length; i++) {
+								selectedValues[values[i]] = true;
+							}
+						} else {	// store the selectedValue
+							selectedValues[value] = true;
+						}
+					} 
+					$scope.selectedValues = selectedValues;
+				}
+				
+				function isValueSelected(realValue) {
+					if ($scope.model.dataProviderID && hasMultiSelection()) {
+						console($scope.notNullOrEmpty)
+					} else {
+						return realValue === $scope.model.dataProviderID;
 					}
 				}
 
@@ -90,6 +157,25 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 						return (item.realValue == null || item.realValue == '') && item.displayValue == '';
 					}
 					return false;
+				}
+				
+				/**
+				 * Returns true if allow multiselection with input group 
+				 * */
+				function hasMultiSelection() {
+					return $scope.model.inputType === TYPE.CHECKBOX;
+				}
+				
+				function isTypeString() {
+					return  (!$scope.model.format && ($scope.model.dataProviderID === null ||  $scope.model.dataProviderID === undefined)) || ($scope.model.format && $scope.model.format.type === 'TEXT')
+				} 
+				
+				function isTypeNan() {
+					return  $scope.model.format && ($scope.model.format.type === 'INTEGER' || $scope.model.format.type === 'NUMBER');
+				}
+				
+				function isTypeBoolean() {
+					return  $scope.model.format && $scope.model.format.type === 'MEDIA';
 				}
 			},
 			templateUrl: 'bootstrapextracomponents/buttonsGroup/buttonsGroup.html'

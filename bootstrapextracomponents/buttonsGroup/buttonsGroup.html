@@ -2,6 +2,6 @@
   <button type="button" 
 		class= "btn {{model.styleClass}}"
 		ng-repeat="item in model.valuelistID | filter:notNullOrEmpty('realValue')"
-		ng-class="model.dataProviderID == item.realValue ? 'active' : ''" 
+		ng-class="selectedValues[item.realValue] ? 'active' : ''" 
 		svy-click="onClick(item)">{{item.displayValue}}</button>
 </div>
