@@ -50,6 +50,13 @@ location:"265,244",
 text:"Navbar",
 typeid:15,
 uuid:"6CC3BCD8-D8D5-4D86-B394-273B722F876A"
+},
+{
+containsFormID:"C75B94DC-D8B9-482B-88E1-71F4658F265C",
+location:"455,297",
+text:"ButtonGroups",
+typeid:15,
+uuid:"DEA7AEDB-887D-45A7-AB2F-993BE26EE50A"
 }
 ],
 location:"20,141",
