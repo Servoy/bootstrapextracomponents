@@ -285,6 +285,7 @@ position:"RIGHT",
 svyUUID:"638EC604-EF04-49D7-821D-44E7D2CBA6E3"
 },
 {
+imageStyleClass:"fa fa-car",
 onAction:"6D4932F2-5C44-472B-8A57-8FB3A1CA5A41",
 onDoubleClick:"28F6FBE1-8E86-4D1C-BB97-BE71A66F4D83",
 position:"RIGHT",

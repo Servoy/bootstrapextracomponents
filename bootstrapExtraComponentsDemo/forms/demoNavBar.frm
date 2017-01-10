@@ -94,12 +94,14 @@ menuItems:[
 {
 itemId:"1",
 itemText:"Link 1",
-svyUUID:"A9888801-2C14-4363-8747-3F5BB0F715E6"
+svyUUID:"A9888801-2C14-4363-8747-3F5BB0F715E6",
+text:"Link 1"
 },
 {
 itemId:"2",
 itemText:"Link 2",
-svyUUID:"2B2CCD4B-61ED-48A5-B48E-22EAD7F4D781"
+svyUUID:"2B2CCD4B-61ED-48A5-B48E-22EAD7F4D781",
+text:"Link 2"
 },
 {
 enabled:true,
@@ -108,17 +110,20 @@ itemText:"Dropdown",
 subMenuItems:[
 {
 iconName:"glyphicon glyphicon-thumbs-up",
+isDivider:false,
 itemId:"3.1",
 itemText:"Action",
-svyUUID:"C9249CA7-FB02-45E9-9413-427D6084B8BE"
+svyUUID:"C9249CA7-FB02-45E9-9413-427D6084B8BE",
+text:"Action"
 },
 {
 itemId:"3.2",
 itemText:"Another action",
-svyUUID:"D487DE5E-0EB7-4736-9684-F37DC3DBCD33"
+svyUUID:"D487DE5E-0EB7-4736-9684-F37DC3DBCD33",
+text:"More action"
 },
 {
-enabled:true,
+enabled:false,
 isDivider:true,
 itemId:"3.3",
 svyUUID:"01D55A10-E171-4B26-8A13-6420A7BA4763"
@@ -128,10 +133,12 @@ enabled:true,
 iconName:"fa fa-futbol-o",
 itemId:"3.4",
 itemText:"Last action",
-svyUUID:"8CB0B744-B476-42C7-B5D1-210AAD3200A4"
+svyUUID:"8CB0B744-B476-42C7-B5D1-210AAD3200A4",
+text:"Last action"
 }
 ],
-svyUUID:"DDE7F4F1-81A3-44F2-A2D5-9515218F485D"
+svyUUID:"DDE7F4F1-81A3-44F2-A2D5-9515218F485D",
+text:"Dropdown"
 },
 {
 dataProvider:"searchField",
@@ -141,6 +148,7 @@ inputButtonText:"Search",
 itemId:"4",
 itemText:"Enter search",
 svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",
+text:"Enter search",
 valuelist:"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
 },
 {
@@ -154,24 +162,28 @@ subMenuItems:[
 iconName:"glyphicon glyphicon-cog",
 itemId:"5.1",
 itemText:"Settings",
-svyUUID:"8554F1AB-06A9-4B53-8487-42786D0577C9"
+svyUUID:"8554F1AB-06A9-4B53-8487-42786D0577C9",
+text:"Settings"
 },
 {
 iconName:"fa fa-lock",
-isDivider:true,
+isDivider:false,
 itemId:"5.2",
 itemText:"Log out",
-svyUUID:"86E615CE-0ED6-4BD9-8529-0203B3CBD11F"
+svyUUID:"86E615CE-0ED6-4BD9-8529-0203B3CBD11F",
+text:"Log out"
 }
 ],
-svyUUID:"6DC240CD-042A-4E0E-93B2-C0EF5A0ED74D"
+svyUUID:"6DC240CD-042A-4E0E-93B2-C0EF5A0ED74D",
+text:"John Doe"
 }
 ],
 onMenuItemClicked:"1C2DE078-10A9-418B-BD65-D909FBEB82F1",
 size:{
 height:55,
 width:600
-}
+},
+visible:true
 },
 location:"20,20",
 name:"navbar",
@@ -179,6 +191,14 @@ size:"600,55",
 typeName:"bootstrapextracomponents-navbar",
 typeid:47,
 uuid:"D45C0DC3-07B1-4BCB-88F3-D793BBA90A38"
+},
+{
+location:"20,240",
+onActionMethodID:"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4",
+size:"100,25",
+text:"Icon menu",
+typeid:7,
+uuid:"F50DEE44-CEB5-468A-9A64-507307065B01"
 },
 {
 location:"20,200",

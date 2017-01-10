@@ -23,7 +23,7 @@ var invertedNavbar = 0;
  * @properties={typeid:24,uuid:"1C2DE078-10A9-418B-BD65-D909FBEB82F1"}
  */
 function onMenuItemClicked(event, menuItem) {
-	elements.lblLastClick.text = 'Menu item "' + menuItem.itemText + '" with ID ' + menuItem.itemId;
+	elements.lblLastClick.text = 'Menu item "' + menuItem.text + '" with ID ' + menuItem.itemId;
 }
 
 /**
@@ -56,13 +56,13 @@ function onDataChange_inverted(oldValue, newValue, event) {
 function onAction_createMenu(event) {
 	var menuItems = [];
 	
-	menuItems.push({itemId: '1', itemText: 'Accounts'});
-	menuItems.push({itemId: '2', itemText: 'Invoices'});
-	menuItems.push({itemId: '3', itemText: 'Click me', displayType: 'BUTTON'});
-	menuItems.push({itemId: '4', itemText: 'Payables'});
-	menuItems.push({itemId: '5', itemText: 'Search account...', displayType: 'INPUT', iconName: 'glyphicon glyphicon-search'});
-	menuItems.push({itemId: '6', itemText: 'Menu', position: 'RIGHT', subMenuItems: [{itemId: '6.1', itemText: 'Action'}, {itemId: '6.2', itemText: 'More action'}, {isDivider: true}, {itemId: '6.3', itemText: 'Last action'}]});
-	menuItems.push({itemId: '7', itemText: 'Logged in as John Doe', displayType: 'TEXT', position: 'RIGHT'});
+	menuItems.push({itemId: '1', text: 'Accounts', tooltip: 'Accounts'});
+	menuItems.push({itemId: '2', text: 'Invoices', tooltip: 'Invoices'});
+	menuItems.push({itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button'});
+	menuItems.push({itemId: '4', text: 'Payables', tooltip: 'Payables'});
+	menuItems.push({itemId: '5', text: 'Search account...', displayType: 'INPUT', iconName: 'glyphicon glyphicon-search', tooltip: 'Search'});
+	menuItems.push({itemId: '6', text: 'Menu', position: 'RIGHT', tooltip: 'A submenu', subMenuItems: [{itemId: '6.1', text: 'Action'}, {itemId: '6.2', text: 'More action'}, {isDivider: true}, {itemId: '6.3', text: 'Last action'}]});
+	menuItems.push({itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT'});
 	
 	elements.navbar.brandText = 'Accounting';
 	elements.navbar.setMenuItems(menuItems);
@@ -78,7 +78,7 @@ function onAction_createMenu(event) {
  * @properties={typeid:24,uuid:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE"}
  */
 function onAction_addItem(event) {
-	elements.navbar.addMenuItem({itemId: application.getUUID().toString(), itemText: 'Item added'});
+	elements.navbar.addMenuItem({itemId: application.getUUID().toString(), text: 'Item added'});
 }
 
 /**
@@ -110,11 +110,34 @@ function onAction_removeItem(event) {
  * @properties={typeid:24,uuid:"EFD5D754-D9C0-4389-8EE9-D66737CB2A96"}
  */
 function onAction_setSelected(event) {
-	var items = elements.navbar.menuItems;
-	
+	var items = elements.navbar.menuItems;	
+	//filter only regular menu items, since only those can be selected
+	function filterItems(item) {
+		return (!item.displayType || (item.displayType == 'MENU_ITEM' && !item.subMenuItems))
+	}
+	items = items.filter(filterItems);
+	//pick random item
 	var maxValue = items.length;
 	var randNumber = Math.floor(Math.random() * maxValue) + 1;
 	var randomItem = items[randNumber-1];
-	
+	//set selected
 	elements.navbar.setMenuSelected(randomItem.itemId);
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4"}
+ */
+function onAction_createIconMenu(event) {
+	var menuItems = [];
+	for (var i = 1; i <= 15; i++) {
+		var iconName = scopes.faIcons.getRandomIcon('fa-lg');
+		menuItems.push({itemId: i, iconName: iconName, tooltip: iconName})
+	}
+	elements.navbar.setMenuItems(menuItems);
 }

@@ -1,4 +1,4 @@
-<ol class="breadcrumb" id="{{::model.svyMarkupId}}" ng-class="{{model.styleClass}}">
+<ol class="breadcrumb bootstrap-extra-breadcrumbs {{model.styleClass}}" id="{{::model.svyMarkupId}}">
 	<li ng-if="!model.breadcrumbs || model.breadcrumbs.length == 0" class='active'>&nbsp;</li>
   	<li ng-repeat="crumb in model.breadcrumbs" ng-class="{ true: 'active {{model.lastCrumbStyleClass}}', false: '{{model.crumbStyleClass}}' }[$last == true] "><a ng-if="!$last" svy-click="crumbClicked($event, crumb, $index)">{{ crumb.displayName }}&nbsp;</a><span ng-show="$last">{{ crumb.displayName }}</span>
 	</li>

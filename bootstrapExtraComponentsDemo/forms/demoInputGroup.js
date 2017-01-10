@@ -135,5 +135,5 @@ function onAction_api_create_group(event) {
 	elements.input_group_11.clearAddOns();
 	elements.input_group_11.clearAddOnButtons();
 	elements.input_group_11.setAddOns([{text: '@'}]);
-	elements.input_group_11.setAddOnButtons([{position: 'RIGHT', name: 'btnSearch', imageStyleClass: 'glyphicon glyphicon-search', onAction: onAction_button}, {text: 'Search', position: 'RIGHT', styleClass: 'btn-primary', onAction: onAction_button}]);
+	elements.input_group_11.setAddOnButtons([{position: 'RIGHT', name: 'btnSearch', imageStyleClass: 'glyphicon glyphicon-search', onAction: onAction_button}, {text: 'Search', position: 'RIGHT', styleClass: 'btn-primary', imageStyleClass: 'fa fa-wifi', onAction: onAction_button}]);
 }

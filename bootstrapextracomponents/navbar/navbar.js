@@ -18,6 +18,24 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 				}
 
 				var resolvingDisplayValue = false;
+				
+				$scope.getLeftItems = function() {
+					return filterItems('LEFT');
+				}
+				
+				$scope.getRightItems = function() {
+					return filterItems('RIGHT');
+				}
+				
+				function filterItems(position) {
+					if (!$scope.model.menuItems) {
+						return [];
+					}
+					function filter(item) {
+						return item.position == position || (!item.position && position == 'LEFT');
+					}
+					return $scope.model.menuItems.filter(filter);
+				}
 
 				$scope.formatLabel = function(index) {
 					var menuItem = $scope.model.menuItems[index];
@@ -99,11 +117,6 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 					var target = event.target;
 					target.blur();
 				}
-				
-				$scope.$watch('model.menuItems', function(newValue, oldValue) {
-					console.log(newValue);
-					}
-				)
 			},
 			controller: function($scope, $element, $attrs, $window) {
 
@@ -217,14 +230,14 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 				}
 
 				function createItemArg(item) {
-					var itemText = item.itemText;
+					var itemText = item.text;
 					if (item.displayValue) {
 						itemText = item.displayValue;
 					}
 					if (item.displayType == 'INPUT' || item.displayType == 'INPUT_GROUP') {
 						itemText = item.dataProvider + '';
 					}
-					return { itemId: item.itemId ? item.itemId : null, itemText: itemText ? itemText : null, userData: item.userData ? item.userData : null };
+					return { itemId: item.itemId ? item.itemId : null, text: itemText ? itemText : null, userData: item.userData ? item.userData : null };
 				}
 
 				function makeItemActive(item) {
