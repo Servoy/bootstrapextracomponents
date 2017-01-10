@@ -6,6 +6,7 @@ NGClient component package of all kinds of 'extra' bootstrap components. Current
 * Breadcrumbs: see http://getbootstrap.com/components/#breadcrumbs
 * Input group: see http://getbootstrap.com/components/#input-groups
 * Button group: see http://getbootstrap.com/components/#btn-groups
+* Badges: see http://getbootstrap.com/components/#badges
 
 # Getting started
 
