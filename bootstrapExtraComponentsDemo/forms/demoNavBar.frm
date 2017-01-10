@@ -98,10 +98,13 @@ svyUUID:"A9888801-2C14-4363-8747-3F5BB0F715E6",
 text:"Link 1"
 },
 {
+displayType:"BUTTON",
+iconName:"glyphicon glyphicon-camera",
 itemId:"2",
 itemText:"Link 2",
+styleClass:"btn-primary",
 svyUUID:"2B2CCD4B-61ED-48A5-B48E-22EAD7F4D781",
-text:"Link 2"
+text:"Button 1"
 },
 {
 enabled:true,
@@ -142,7 +145,7 @@ text:"Dropdown"
 },
 {
 dataProvider:"searchField",
-displayType:"INPUT",
+displayType:"INPUT_GROUP",
 iconName:"glyphicon glyphicon-search",
 inputButtonText:"Search",
 itemId:"4",
@@ -150,6 +153,12 @@ itemText:"Enter search",
 svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",
 text:"Enter search",
 valuelist:"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
+},
+{
+displayType:"TEXT",
+position:"RIGHT",
+svyUUID:"36D7E0C2-EE29-4BA0-80B0-121F0A2A3F9B",
+text:"Just some text"
 },
 {
 iconName:"glyphicon glyphicon-user",

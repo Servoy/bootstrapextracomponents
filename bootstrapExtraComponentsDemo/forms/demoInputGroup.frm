@@ -136,10 +136,11 @@ position:"RIGHT",
 svyUUID:"76D1D7EA-1397-4BBE-B9B8-43FC249B291E"
 },
 {
+imageStyleClass:"fa fa-exclamation-triangle",
 onAction:"6D4932F2-5C44-472B-8A57-8FB3A1CA5A41",
 onDoubleClick:"28F6FBE1-8E86-4D1C-BB97-BE71A66F4D83",
 position:"RIGHT",
-styleClass:"btn-primary",
+styleClass:"btn-warning",
 svyUUID:"4B1A254E-454C-465A-9B4B-09E650C3E9F3",
 text:"Action"
 }
@@ -147,6 +148,7 @@ text:"Action"
 addOns:[],
 dataProvider:"textVar",
 dataProviderID:"textVar",
+enabled:true,
 location:{
 x:15,
 y:505
@@ -157,6 +159,7 @@ onFocusGained:"AF061EB1-6264-49FC-B010-A70C0396211B",
 onFocusLost:"065EC1DF-D22F-49A8-83B3-46509C6C2251",
 onRightClick:"F74771C9-DCB5-406C-BF32-74B4AE06C388",
 placeholderText:"Username",
+readOnly:false,
 size:{
 height:40,
 width:380
@@ -357,6 +360,7 @@ text:"@servoy.com"
 ],
 dataProvider:"textVar",
 dataProviderID:"textVar",
+enabled:true,
 location:{
 x:15,
 y:105
