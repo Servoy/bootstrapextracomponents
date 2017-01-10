@@ -1,3 +1,8 @@
+/**
+ * Sets the menu items of the Navbar
+ * 
+ * @param {bootstrapextracomponents-navbar.menuItem[]} menuItems
+ */
 $scope.api.setMenuItems = function(menuItems) {
 	for (var i = 0; i < menuItems.length; i++) {
 		setItemDefaults(menuItems[i]);
@@ -5,6 +10,11 @@ $scope.api.setMenuItems = function(menuItems) {
 	$scope.model.menuItems = menuItems;
 }
 
+/**
+ * Adds the given menu item to the Navbar
+ * 
+ * @param {bootstrapextracomponents-navbar.menuItem} menuItem
+ */
 $scope.api.addMenuItem = function(menuItem) {
 	setItemDefaults(menuItem);
 	if ($scope.model.menuItems) {
@@ -14,6 +24,11 @@ $scope.api.addMenuItem = function(menuItem) {
 	}
 }
 
+/**
+ * Removes the menu item with the given item ID
+ * 
+ * @param {String} menuItemId
+ */
 $scope.api.removeMenuItem = function(menuItemId) {
 	for (var i = 0; i < $scope.model.menuItems.length; i++) {
 		if ($scope.model.menuItems[i].itemId == menuItemId) {
@@ -23,6 +38,11 @@ $scope.api.removeMenuItem = function(menuItemId) {
 	}
 }
 
+/**
+ * Sets the menu item with the given item ID to selected
+ * 
+ * @param {String} menuItemId
+ */
 $scope.api.setMenuSelected = function(menuItemId) {
 	for (var i = 0; i < $scope.model.menuItems.length; i++) {
 		if ($scope.model.menuItems[i].itemId == menuItemId) {
@@ -33,6 +53,11 @@ $scope.api.setMenuSelected = function(menuItemId) {
 	}
 }
 
+/**
+ * Returns the currently selected menu item
+ * 
+ * @return {bootstrapextracomponents-navbar.menuItem}
+ */
 $scope.api.getSelectedMenu = function() {
 	for (var i = 0; i < $scope.model.menuItems.length; i++) {
 		if ($scope.model.menuItems[i].isActive) {
@@ -46,5 +71,6 @@ function setItemDefaults(item) {
 	item.displayType = item.displayType || 'MENU_ITEM';
 	item.position = item.position || 'LEFT';
 	item.enabled = item.enabled === undefined ? true : item.enabled;
+	item.itemId = item.itemId || Math.ceil(Math.random() * 10000000) + '';
 	return item;
 }

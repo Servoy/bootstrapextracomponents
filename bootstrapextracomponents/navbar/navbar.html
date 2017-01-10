@@ -44,7 +44,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn btn-default" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-input -->
@@ -61,7 +61,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn btn-default" type="button">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -85,7 +85,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn btn-default" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
@@ -107,7 +107,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn btn-default" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -158,7 +158,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn btn-default" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-input -->
@@ -175,7 +175,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn btn-default" type="button">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -199,7 +199,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn btn-default" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
@@ -221,7 +221,7 @@
 								data-menu-item-id="{{menuItem.itemId}}" 
 								placeholder="{{menuItem.text}}">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn btn-default" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>

@@ -59,7 +59,7 @@ function onAction_createMenu(event) {
 	menuItems.push({itemId: '1', text: 'Accounts', tooltip: 'Accounts'});
 	menuItems.push({itemId: '2', text: 'Invoices', tooltip: 'Invoices'});
 	menuItems.push({itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button'});
-	menuItems.push({itemId: '4', text: 'Payables', tooltip: 'Payables'});
+	menuItems.push({text: 'Payables', tooltip: 'Payables'});
 	menuItems.push({itemId: '5', text: 'Search account...', displayType: 'INPUT', iconName: 'glyphicon glyphicon-search', tooltip: 'Search'});
 	menuItems.push({itemId: '6', text: 'Menu', position: 'RIGHT', tooltip: 'A submenu', subMenuItems: [{itemId: '6.1', text: 'Action'}, {itemId: '6.2', text: 'More action'}, {isDivider: true}, {itemId: '6.3', text: 'Last action'}]});
 	menuItems.push({itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT'});
