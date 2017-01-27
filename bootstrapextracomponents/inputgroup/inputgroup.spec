@@ -10,105 +10,19 @@
 	],
 	"model": 
 	{
-		"dataProvider": 
-		{
-			"type": "dataprovider",
-			"pushToServer": "allow",
-			"tags": 
-			{
-				"scope": "design"
-			},
-			"ondatachange": 
-			{
-				"onchange": "onDataChange",
-				"callback": "onDataChangeCallback"
-			}
-		},
-		"enabled": 
-		{
-			"type": "enabled",
-			"blockingOn": false,
-			"default": true,
-			"for": 
-			[
-				"dataProvider",
-				"onAction",
-				"onDataChange",
-				"onFocusGained",
-				"onFocusLost",
-				"onRightClick"
-			]
-		},
-		"format": 
-		{
-			"for": 
-			[
-				"dataProvider"
-			],
-
-			"type": "format"
-		},
-		"inputType": 
-		{
-			"type": "string",
-			"tags": 
-			{
-				"scope": "design"
-			},
-
-			"default": "text",
-			"values": 
-			[
-				"text",
-				"password",
-				"number"
-			]
-		},
-		"readOnly": 
-		{
-			"type": "protected",
-			"blockingOn": true,
-			"default": false,
-			"for": 
-			[
-				"dataProvider",
-				"onDataChange"
-			]
-		},
-		"placeholderText": "tagstring",
-		"styleClass": 
-		{
-			"type": "styleclass",
-			"tags": 
-			{
-				"scope": "design"
-			}
-		},
-		"tabSeq": 
-		{
-			"type": "tabseq",
-			"tags": 
-			{
-				"scope": "design"
-			}
-		},
-		"visible": "visible",
-		"addOns": 
-		{
-			"type": "AddOn[]"
-		},
-		"addOnButtons": 
-		{
-			"type": "AddOnButton[]"
-		},
-		"size": 
-		{
-			"type": "dimension",
-			"default": 
-			{
-				"width": 300,
-				"height": 40
-			}
+		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID", "callback": "onDataChangeCallback" } },
+		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
+		"format"							: { "type": "format", "for": [ "dataProvider" ] },
+		"inputType"							: { "type": "string", "tags": { "scope": "design" } },
+		"default"							: { "type": "text", "values": [ "text", "password", "number" ] },
+		"readOnly"							: { "type": "protected", "blockingOn": true, "default": false, "for": [ "dataProvider", "onDataChange" ] },
+		"placeholderText"					: { "type": "tagstring" } ,
+		"styleClass"						: { "type": "styleclass", "tags": { "scope": "design" } },
+		"tabSeq"							: { "type": "tabseq", "tags": { "scope": "design" } },
+		"visible"							: { "type": "visible" }, 
+		"addOns"							: { "type": "AddOn[]" },
+		"addOnButtons"						: { "type": "AddOnButton[]" },
+		"size"								: { "type": "dimension", "default": { "width": 300, "height": 40 }
 		}
 	},
 	"handlers": 
@@ -117,61 +31,38 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "event",
-					"type": "JSEvent"
-				}
+				{ "name": "event", "type": "JSEvent" }
 			]
 		},
-		"onDataChange": 
+		"onDataChangeMethodID": 
 		{
 			"returns": "boolean",
 			"parameters": 
 			[
-				{
-					"name": "oldValue",
-					"type": "${dataproviderType}"
-				},
-
-				{
-					"name": "newValue",
-					"type": "${dataproviderType}"
-				},
-
-				{
-					"name": "event",
-					"type": "JSEvent"
-				}
+				{ "name": "oldValue", "type": "${dataproviderType}" },
+				{ "name": "newValue", "type": "${dataproviderType}" },
+ 				{ "name": "event", "type": "JSEvent" }
 			]
 		},
-		"onFocusGained": 
+		"onFocusGainedMethodID": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "event",
-					"type": "JSEvent"
-				}
+				{ "name": "event", "type": "JSEvent" }
 			]
 		},
-		"onFocusLost": 
+		"onFocusLostMethodID": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "event",
-					"type": "JSEvent"
-				}
+				{ "name": "event", "type": "JSEvent" }
 			]
 		},
 		"onRightClick": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "event",
-					"type": "JSEvent"
-				}
+				{ "name": "event", "type": "JSEvent" }
 			]
 		}
 	},
@@ -186,20 +77,14 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "addOn",
-					"type": "bootstrapextracomponents-input-group.AddOn"
-				}
+				{ "name": "addOn", "type": "bootstrapextracomponents-input-group.AddOn" }
 			]
 		},
 		"setAddOns": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "addOns",
-					"type": "bootstrapextracomponents-input-group.AddOn[]"
-				}
+				{ "name": "addOns", "type": "bootstrapextracomponents-input-group.AddOn[]" }
 			]
 		},
 		"clearAddOns": 
@@ -209,20 +94,14 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "addOnButton",
-					"type": "bootstrapextracomponents-input-group.AddOnButton"
-				}
+				{ "name": "addOnButton", "type": "bootstrapextracomponents-input-group.AddOnButton" }
 			]
 		},
 		"setAddOnButtons": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "addOnButtons",
-					"type": "bootstrapextracomponents-input-group.AddOnButton[]"
-				}
+				{ "name": "addOnButtons", "type": "bootstrapextracomponents-input-group.AddOnButton[]" }
 			]
 		},
 		"clearAddOnButtons": 
@@ -233,65 +112,19 @@
 	{
 		"AddOn": 
 		{
-			"text": 
-			{
-				"type": "tagstring",
-				"initialValue": "addOn"
-			},
-			"position": 
-			{
-				"type": "string",
-				"default": "LEFT",
-				"values": 
-				[
-					"LEFT",
-					"RIGHT"
-				]
-			}
+			"text"								: { "type": "tagstring", "initialValue": "addOn" },
+			"position"							: { "type": "string", "default": "LEFT", "values": [ "LEFT", "RIGHT" ] }
 		},
 		"AddOnButton": 
 		{
-			"text": 
-			{
-				"type": "tagstring",
-				"initialValue": "addOn"
-			},
-			"name":
-			{
-				"type": "string",
-				"initialValue": "btn"
-			},
-			"position": 
-			{
-				"type": "string",
-				"default": "RIGHT",
-				"values": 
-				[
-					"LEFT",
-					"RIGHT"
-				]
-			},
-			"onAction": 
-			{
-				"type": "function"
-			},
-			"onDoubleClick": 
-			{
-				"type": "function"
-			},
-			"onRightClick": 
-			{
-				"type": "function"
-			},
-			"styleClass": 
-			{
-				"type": "styleclass",
-				"default": "btn-default"
-			},
-			"imageStyleClass": 
-			{
-				"type": "styleclass"
-			}
+			"text"								: { "type": "tagstring", "initialValue": "addOn" },
+			"name"								: { "type": "string", "initialValue": "btn" },
+			"position"							: { "type": "string", "default": "RIGHT", "values": [ "LEFT", "RIGHT" ] },
+			"onAction"							: { "type": "function" },
+			"onDoubleClick"						: { "type": "function" },
+			"onRightClick"						: { "type": "function" },
+			"styleClass"						: { "type": "styleclass", "default": "btn-default" },
+			"imageStyleClass"					: { "type": "styleclass" }
 		}
 	}
 }

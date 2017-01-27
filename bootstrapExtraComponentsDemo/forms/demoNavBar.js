@@ -1,9 +1,9 @@
 /**
- * @type {String}
+ * @type {Number}
  *
- * @properties={typeid:35,uuid:"88D37B10-370F-4A23-8C22-0A30A1BC4C93"}
+ * @properties={typeid:35,uuid:"88D37B10-370F-4A23-8C22-0A30A1BC4C93",variableType:8}
  */
-var searchField;
+var searchField = 4;
 
 /**
  * @type {Number}
@@ -137,7 +137,7 @@ function onAction_createIconMenu(event) {
 	var menuItems = [];
 	for (var i = 1; i <= 15; i++) {
 		var iconName = scopes.faIcons.getRandomIcon('fa-lg');
-		menuItems.push({itemId: i, iconName: iconName, tooltip: iconName})
+		menuItems.push({itemId: i, iconName: iconName, tooltip: iconName});
 	}
 	elements.navbar.setMenuItems(menuItems);
 }

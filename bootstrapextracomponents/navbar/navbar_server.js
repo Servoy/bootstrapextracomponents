@@ -54,6 +54,21 @@ $scope.api.setMenuSelected = function(menuItemId) {
 }
 
 /**
+ * Sets the menu item with the given item ID to selected
+ * 
+ * @param {String} menuItemId
+ * @param {Boolean} enabled
+ */
+$scope.api.setMenuItemEnabled = function(menuItemId, enabled) {
+	for (var i = 0; i < $scope.model.menuItems.length; i++) {
+		if ($scope.model.menuItems[i].itemId == menuItemId) {
+			$scope.model.menuItems[i].enabled = enabled;
+			break;
+		}
+	}
+}
+
+/**
  * Returns the currently selected menu item
  * 
  * @return {bootstrapextracomponents-navbar.menuItem}

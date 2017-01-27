@@ -9,6 +9,9 @@ JS-ClientLibs:
 Name: badge/badge.spec
 Web-Component: True
 
+Name: buttonsGroup/buttonsGroup.spec
+Web-Component: True
+
 Name: navbar/navbar.spec
 Web-Component: True
 
@@ -21,6 +24,9 @@ Web-Component: True
 Name: breadcrumbs/breadcrumbs.spec
 Web-Component: True
 
-Name: buttonsGroup/buttonsGroup.spec
+Name: carousel/carousel.spec
+Web-Component: True
+
+Name: rating/rating.spec
 Web-Component: True
 

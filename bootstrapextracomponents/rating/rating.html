@@ -1,0 +1,13 @@
+<div class="bts-extra-rating">
+	<rating 
+		id="{{::model.svyMarkupId}}"
+		ng-model="model.dataProviderID" 
+		max="model.max" 
+		readonly="model.readOnly" 
+		on-leave="onLeave()"
+		state-on="model.stateOn" 
+		state-off="model.stateOff" 
+		ng-if='model.visible'
+	>
+	</rating>
+</div>
