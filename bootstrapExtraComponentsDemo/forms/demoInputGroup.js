@@ -137,3 +137,53 @@ function onAction_api_create_group(event) {
 	elements.input_group_11.setAddOns([{text: '@'}]);
 	elements.input_group_11.setAddOnButtons([{position: 'RIGHT', name: 'btnSearch', imageStyleClass: 'glyphicon glyphicon-search', onAction: onAction_button}, {text: 'Search', position: 'RIGHT', styleClass: 'btn-primary', imageStyleClass: 'fa fa-wifi', onAction: onAction_button}]);
 }
+
+/**
+ * Handle focus lost event of an element on the form. Return false when the focus lost event of the element itself shouldn't be triggered.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"B8C7D7DE-0A83-45F3-995B-43FC902287D9"}
+ */
+function onElementFocusLost(event) {
+	application.output('onElementFocusLost called from ' + event.getElementName());
+	return true
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
+ *
+ * @param oldValue old value
+ * @param newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"2504E01F-7743-42E3-A239-A221D26A0957"}
+ */
+function onElementDataChange(oldValue, newValue, event) {
+	application.output('onElementDataChange called from ' + event.getElementName());
+	return true
+}
+
+/**
+ * Handle focus gained event of an element on the form. Return false when the focus gained event of the element itself shouldn't be triggered.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"21EBECA9-C714-4633-A6ED-37E5A385C0DB"}
+ */
+function onElementFocusGained(event) {
+	application.output('onElementFocusGained called from ' + event.getElementName());
+	return true
+}

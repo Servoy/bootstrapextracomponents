@@ -798,6 +798,5 @@ var faIcons = [
 function getRandomIcon(size) {
 	var maxValue = faIcons.length;
 	var randNumber = Math.floor(Math.random() * maxValue) + 1;
-	application.output(faIcons[randNumber-1]);
 	return 'fa ' + faIcons[randNumber-1] + (size ? ' ' + size : '');
 }

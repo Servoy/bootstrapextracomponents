@@ -29,8 +29,8 @@
 	    ng-disabled="!model.enabled"
 	    ng-readonly="model.readOnly"
 	    placeholder="{{model.placeholderText}}"
-	    svy-focusgained='handlers.onFocusGained($event)'
-	   	svy-focuslost='handlers.onFocusLost($event)'
+	    svy-focusgained='handlers.onFocusGainedMethodID($event)'
+	   	svy-focuslost='handlers.onFocusLostMethodID($event)'
 	   	svy-enter='handlers.onAction($event)'
 	   	svy-rightclick='handlers.onRightClick($event)'
       	svy-autoapply

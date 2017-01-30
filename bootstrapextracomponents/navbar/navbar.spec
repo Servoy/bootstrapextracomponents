@@ -45,6 +45,12 @@
 			]
 		},
 		"getSelectedMenu": {
+		},
+		"setMenuItemEnabled": {
+			"parameters": [
+				{ "name": "itemId", "type": "string" },
+				{ "name": "enabled", "type": "boolean" }
+			]
 		}
 	},
 	"handlers": 
