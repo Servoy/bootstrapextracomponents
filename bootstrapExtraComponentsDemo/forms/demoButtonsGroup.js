@@ -47,3 +47,25 @@ function onDoubleClick_badge(event) {
 function onRightClick_badge(event) {
 	application.output('onRightClick called from badge ' + event.getElementName());
 }
+
+/**
+ * @param oldValue
+ * @param newValue
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"1B61AED6-4D63-44F9-9B3D-AEABDD501612"}
+ */
+function onDataChange(oldValue, newValue, event) {
+	application.output('onDataChange called from badge ' + event.getElementName());
+}
+
+/**
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"B10C888C-CC0F-4243-B7DF-6263990F255E"}
+ */
+function onElementDataChange(oldValue, newValue, event) {
+	application.output('onElementDataChange called from badge ' + event.getElementName());
+}

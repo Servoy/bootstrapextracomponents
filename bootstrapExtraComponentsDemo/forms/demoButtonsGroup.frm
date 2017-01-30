@@ -133,7 +133,7 @@ location:{
 x:15,
 y:59
 },
-onDataChangeMethodID:"72324F51-ED70-48D4-A49F-A1EF16E25237",
+onDataChangeMethodID:"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
 size:{
 height:34,
 width:180
@@ -157,7 +157,7 @@ location:{
 x:306,
 y:59
 },
-onDataChangeMethodID:"72324F51-ED70-48D4-A49F-A1EF16E25237",
+onDataChangeMethodID:"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
 size:{
 height:34,
 width:180
@@ -237,6 +237,7 @@ uuid:"E2A37A57-6EFD-4893-B1C4-884C14B8B951"
 ],
 name:"demoButtonsGroup",
 navigatorID:"-1",
+onElementDataChangeMethodID:"B10C888C-CC0F-4243-B7DF-6263990F255E",
 showInMenu:true,
 typeid:3,
 uuid:"C75B94DC-D8B9-482B-88E1-71F4658F265C"
