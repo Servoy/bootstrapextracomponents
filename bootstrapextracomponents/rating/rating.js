@@ -8,21 +8,55 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 				svyServoyapi: "="
 			},
 			link: function($scope, $element, $attrs) {
+				$scope.percent = $scope.model.dataProviderID / $scope.model.max * 100;
+				
 				if (!$scope.model.ratingStates) {
 					$scope.model.ratingStates = [];
-				}
-				
-				$scope.onLeave = function() {
-					console.log($scope.model.dataProviderID)
-				}
+				}	
 				
 				$scope.$watch('model.dataProviderID', function(newValue, oldValue) {
-					console.log(newValue);
 					$scope.svyServoyapi.apply('dataProviderID');
-				});
+				});	
 			},
 			controller: function($scope, $element, $attrs) {
 				
+				var elementName = $element[0].getAttribute('name');
+				
+				//handlers
+				$scope.onLeave = function() {
+					console.log('leaving ' + $scope.model.dataProviderID)
+					$scope.overStar = null;
+					var jsEvent = createJSEvent('onLeave');
+					$scope.handlers.onLeave(jsEvent, $scope.model.dataProviderID);
+				}
+				
+				$scope.onHover = function(value) {
+					console.log('hovering over ' + value)
+					$scope.percent = value / $scope.model.max * 100;
+					$scope.overStar = value;
+					var jsEvent = createJSEvent('onHover');
+					$scope.handlers.onHover(jsEvent, value);
+				}				
+				
+				//internal
+				
+				function createJSEvent(eventType, event) {
+					//create JSEvent
+					var jsEvent = { svyType: 'JSEvent' };
+					
+					jsEvent.elementName = elementName;
+
+					//get event type
+					jsEvent.eventType = eventType;
+
+					if (event) {
+						jsEvent.x = event.pageX;
+						jsEvent.y = event.pageY;
+					}
+					
+					jsEvent.data = null;
+					return jsEvent;
+				}
 			},
 			templateUrl: 'bootstrapextracomponents/rating/rating.html'
 		};

@@ -1,3 +1,14 @@
+.svy-wrapper > * > .bts-extra-rating {
+	width: 100%;
+	height: 100%;
+}
+
+/* prevent focus border */
+.bts-extra-rating span:focus {
+	outline:none;
+}
+
+/* change cursor when hovering */
 .bts-extra-rating i:hover {
 	cursor: pointer;
 }
