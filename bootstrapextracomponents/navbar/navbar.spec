@@ -26,12 +26,12 @@
 	{
 		"setMenuItems": {
 			"parameters": [
-				{ "name": "menuItems", "type": "bootstrapextracomponents-navbar.menuItem[]" }
+				{ "name": "menuItems", "type": "menuItem[]" }
 			]
 		},
 		"addMenuItem": {
 			"parameters": [
-				{ "name": "menuItem", "type": "bootstrapextracomponents-navbar.menuItem" }
+				{ "name": "menuItem", "type": "menuItem" }
 			]
 		},
 		"removeMenuItem": {
@@ -62,7 +62,7 @@
 				"type": "JSEvent"
 			}, {
 				"name": "menuItem",
-				"type": "bootstrapextracomponents-navbar.menuItem"
+				"type": "menuItem"
 			}]
 		}
 	},

@@ -14,7 +14,7 @@
 		"slides"							: { "type": "slide[]" },
 		"slidesFoundset"					: { "type": "foundset", "dataproviders": ["image", "caption"] },
 		"lazyLoading" 						: { "type": "boolean", "default": true },
-		"imageOptions" 						: { "type": "String", "default": "Reduce", "values" : ["Reduce", "Reduce/Enlarge", "Scale to fit", "Crop"] },
+		"imageOptions" 						: { "type": "string", "default": "Reduce", "values" : ["Reduce", "Reduce/Enlarge", "Scale to fit", "Crop"] },
 		"maxImageHeight" 					: { "type": "int" },
 		"visible"							: "visible",
 		"size" 								: {"type" :"dimension",  "default" : {"width": 400, "height": 300}}, 

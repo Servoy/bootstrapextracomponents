@@ -21,12 +21,12 @@
 	{
 		"setCrumbs": {
 			"parameters": [
-				{"name": "crumbs", "type": "bootstrapextracomponents-breadcrumbs.crumb[]"}
+				{"name": "crumbs", "type": "crumb[]"}
 			]
 		},
 		"addCrumb": {
 			"parameters": [
-				{"name": "crumb", "type": "bootstrapextracomponents-breadcrumbs.crumb"}
+				{"name": "crumb", "type": "crumb"}
 			]
 		},
 		"removeCrumbsAfter": {
@@ -46,7 +46,7 @@
 				"type": "JSEvent"
 			}, {
 				"name": "crumb",
-				"type": "bootstrapextracomponents-breadcrumbs.crumb"
+				"type": "crumb"
 			}, {
 				"name": "index",
 				"type": "int"

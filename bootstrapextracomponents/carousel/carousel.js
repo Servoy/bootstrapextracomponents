@@ -143,9 +143,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						$scope.slides = slides;
 					}
 					
-					createSlidesFromModel();
-					
-					//TODO: add watch on $scope.model.slides
+					$scope.$watch('slides', function(newValue, oldValue) {
+						if (!angular.equals(newValue, oldValue)) {
+							createSlidesFromModel();
+						}
+					}, true)
 				}
 			},
 			controller: function($scope, $element, $attrs) {

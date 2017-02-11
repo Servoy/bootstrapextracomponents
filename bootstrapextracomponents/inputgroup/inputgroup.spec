@@ -6,15 +6,14 @@
 	"serverscript": "bootstrapextracomponents/inputgroup/inputgroup_server.js",
 	"libraries": [
 		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"},
-		{"name":"font-awesome.css", "version":"4.7.0", "url":"bootstrapextracomponents/font-awesome/css/font-awesome.min.css", "mimetype":"text/css", "group":false}
+		{"name":"font-awesome.css", "version":"4.7.0", "url":"bootstrapextracomponents/font-awesome/css/font-awesome.min.css", "mimetype":"text/css", "group": false}
 	],
 	"model": 
 	{
 		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID", "callback": "onDataChangeCallback" } },
 		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
 		"format"							: { "type": "format", "for": [ "dataProvider" ] },
-		"inputType"							: { "type": "string", "tags": { "scope": "design" } },
-		"default"							: { "type": "text", "values": [ "text", "password", "number" ] },
+		"inputType"							: { "type": "string", "tags": { "scope": "design" }, "values": [ "text", "password", "number" ], "default": "text" },
 		"readOnly"							: { "type": "protected", "blockingOn": true, "default": false, "for": [ "dataProvider", "onDataChange" ] },
 		"placeholderText"					: { "type": "tagstring" } ,
 		"styleClass"						: { "type": "styleclass", "tags": { "scope": "design" } },
@@ -77,14 +76,14 @@
 		{
 			"parameters": 
 			[
-				{ "name": "addOn", "type": "bootstrapextracomponents-input-group.AddOn" }
+				{ "name": "addOn", "type": "AddOn" }
 			]
 		},
 		"setAddOns": 
 		{
 			"parameters": 
 			[
-				{ "name": "addOns", "type": "bootstrapextracomponents-input-group.AddOn[]" }
+				{ "name": "addOns", "type": "AddOn[]" }
 			]
 		},
 		"clearAddOns": 
@@ -94,14 +93,14 @@
 		{
 			"parameters": 
 			[
-				{ "name": "addOnButton", "type": "bootstrapextracomponents-input-group.AddOnButton" }
+				{ "name": "addOnButton", "type": "AddOnButton" }
 			]
 		},
 		"setAddOnButtons": 
 		{
 			"parameters": 
 			[
-				{ "name": "addOnButtons", "type": "bootstrapextracomponents-input-group.AddOnButton[]" }
+				{ "name": "addOnButtons", "type": "AddOnButton[]" }
 			]
 		},
 		"clearAddOnButtons": 

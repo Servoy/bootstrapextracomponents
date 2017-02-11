@@ -1,10 +1,8 @@
 Manifest-Version: 1.0
-CSS-ClientLibs: 
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
 Bundle-Version: 1.0.0
 Package-Type: Web-Component
-JS-ClientLibs: 
 
 Name: badge/badge.spec
 Web-Component: True
@@ -13,9 +11,6 @@ Name: buttonsGroup/buttonsGroup.spec
 Web-Component: True
 
 Name: navbar/navbar.spec
-Web-Component: True
-
-Name: Badge/Badge.spec
 Web-Component: True
 
 Name: inputgroup/inputgroup.spec
@@ -29,4 +24,3 @@ Web-Component: True
 
 Name: rating/rating.spec
 Web-Component: True
-
