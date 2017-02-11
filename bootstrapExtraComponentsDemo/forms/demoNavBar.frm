@@ -1,9 +1,9 @@
 customProperties:"formComponent:false",
 items:[
 {
-location:"250,200",
+location:"270,200",
 onActionMethodID:"B4E14E6F-6ED0-4130-B92E-24422C07CB3B",
-size:"100,25",
+size:"110,35",
 text:"Remove item",
 typeid:7,
 uuid:"22B2FD5A-C28B-401F-AAAA-41E5A43D3658"
@@ -63,17 +63,17 @@ typeid:47,
 uuid:"AB00E08E-D941-4110-89DF-214574453645"
 },
 {
-location:"365,200",
+location:"395,200",
 onActionMethodID:"EFD5D754-D9C0-4389-8EE9-D66737CB2A96",
-size:"100,25",
+size:"110,35",
 text:"Select item",
 typeid:7,
 uuid:"B7F07B0F-9427-4C1F-B03C-CCC213DC883D"
 },
 {
-location:"135,200",
+location:"145,200",
 onActionMethodID:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE",
-size:"100,25",
+size:"110,35",
 text:"Add item",
 typeid:7,
 uuid:"BD3F294C-0357-466F-BE30-0E363D94BEA3"
@@ -202,9 +202,9 @@ typeid:47,
 uuid:"D45C0DC3-07B1-4BCB-88F3-D793BBA90A38"
 },
 {
-location:"20,240",
+location:"20,250",
 onActionMethodID:"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4",
-size:"100,25",
+size:"110,35",
 text:"Icon menu",
 typeid:7,
 uuid:"F50DEE44-CEB5-468A-9A64-507307065B01"
@@ -212,7 +212,7 @@ uuid:"F50DEE44-CEB5-468A-9A64-507307065B01"
 {
 location:"20,200",
 onActionMethodID:"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34",
-size:"100,25",
+size:"110,35",
 text:"Create menu",
 typeid:7,
 uuid:"F85E52CE-0214-4E8B-B59E-917B1B659017"

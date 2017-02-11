@@ -60,12 +60,12 @@ function onAction_btnAddImage(event) {
  */
 function onAction_btnActiveImage(event) {
 //	function getRandomIndex() {
-//		var maxValue = elements.carousel_623c.slidesFoundset.foundset.getSize();
+//		var maxValue = elements.carousel_foundset.slidesFoundset.foundset.getSize();
 //		return Math.floor(Math.random() * maxValue) + 1;
 //	}
 //	var index = getRandomIndex();
 //	application.output('setting index to '+ index);
-//	elements.carousel_623c.slidesFoundset.foundset.setSelectedIndex(index);
+//	elements.carousel_foundset.slidesFoundset.foundset.setSelectedIndex(index);
 	foundset.deleteRecord();
 	databaseManager.saveData();
 }
@@ -93,7 +93,7 @@ function onAction(event) {
  * @properties={typeid:24,uuid:"3661FA51-FA93-4AB1-8482-542BF41657DA"}
  */
 function onAction_btnToggleAutoShow(event) {
-	elements.carousel_623c.cycleInterval = elements.carousel_623c.cycleInterval > 0 ? 0 : cycleInterval;
+	elements.carousel_foundset.cycleInterval = elements.carousel_foundset.cycleInterval > 0 ? 0 : cycleInterval;
 }
 
 /**
@@ -110,7 +110,7 @@ function onAction_btnToggleAutoShow(event) {
  * @properties={typeid:24,uuid:"DD97994F-7287-47DD-B797-BD2B359DE3E1"}
  */
 function onDataChange_cycleInterval(oldValue, newValue, event) {
-	elements.carousel_623c.cycleInterval = newValue;
+	elements.carousel_foundset.cycleInterval = newValue;
 	return true
 }
 
@@ -128,7 +128,7 @@ function onDataChange_cycleInterval(oldValue, newValue, event) {
  * @properties={typeid:24,uuid:"1BCE7303-9EED-4578-99D5-AA0550491BD4"}
  */
 function onDataChange_noWrap(oldValue, newValue, event) {
-	elements.carousel_623c.noWrap = newValue == 1;
+	elements.carousel_foundset.noWrap = newValue == 1;
 	return true
 }
 
@@ -146,7 +146,7 @@ function onDataChange_noWrap(oldValue, newValue, event) {
  * @properties={typeid:24,uuid:"77481F6F-4DD9-4652-8ED1-D208129CE523"}
  */
 function onDataChange_noTransition(oldValue, newValue, event) {
-	elements.carousel_623c.noTransition = newValue == 1;
+	elements.carousel_foundset.noTransition = newValue == 1;
 	return true
 }
 
@@ -164,7 +164,7 @@ function onDataChange_noTransition(oldValue, newValue, event) {
  * @properties={typeid:24,uuid:"EE89ADCE-28F9-4663-8447-568F6B6DFF73"}
  */
 function onDataChange_noPause(oldValue, newValue, event) {
-	elements.carousel_623c.noPause = newValue == 1;
+	elements.carousel_foundset.noPause = newValue == 1;
 	return true
 }
 

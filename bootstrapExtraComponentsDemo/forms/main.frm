@@ -4,9 +4,10 @@ items:[
 {
 anchors:3,
 formIndex:1,
-location:"330,40",
+horizontalAlignment:4,
+location:"267,40",
 name:"lblSolutionName",
-size:"290,80",
+size:"343,80",
 styleClass:"banner",
 text:"Example Solution",
 transparent:true,

@@ -109,7 +109,7 @@ anchors:15,
 autoScaleImages:true,
 cycleInterval:3000,
 fitImages:true,
-imageOptions:"Crop",
+imageOptions:"Scale to fit",
 lazyLoading:true,
 location:{
 x:255,
@@ -130,15 +130,14 @@ image:"image_media"
 foundsetSelector:""
 },
 styleClass:"demo-carousel",
-visible:false
+visible:true
 },
 location:"255,47",
 name:"carousel_foundset",
 size:"533,400",
 typeName:"bootstrapextracomponents-carousel",
 typeid:47,
-uuid:"A1961A7A-4349-494A-9CFD-28273038514E",
-visible:false
+uuid:"A1961A7A-4349-494A-9CFD-28273038514E"
 },
 {
 anchors:11,
@@ -157,8 +156,8 @@ noPause:false,
 noTransition:false,
 noWrap:false,
 size:{
-height:330,
-width:468
+height:400,
+width:533
 },
 slides:[
 {
@@ -177,15 +176,16 @@ svyUUID:"E95472EB-EA32-47B3-9083-21CB81B22B47"
 }
 ],
 styleClass:"demo-carousel",
-visible:true,
+visible:false,
 wrap:false
 },
 location:"255,47",
 name:"carousel",
-size:"468,330",
+size:"533,400",
 typeName:"bootstrapextracomponents-carousel",
 typeid:47,
-uuid:"AE4647E7-C9B8-4B48-A5B5-D4EA0890DC60"
+uuid:"AE4647E7-C9B8-4B48-A5B5-D4EA0890DC60",
+visible:false
 },
 {
 location:"385,17",

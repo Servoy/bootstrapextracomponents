@@ -15,7 +15,14 @@ var autoRemove = 0;
  * @properties={typeid:24,uuid:"57AAF4B7-4F01-44C4-8B96-3E81F284B737"}
  */
 function onAction_createBreadcrumbs(event) {
-	var crumbs = [{displayName: 'First'}, {displayName: 'Second'}, {displayName: 'Third'}, {displayName: 'Fourth'}, {displayName: 'Fifth'}];
+	/** @type {Array<bootstrapextracomponents-breadcrumbs.crumb>} */
+	var crumbs = [
+		{displayName: 'First'}, 
+		{displayName: 'Second'}, 
+		{displayName: 'Third'}, 
+		{displayName: 'Fourth'}, 
+		{displayName: 'Fifth'}
+	];
 	elements.breadcrumbs.setCrumbs(crumbs);
 }
 
@@ -29,8 +36,11 @@ function onAction_createBreadcrumbs(event) {
  * @properties={typeid:24,uuid:"BF3ED412-4C88-4D02-8297-3A7B1C2847E5"}
  */
 function onAction_addBreadcrumbs(event) {
-	elements.breadcrumbs.addCrumb({displayName: 'Sixth'});
-	elements.breadcrumbs.addCrumb({displayName: 'Seventh'});
+	/** @type {bootstrapextracomponents-breadcrumbs.crumb} */
+	var crumb = {displayName: 'Sixth'};
+	elements.breadcrumbs.addCrumb(crumb);
+	crumb = {displayName: 'Seventh'}
+	elements.breadcrumbs.addCrumb(crumb);
 }
 
 /**
