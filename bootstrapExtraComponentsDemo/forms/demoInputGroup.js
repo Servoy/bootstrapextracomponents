@@ -134,8 +134,27 @@ function onRightClick_button(event, btnName, btnText, btnIndex) {
 function onAction_api_create_group(event) {
 	elements.input_group_11.clearAddOns();
 	elements.input_group_11.clearAddOnButtons();
-	elements.input_group_11.setAddOns([{text: '@'}]);
-	elements.input_group_11.setAddOnButtons([{position: 'RIGHT', name: 'btnSearch', imageStyleClass: 'glyphicon glyphicon-search', onAction: onAction_button}, {text: 'Search', position: 'RIGHT', styleClass: 'btn-primary', imageStyleClass: 'fa fa-wifi', onAction: onAction_button}]);
+	/** @type {Array<bootstrapextracomponents-input-group.AddOn>} */
+	var addOns = [{text: '@'}]
+	elements.input_group_11.setAddOns(addOns);
+	
+	/** @type {Array<bootstrapextracomponents-input-group.AddOnButton>} */
+	var addOnButtons = [
+		{
+			position: 'RIGHT', 
+			name: 'btnSearch', 
+			imageStyleClass: 'glyphicon glyphicon-search', 
+			onAction: onAction_button
+		}, 
+		{
+			text: 'Search', 
+			position: 'RIGHT', 
+			styleClass: 'btn-primary', 
+			imageStyleClass: 'fa fa-wifi', 
+			onAction: onAction_button
+		}
+	];
+	elements.input_group_11.setAddOnButtons(addOnButtons);
 }
 
 /**

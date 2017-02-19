@@ -3,7 +3,7 @@
     "displayName":"Bootstrap Extra Components",
     "packageType": "Web-Component",
     "icon": "https://raw.githubusercontent.com/Servoy/bootstrapextracomponents/master/servoy.png",
-    "description": "A set of bootstrap extra components like a navbar, breadcrumbs, input group and radio button group",
+    "description": "A set of bootstrap extra components like a navbar, carousel, breadcrumbs, input group and radio button group",
     "wikiUrl": "https://github.com/Servoy/bootstrapextracomponents/wiki",
     "sourceUrl" : "https://github.com/Servoy/bootstrapextracomponents",
     "releases" : [

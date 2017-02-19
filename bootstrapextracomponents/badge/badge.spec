@@ -8,13 +8,14 @@
 	],
 	"model":
 	{
-		"enabled" 						: { "type": "enabled", "blockingOn": false, "default": true, "for": ["onAction", "onDoubleClick", "onRightClick"] },
+		"enabled" 						: {"type": "enabled", "blockingOn": false, "default": true, "for": ["onAction", "onDoubleClick", "onRightClick"] },
 		"displayType" 					: {"type": "string", "default":"BUTTON", "values": ["BUTTON", "LABEL"]},
 		"text"							: {"type": "tagstring", "initialValue": "Badge", "tags": { "directEdit" : "true" }},
 		"badgeText"						: {"type": "tagstring", "initialValue": "0"},
-		"size" 							: {"type" :"dimension",  "default" : {"width":100, "height":40}}, 
-    	"location" 						: "point",
-    	"styleClass"					: {"type": "styleclass"}
+		"size" 							: {"type": "dimension",  "default" : {"width":100, "height":40}}, 
+    	"location" 						: {"type": "point"},
+    	"styleClass"					: {"type": "styleclass"},
+    	"visible"						: {"type": "visible" }
 	},
 	"handlers": 
 	{

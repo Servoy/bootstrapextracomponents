@@ -4,14 +4,6 @@
  * @properties={typeid:35,uuid:"37F69D3D-D970-488B-BFB5-FD647D6C8156",variableType:4}
  */
 var noPause = null;
-
-/**
- * @type {Number}
- *
- * @properties={typeid:35,uuid:"EA599C47-2FA3-43DB-8C05-22AD6EBBBABC",variableType:4}
- */
-var noWrap = null;
-
 /**
  * @type {String}
  *
@@ -111,24 +103,6 @@ function onAction_btnToggleAutoShow(event) {
  */
 function onDataChange_cycleInterval(oldValue, newValue, event) {
 	elements.carousel_foundset.cycleInterval = newValue;
-	return true
-}
-
-/**
- * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
- *
- * @param {Number} oldValue old value
- * @param {Number} newValue new value
- * @param {JSEvent} event the event that triggered the action
- *
- * @return {Boolean}
- *
- * @private
- *
- * @properties={typeid:24,uuid:"1BCE7303-9EED-4578-99D5-AA0550491BD4"}
- */
-function onDataChange_noWrap(oldValue, newValue, event) {
-	elements.carousel_foundset.noWrap = newValue == 1;
 	return true
 }
 

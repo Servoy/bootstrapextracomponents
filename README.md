@@ -3,10 +3,12 @@
 NGClient component package of all kinds of 'extra' bootstrap components. Current components are: 
 
 * Navbar: see http://getbootstrap.com/components/#navbar
-* Breadcrumbs: see http://getbootstrap.com/components/#breadcrumbs
 * Input group: see http://getbootstrap.com/components/#input-groups
+* Carousel: see https://angular-ui.github.io/bootstrap/
 * Button group: see http://getbootstrap.com/components/#btn-groups
+* Rating: see https://angular-ui.github.io/bootstrap/
 * Badges: see http://getbootstrap.com/components/#badges
+* Breadcrumbs: see http://getbootstrap.com/components/#breadcrumbs
 
 # Getting started
 

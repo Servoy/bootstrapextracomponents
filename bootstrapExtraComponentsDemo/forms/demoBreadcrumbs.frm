@@ -76,7 +76,8 @@ onCrumbClicked:"DA5198D2-EA63-4970-8703-9966844DA056",
 size:{
 height:40,
 width:600
-}
+},
+visible:true
 },
 location:"20,75",
 name:"breadcrumbs",

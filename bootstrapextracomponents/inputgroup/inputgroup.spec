@@ -10,7 +10,7 @@
 	],
 	"model": 
 	{
-		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID", "callback": "onDataChangeCallback" } },
+		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
 		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
 		"format"							: { "type": "format", "for": [ "dataProvider" ] },
 		"inputType"							: { "type": "string", "tags": { "scope": "design" }, "values": [ "text", "password", "number" ], "default": "text" },

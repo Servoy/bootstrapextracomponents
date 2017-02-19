@@ -3,7 +3,7 @@ items:[
 {
 json:{
 badgeOffset:20,
-badgeText:"4",
+badgeText:"5",
 displayType:"BUTTON",
 enabled:true,
 location:{
@@ -46,7 +46,8 @@ height:40,
 width:150
 },
 styleClass:"btn-primary",
-text:"Messages"
+text:"Messages",
+visible:true
 },
 location:"192,105",
 name:"badge_button_disabled",
@@ -59,7 +60,7 @@ uuid:"1E277B11-035E-4236-BF6E-CBFF092354FC"
 enabled:false,
 json:{
 badgeOffset:20,
-badgeText:"42",
+badgeText:"12",
 displayType:"LABEL",
 enabled:false,
 location:{
@@ -85,7 +86,7 @@ uuid:"23DA424E-5265-4E3C-950C-1846DCBD63B0"
 {
 json:{
 badgeOffset:20,
-badgeText:"4",
+badgeText:"5",
 displayType:"BUTTON",
 enabled:true,
 location:{
@@ -128,7 +129,7 @@ uuid:"CCD82E69-6836-40DD-A3D3-005C1360BD43"
 {
 json:{
 badgeOffset:20,
-badgeText:"42",
+badgeText:"12",
 displayType:"LABEL",
 enabled:true,
 location:{

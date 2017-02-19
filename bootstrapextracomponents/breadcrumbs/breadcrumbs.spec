@@ -15,7 +15,8 @@
 		"crumbStyleClass"				: {"type": "styleclass"},
 		"lastCrumbStyleClass"			: {"type": "styleclass"},
 		"size" 							: {"type" :"dimension",  "default" : {"width":600, "height":40}}, 
-    	"location" 						: "point"
+    	"location" 						: {"type": "point" },
+    	"visible"						: {"type": "visible" }
 	},
 	"api": 
 	{

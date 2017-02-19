@@ -78,7 +78,9 @@ function onAction_createMenu(event) {
  * @properties={typeid:24,uuid:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE"}
  */
 function onAction_addItem(event) {
-	elements.navbar.addMenuItem({itemId: application.getUUID().toString(), text: 'Item added'});
+	/** @type {bootstrapextracomponents-navbar.menuItem} */
+	var itemToAdd = {itemId: application.getUUID().toString(), text: 'Item added'}
+	elements.navbar.addMenuItem(itemToAdd);
 }
 
 /**

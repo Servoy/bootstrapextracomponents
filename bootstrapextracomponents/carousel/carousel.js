@@ -8,31 +8,40 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				handlers: "=svyHandlers"
 			},
 			link: function link($scope, $element) {
-				$scope.model.imageCss = {};
+				$scope.model.imageCssInternal = {};
+				
+				if ($scope.model.imageCss) {
+					for (var c = 0; c < $scope.model.imageCss.length; c++) {
+						var cssEntry = $scope.model.imageCss[c];
+						$scope.model.imageCssInternal[cssEntry.propertyName] = cssEntry.propertyValue;
+					}
+				}
+				
+				console.log('carousel link called');
 				
 				/** @type {Array<>} */
 				$scope.slides = [];
 				
-				if ($scope.model.imageOptions == "Reduce") {
-					$scope.model.imageCss = {
+				if (!$scope.model.imageCss && $scope.model.imageOptions == "Reduce") {
+					$scope.model.imageCssInternal = {
 						'max-width': '100%',
 						'max-height': '100%',
 						'width': $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width,
 						'height': $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.height,
 						'object-fit': 'contain'
 					}
-				} else if ($scope.model.imageOptions == "Reduce/Enlarge") {
-					$scope.model.imageCss = {
+				} else if (!$scope.model.imageCss && $scope.model.imageOptions == "Reduce/Enlarge") {
+					$scope.model.imageCssInternal = {
 						'width': $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width,
 						'height': $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.height,
 					}
-				} else if ($scope.model.imageOptions == "Crop") {
-					$scope.model.imageCss = {
+				} else if (!$scope.model.imageCss && $scope.model.imageOptions == "Crop") {
+					$scope.model.imageCssInternal = {
 						'width': 'auto',
 						'height': 'auto'
 					}
-				} else if ($scope.model.imageOptions == "Scale to fit") {
-					$scope.model.imageCss = {
+				} else if (!$scope.model.imageCss && $scope.model.imageOptions == "Scale to fit") {
+					$scope.model.imageCssInternal = {
 						'max-width': '100%',
 						'max-height': '100%',
 						'width': $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width,
@@ -42,10 +51,12 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				}
 				
 				$scope.$watch('model.divSize', function(newValue, oldValue) {
-					if (!angular.equals(newValue, oldValue)) {
-						if ($scope.model.imageOptions == "Reduce" || $scope.model.imageOptions == "Reduce/Enlarge" || $scope.model.imageOptions == "Scale to fit") {
-							$scope.model.imageCss.width = $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width;
-							$scope.model.imageCss.height = $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.width;
+					if (!$scope.model.imageCss) {
+						if (!angular.equals(newValue, oldValue) || newValue.width !== $scope.model.imageCssInternal.width || newValue.height !== $scope.model.imageCssInternal.height) {
+							if ($scope.model.imageOptions == "Reduce" || $scope.model.imageOptions == "Reduce/Enlarge" || $scope.model.imageOptions == "Scale to fit") {
+								$scope.model.imageCssInternal.width = $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width;
+								$scope.model.imageCssInternal.height = $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.width;
+							}
 						}
 					}
 				}, true);
@@ -186,18 +197,26 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				//listens for window resizing and adjusts the height accordingly
 				scope.getDivSize = function() {
 					//get height of component div
-					var carouselDiv = element.closest('.bts-extra-carousel');
+					var carouselDiv = element;
 					if (carouselDiv) {
-						scope.model.divSize = {width: carouselDiv.innerWidth(), height: carouselDiv.innerHeight()};
+						var size = {width: scope.model.divSize && scope.model.divSize.width ? scope.model.divSize.width : 0, height: scope.model.divSize && scope.model.divSize.height ? scope.model.divSize.height : 0};
+						if (carouselDiv.innerWidth()) {
+							size.width = carouselDiv.innerWidth();
+						}
+						if (carouselDiv.innerHeight()) {
+							size.height = carouselDiv.innerHeight();
+						}
+						scope.model.divSize = size;
 						console.log('height and width of div found as ' + scope.model.divSize.width + 'x' + scope.model.divSize.height);
 					}
 				}
 				
 				//first time page load
-				scope.getDivSize();
+				if (!scope.model.divSize) {
+					scope.getDivSize();
+				}
 				
 				if (scope.model.imageOptions != 'Crop') {
-					
 					angular.element($window).bind('resize', function() {
 						scope.getDivSize();
 						scope.$apply();
