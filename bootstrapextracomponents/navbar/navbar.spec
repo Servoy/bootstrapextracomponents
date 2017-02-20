@@ -3,6 +3,7 @@
 	"displayName": "Navbar",
 	"version": 1,
 	"definition": "bootstrapextracomponents/navbar/navbar.js",
+	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"serverscript": "bootstrapextracomponents/navbar/navbar_server.js",
 	"libraries": [
 		{"name":"navbar.css", "version":"1.0.0", "url":"bootstrapextracomponents/navbar/navbar.css", "mimetype":"text/css"},

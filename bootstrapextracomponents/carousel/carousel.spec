@@ -2,6 +2,7 @@
 	"name": "bootstrapextracomponents-carousel",
 	"displayName": "Carousel",
 	"version": 1,
+	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/carousel/carousel.js",
 	"libraries": [
 		{"name":"carousel.css", "version":"1.0.0", "url":"bootstrapextracomponents/carousel/bts-extra-carousel.css", "mimetype":"text/css"}

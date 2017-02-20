@@ -3,6 +3,7 @@
 	"displayName": "Input Group",
 	"version": 1,
 	"definition": "bootstrapextracomponents/inputgroup/inputgroup.js",
+	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"serverscript": "bootstrapextracomponents/inputgroup/inputgroup_server.js",
 	"libraries": [
 		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"},

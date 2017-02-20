@@ -1,6 +1,7 @@
 {"name": "bootstrapextracomponents-buttons-group",
 "displayName": "Group Buttons",
 "definition": "bootstrapextracomponents/buttonsGroup/buttonsGroup.js",
+"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 "libraries": [{"name":"btsextra-buttonsGroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/buttonsGroup/css/btsextra-buttonsGroup.css", "mimetype":"text/css"}],
 "version": 1,
 	"model":

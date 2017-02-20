@@ -3,6 +3,7 @@
 	"displayName": "Breadcrumbs",
 	"version": 1,
 	"definition": "bootstrapextracomponents/breadcrumbs/breadcrumbs.js",
+	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"serverscript": "bootstrapextracomponents/breadcrumbs/breadcrumbs_server.js",
 	"libraries": [
 		{"name":"breadcrumbs.css", "version":"1.0.0", "url":"bootstrapextracomponents/breadcrumbs/breadcrumbs.css", "mimetype":"text/css"}

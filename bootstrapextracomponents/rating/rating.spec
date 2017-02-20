@@ -3,6 +3,7 @@
 	"displayName": "Rating",
 	"version": 1,
 	"definition": "bootstrapextracomponents/rating/rating.js",
+	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"libraries": [
 		{"name":"rating.css", "version":"1.0.0", "url":"bootstrapextracomponents/rating/bts-extra-rating.css", "mimetype":"text/css"}
 	],
