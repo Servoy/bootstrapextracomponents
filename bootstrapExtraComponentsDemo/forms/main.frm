@@ -39,6 +39,13 @@ typeid:15,
 uuid:"12F54A4A-69CD-4DD0-8899-20DC5106CA0B"
 },
 {
+containsFormID:"F9000FE3-289A-4296-99B8-80BBE446B550",
+location:"186,423",
+text:"Carousel (no foundset)",
+typeid:15,
+uuid:"25389E91-027A-457D-B292-6AC215C30901"
+},
+{
 containsFormID:"BAE409FA-710F-4C67-AAEB-8BE376C8E766",
 location:"170,387",
 text:"Rating",

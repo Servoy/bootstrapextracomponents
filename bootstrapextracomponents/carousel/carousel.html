@@ -7,13 +7,13 @@
 	class="bts-extra-carousel {{model.styleClass}}" 
 	bts-extra-carousel-calc-size 
 	>
-	<slide ng-repeat="slide in slides" active="slide.active">
+	<slide ng-repeat="slide in slides" active="slide.active" index="$index" >
 		<img 
 			class="bts-extra-carousel-img"
 			ng-style="model.imageCssInternal" 
 			ng-if="model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" 
 			btse-carousel-smart-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}"
-			btse-carousel-smart-src-watch="slide.active"
+			btse-carousel-smart-src-watch="slide.active" 
 		>
 		<img 
 			class="bts-extra-carousel-img" 

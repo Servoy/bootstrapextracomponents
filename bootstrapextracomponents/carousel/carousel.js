@@ -17,8 +17,6 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					}
 				}
 				
-				console.log('carousel link called');
-				
 				/** @type {Array<>} */
 				$scope.slides = [];
 				
@@ -50,16 +48,33 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					}
 				}
 				
-				$scope.$watch('model.divSize', function(newValue, oldValue) {
-					if (!$scope.model.imageCss) {
-						if (!angular.equals(newValue, oldValue) || newValue.width !== $scope.model.imageCssInternal.width || newValue.height !== $scope.model.imageCssInternal.height) {
-							if ($scope.model.imageOptions == "Reduce" || $scope.model.imageOptions == "Reduce/Enlarge" || $scope.model.imageOptions == "Scale to fit") {
-								$scope.model.imageCssInternal.width = $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width;
-								$scope.model.imageCssInternal.height = $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.width;
-							}
+				/**
+				 * Returns the index of the currently selected slide (0 based)
+				 * 
+				 * @return {Number} index
+				 */
+				$scope.api.getSelectedIndex = function() {
+					for (var i = 0; i < $scope.slides.length; i++) {
+						if ($scope.slides[i].active === true) {
+							return i;
 						}
 					}
-				}, true);
+					return -1;
+				}
+				
+				/**
+				 * Sets the selected slide to the given index (0 based)
+				 * 
+				 * @param {Number} index
+				 */
+				$scope.api.setSelectedIndex = function(index) {
+					for (var i = 0; i < $scope.slides.length; i++) {
+						if ($scope.slides[i].active === true) {
+							$scope.slides[i].active = false;
+						}
+					}
+					$scope.slides[index].active = true;
+				}
 				
 				if ($scope.model.slidesFoundset != null) {
 					//foundset based
@@ -154,12 +169,29 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						$scope.slides = slides;
 					}
 					
-					$scope.$watch('slides', function(newValue, oldValue) {
+					if ($scope.model.slides) {
+						createSlidesFromModel();
+					}
+					
+					$scope.$watch('model.slides', function(newValue, oldValue) {
+						console.log(newValue);
 						if (!angular.equals(newValue, oldValue)) {
 							createSlidesFromModel();
 						}
 					}, true)
 				}
+				
+				//size watcher to update image css
+				$scope.$watch('model.divSize', function(newValue, oldValue) {
+					if (!$scope.model.imageCss) {
+						if (!angular.equals(newValue, oldValue) || newValue.width !== $scope.model.imageCssInternal.width || newValue.height !== $scope.model.imageCssInternal.height) {
+							if ($scope.model.imageOptions == "Reduce" || $scope.model.imageOptions == "Reduce/Enlarge" || $scope.model.imageOptions == "Scale to fit") {
+								$scope.model.imageCssInternal.width = $scope.model.divSize ? $scope.model.divSize.width : null || $scope.model.size.width;
+								$scope.model.imageCssInternal.height = $scope.model.divSize ? $scope.model.divSize.height : null || $scope.model.size.width;
+							}
+						}
+					}
+				}, true);
 			},
 			controller: function($scope, $element, $attrs) {
 				if ($scope.svyServoyapi.isInDesigner() && !($scope.model.slides || $scope.model.slides.length == 0)) {

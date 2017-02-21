@@ -4,6 +4,7 @@
 	"version": 1,
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/carousel/carousel.js",
+	"serverscript": "bootstrapextracomponents/carousel/carousel_server.js",
 	"libraries": [
 		{"name":"carousel.css", "version":"1.0.0", "url":"bootstrapextracomponents/carousel/bts-extra-carousel.css", "mimetype":"text/css"}
 	],
@@ -12,7 +13,7 @@
 		"cycleInterval" 					: { "type": "int", "default": 5000 },
 		"noPause"							: { "type": "boolean", "default": false },
 		"noTransition"						: { "type": "boolean", "default": false },
-		"slides"							: { "type": "slide[]" },
+		"slides"							: { "type": "slide[]", "pushToServer": "deep" },
 		"slidesFoundset"					: { "type": "foundset", "dataproviders": ["image", "caption"] },
 		"lazyLoading" 						: { "type": "boolean", "default": true },
 		"imageOptions" 						: { "type": "string", "default": "Reduce", "values" : ["Reduce", "Reduce/Enlarge", "Scale to fit", "Crop"] },
@@ -22,6 +23,27 @@
 		"styleClass" 						: { "type": "styleclass"},
 		"imageCssInternal"					: { "type": "object", "tags" : { "scope": "private" } },
 		"imageCss"							: { "type": "cssProperty[]" }
+	},
+	"api": 
+	{
+		"addSlide": {
+			"parameters": [
+				{ "type": "slide", "name": "slideToAdd" }
+			]
+		},
+		"removeSlide": {
+			"parameters": [
+				{ "type": "int", "name": "index" }
+			]
+		},
+		"getSelectedIndex": {
+			"returns": "int"
+		},
+		"setSelectedIndex": {
+			"parameters": [
+				{ "type": "int", "name": "index" }
+			]
+		}
 	},
 	"types": 
 	{
