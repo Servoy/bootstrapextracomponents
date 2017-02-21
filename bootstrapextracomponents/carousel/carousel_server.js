@@ -11,6 +11,15 @@ $scope.api.addSlide = function(slideToAdd) {
 }
 
 /**
+ * Sets the given slides
+ * 
+ * @param {Array<slide>} slides
+ */
+$scope.api.setSlides = function(slides) {
+	$scope.model.slides = slides;
+}
+
+/**
  * Removes the slide at the given index (0 based)
  * 
  * @param {Number} index

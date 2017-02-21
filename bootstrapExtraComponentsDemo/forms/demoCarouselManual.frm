@@ -11,7 +11,7 @@ typeid:7,
 uuid:"02EF3337-D608-4B1E-85E7-065FD38E8506"
 },
 {
-location:"21,239",
+location:"21,274",
 onActionMethodID:"056341AA-EC1C-4086-AC32-4B7CB91338D6",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -40,7 +40,7 @@ typeid:7,
 uuid:"664D8AED-9E07-442C-BAC5-3EAD93071ACD"
 },
 {
-location:"21,274",
+location:"21,309",
 onActionMethodID:"8359B8F1-57DF-41F8-9051-40EA2EC13C61",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -48,6 +48,16 @@ size:"200,25",
 text:"Remove Slide",
 typeid:7,
 uuid:"7C0DBB47-24D3-46AD-BF9A-C7CE6FE8D271"
+},
+{
+location:"20,239",
+onActionMethodID:"A26B080A-13F4-4165-9BE3-D6DD351030B7",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"200,25",
+text:"Set slides",
+typeid:7,
+uuid:"A56055E7-8D9A-4B4E-AAE8-F8EDEBD6C025"
 },
 {
 height:474,

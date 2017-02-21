@@ -36,6 +36,11 @@
 				{ "type": "int", "name": "index" }
 			]
 		},
+		"setSlides": {
+			"parameters": [
+				{ "type": "slide[]", "name": "slides" }
+			]
+		},
 		"getSelectedIndex": {
 			"returns": "int"
 		},

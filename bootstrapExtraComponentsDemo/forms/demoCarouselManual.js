@@ -56,6 +56,32 @@ function onAction_btnAddImage(event) {
  *
  * @private
  *
+ * @properties={typeid:24,uuid:"A26B080A-13F4-4165-9BE3-D6DD351030B7"}
+ * @AllowToRunInFind
+ */
+function onAction_btnSetSlides(event) {
+	/** @type {Array<bootstrapextracomponents-carousel.slide>} */
+	var slides = [];
+	imageCounter = 1;
+	for (var i = 0; i < 5; i++) {
+		/** @type {bootstrapextracomponents-carousel.slide} */
+		var slideToAdd = {
+			imageUrl: "http://lorempixel.com/800/600/city/" + imageCounter,
+			caption: 'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
+		}
+		slides.push(slideToAdd);
+		imageCounter ++;
+	}
+	elements.carousel.setSlides(slides);
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @private
+ *
  * @properties={typeid:24,uuid:"8F43E7A4-5790-45E0-8919-0BD291B7892E"}
  */
 function onAction_btnToggleAutoShow(event) {
