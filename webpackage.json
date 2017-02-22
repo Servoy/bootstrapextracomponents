@@ -7,7 +7,7 @@
     "wikiUrl": "https://github.com/Servoy/bootstrapextracomponents/wiki",
     "sourceUrl" : "https://github.com/Servoy/bootstrapextracomponents",
     "releases" : [
-    	{"version":"1.0.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/V1.0.0/bootstrapextracomponents.zip", "servoy-version":"8.1.1"}
+    	{"version":"1.0.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.0.0/bootstrapextracomponents.zip", "servoy-version":"8.1.1"}
     ]
 }
 
