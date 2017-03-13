@@ -11,6 +11,14 @@ body {
 	background-color: #efefef;
 }
 
+.progressbar-test {
+	height: 30px;
+}
+
+.progressbar-test > .progress-bar {
+	line-height: 30px;
+}
+
 .svy-label {
 	font-size: 0.9em;
 	font-weight: normal;

@@ -1,0 +1,88 @@
+<div class="bts-extra-drop-down" 
+	id="{{::model.svyMarkupId}}"
+	ng-show='model.visible' 
+	ng-click="dropDownClicked($event)"
+	>
+	<!-- Simple dropdown -->
+    <span 
+		ng-if="!model.isButton"
+		class="dropdown {{model.styleClass}}" 
+		dropdown 
+		on-toggle="toggled(open)"
+		ng-disabled="!model.enabled">
+      <a href class="dropdown-toggle" dropdown-toggle>
+		{{ model.text ? model.text : 'Button' }}
+      </a>
+      <ul 
+		class="bts-extra-dropdown-menu dropdown-menu" 
+		role="menu">
+        <li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
+			<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+				<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
+			</a>
+		</li>
+      </ul>
+    </span>
+	<!-- Single button -->
+	<div 
+		ng-if="model.isButton && !model.isSplitButton"
+		class="btn-group" 
+		dropdown 
+		is-open="status.isopen">
+		<button 
+			class="btn {{model.styleClass}} dropdown-toggle" 
+			data-toggle="dropdown" 
+			type="button" 
+			aria-haspopup="true" 
+			aria-expanded="true" 
+			id="button-dropdown-{{::model.svyMarkupId}}"
+			ng-disabled="!model.enabled">
+        	{{model.text ? model.text : 'Button'}} <span class="caret"></span>
+		</button>
+		<ul 
+			class="bts-extra-dropdown-menu dropdown-menu"
+			role="menu"
+			aria-labelledby="button-dropdown-{{::model.svyMarkupId}}">
+			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
+				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
+				</a>
+			</li>
+		</ul>
+    </div>
+	<!-- Split button -->
+	<div 
+		ng-if="model.isButton && model.isSplitButton"
+		class="btn-group" 
+		dropdown 
+		is-open="status.isopen">
+		<button 
+			class="btn {{model.styleClass}}" 
+			type="button" 
+			id="button-{{::model.svyMarkupId}}"
+			ng-disabled="!model.enabled">
+        	{{model.text ? model.text : 'Button'}}
+		</button>
+		<button 
+			class="btn {{model.styleClass}} dropdown-toggle" 
+			data-toggle="dropdown" 
+			type="button" 
+			aria-haspopup="true" 
+			aria-expanded="true" 
+			id="button-dropdown-{{::model.svyMarkupId}}"
+			ng-disabled="!model.enabled">
+        	<span class="caret"></span>
+		</button>
+		<ul 
+			class="bts-extra-dropdown-menu dropdown-menu"
+			role="menu" 
+			ng-if="model.menuItems && model.menuItems.length > 0"
+			aria-labelledby="button-{{::model.svyMarkupId}}">
+			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
+				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
+				</a>
+			</li>
+		</ul>
+    </div>
+</div>

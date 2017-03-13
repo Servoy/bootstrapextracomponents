@@ -74,6 +74,20 @@ typeid:15,
 uuid:"6CC3BCD8-D8D5-4D86-B394-273B722F876A"
 },
 {
+containsFormID:"369EEC79-C296-48F6-98B4-1D7252290E08",
+location:"202,459",
+text:"Drop Down",
+typeid:15,
+uuid:"B9678D01-ACC4-412D-B3D0-7032A73F5BB2"
+},
+{
+containsFormID:"576112B3-D036-4809-8729-03207B1CEBDA",
+location:"218,495",
+text:"Progress Bar",
+typeid:15,
+uuid:"CC9FB730-11B2-497E-BDE5-731DE7DA2945"
+},
+{
 containsFormID:"C75B94DC-D8B9-482B-88E1-71F4658F265C",
 location:"138,315",
 text:"ButtonGroups",

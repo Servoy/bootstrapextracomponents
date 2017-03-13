@@ -1,0 +1,14 @@
+<progressbar
+	ng-if='model.visible'
+	class="bootstrap-extra-progressbar {{model.styleClass}}"
+	value="model.value"
+	type={{model.type}}
+	animate="model.animate"
+	max="model.max"
+	sablo-tabseq='model.tabSeq'
+	id="{{::model.svyMarkupId}}"
+	>
+	<b ng-if="!model.valueText && model.showValue && model.showValueAsPercentage">{{(100*model.value/model.max) | number:0}}%</b>
+	<b ng-if="!model.valueText && model.showValue && !model.showValueAsPercentage">{{model.value + ' / ' + model.max}}</b>
+	<b ng-if="model.valueText">{{model.valueText}}</b>
+</progressbar>

@@ -30,6 +30,9 @@ $scope.api.addMenuItem = function(menuItem) {
  * @param {String} menuItemId
  */
 $scope.api.removeMenuItem = function(menuItemId) {
+	if (!$scope.model.menuItems || $scope.model.menuItems.length == 0) {
+		return;
+	}
 	for (var i = 0; i < $scope.model.menuItems.length; i++) {
 		if ($scope.model.menuItems[i].itemId == menuItemId) {
 			$scope.model.menuItems.splice(i, 1);

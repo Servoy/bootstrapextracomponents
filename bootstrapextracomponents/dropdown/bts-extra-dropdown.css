@@ -1,0 +1,6 @@
+/* be more specific to override Servoy's dropdown menu positioning */
+ul.bts-extra-dropdown-menu {
+	position: absolute;
+    top: 100%;
+    left: 0;
+}

@@ -791,7 +791,7 @@ var faIcons = [
 ]
 
 /**
- * @param size
+ * @param [size]
  *
  * @properties={typeid:24,uuid:"EF3ADA1D-164C-496F-8CAF-27CC17A57FEF"}
  */

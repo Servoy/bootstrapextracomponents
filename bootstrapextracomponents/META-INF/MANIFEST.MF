@@ -1,13 +1,19 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
-Bundle-Version: 1.0.0
+Bundle-Version: 1.1.0
 Package-Type: Web-Component
 
 Name: badge/badge.spec
 Web-Component: True
 
+Name: progressbar/progressbar.spec
+Web-Component: True
+
 Name: buttonsGroup/buttonsGroup.spec
+Web-Component: True
+
+Name: dropdown/dropdown.spec
 Web-Component: True
 
 Name: navbar/navbar.spec
@@ -24,3 +30,4 @@ Web-Component: True
 
 Name: rating/rating.spec
 Web-Component: True
+

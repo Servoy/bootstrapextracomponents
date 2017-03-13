@@ -1,0 +1,12 @@
+.svy-wrapper > * > .bootstrap-extra-progressbar {
+	width: 100%;
+    white-space: nowrap;
+}
+
+.bootstrap-extra-progressbar {
+	height: 20px;
+}
+
+.bootstrap-extra-progressbar > .progress-bar {
+	line-height: 20px;
+}
