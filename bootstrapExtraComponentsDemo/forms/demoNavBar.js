@@ -13,6 +13,13 @@ var searchField = 4;
 var invertedNavbar = 0;
 
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"C629C89F-A649-4427-8471-4465C34947D9"}
+ */
+var searchFieldText = "";
+
+/**
  * Called whenever a menu item is clicked or a submenu item is selected with the JSEvent and the menuItem object clicked on.
  *
  * @param {JSEvent} event
@@ -52,6 +59,7 @@ function onDataChange_inverted(oldValue, newValue, event) {
  * @private
  *
  * @properties={typeid:24,uuid:"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34"}
+ * @AllowToRunInFind
  */
 function onAction_createMenu(event) {
 	var menuItems = [];
@@ -60,7 +68,7 @@ function onAction_createMenu(event) {
 	menuItems.push({itemId: '2', text: 'Invoices', tooltip: 'Invoices'});
 	menuItems.push({itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button'});
 	menuItems.push({text: 'Payables', tooltip: 'Payables'});
-	menuItems.push({itemId: '5', text: 'Search account...', displayType: 'INPUT', iconName: 'glyphicon glyphicon-search', tooltip: 'Search'});
+	menuItems.push({itemId: '5', text: 'Search account...', displayType: 'INPUT', dataProvider: 'forms.demoNavBar.searchFieldText', iconName: 'glyphicon glyphicon-search', tooltip: 'Search'});
 	menuItems.push({itemId: '6', text: 'Menu', position: 'RIGHT', tooltip: 'A submenu', subMenuItems: [{itemId: '6.1', text: 'Action'}, {itemId: '6.2', text: 'More action'}, {isDivider: true}, {itemId: '6.3', text: 'Last action'}]});
 	menuItems.push({itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT'});
 	
@@ -142,4 +150,17 @@ function onAction_createIconMenu(event) {
 		menuItems.push({itemId: i, iconName: iconName, tooltip: iconName});
 	}
 	elements.navbar.setMenuItems(menuItems);
+}
+
+/**
+ * Called when the user clicks on the brand logo or text.
+ *
+ * @param {JSEvent} event
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"FC8A259F-8EE2-4292-8F30-21E46DE57F40"}
+ */
+function onBrandClicked(event) {
+	elements.lblLastClick.text = 'Brand Logo/Text clicked';
 }

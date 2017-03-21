@@ -1,7 +1,15 @@
-.navbar-brand>img {
+.navbar-brand > img {
 	height: 100%;
 	padding: 10px 15px 10px 15px;
 	width: auto;
+}
+
+.navbar-brand {
+	cursor: default;
+}
+
+.navbar-brand.clickable {
+	cursor: auto;
 }
 
 nav .navbar-right .dropdown-menu {

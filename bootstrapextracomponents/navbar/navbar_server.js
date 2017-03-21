@@ -20,7 +20,7 @@ $scope.api.addMenuItem = function(menuItem) {
 	if ($scope.model.menuItems) {
 		$scope.model.menuItems.push(menuItem);
 	} else {
-		$scope.model.menuItems = [menuItem];		
+		$scope.model.menuItems = [menuItem];
 	}
 }
 

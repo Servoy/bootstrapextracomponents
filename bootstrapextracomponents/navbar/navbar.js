@@ -9,33 +9,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 			},
 			link: function($scope, $element, $attrs) {
 
-				//add dummy content in designer
-				if ($scope.svyServoyapi.isInDesigner() && !$scope.model.menuItems) {
-					$http({ method: "GET", url: "/bootstrapextracomponents/navbar/navbar_demo.html" }).success(function(data) {
-//						$element.html(data);
-					}
-					);
-				}
-
 				var resolvingDisplayValue = false;
-				
-				$scope.getLeftItems = function() {
-					return filterItems('LEFT');
-				}
-				
-				$scope.getRightItems = function() {
-					return filterItems('RIGHT');
-				}
-				
-				function filterItems(position) {
-					if (!$scope.model.menuItems) {
-						return [];
-					}
-					function filter(item) {
-						return item.position == position || (!item.position && position == 'LEFT');
-					}
-					return $scope.model.menuItems.filter(filter);
-				}
 
 				$scope.formatLabel = function(index) {
 					var menuItem = $scope.model.menuItems[index];
@@ -109,7 +83,6 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 				}
 
 				$scope.onInputChange = function(event, index) {
-					var itemChanged = getItem(event);
 					$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
 				}
 
@@ -197,7 +170,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 						var itemId = event.target.getAttribute('data-menu-item-id');
 						var itemClicked;
 						if (!itemId) {
-							console.log('navBar item "' + event.target.text + '" has no itemId');
+							return null;
 						} else {
 							for (var i = 0; i < $scope.model.menuItems.length; i++) {
 								var menuItem = $scope.model.menuItems[i];

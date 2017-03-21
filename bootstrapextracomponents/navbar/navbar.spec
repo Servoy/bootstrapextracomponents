@@ -65,6 +65,13 @@
 				"name": "menuItem",
 				"type": "menuItem"
 			}]
+		},
+		"onBrandClicked": {
+			"description": "Called when the user clicks on the brand logo or text",
+			"parameters": [{
+				"name": "event",
+				"type": "JSEvent"
+			}]
 		}
 	},
 	"types":

@@ -9,16 +9,16 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a ng-if="model.brandLogo != null" class="navbar-brand" href="#" style="padding: 0px;">
+			<a ng-if="model.brandLogo != null" svy-click="handlers.onBrandClicked($event)" class="navbar-brand {{handlers.onBrandClicked ? 'clickable' : ''}}" href="#" style="padding: 0px;">
 				<img class="{{model.brandLogoStyleClass}}" alt="Logo" ng-src="{{model.brandLogo}}">
 			</a>
-			<a ng-if="model.brandText" class="navbar-brand" href="#">{{model.brandText}}</a>
+			<a ng-if="model.brandText" svy-click="handlers.onBrandClicked($event)" class="navbar-brand {{handlers.onBrandClicked ? 'clickable' : ''}}" href="#">{{model.brandText}}</a>
 		</div><!-- /.navbar-header -->
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse" ng-click="navBarClicked($event, 1)" svy-rightclick="navBarRightClicked($event)">
 			<ul class="nav navbar-nav">
-				<li ng-repeat="menuItem in getLeftItems()" class="{{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
+				<li ng-repeat="menuItem in model.menuItems" ng-if="menuItem.position == 'LEFT'" class="{{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
 					
 					<div ng-if="menuItem.displayType == 'BUTTON'" class="svy-navbar-button">
 						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}}" svy-tooltip="menuItem.tooltip">
@@ -132,7 +132,7 @@
 				</li>
 			</ul><!-- /.navbar-nav -->
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-repeat="menuItem in getRightItems()" class="svy-navbar-button {{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
+				<li ng-repeat="menuItem in model.menuItems" ng-if="menuItem.position == 'RIGHT'" class="svy-navbar-button {{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
 					
 					<div ng-if="menuItem.displayType == 'BUTTON'" class="svy-navbar-button">
 						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}}" svy-tooltip="menuItem.tooltip">
