@@ -37,6 +37,6 @@ function onAction_btnPerformHeavyJob(event) {
 		
 		elements.progressbar_5.setProgress(i, i + ' steps done');
 		
-		application.sleep(50);
+		application.sleep(10);
 	}
 }

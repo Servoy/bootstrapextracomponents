@@ -5,9 +5,9 @@ items:[
 anchors:3,
 formIndex:1,
 horizontalAlignment:4,
-location:"267,40",
+location:"247,40",
 name:"lblSolutionName",
-size:"343,80",
+size:"363,80",
 styleClass:"banner",
 text:"Example Solution",
 transparent:true,
@@ -24,13 +24,6 @@ uuid:"ADE1F06C-EDA5-4DE2-9396-980FC31E39C9"
 {
 anchors:15,
 items:[
-{
-containsFormID:"23134964-6E39-428A-9D18-4B1FD6F2DDD7",
-location:"154,351",
-text:"Carousel",
-typeid:15,
-uuid:"10BFE9BA-8FCE-480C-9864-BED8A02A961D"
-},
 {
 containsFormID:"ECDFAA90-A638-4039-9046-93455568C884",
 location:"68,206",
@@ -106,7 +99,7 @@ uuid:"F21AE5D6-F785-4453-94DC-A23F40777F33"
 },
 {
 anchors:11,
-imageMediaID:"2A3A73F3-1F58-4D8E-934F-CB7EDF6A265B",
+imageMediaID:"4B6AD4F8-FE91-430C-BDAC-8638A60260CF",
 location:"20,0",
 size:"600,120",
 styleClass:"banner-orange",

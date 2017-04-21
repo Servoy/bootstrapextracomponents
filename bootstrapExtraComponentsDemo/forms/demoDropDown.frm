@@ -7,7 +7,7 @@ isButton:false,
 isSplitButton:false,
 location:{
 x:20,
-y:25
+y:30
 },
 menuItems:[
 {
@@ -40,14 +40,14 @@ text:"Something else here"
 ],
 onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
 size:{
-height:30,
-width:180
+height:40,
+width:130
 },
 text:"Drop down link"
 },
-location:"20,25",
+location:"20,30",
 name:"dropdown_link",
-size:"180,30",
+size:"130,40",
 typeName:"bootstrapextracomponents-dropdown",
 typeid:47,
 uuid:"1C61B43D-0657-4D22-82C1-9F4995307C2A"
@@ -58,8 +58,8 @@ enabled:true,
 isButton:true,
 isSplitButton:true,
 location:{
-x:20,
-y:140
+x:290,
+y:30
 },
 menuItems:[
 {
@@ -99,7 +99,7 @@ width:180
 styleClass:"btn-danger",
 text:"Drop split button"
 },
-location:"20,140",
+location:"290,30",
 name:"dropdown_split_button",
 size:"180,40",
 typeName:"bootstrapextracomponents-dropdown",
@@ -107,9 +107,9 @@ typeid:47,
 uuid:"38A11936-09EF-473E-9D86-3ED1290646D8"
 },
 {
-location:"285,170",
+location:"20,220",
 onActionMethodID:"97E7AE30-2519-45EB-B002-804AA928CAFA",
-size:"160,30",
+size:"180,30",
 text:"Remove menu item",
 typeid:7,
 uuid:"429E69EB-17B9-4FAA-9B04-A2ADFFA52CEF"
@@ -126,8 +126,8 @@ enabled:true,
 isButton:true,
 isSplitButton:false,
 location:{
-x:20,
-y:75
+x:150,
+y:30
 },
 menuItems:[
 {
@@ -161,30 +161,30 @@ text:"Something else here"
 onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
 size:{
 height:40,
-width:180
+width:140
 },
 styleClass:"btn-primary",
 text:"Drop button"
 },
-location:"20,75",
+location:"150,30",
 name:"dropdown_button",
-size:"180,40",
+size:"140,40",
 typeName:"bootstrapextracomponents-dropdown",
 typeid:47,
 uuid:"67068611-57D9-4A57-BB01-B7AF1A8BA31A"
 },
 {
-location:"285,80",
+location:"20,130",
 onActionMethodID:"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
-size:"160,30",
+size:"180,30",
 text:"Create DropDown",
 typeid:7,
 uuid:"772F06CF-15AF-405A-9986-5D5B5F838AD8"
 },
 {
-location:"285,125",
+location:"20,175",
 onActionMethodID:"FC2A8371-DDFE-4219-B6C9-32B08625E1E6",
-size:"160,30",
+size:"180,30",
 text:"Add menu item",
 typeid:7,
 uuid:"BFB534DA-A136-49E9-9C1D-70E2331936BB"
@@ -193,16 +193,17 @@ uuid:"BFB534DA-A136-49E9-9C1D-70E2331936BB"
 json:{
 location:{
 x:20,
-y:220
+y:385
 },
 size:{
 height:30,
 width:170
 },
+styleClass:"label_header_4",
 text:"Last action:",
 visible:true
 },
-location:"20,220",
+location:"20,385",
 name:"label_855",
 size:"170,30",
 typeName:"servoydefault-label",
@@ -213,8 +214,8 @@ uuid:"D08F682C-2E39-47F7-8E50-1ED02A351478"
 json:{
 isSplitButton:true,
 location:{
-x:285,
-y:20
+x:20,
+y:90
 },
 onAction:"A0C402B8-B346-4D80-95F9-33EE58B0C564",
 onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
@@ -223,7 +224,7 @@ height:30,
 width:300
 }
 },
-location:"285,20",
+location:"20,90",
 name:"dropdown_api",
 size:"300,30",
 typeName:"bootstrapextracomponents-dropdown",
@@ -231,9 +232,9 @@ typeid:47,
 uuid:"D2BFEE9F-92CC-4278-A7AE-CF456EB94D51"
 },
 {
-location:"285,215",
+location:"20,265",
 onActionMethodID:"AD63293F-8987-4401-863C-387F6A6A7DE6",
-size:"160,30",
+size:"180,30",
 text:"Enable/disable",
 typeid:7,
 uuid:"D90B4A28-05E0-44A9-88C7-08E4179DD435"
@@ -244,14 +245,14 @@ json:{
 anchors:11,
 location:{
 x:20,
-y:260
+y:415
 },
 size:{
 height:30,
 width:600
 }
 },
-location:"20,260",
+location:"20,415",
 name:"lblLastAction",
 size:"600,30",
 typeName:"servoydefault-label",

@@ -39,8 +39,6 @@ function onAction_singleMenuItem(event, menuItem) {
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"C0010BD5-9F61-4511-BADF-54D531CCEFAE"}
  */
 function onAction_createDropDown(event) {
