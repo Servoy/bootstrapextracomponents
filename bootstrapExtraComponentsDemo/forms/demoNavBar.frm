@@ -92,6 +92,7 @@ y:20
 markClickedItemActive:true,
 menuItems:[
 {
+displayType:"BUTTON",
 itemId:"1",
 itemText:"Link 1",
 svyUUID:"A9888801-2C14-4363-8747-3F5BB0F715E6",
@@ -127,7 +128,7 @@ text:"More action"
 },
 {
 enabled:false,
-isDivider:true,
+isDivider:false,
 itemId:"3.3",
 svyUUID:"01D55A10-E171-4B26-8A13-6420A7BA4763"
 },
@@ -148,6 +149,7 @@ dataProvider:"searchField",
 displayType:"INPUT_GROUP",
 iconName:"glyphicon glyphicon-search",
 inputButtonText:"Search",
+isActive:true,
 itemId:"4",
 itemText:"Enter search",
 svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",

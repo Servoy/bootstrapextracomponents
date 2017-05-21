@@ -52,6 +52,13 @@
 				{ "name": "itemId", "type": "string" },
 				{ "name": "enabled", "type": "boolean" }
 			]
+		},
+		"setSubMenuItemEnabled": {
+			"parameters": [
+				{ "name": "itemId", "type": "string" },
+				{ "name": "submenuItemId", "type": "string" },
+				{ "name": "enabled", "type": "boolean" }
+			]
 		}
 	},
 	"handlers": 
@@ -79,6 +86,7 @@
 		"menuItem": {
 			"itemId"							: {"type": "string"},
 			"text"								: {"type": "tagstring"},
+			"enabled"							: {"type": "boolean", "default": true},
 			"userData"							: {"type": "object"},
 			"iconName"							: {"type": "string"},
 			"position"							: {"type": "string", "default": "LEFT", "values": ["LEFT", "RIGHT"]},
@@ -98,7 +106,7 @@
 			"text"								: {"type": "tagstring"},
 			"userData"							: {"type": "object"},
 			"iconName"							: {"type": "string"},
-			"enabled"							: {"type": "enabled"},
+			"enabled"							: {"type": "enabled", "default": true},
 			"onAction" 							: {"type": "function"},
 			"isDivider"							: {"type": "boolean"} 
 		}

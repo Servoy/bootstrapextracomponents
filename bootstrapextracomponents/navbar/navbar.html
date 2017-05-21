@@ -21,7 +21,7 @@
 				<li ng-repeat="menuItem in model.menuItems" ng-if="menuItem.position == 'LEFT'" class="{{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
 					
 					<div ng-if="menuItem.displayType == 'BUTTON'" class="svy-navbar-button">
-						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}}" svy-tooltip="menuItem.tooltip">
+						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" svy-tooltip="menuItem.tooltip">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
 						</a>
 					</div><!-- /.svy-navbar-button -->
@@ -42,9 +42,10 @@
 								svy-enter="navBarClicked($event, $index)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}" 
+								ng-disabled="menuItem.enabled == false ? true : false">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-input -->
@@ -59,9 +60,10 @@
 								svy-enter="navBarClicked($event, $index)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}" 
+								ng-disabled="menuItem.enabled == false ? true : false">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" type="button">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -83,9 +85,10 @@
 								svy-enter="doBlur($event)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}" 
+								ng-disabled="menuItem.enabled == false ? true : false">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
@@ -105,9 +108,10 @@
 								svy-enter="doBlur($event)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}"
+								ng-disabled="menuItem.enabled == false ? true : false">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -118,11 +122,11 @@
 						<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
 					</a><!-- /.svy-navbar-item -->
 
-					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
 						<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}} <span class="caret"></span>
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
-						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}}">
+						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
 							<a href="#" data-menu-item-id="{{subMenuItem.itemId}}">
 								<span ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
 							</a>
@@ -135,7 +139,7 @@
 				<li ng-repeat="menuItem in model.menuItems" ng-if="menuItem.position == 'RIGHT'" class="svy-navbar-button {{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
 					
 					<div ng-if="menuItem.displayType == 'BUTTON'" class="svy-navbar-button">
-						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}}" svy-tooltip="menuItem.tooltip">
+						<a href="#" data-menu-item-id="{{menuItem.itemId}}" class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" svy-tooltip="menuItem.tooltip">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
 						</a>
 					</div><!-- /.svy-navbar-button -->
@@ -156,9 +160,10 @@
 								svy-enter="navBarClicked($event, $index)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}"
+								ng-disabled="menuItem.enabled == false ? true : false">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-input -->
@@ -173,9 +178,10 @@
 								svy-enter="navBarClicked($event, $index)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}"
+								ng-disabled="menuItem.enabled == false ? true : false">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" type="button">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -197,9 +203,10 @@
 								svy-enter="doBlur($event)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}"
+								ng-disabled="menuItem.enabled == false ? true : false">
 						</div>
-						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" data-menu-item-id="{{menuItem.itemId}}">
+						<button ng-if="menuItem.iconName || menuItem.inputButtonText" ng-click="doBlur($event)" class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-menu-item-id="{{menuItem.itemId}}">
 							<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
@@ -219,9 +226,10 @@
 								svy-enter="doBlur($event)" 
 								svy-tooltip="menuItem.tooltip" 
 								data-menu-item-id="{{menuItem.itemId}}" 
-								placeholder="{{menuItem.text}}">
+								placeholder="{{menuItem.text}}"
+								ng-disabled="menuItem.enabled == false ? true : false">
 							<span ng-if="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn" data-menu-item-id="{{menuItem.itemId}}">
-					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
+					        	<button class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}" type="button" ng-click="doBlur($event)" data-menu-item-id="{{menuItem.itemId}}">
 									<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.inputButtonText}}
 								</button>
 					      	</span>
@@ -232,11 +240,11 @@
 						<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
 					</a><!-- /.svy-navbar-item -->
 
-					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
 						<span ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}} <span class="caret"></span>
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
-						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}}">
+						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
 							<a href="#" data-menu-item-id="{{subMenuItem.itemId}}">
 								<span ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
 							</a>

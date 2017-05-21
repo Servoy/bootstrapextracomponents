@@ -57,7 +57,7 @@ $scope.api.setMenuSelected = function(menuItemId) {
 }
 
 /**
- * Sets the menu item with the given item ID to selected
+ * Enables or disables the menu with the given item ID
  * 
  * @param {String} menuItemId
  * @param {Boolean} enabled
@@ -67,6 +67,28 @@ $scope.api.setMenuItemEnabled = function(menuItemId, enabled) {
 		if ($scope.model.menuItems[i].itemId == menuItemId) {
 			$scope.model.menuItems[i].enabled = enabled;
 			break;
+		}
+	}
+}
+
+/**
+ * Enables or disables the submenu with the given item ID of the menu with the given item ID
+ * 
+ * @param {String} menuItemId
+ * @param {String} subMenuItemId
+ * @param {Boolean} enabled
+ */
+$scope.api.setSubMenuItemEnabled = function(menuItemId, subMenuItemId, enabled) {
+	for (var i = 0; i < $scope.model.menuItems.length; i++) {
+		if ($scope.model.menuItems[i].itemId == menuItemId) {
+			if ($scope.model.menuItems[i].subMenuItems) {
+				for (var s = 0; s < $scope.model.menuItems[i].subMenuItems.length; s++) {
+					if ($scope.model.menuItems[i].subMenuItems[s].itemId == subMenuItemId) {
+						$scope.model.menuItems[i].subMenuItems[s].enabled = enabled;
+						break;
+					}
+				}
+			}
 		}
 	}
 }
