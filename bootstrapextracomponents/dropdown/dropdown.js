@@ -121,9 +121,7 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 						//disabled entry
 						return;
 					}
-					console.log(event);
 					var itemClicked = getItem(event);
-					console.log(itemClicked);
 					if (itemClicked && itemClicked.onAction) {
 						var jsEvent = createJSEvent(event);
 						$window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
