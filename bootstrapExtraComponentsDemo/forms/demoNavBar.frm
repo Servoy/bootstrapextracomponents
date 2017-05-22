@@ -84,6 +84,7 @@ json:{
 anchors:11,
 brandLogo:"BAF87A22-88C2-42EE-BD88-D10BAACA7D62",
 brandText:"Servoy Navbar",
+collapsing:false,
 inverse:false,
 location:{
 x:20,
