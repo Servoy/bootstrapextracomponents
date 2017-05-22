@@ -21,7 +21,7 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 						var itemId = event.target.getAttribute('data-menu-item-id');
 						var itemClicked;
 						if (!itemId) {
-							console.log('navBar item "' + event.target.text + '" has no itemId');
+							console.log('dropdown item "' + event.target.text + '" has no itemId');
 						} else {
 							for (var i = 0; i < $scope.model.menuItems.length; i++) {
 								var menuItem = $scope.model.menuItems[i];
@@ -36,7 +36,7 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 							return itemClicked;
 						}
 					} catch (e) {
-						console.log('Error when trying to figure out navbar itemId: ' + e.message);
+						console.log('Error when trying to figure out dropdown itemId: ' + e.message);
 					}
 					return null;
 				}
@@ -99,6 +99,12 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 				}
 
 				$scope.dropDownClicked = function(event) {
+					var element = event.currentTarget;
+					var ul = $('#button-dropdown-ul-' + $scope.model.svyMarkupId);
+					if (element && ul) {
+						var boundingRect = element.getBoundingClientRect();
+						ul.attr('style', 'position: fixed; left: ' + boundingRect.left + 'px; top: ' + (boundingRect.top + boundingRect.height + 2) + 'px;')
+					}
 					if (event.target.id === 'button-dropdown-' + $scope.model.svyMarkupId) {
 						//click on the menu caret on a split button or on a non split button
 						return;

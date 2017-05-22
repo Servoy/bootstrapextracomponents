@@ -15,7 +15,8 @@
       </a>
       <ul 
 		class="bts-extra-dropdown-menu dropdown-menu" 
-		role="menu">
+		role="menu"
+		id="button-dropdown-ul-{{::model.svyMarkupId}}">
         <li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
 			<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 				<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
@@ -42,7 +43,8 @@
 		<ul 
 			class="bts-extra-dropdown-menu dropdown-menu"
 			role="menu"
-			aria-labelledby="button-dropdown-{{::model.svyMarkupId}}">
+			aria-labelledby="button-dropdown-{{::model.svyMarkupId}}"
+			id="button-dropdown-ul-{{::model.svyMarkupId}}">
 			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
 				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
@@ -77,7 +79,8 @@
 			class="bts-extra-dropdown-menu dropdown-menu"
 			role="menu" 
 			ng-if="model.menuItems && model.menuItems.length > 0"
-			aria-labelledby="button-{{::model.svyMarkupId}}">
+			aria-labelledby="button-{{::model.svyMarkupId}}"
+			id="button-dropdown-ul-{{::model.svyMarkupId}}">
 			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
 				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
