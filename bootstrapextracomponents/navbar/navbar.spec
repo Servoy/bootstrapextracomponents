@@ -16,12 +16,13 @@
 		"brandLogo"								: {"type": "media"},
 		"brandLogoStyleClass" 					: {"type": "styleclass"},
 		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "allow"},
-		"visible"								: "visible",
-		"inverse"								: "boolean",
+		"visible"								: {"type": "visible"},
+		"inverse"								: {"type": "boolean"},
 		"fixed"									: {"type": "string", "default": null, "values": ["top", "bottom"]},
 		"markClickedItemActive"					: {"type": "boolean"},
 		"size" 									: {"type" :"dimension",  "default" : {"width":600, "height":50}}, 
-    	"location" 								: "point"
+    	"location" 								: {"type": "point"},
+    	"collapsing"							: {"type": "boolean", "default": false}
 	},
 	"api": 
 	{
