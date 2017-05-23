@@ -38,6 +38,14 @@ typeid:47,
 uuid:"38C844F8-31F9-4F82-818C-F478C5A42728"
 },
 {
+location:"520,200",
+onActionMethodID:"DF0B5339-9EDD-4562-B335-A90A68C345EF",
+size:"110,35",
+text:"Enable item",
+typeid:7,
+uuid:"8AFB2086-AE84-4C7D-8B98-35026C82C30D"
+},
+{
 height:480,
 partType:5,
 typeid:19,

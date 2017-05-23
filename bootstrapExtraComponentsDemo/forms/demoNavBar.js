@@ -164,3 +164,19 @@ function onAction_createIconMenu(event) {
 function onBrandClicked(event) {
 	elements.lblLastClick.text = 'Brand Logo/Text clicked';
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"DF0B5339-9EDD-4562-B335-A90A68C345EF"}
+ */
+function onAction_enableDisable(event) {
+	var items = elements.navbar.menuItems;
+	if (items && items.length > 0) {
+		elements.navbar.setMenuItemEnabled(items[0].itemId, !items[0].enabled);
+	}
+}
