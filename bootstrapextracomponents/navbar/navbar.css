@@ -13,14 +13,5 @@
 }
 
 nav .navbar-right .dropdown-menu {
-	/* TODO what is this for ? */
     right: auto;
-}
-
-.bootstrap-extra-navbar .dropdown-menu {
-	position: absolute;	
-}
-
-.bootstrap-extra-navbar .navbar-right .dropdown-menu  {
-	right: 0;
 }
