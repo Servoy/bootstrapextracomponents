@@ -13,7 +13,8 @@
 			type="button"
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
-			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'>
+			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
+			sablo-tabseq='model.tabSeq'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
     </div>
@@ -51,7 +52,8 @@
 			type="button"
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
-			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'>
+			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
+			sablo-tabseq='model.tabSeq'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
     </div>
