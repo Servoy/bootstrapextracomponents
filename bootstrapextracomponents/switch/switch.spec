@@ -22,13 +22,11 @@
 	        "offColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},
 	        "radioOff" : {"type": "boolean", "default": true},	        
 	        "label" : { "type" : "tagstring" ,"default": "Switch" },
-	        "icon" : { "type" : "tagstring" ,"default": "" },
 	        "labelWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "handleWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "componentSize" : { "type" : "tagstring" ,"default": "Normal", "values":[{"Mini":"mini"},{"Small":"small"},{"Normal":"normal"},{"Large":"large"}] },
 			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},
-			"valuelistID" : { "type" : "valuelist", "tags": { "scope" :"design" }, "for": "dataProviderID"},
-			"selectedValue" : { "type" : "string" },			
+			"valuelistID" : { "type" : "valuelist", "tags": { "scope" :"design" }, "for": "dataProviderID"},			
 	        "visible" : "visible"
 	},
 	"handlers":
