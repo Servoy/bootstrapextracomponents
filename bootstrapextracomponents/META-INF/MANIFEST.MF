@@ -31,3 +31,6 @@ Web-Component: True
 Name: rating/rating.spec
 Web-Component: True
 
+Name: switch/switch.spec
+Web-Component: True
+
