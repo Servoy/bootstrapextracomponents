@@ -22,7 +22,8 @@
 		"markClickedItemActive"					: {"type": "boolean"},
 		"size" 									: {"type" :"dimension",  "default" : {"width":600, "height":50}}, 
     	"location" 								: {"type": "point"},
-    	"collapsing"							: {"type": "boolean", "default": false}
+    	"collapsing"							: {"type": "boolean", "default": false},
+    	"collapseOnClick"							: {"type": "boolean", "default": true}
 	},
 	"api": 
 	{
