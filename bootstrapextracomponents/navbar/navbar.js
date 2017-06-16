@@ -8,7 +8,17 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 				svyServoyapi: "="
 			},
 			link: function($scope, $element, $attrs) {
-
+				$scope.collapseClass = 'collapse';
+				
+				$(window).on('resize', function () {
+				   if ($(window).width() > 768) {
+					   $scope.collapseClass = 'collapse in'
+				   }
+				   if ($(window).width() < 768) {
+					   $scope.collapseClass = 'collapse'
+				   }
+				})
+				
 				var resolvingDisplayValue = false;
 
 				$scope.formatLabel = function(index) {
