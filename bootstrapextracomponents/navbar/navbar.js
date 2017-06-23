@@ -210,8 +210,15 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     return;
                 }
 
-                // adjust fixed position of navbar dropdown when right aligned
+                /** adjust fixed position of navbar dropdown when right aligned */
                 var $target = $(event.target);
+                                
+                // if the user clicked on the icon contained in the navbar-dropdown 'anchor' set target to the parent (which contains svy-navar-dropdown)
+                if ($target.parent().hasClass('svy-navbar-dropdown')) {
+                	$target = $target.parent();
+                }
+                
+                // if clicked on a dropdown menu
                 if ($target.hasClass('svy-navbar-dropdown')) { // if is a dropdown menu
                     var parent = $target.parent();
                     var nav = $target.closest('.navbar-nav'); // closest navbar anchestor
@@ -220,7 +227,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     // only if is right aligned
                     if (nav && ul && nav.hasClass('navbar-right')) {
                         // location relative to viewport
-                        var boundingRect = event.target.getBoundingClientRect();
+                        var boundingRect = $target[0].getBoundingClientRect();
 
                         // viewport right corner
                         var right = $(window).width() - (boundingRect.left + boundingRect.width);
