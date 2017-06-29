@@ -219,6 +219,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 }
                 
                 // if clicked on a dropdown menu
+                
                 if ($target.hasClass('svy-navbar-dropdown')) { // if is a dropdown menu
                     var parent = $target.parent();
                     var nav = $target.closest('.navbar-nav'); // closest navbar anchestor
@@ -226,16 +227,24 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 
                     // only if is right aligned
                     if (nav && ul && nav.hasClass('navbar-right')) {
-                        // location relative to viewport
-                        var boundingRect = $target[0].getBoundingClientRect();
-
-                        // viewport right corner
-                        var right = $(window).width() - (boundingRect.left + boundingRect.width);
-                        var top = boundingRect.top + boundingRect.height;
-                        ul.attr('style', 'position: fixed; right: ' + right + 'px; top: ' + top + 'px;')
+                    	
+                    	
+                        // make sure the menu is not collapsed because min-width < 768
+                        var viewPortWidth = $(window).width();
+                    	if (viewPortWidth >= 768) {
+	                    	
+	                        // location relative to viewport
+	                        var boundingRect = $target[0].getBoundingClientRect();
+	
+	                        // viewport right corner
+	                        var right = $(window).width() - (boundingRect.left + boundingRect.width);
+	                        var top = boundingRect.top + boundingRect.height;
+	                        ul.attr('style', 'position: fixed; right: ' + right + 'px; top: ' + top + 'px;')
+                    	} else {		// restore default style for the list dropdown
+	                        ul.attr('style', 'position: static; right: auto; top: 100%');
+                    	}
                     }
                 }
-
                 var itemClicked = getItem(event);
                 makeItemActive(itemClicked);
                 if (itemClicked && itemClicked.onAction) {
