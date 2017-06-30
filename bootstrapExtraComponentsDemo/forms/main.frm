@@ -99,7 +99,7 @@ uuid:"F21AE5D6-F785-4453-94DC-A23F40777F33"
 },
 {
 anchors:11,
-imageMediaID:"4B6AD4F8-FE91-430C-BDAC-8638A60260CF",
+imageMediaID:"784D56FB-FF89-4A5D-AED4-FB1730A774F7",
 location:"20,0",
 size:"600,120",
 styleClass:"banner-orange",
