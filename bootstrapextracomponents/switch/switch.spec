@@ -14,7 +14,7 @@
 	{	
 		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 
 	        "editable" : { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProviderID","onDataChangeMethodID"] }, 
-	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID","onFocusGainedMethodID","onFocusLostMethodID","onRightClickMethodID"] }, 	        
+	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] }, 	        
 	        "styleClass" : { "type" :"styleclass", "tags": { "scope" :"design" }, "default":"switch"},
 	        "animate" : { "type" : "boolean" ,"default": true },
 	        "onText" : { "type" : "tagstring" ,"default": "On" },
@@ -57,48 +57,9 @@
 								  "type":"JSEvent"
 								} 
 							 ]
-	        }, 
-	        "onFocusGainedMethodID" : {
-	         	
-	        	"parameters":[
-								{
-						          "name":"event",
-								  "type":"JSEvent"
-								} 
-							 ]
-	        }, 
-	        "onFocusLostMethodID" : {
-	         	
-	        	"parameters":[
-								{
-						          "name":"event",
-								  "type":"JSEvent"
-								} 
-							 ]
-	        }, 
-	        "onRightClickMethodID" : {
-	         	
-	        	"parameters":[
-								{
-						          "name":"event",
-								  "type":"JSEvent"
-								} 
-							 ]
-	        } 
+	        }
 	},
 	"api":
 	{
-		 "requestFocus": {
-				"parameters":[
-								{                                                                 
- 								"name":"mustExecuteOnFocusGainedMethod",
-								"type":"boolean",
-			            		"optional":true
-			            		}             
-							 ],
-				"delayUntilFormLoads": true,
-			"discardPreviouslyQueuedSimilarCalls": true
-
-	        }
 	}
 }
