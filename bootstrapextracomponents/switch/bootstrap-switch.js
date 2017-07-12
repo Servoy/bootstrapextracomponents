@@ -618,14 +618,14 @@
         var _this6 = this;
 
         this.$on.on('click.bootstrapSwitch', function (event) {        	
-        	console.log('on')
+//        	console.log('on')
 //        	event.preventDefault();
           event.stopPropagation();
           _this6.state(false);        			
 //          return _this6.$element.trigger('focus.bootstrapSwitch');
         });
         return this.$off.on('click.bootstrapSwitch', function (event) {
-        	console.log('off')
+//        	console.log('off')
 //          event.preventDefault();
           event.stopPropagation();
           _this6.state(true);
