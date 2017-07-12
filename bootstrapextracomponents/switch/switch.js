@@ -38,8 +38,8 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						$scope.model.dataProviderID = $scope.model.valuelistID[$index].realValue;			
 						setSelectionFromDataprovider();
 					} else {
-						if ($scope.model.selection) {
-							$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.model.selection ? null : $scope.model.selection;
+						if ($scope.selection) {
+							$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.selection ? 0 : $scope.selection;
 						} else if (angular.isString($scope.model.dataProviderID)) {
 							$scope.model.dataProviderID = $scope.model.dataProviderID == "1" ? "0" : "1";
 						} else {
@@ -47,11 +47,13 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						}
 					}
 					$scope.svyServoyapi.apply('dataProviderID');
+					if (typeof $scope.handlers.onActionMethodID === 'function')
 					$scope.handlers.onActionMethodID($event);
 
 				}
 
 				function setSelectionFromDataprovider() {
+					if (!$scope.model.valuelistID) return;
 					$scope.radioSelection = [];
 					if ($scope.model.dataProviderID === null || $scope.model.dataProviderID === undefined) return;
 					var arr = $scope.model.dataProviderID.split ? $scope.model.dataProviderID.split('\n') : [$scope.model.dataProviderID];
@@ -75,8 +77,8 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 					} else {
 
 						if (!$scope.model.dataProviderID) return false;
-						if ($scope.model.selectedValue) {
-							return $scope.model.dataProviderID == $scope.model.selectedValue;
+						if ($scope.selection) {
+							return $scope.model.dataProviderID == $scope.selection;
 						}
 						if (angular.isString($scope.model.dataProviderID)) {
 							return $scope.model.dataProviderID == "1";
