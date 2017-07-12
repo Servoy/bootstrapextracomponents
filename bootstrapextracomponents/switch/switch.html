@@ -1,14 +1,12 @@
-<label class='' 
-	 style="width:100%;	height:100%" >
+<div class='model.styleClass'>
+<label>
 	<input type="checkbox"
-		    ng-model ="selection"
-			
+		    ng-model ="selection"			
 			sablo-tabseq='model.tabSeq'
 			ng-click="checkBoxClicked($event)"
             svy-focusgained='handlers.onFocusGainedMethodID($event)'
 	   	    svy-focuslost='handlers.onFocusLostMethodID($event)'
-			id="{{::model.svyMarkupId}}"
-			
+			id="{{::model.svyMarkupId}}"			
 			bs-switch
 			switch-active="{{ model.enabled }}"
     		switch-readonly="{{ readOnly.editable }}"
@@ -22,7 +20,7 @@
     		switch-off-color="{{ model.offColor }}"
 			switch-label-width="{{ model.labelWidth }}"
     		switch-handle-width="{{ model.handleWidth }}"
-			switch-radio-off="{{ model.radioOff }}"
-	
+			switch-radio-off="{{ model.radioOff }}"	
 			/>
 </label>
+</div>
