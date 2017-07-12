@@ -1,52 +1,28 @@
-<div ng-class='model.styleClass' ng-if='model.visible' id="{{::model.svyMarkupId}}">
-<div class='bts-switch' ng-if="!isRadio">
-    <input    
-    type="checkbox" 
-    bs-switch
-    ng-model="selection" 
-    sablo-tabseq='model.tabSeq' 
-    ng-disabled="model.readOnly || !model.enabled"     
-    switch-active="{{ model.enabled }}"
-    switch-readonly="{{ readOnly.readOnly }}"
-    switch-size="{{ model.componentSize }}"
-    switch-animate="{{ model.animate }}"
-    switch-label="{{ model.label }}"
-    switch-icon="{{ model.icon }}"
-    switch-on-text="{{model.onText}}"
-    switch-off-text="{{model.offText}}"
-    switch-on-color="{{ model.onColor }}"
-    switch-off-color="{{ model.offColor }}"
-    switch-radio-off="{{ model.radioOff }}"
-    switch-label-width="{{ model.labelWidth }}"
-    switch-handle-width="{{ model.handleWidth }}"
-    ng-change="switchClicked()">
-    
-    </div>
-    
-    <div class='bts-switchgroup' ng-if="isRadio">
-    <input ng-repeat="item in model.valuelistID"    
-    bs-switch    
-    type="radio" 
-    ng-value="item.realValue"
-    ng-model="radioSelection[$index]" 
-    sablo-tabseq='model.tabSeq' 
-    ng-disabled="model.readOnly || !model.enabled"     
-    switch-active="{{ model.enabled }}"
-    switch-readonly="{{ readOnly.readOnly }}"
-    switch-size="{{ model.componentSize }}"
-    switch-animate="{{ model.animate }}"
-    switch-label="{{ item.displayValue }}"
-    switch-icon="{{ model.icon }}"
-    switch-on-text="{{model.onText}}"
-    switch-off-text="{{model.offText}}"
-    switch-on-color="{{ model.onColor }}"
-    switch-off-color="{{ model.offColor }}"
-    switch-radio-off="{{ model.radioOff }}"
-    switch-label-width="{{ model.labelWidth }}"
-    switch-handle-width="{{ model.handleWidth }}"
-    ng-change="switchClicked($event,$index)"
-    >
-
-</div>
-
-</div>
+<label class='' 
+	 style="width:100%;	height:100%" >
+	<input type="checkbox"
+		    ng-model ="selection"
+			
+			sablo-tabseq='model.tabSeq'
+			ng-click="checkBoxClicked($event)"
+            svy-focusgained='handlers.onFocusGainedMethodID($event)'
+	   	    svy-focuslost='handlers.onFocusLostMethodID($event)'
+			id="{{::model.svyMarkupId}}"
+			
+			bs-switch
+			switch-active="{{ model.enabled }}"
+    		switch-readonly="{{ readOnly.editable }}"
+    		switch-size="{{ model.componentSize }}"
+    		switch-animate="{{ model.animate }}"
+ 			switch-label="{{ model.label }}"
+    		switch-icon="{{ model.icon }}"
+    		switch-on-text="{{model.onText}}"
+    		switch-off-text="{{model.offText}}"
+    		switch-on-color="{{ model.onColor }}"
+    		switch-off-color="{{ model.offColor }}"
+			switch-label-width="{{ model.labelWidth }}"
+    		switch-handle-width="{{ model.handleWidth }}"
+			switch-radio-off="{{ model.radioOff }}"
+	
+			/>
+</label>

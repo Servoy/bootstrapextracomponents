@@ -617,17 +617,19 @@
       value: function _handleHandlers() {
         var _this6 = this;
 
-        this.$on.on('click.bootstrapSwitch', function (event) {
-          event.preventDefault();
+        this.$on.on('click.bootstrapSwitch', function (event) {        	
+        	console.log('on')
+//        	event.preventDefault();
           event.stopPropagation();
-          _this6.state(false);
-          return _this6.$element.trigger('focus.bootstrapSwitch');
+          _this6.state(false);        			
+//          return _this6.$element.trigger('focus.bootstrapSwitch');
         });
         return this.$off.on('click.bootstrapSwitch', function (event) {
-          event.preventDefault();
+        	console.log('off')
+//          event.preventDefault();
           event.stopPropagation();
           _this6.state(true);
-          return _this6.$element.trigger('focus.bootstrapSwitch');
+//          return _this6.$element.trigger('focus.bootstrapSwitch');
         });
       }
     }, {
@@ -641,7 +643,7 @@
           },
 
 
-          'mousedown.bootstrapSwitch touchstart.bootstrapSwitch': function mousedownBootstrapSwitchTouchstartBootstrapSwitch(event) {
+          'mousedown.bootstrapSwitch touchstart.bootstrapSwitch': function mousedownBootstrapSwitchTouchstartBootstrapSwitch(event) {        	  
             if (_this7._dragStart || _this7.options.disabled || _this7.options.readonly) {
               return;
             }
@@ -651,20 +653,20 @@
             if (_this7.options.animate) {
               _this7.$wrapper.removeClass(_this7._getClass('animate'));
             }
-            _this7.$element.trigger('focus.bootstrapSwitch');
+//            _this7.$element.trigger('focus.bootstrapSwitch');
           },
 
           'mousemove.bootstrapSwitch touchmove.bootstrapSwitch': function mousemoveBootstrapSwitchTouchmoveBootstrapSwitch(event) {
-            if (_this7._dragStart == null) {
-              return;
-            }
-            var difference = (event.pageX || event.originalEvent.touches[0].pageX) - _this7._dragStart;
-            event.preventDefault();
-            if (difference < -_this7._handleWidth || difference > 0) {
-              return;
-            }
-            _this7._dragEnd = difference;
-            _this7.$container.css('margin-left', _this7._dragEnd + 'px');
+//            if (_this7._dragStart == null) {
+//              return;
+//            }
+//            var difference = (event.pageX || event.originalEvent.touches[0].pageX) - _this7._dragStart;
+//            event.preventDefault();
+//            if (difference < -_this7._handleWidth || difference > 0) {
+//              return;
+//            }
+//            _this7._dragEnd = difference;
+//            _this7.$container.css('margin-left', _this7._dragEnd + 'px');
           },
 
           'mouseup.bootstrapSwitch touchend.bootstrapSwitch': function mouseupBootstrapSwitchTouchendBootstrapSwitch(event) {
@@ -686,7 +688,7 @@
           },
 
           'mouseleave.bootstrapSwitch': function mouseleaveBootstrapSwitch() {
-            _this7.$label.trigger('mouseup.bootstrapSwitch');
+//            _this7.$label.trigger('mouseup.bootstrapSwitch');
           }
         };
         this.$label.on(handlers);

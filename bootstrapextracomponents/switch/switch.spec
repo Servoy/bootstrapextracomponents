@@ -10,10 +10,10 @@
 	{"name":"angular-bootstrap-switch.js", "version":"0.5.2", "url":"bootstrapextracomponents/switch/angular-bootstrap-switch.js", "mimetype":"text/javascript"}
 	],
 	"model":
-	{
-		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope" :"design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}},
-	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] },
-	        "readOnly" : { "type": "protected", "blockingOn": true, "default": false, "for": ["dataProviderID","onDataChangeMethodID"], "tags": {"scope":"runtime"} },
+	{	
+		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 
+	        "editable" : { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProviderID","onDataChangeMethodID"] }, 
+	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID","onFocusGainedMethodID","onFocusLostMethodID","onRightClickMethodID"] }, 	        
 	        "styleClass" : { "type" :"styleclass", "tags": { "scope" :"design" }, "default":"switch"},
 	        "animate" : { "type" : "boolean" ,"default": true },
 	        "onText" : { "type" : "tagstring" ,"default": "On" },
@@ -25,45 +25,79 @@
 	        "labelWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "handleWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "componentSize" : { "type" : "tagstring" ,"default": "Normal", "values":[{"Mini":"mini"},{"Small":"small"},{"Normal":"normal"},{"Large":"large"}] },
-			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},
-			"valuelistID" : { "type" : "valuelist", "tags": { "scope" :"design" }, "for": "dataProviderID"},			
+			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},					
 	        "visible" : "visible"
 	},
 	"handlers":
 	{
-	         "onActionMethodID" : {
-
+	        "onActionMethodID" : {
+	         	
 	        	"parameters":[
 								{
 						          "name":"event",
 								  "type":"JSEvent"
-								}
+								} 
 							 ]
-	        },
+	        }, 
 	        "onDataChangeMethodID" : {
-	          "returns": "boolean",
-
+	          "returns": "boolean", 
+	         	
 	        	"parameters":[
 								{
 						          "name":"oldValue",
 								  "type":"${dataproviderType}"
-								},
+								}, 
 								{
 						          "name":"newValue",
 								  "type":"${dataproviderType}"
-								},
+								}, 
 								{
 						          "name":"event",
 								  "type":"JSEvent"
-								}
+								} 
 							 ]
-	        }
+	        }, 
+	        "onFocusGainedMethodID" : {
+	         	
+	        	"parameters":[
+								{
+						          "name":"event",
+								  "type":"JSEvent"
+								} 
+							 ]
+	        }, 
+	        "onFocusLostMethodID" : {
+	         	
+	        	"parameters":[
+								{
+						          "name":"event",
+								  "type":"JSEvent"
+								} 
+							 ]
+	        }, 
+	        "onRightClickMethodID" : {
+	         	
+	        	"parameters":[
+								{
+						          "name":"event",
+								  "type":"JSEvent"
+								} 
+							 ]
+	        } 
 	},
 	"api":
 	{
-		"requestFocus": {
+		 "requestFocus": {
+				"parameters":[
+								{                                                                 
+ 								"name":"mustExecuteOnFocusGainedMethod",
+								"type":"boolean",
+			            		"optional":true
+			            		}             
+							 ],
 				"delayUntilFormLoads": true,
-				"discardPreviouslyQueuedSimilarCalls": true
+			"discardPreviouslyQueuedSimilarCalls": true
+
 	        }
 	}
 }
