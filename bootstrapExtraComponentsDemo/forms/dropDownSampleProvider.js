@@ -25,7 +25,7 @@ function getDescription() {
 * @properties={typeid:24,uuid:"C29C9BD1-3C21-4389-8337-6845B3354983"}
 */
 function getParent() {
-	return forms.bootstrapExtraSampleProvider;
+	return forms.commonComponentSamples;
 }
 
 /**

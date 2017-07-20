@@ -19,14 +19,14 @@ function getDescription() {
 	return 'Bootstrap Extra Progress Bar';
 }
 
-/**
+/** 
 *
 * @return {RuntimeForm<AbstractMicroSample>}
 *
 * @properties={typeid:24,uuid:"FCE9BF6E-B9C9-4F86-8A61-8B9B030DD1BE"}
 */
 function getParent() {
-	return forms.bootstrapExtraSampleProvider;
+	return forms.commonComponentSamples;
 }
 
 /**
