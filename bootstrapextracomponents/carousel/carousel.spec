@@ -50,6 +50,15 @@
 			]
 		}
 	},
+	"handlers": 
+	{
+		"onSlideClicked": {
+			"parameters": [
+				{ "name": "event", "type": "JSEvent" },
+				{ "name": "slide", "type": "slide" }
+			]
+		}
+	},
 	"types": 
 	{
 		"slide": {

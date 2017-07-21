@@ -12,12 +12,14 @@
 			class="bts-extra-carousel-img"
 			ng-style="model.imageCssInternal" 
 			ng-if="model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" 
+			ng-click="onClick($event,slide)"
 			btse-carousel-smart-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}"
 			btse-carousel-smart-src-watch="slide.active" 
 		>
 		<img 
 			class="bts-extra-carousel-img" 
 			ng-style="model.imageCssInternal" 
+			ng-click="onClick($event,slide)"
 			ng-if="!model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" ng-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}" 
 		>
 		<div ng-if="slide.caption" class="carousel-caption">

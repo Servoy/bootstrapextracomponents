@@ -100,6 +100,7 @@ y:47
 },
 noPause:false,
 noTransition:false,
+onSlideClicked:"34B28027-34B3-4085-9669-BEF987400206",
 size:{
 height:400,
 width:533

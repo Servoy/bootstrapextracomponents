@@ -193,13 +193,31 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					}
 				}, true);
 			},
-			controller: function($scope, $element, $attrs) {
+			controller: function($scope, $element, $attrs, $utils) {
 				if ($scope.svyServoyapi.isInDesigner() && !($scope.model.slides || $scope.model.slides.length == 0)) {
 					$scope.model.slides = [
 						{ image: 'http://lorempixel.com/400/200/' }, 
 						{ image: 'http://lorempixel.com/400/200/food' }, 
 						{ image: 'http://lorempixel.com/400/200/sports' }, 
 						{ image: 'http://lorempixel.com/400/200/people' }];
+				}
+				
+				function getSlide(slide) {
+					var result = {imageUrl: null, caption: null};
+					if (slide.image && slide.image.url) {
+						result.imageUrl = slide.image.url;
+					}
+					if (slide.caption) {
+						result.caption = slide.caption;
+					}
+					return result;
+				}
+				
+				$scope.onClick = function(event, slide) {
+					if ($scope.handlers.onSlideClicked) {
+						var jsEvent = $utils.createJSEvent(event, 'action');
+						$scope.handlers.onSlideClicked(jsEvent, getSlide(slide));
+					}
 				}
 			},
 			templateUrl: 'bootstrapextracomponents/carousel/carousel.html'

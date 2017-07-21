@@ -154,3 +154,15 @@ function onDataChange_noPause(oldValue, newValue, event) {
 function onAction_btnRemoveSlide(event) {
 	elements.carousel.removeSlide(0);
 }
+
+/**
+ * @param {JSEvent} event
+ * @param {bootstrapextracomponents-carousel.slide} slide
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"34B28027-34B3-4085-9669-BEF987400206"}
+ */
+function onSlideClicked(event, slide) {
+	application.output('Click on slide ' + slide.imageUrl);
+}
