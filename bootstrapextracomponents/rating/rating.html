@@ -1,15 +1,15 @@
 <div class="bts-extra-rating">
-	<rating 
+	<span uib-rating 
 		id="{{::model.svyMarkupId}}"
 		ng-model="model.dataProviderID" 
 		max="model.max" 
 		readonly="!model.enabled"
-		on-leave="onLeave()"
-		on-hover="onHover(value)"
+		on-leave="onLeave($event)"
+		on-hover="onHover(value, $event)"
 		state-on="model.stateOn" 
 		state-off="model.stateOff" 
 		ng-if='model.visible'
 	>
-	</rating>
+	</span>
 	<span class="label" ng-class="'label-info lb-lg'" ng-show="model.showPercentageOnHover && overStar && !isReadonly">{{percent}}%</span>
 </div>
