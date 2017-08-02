@@ -69,7 +69,7 @@ uuid:"6CC3BCD8-D8D5-4D86-B394-273B722F876A"
 {
 containsFormID:"782E21C8-0877-4BE9-B043-75F937DD3C2C",
 location:"213,326",
-text:"demoSwitches",
+text:"Switches",
 typeid:15,
 uuid:"B0096AFB-B31A-49F0-B86E-3106BDEE74F0"
 },
