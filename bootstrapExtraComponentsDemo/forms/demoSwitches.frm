@@ -13,7 +13,7 @@ parameters:[\
 ]\
 }\
 }",
-location:"97,263",
+location:"97,255",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -33,7 +33,7 @@ label:"Switch Colors",
 labelWidth:"300",
 location:{
 x:5,
-y:211
+y:209
 },
 offColor:"primary",
 onColor:"primary",
@@ -42,7 +42,7 @@ height:43,
 width:380
 }
 },
-location:"5,211",
+location:"5,209",
 name:"switch_color",
 size:"380,43",
 typeName:"bootstrapextracomponents-switch",
@@ -62,7 +62,7 @@ parameters:[\
 ]\
 }\
 }",
-location:"251,263",
+location:"251,255",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -84,7 +84,7 @@ parameters:[\
 ]\
 }\
 }",
-location:"159,263",
+location:"159,255",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -94,7 +94,7 @@ typeid:7,
 uuid:"85AA6A28-9080-4BC1-8EF8-305D4B0EF78D"
 },
 {
-location:"5,188",
+location:"5,186",
 size:"150,20",
 text:"Colors & Text Properties",
 transparent:true,
@@ -112,7 +112,7 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:148
+y:145
 },
 offColor:"primary",
 onColor:"primary",
@@ -121,7 +121,7 @@ height:37,
 width:257
 }
 },
-location:"5,148",
+location:"5,145",
 name:"switch_sizecc",
 size:"257,37",
 typeName:"bootstrapextracomponents-switch",
@@ -172,18 +172,18 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:110
+y:108
 },
 offColor:"primary",
 onColor:"primary",
 size:{
 height:33,
-width:207
+width:217
 }
 },
-location:"5,110",
+location:"5,108",
 name:"switch_sizec",
-size:"207,33",
+size:"217,33",
 typeName:"bootstrapextracomponents-switch",
 typeid:47,
 uuid:"BED08D27-56D6-484C-A4A6-CCB2A0F46DC0"
@@ -201,7 +201,7 @@ parameters:[\
 ]\
 }\
 }",
-location:"5,263",
+location:"5,255",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -230,7 +230,7 @@ parameters:[\
 ]\
 }\
 }",
-location:"344,263",
+location:"344,255",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

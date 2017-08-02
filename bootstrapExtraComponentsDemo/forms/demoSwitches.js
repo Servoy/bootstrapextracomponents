@@ -19,10 +19,9 @@ function onAction$updateColor(event, color) {
 	{
 		var name = elements.allnames[i];
 		var elem = elements[name];
-		if (elem['onColor'] && elem['offColor']) {
-			elem['label'] = color
-			elem['onColor'] = color
-			elem['offColor'] = color
+		if (elem['onColor'] && elem['offColor']) {					
+			elem['onColor'] = color;
+			elem['offColor'] = color;
 		}
 	}	
 }
