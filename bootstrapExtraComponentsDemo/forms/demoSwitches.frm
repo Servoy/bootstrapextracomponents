@@ -256,12 +256,12 @@ offColor:"primary",
 onColor:"primary",
 size:{
 height:23,
-width:179
+width:149
 }
 },
 location:"5,27",
 name:"switch_a",
-size:"179,23",
+size:"149,23",
 typeName:"bootstrapextracomponents-switch",
 typeid:47,
 uuid:"ED43ACF8-AAC7-4C8C-A489-3D0231FFEC10"
