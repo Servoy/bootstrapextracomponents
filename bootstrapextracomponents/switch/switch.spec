@@ -12,8 +12,7 @@
 	],
 	"model":
 	{	
-		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 
-	        "editable" : { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProviderID","onDataChangeMethodID"] }, 
+		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 	        
 	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] }, 	        
 	        "styleClass" : { "type" :"styleclass", "tags": { "scope" :"design" }, "default":"switch"},
 	        "animate" : { "type" : "boolean" ,"default": true },

@@ -1,6 +1,6 @@
 /**
  * @type {Boolean}
  *
- * @properties={typeid:35,uuid:"606091AC-E3D8-4BD9-A013-15C76E65B206",variableType:-4}
+ * @properties={typeid:35,uuid:"10A417B8-C195-4FC6-851E-7E084EFC9F1F",variableType:-4}
  */
-var switch_a = false;
+var switches_a = true;
