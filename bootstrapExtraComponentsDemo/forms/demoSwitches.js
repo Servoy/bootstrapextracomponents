@@ -50,7 +50,7 @@ function onAction$updateColor(event, color) {
  * @properties={typeid:24,uuid:"A80867E5-6DA4-439F-A91F-6C2EE61DD2E9"}
  */
 function onDataChangeMethodID(oldValue, newValue, event) {
-	for (var i = 0; i < elements.allnames.length-1; i++) {
+	for (var i = 0; i < elements.allnames.length; i++) {
 		var name = elements.allnames[i];
 		var elem = elements[name];		
 		if (elem['onColor'] && elem['offColor'] && name!='switch_enable') {
