@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"707D93D7-86D4-4B17-A3FB-6CD701E57000"}
+ */
+var switchRadio = '3';
+
+/**
  * @type {Boolean}
  *
  * @properties={typeid:35,uuid:"54843FFA-BB0D-484B-A6DC-0387B3CD8474",variableType:-4}
@@ -36,7 +43,6 @@ function onAction$updateColor(event, color) {
  * @param oldValue
  * @param newValue
  * @param {JSEvent} event
- *
  * @return {boolean}
  *
  * @private
@@ -44,7 +50,7 @@ function onAction$updateColor(event, color) {
  * @properties={typeid:24,uuid:"A80867E5-6DA4-439F-A91F-6C2EE61DD2E9"}
  */
 function onDataChangeMethodID(oldValue, newValue, event) {
-	for (var i = 0; i < elements.allnames.length; i++) {
+	for (var i = 0; i < elements.allnames.length-1; i++) {
 		var name = elements.allnames[i];
 		var elem = elements[name];		
 		if (elem['onColor'] && elem['offColor'] && name!='switch_enable') {

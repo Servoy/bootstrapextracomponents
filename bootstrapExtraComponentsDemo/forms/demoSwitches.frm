@@ -74,12 +74,12 @@ offColor:"primary",
 onColor:"primary",
 size:{
 height:43,
-width:380
+width:294
 }
 },
 location:"5,209",
 name:"switch_color",
-size:"380,43",
+size:"294,43",
 typeName:"bootstrapextracomponents-switch",
 typeid:47,
 uuid:"5C3432A3-26B5-4F92-A576-AFAAE6CB0992"
@@ -164,7 +164,7 @@ typeid:47,
 uuid:"92D216D3-9EE8-48C8-9AEB-F00292B379A0"
 },
 {
-height:487,
+height:763,
 partType:5,
 typeid:19,
 uuid:"A155CDFC-F7BD-4753-AD74-E5B82A4E686C"

@@ -19,8 +19,7 @@
 	        "onText" : { "type" : "tagstring" ,"default": "On" },
 	        "offText" : { "type" : "tagstring" ,"default": "Off" },
 	        "onColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},
-	        "offColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},
-	        "radioOff" : {"type": "boolean", "default": true},	        
+	        "offColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},	          
 	        "label" : { "type" : "tagstring" ,"default": "Switch" },
 	        "labelWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "handleWidth" : { "type" : "tagstring" ,"default": "150" },
@@ -30,35 +29,17 @@
 	},
 	"handlers":
 	{
-	        "onActionMethodID" : {
-	         	
-	        	"parameters":[
-								{
-						          "name":"event",
-								  "type":"JSEvent"
-								} 
-							 ]
+	        "onActionMethodID" : {	         	
+	        	"parameters":[{"name":"event","type":"JSEvent"}]
 	        }, 
 	        "onDataChangeMethodID" : {
 	          "returns": "boolean", 
-	         	
-	        	"parameters":[
-								{
-						          "name":"oldValue",
-								  "type":"${dataproviderType}"
-								}, 
-								{
-						          "name":"newValue",
-								  "type":"${dataproviderType}"
-								}, 
-								{
-						          "name":"event",
-								  "type":"JSEvent"
-								} 
+	         	"parameters":[
+								{"name":"oldValue","type":"${dataproviderType}"}, 
+								{"name":"newValue","type":"${dataproviderType}"}, 
+								{"name":"event","type":"JSEvent"} 
 							 ]
 	        }
 	},
-	"api":
-	{
-	}
+	"api": {}
 }

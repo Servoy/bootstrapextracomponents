@@ -163,7 +163,7 @@
         if (typeof value === 'undefined') {
           return this.options.state;
         }
-        if (this.options.disabled || this.options.readonly || this.options.state && !this.options.radioAllOff && this.$element.is(':radio')) {
+        if (this.options.readonly || this.options.state && !this.options.radioAllOff && this.$element.is(':radio')) {
           return this.$element;
         }
         if (this.$element.is(':radio')) {
@@ -600,7 +600,7 @@
             _this5.$wrapper.removeClass(_this5._getClass('focused'));
           },
 
-          'keydown.bootstrapSwitch': function keydownBootstrapSwitch(event) {
+          'keydown.bootstrapSwitch': function keydownBootstrapSwitch(event) {        	  
             if (!event.which || _this5.options.disabled || _this5.options.readonly) {
               return;
             }
@@ -620,6 +620,7 @@
         this.$on.on('click.bootstrapSwitch', function (event) {        	
 //        	console.log('on')
 //        	event.preventDefault();
+		 if (_this6.options.disabled) return;
           event.stopPropagation();
           _this6.state(false);        			
 //          return _this6.$element.trigger('focus.bootstrapSwitch');
@@ -627,7 +628,8 @@
         return this.$off.on('click.bootstrapSwitch', function (event) {
 //        	console.log('off')
 //          event.preventDefault();
-          event.stopPropagation();
+        	if (_this6.options.disabled) return;
+        	event.stopPropagation();
           _this6.state(true);
 //          return _this6.$element.trigger('focus.bootstrapSwitch');
         });
@@ -643,7 +645,7 @@
           },
 
 
-          'mousedown.bootstrapSwitch touchstart.bootstrapSwitch': function mousedownBootstrapSwitchTouchstartBootstrapSwitch(event) {        	  
+          'mousedown.bootstrapSwitch touchstart.bootstrapSwitch': function mousedownBootstrapSwitchTouchstartBootstrapSwitch(event) {                 
             if (_this7._dragStart || _this7.options.disabled || _this7.options.readonly) {
               return;
             }

@@ -15,7 +15,7 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						$scope.selection = getSelectionFromDataprovider();
 					})
 
-				$scope.checkBoxClicked = function(event) {
+				$scope.switchClicked = function(event) {
 					if ($scope.model.valuelistID && $scope.model.valuelistID[0]) {
 						$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.model.valuelistID[0].realValue ? null : $scope.model.valuelistID[0].realValue;
 					} else if (angular.isString($scope.model.dataProviderID)) {
@@ -23,20 +23,17 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 					} else {
 						$scope.model.dataProviderID = $scope.model.dataProviderID > 0 ? 0 : 1;
 					}
-					$timeout(function() {
-							$scope.svyServoyapi.apply('dataProviderID')
-							if ($scope.handlers.onActionMethodID) {
-								$scope.handlers.onActionMethodID(event)
-							}
-						}, 0)
+
+					$scope.svyServoyapi.apply('dataProviderID')
+					if ($scope.handlers.onActionMethodID) {
+						$scope.handlers.onActionMethodID(event)
+					}
 				}
 
 				function getSelectionFromDataprovider() {
 					if (!$scope.model.dataProviderID)
 						return false;
-					if ($scope.model.valuelistID && $scope.model.valuelistID[0]) {
-						return $scope.model.dataProviderID == $scope.model.valuelistID[0].realValue;
-					} else if (angular.isString($scope.model.dataProviderID)) {
+					if (angular.isString($scope.model.dataProviderID)) {
 						return $scope.model.dataProviderID == "1";
 					} else {
 						return $scope.model.dataProviderID > 0;
