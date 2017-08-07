@@ -1,4 +1,4 @@
-<progressbar
+<uib-progressbar
 	ng-if='model.visible'
 	class="bootstrap-extra-progressbar {{model.styleClass}}"
 	value="model.value"
@@ -11,4 +11,4 @@
 	<b ng-if="!model.valueText && model.showValue && model.showValueAsPercentage">{{(100*model.value/model.max) | number:0}}%</b>
 	<b ng-if="!model.valueText && model.showValue && !model.showValueAsPercentage">{{model.value + ' / ' + model.max}}</b>
 	<b ng-if="model.valueText">{{model.valueText}}</b>
-</progressbar>
+</uib-progressbar>
