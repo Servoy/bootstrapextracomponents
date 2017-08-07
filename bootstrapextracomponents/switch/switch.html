@@ -3,22 +3,19 @@
 	<input type="checkbox"
 		    ng-model ="selection"			
 			sablo-tabseq='model.tabSeq'
-			ng-click="checkBoxClicked($event)"        
+			ng-click="switchClicked($event)"        
 			id="{{::model.svyMarkupId}}"			
 			bs-switch
-			switch-active="{{ model.enabled }}"
-    		switch-readonly="{{ readOnly.editable }}"
+			switch-active="{{ model.enabled }}"			
     		switch-size="{{ model.componentSize }}"
     		switch-animate="{{ model.animate }}"
  			switch-label="{{ model.label }}"
-    		switch-icon="{{ model.icon }}"
-    		switch-on-text="{{model.onText}}"
-    		switch-off-text="{{model.offText}}"
+    		switch-on-text="{{ model.onText }}"
+    		switch-off-text="{{ model.offText }}"
     		switch-on-color="{{ model.onColor }}"
     		switch-off-color="{{ model.offColor }}"
 			switch-label-width="{{ model.labelWidth }}"
-    		switch-handle-width="{{ model.handleWidth }}"
-			switch-radio-off="{{ model.radioOff }}"	
+    		switch-handle-width="{{ model.handleWidth }}"			
 			/>
 </label>
 </div>

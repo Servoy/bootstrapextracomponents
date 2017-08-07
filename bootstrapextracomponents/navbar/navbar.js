@@ -131,7 +131,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
             function getItem(event) {
             	  //collapse menu if in mobile view            	
                 if ($(window).width() < 768) {      
-                	if ($scope.model.collapseOnClick)
+                	//if collapseOnClick is set don't collapse menu if we are selecting a drop-down
+                	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1)
                 	$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
                 }
                 try {                	
