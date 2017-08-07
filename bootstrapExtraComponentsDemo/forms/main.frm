@@ -53,6 +53,13 @@ typeid:15,
 uuid:"3EBAF6FA-D207-49F4-A400-613EDC3311D6"
 },
 {
+containsFormID:"B91331A5-0F8B-4459-8E91-207834DB908B",
+location:"203,299",
+text:"Carousel (foundset)",
+typeid:15,
+uuid:"5256F793-7F7E-47C8-8D55-7FBE60646B0F"
+},
+{
 containsFormID:"FD9927A9-5C6B-4C4D-82F0-33B11AFC9E6E",
 location:"104,214",
 text:"Badges",
@@ -68,21 +75,21 @@ uuid:"6CC3BCD8-D8D5-4D86-B394-273B722F876A"
 },
 {
 containsFormID:"782E21C8-0877-4BE9-B043-75F937DD3C2C",
-location:"213,326",
+location:"432,399",
 text:"Switches",
 typeid:15,
 uuid:"B0096AFB-B31A-49F0-B86E-3106BDEE74F0"
 },
 {
 containsFormID:"369EEC79-C296-48F6-98B4-1D7252290E08",
-location:"177,296",
+location:"327,362",
 text:"Drop Down",
 typeid:15,
 uuid:"B9678D01-ACC4-412D-B3D0-7032A73F5BB2"
 },
 {
 containsFormID:"576112B3-D036-4809-8729-03207B1CEBDA",
-location:"195,311",
+location:"376,380",
 text:"Progress Bar",
 typeid:15,
 uuid:"CC9FB730-11B2-497E-BDE5-731DE7DA2945"

@@ -10,6 +10,8 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 			link: function link($scope, $element) {
 				$scope.model.imageCssInternal = {};
 				
+				$scope.active = null;
+				
 				if ($scope.model.imageCss) {
 					for (var c = 0; c < $scope.model.imageCss.length; c++) {
 						var cssEntry = $scope.model.imageCss[c];
@@ -54,12 +56,7 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				 * @return {Number} index
 				 */
 				$scope.api.getSelectedIndex = function() {
-					for (var i = 0; i < $scope.slides.length; i++) {
-						if ($scope.slides[i].active === true) {
-							return i;
-						}
-					}
-					return -1;
+					return $scope.active;
 				}
 				
 				/**
@@ -68,12 +65,7 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				 * @param {Number} index
 				 */
 				$scope.api.setSelectedIndex = function(index) {
-					for (var i = 0; i < $scope.slides.length; i++) {
-						if ($scope.slides[i].active === true) {
-							$scope.slides[i].active = false;
-						}
-					}
-					$scope.slides[index].active = true;
+					$scope.active = index;
 				}
 				
 				if ($scope.model.slidesFoundset != null) {
@@ -84,66 +76,45 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						var slides = [];
 						for (var i = 0; i < $scope.model.slidesFoundset.viewPort.rows.length; i++) {
 							var row = $scope.model.slidesFoundset.viewPort.rows[i];
-							var slide = { image: row.image ? row.image : null, caption: row.caption ? row.caption : null, rowId: row._svyRowId }
+							var slide = { id: i, active: i === 0, image: row.image ? row.image : null, caption: row.caption ? row.caption : null, rowId: row._svyRowId }
 							slides.push(slide);
 						}
 						$scope.slides = slides;
+						$scope.active = $scope.model.slidesFoundset.selectedRowIndexes[0];
 					}
 					
 					//initially, load all slides
 					createSlidesFromFs();
 					
-					//watch for changes of the selected record in the foundset
-					$scope.$watch('model.slidesFoundset.selectedRowIndexes', function(newValue, oldValue) {
-						if (!angular.equals(oldValue, newValue)) {
-							$log.debug('selectedRowIndexes change from ' + (oldValue ? oldValue[0] : '') + ' to ' + (newValue ? newValue[0] : ''));
-							$scope.slides[newValue[0]].active = true;
-						}
-					})
-					
-					//watch for changes of the foundset's rows
-					$scope.$watch('model.slidesFoundset.viewPort.rows', function(rowUpdates, oldValue) {
-						if (rowUpdates && rowUpdates.length > 0) {
-							//rows were added
-							$log.debug('viewPort.rows updated');
+					//add a listener to get notified of changes of dataproviders or added and deleted records
+					$scope.model.slidesFoundset.addChangeListener(function(changes) {
+						if (!changes.viewportRowsUpdated && changes.viewPortSizeChanged) {
 							createSlidesFromFs();
-						}
-					})
-					
-					//add a listener to get notified of changes of dataproviders or deleted records
-					$scope.model.slidesFoundset.addChangeListener(function(rowUpdates, oldStartIndex, oldSize) {
-						if (rowUpdates && rowUpdates.length) {
-							for (var ru = 0; ru < rowUpdates.length; ru++) {
-								var changedRow = rowUpdates[ru];
+						} else if (changes.viewportRowsUpdated && changes.viewportRowsUpdated.updates && changes.viewportRowsUpdated.updates.length > 0) {
+							for (var ru = 0; ru < changes.viewportRowsUpdated.updates.length; ru++) {
+								var changedRow = changes.viewportRowsUpdated.updates[ru];
 								if ('type' in changedRow && changedRow.type == 2 && 'startIndex' in changedRow && 'endIndex' in changedRow && changedRow.startIndex == changedRow.endIndex) {
 									//row has been deleted
 									$log.debug('row deleted');
-									$scope.slides.splice(changedRow.startIndex, 1);
-								} else if ('startIndex' in changedRow && 'endIndex' in changedRow && changedRow.rows && changedRow.rows.length == 1 && changedRow.startIndex == changedRow.endIndex) {
+									createSlidesFromFs();
+								} else if ('startIndex' in changedRow && 'endIndex' in changedRow && changedRow.type == 0) {
 									//row has been updated
-									var slideToChange = $scope.slides[changedRow.startIndex];
-									$log.debug('row updated');
-									for ( var cp in changedRow.rows[0] ) {
-										slideToChange[cp] = changedRow.rows[0][cp];
-									}
+									var updatedRecord = $scope.model.slidesFoundset.viewPort.rows[changedRow.startIndex]
+									$scope.slides[changedRow.startIndex].caption = updatedRecord.caption;
+									$scope.slides[changedRow.startIndex].image = updatedRecord.image;
 								}
 							}
+						} else if (changes.selectedRowIndexesChanged) {
+							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
 						}
 					});
 					
 					//watch the slides to find changes of the selected slide and update the foundset accordignly
-					$scope.$watch('slides', function(newValue, oldValue) {
-						if (newValue && oldValue) {
-							var slideIndex = -1;
-							for (var i = 0; i < newValue.length; i++) {
-								if (newValue[i].active == true) {
-									slideIndex = i;
-									break;
-								}
-							}
-							if (slideIndex > -1 && (oldValue[slideIndex] && !oldValue[slideIndex].active) && slideIndex != $scope.model.slidesFoundset.selectedRowIndexes[0]) {
+					$scope.$watch('active', function(newValue, oldValue) {
+						if (newValue != null && oldValue != null) {
+							if (newValue > -1 && newValue !== $scope.model.slidesFoundset.selectedRowIndexes[0]) {
 								//update selected record when the slide index has changed and is not the selected record on the foundset
-								$scope.model.slidesFoundset.requestSelectionUpdate([slideIndex]).then(
+								$scope.model.slidesFoundset.requestSelectionUpdate([newValue]).then(
 									function(serverRows) {
 										
 									}, 
@@ -153,7 +124,7 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 								);
 							}
 						}
-					}, true)
+					})
 				
 				} else {
 					//directly provided slides
@@ -163,7 +134,7 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						var slides = [];
 						for (var i = 0; i < $scope.model.slides.length; i++) {
 							var row = $scope.model.slides[i];
-							var slide = { image: row.imageUrl ? {url: row.imageUrl} : null, caption: row.caption ? row.caption : null }
+							var slide = { id: i, active: i === 0, image: row.imageUrl ? {url: row.imageUrl} : null, caption: row.caption ? row.caption : null }
 							slides.push(slide);
 						}
 						$scope.slides = slides;
@@ -174,7 +145,6 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					}
 					
 					$scope.$watch('model.slides', function(newValue, oldValue) {
-						console.log(newValue);
 						if (!angular.equals(newValue, oldValue)) {
 							createSlidesFromModel();
 						}
@@ -192,6 +162,15 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						}
 					}
 				}, true);
+				
+				$scope.$watch('active', function(newValue, oldValue) {
+					if (newValue != null) {
+						$scope.slides[newValue].active = true;
+					}
+					if (oldValue != null) {
+						$scope.slides[oldValue].active = true;						
+					}
+				});
 			},
 			controller: function($scope, $element, $attrs, $utils) {
 				if ($scope.svyServoyapi.isInDesigner() && !($scope.model.slides || $scope.model.slides.length == 0)) {
@@ -232,11 +211,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 			link: function link(scope, element) {
 				//directive to lazy load images when set
 				var unwatcher = scope.$watch(scope.btseCarouselSmartSrcWatch, function(newVal) {
-						if (newVal) {
+					if (newVal == true) {
 							element.attr('src', scope.btseCarouselSmartSrc);
 							unwatcher();
-						}
-					});
+					}
+				});
 			}
 		}
 	}).directive('btsExtraCarouselCalcSize', function($window) {
@@ -257,7 +236,6 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 							size.height = carouselDiv.innerHeight();
 						}
 						scope.model.divSize = size;
-						console.log('height and width of div found as ' + scope.model.divSize.width + 'x' + scope.model.divSize.height);
 					}
 				}
 				
