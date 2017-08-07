@@ -1,4 +1,4 @@
-<carousel 
+<div uib-carousel 
 	id="{{::model.svyMarkupId}}"
 	interval="model.cycleInterval" 
 	no-pause="model.noPause"  
@@ -7,7 +7,7 @@
 	class="bts-extra-carousel {{model.styleClass}}" 
 	bts-extra-carousel-calc-size 
 	>
-	<slide ng-repeat="slide in slides" active="slide.active" index="$index" >
+	<div uib-slide ng-repeat="slide in slides" active="slide.active" index="$index" >
 		<img 
 			class="bts-extra-carousel-img"
 			ng-style="model.imageCssInternal" 
@@ -25,5 +25,5 @@
 		<div ng-if="slide.caption" class="carousel-caption">
 			<h4 ng-bind-html='slide.caption| htmlFilter | trustAsHtml:servoyApi.trustAsHtml()'></h4>
 		</div>
-	</slide>
-</carousel>
+	</div>
+</div>

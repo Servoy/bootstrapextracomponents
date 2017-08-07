@@ -22,8 +22,6 @@ function onAction_btnRandomize(event) {
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"B105D079-215A-4E1D-8DD1-88589F5BA07F"}
  */
 function onAction_btnPerformHeavyJob(event) {
