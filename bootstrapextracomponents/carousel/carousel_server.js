@@ -7,6 +7,7 @@ $scope.api.addSlide = function(slideToAdd) {
 	if (!$scope.model.slides) {
 		$scope.model.slides = [];
 	}
+	slideToAdd.id = $scope.model.slides.length;
 	$scope.model.slides.push(slideToAdd);
 }
 

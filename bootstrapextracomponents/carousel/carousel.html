@@ -6,8 +6,9 @@
 	no-transition="model.noTransition" 
 	class="bts-extra-carousel {{model.styleClass}}" 
 	bts-extra-carousel-calc-size 
+	active="active" 
 	>
-	<div uib-slide ng-repeat="slide in slides" active="slide.active" index="$index" >
+	<div uib-slide ng-repeat="slide in slides" index="slide.id" >
 		<img 
 			class="bts-extra-carousel-img"
 			ng-style="model.imageCssInternal" 
