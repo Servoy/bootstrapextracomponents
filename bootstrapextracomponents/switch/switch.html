@@ -1,6 +1,7 @@
 <div class='model.styleClass'>
 <label>
 	<input type="checkbox"
+			ng-if='model.visible'
 		    ng-model ="selection"			
 			sablo-tabseq='model.tabSeq'
 			ng-click="switchClicked($event)"        
