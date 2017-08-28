@@ -5,6 +5,7 @@
 	<projects>
 		<project>resources</project>
 		<project>svyMicroSamples</project>
+		<project>exampleSharedWebPackages</project>
 		<project>bootstrapextracomponents</project>
 	</projects>
 	<buildSpec>
