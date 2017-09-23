@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
-Bundle-Version: 1.1.7
+Bundle-Version: 1.1.8
 Package-Type: Web-Component
 
 Name: badge/badge.spec
