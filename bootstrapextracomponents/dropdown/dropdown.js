@@ -1,4 +1,4 @@
-angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootstrapextracomponentsDropdown', function() {
+angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootstrapextracomponentsDropdown', function($sabloConstants, $svyProperties) {
 		return {
 			restrict: 'E',
 			scope: {
@@ -79,6 +79,31 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 					} else if (itemClicked && $scope.handlers.onMenuItemSelected) {
 						$scope.handlers.onMenuItemSelected(event, createItemArg(itemClicked));
 					}
+				}
+				
+				var tooltipState = null;
+				Object.defineProperty($scope.model, $sabloConstants.modelChangeNotifier, {
+					configurable : true,
+					value : function(property, value) {
+						switch (property) {
+						case "toolTipText":
+							if (tooltipState)
+								tooltipState(value);
+							else
+								tooltipState = $svyProperties.createTooltipState($element, value);
+						 break;
+						}
+					}
+				});
+				var destroyListenerUnreg = $scope.$on("$destroy", function() {
+					destroyListenerUnreg();
+					delete $scope.model[$sabloConstants.modelChangeNotifier];
+				});
+				// data can already be here, if so call the modelChange function so
+				// that it is initialized correctly.
+				var modelChangeFunction = $scope.model[$sabloConstants.modelChangeNotifier];
+				for (var key in $scope.model) {
+					modelChangeFunction(key, $scope.model[key]);
 				}
 			},
 			templateUrl: 'bootstrapextracomponents/dropdown/dropdown.html'

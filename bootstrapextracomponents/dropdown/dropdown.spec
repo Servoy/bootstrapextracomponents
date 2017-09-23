@@ -17,7 +17,8 @@
 		"styleClass"					: { "type": "styleclass" },
 		"enabled"						: { "type": "enabled", "blockingOn": false, "default": true, "for": ["onAction"] },
 		"size"							: { "type": "dimension", "default": { "width": 300, "height": 40 } },
-		"visible"						: { "type": "visible" }
+		"visible"						: { "type": "visible" },
+		"toolTipText"					: { "type": "tagstring" }
 	},
 	"api": {
 		"setMenuItems": {

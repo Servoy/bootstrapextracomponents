@@ -21,7 +21,11 @@
 	<!-- end addOnButtons left -->
 
 	<!-- addOns left -->
-	<span ng-repeat="addon in model.addOns" ng-if="addon.position == 'LEFT'" class="input-group-addon">{{addon.text}}</span>
+	<span 
+		ng-repeat="addon in model.addOns" 
+		ng-if="addon.position == 'LEFT'" 
+		class="input-group-addon">{{addon.text}}
+	</span>
 	<!-- end addOns left -->
 
 	<input type="{{model.inputType}}"
@@ -39,7 +43,11 @@
 	    />
 
 	<!-- addOns right -->
-	<span ng-repeat="addon in model.addOns" ng-if="addon.position == 'RIGHT'" class="input-group-addon">{{addon.text}}</span>
+	<span 
+		ng-repeat="addon in model.addOns" 
+		ng-if="addon.position == 'RIGHT'" 
+		class="input-group-addon">{{addon.text}}
+	</span>
     <!-- end addOns right -->
 
 	<!-- addOnButtons right -->
