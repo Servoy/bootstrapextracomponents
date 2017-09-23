@@ -1,5 +1,5 @@
 angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('bootstrapextracomponentsInputGroup',
-	function($formatterUtils) {
+	function($formatterUtils, $sabloConstants, $svyProperties) {
 		return {
 			restrict: 'E',
 			scope: {
@@ -50,7 +50,7 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 				}
 						
 			},
-			controller: function($scope, $element, $attrs, $window, $parse,$utils) {
+			controller: function($scope, $element, $attrs, $window, $parse, $utils) {
 				/**
 				 * Perform onAction of button
 				 */
@@ -70,6 +70,33 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 						jsEvent.data = btnText;
 						$window.executeInlineScript(btn.onRightClick.formname, btn.onRightClick.script, [jsEvent, btn.name, btnText, btnIndex])
 					}
+				}
+				
+				var element = $element.children().first();
+				var inputElement = element.children().first();
+				var tooltipState = null;
+				Object.defineProperty($scope.model, $sabloConstants.modelChangeNotifier, {
+					configurable : true,
+					value : function(property, value) {
+						switch (property) {
+						case "toolTipText":
+							if (tooltipState)
+								tooltipState(value);
+							else
+								tooltipState = $svyProperties.createTooltipState(inputElement, value);
+						 break;
+						}
+					}
+				});
+				var destroyListenerUnreg = $scope.$on("$destroy", function() {
+					destroyListenerUnreg();
+					delete $scope.model[$sabloConstants.modelChangeNotifier];
+				});
+				// data can already be here, if so call the modelChange function so
+				// that it is initialized correctly.
+				var modelChangeFunction = $scope.model[$sabloConstants.modelChangeNotifier];
+				for (var key in $scope.model) {
+					modelChangeFunction(key, $scope.model[key]);
 				}
 			},
 			templateUrl: 'bootstrapextracomponents/inputgroup/inputgroup.html'

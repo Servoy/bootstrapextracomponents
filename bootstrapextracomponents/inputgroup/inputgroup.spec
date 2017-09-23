@@ -22,7 +22,8 @@
 		"visible"							: { "type": "visible" }, 
 		"addOns"							: { "type": "AddOn[]" },
 		"addOnButtons"						: { "type": "AddOnButton[]" },
-		"size"								: { "type": "dimension", "default": { "width": 300, "height": 40 } }
+		"size"								: { "type": "dimension", "default": { "width": 300, "height": 40 } },
+		"toolTipText"						: { "type": "tagstring" }
 	},
 	"handlers": 
 	{
