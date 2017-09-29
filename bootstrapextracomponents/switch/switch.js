@@ -10,9 +10,12 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 			},
 			link: function($scope, $element, $attrs) {
 				$scope.selection = false;
-
-				$scope.$watch('model.dataProviderID', function() {
+				
+				$scope.$watch('model.dataProviderID', function(newVal, oldVal) {
 						$scope.selection = getSelectionFromDataprovider();
+						if (newVal != oldVal) {
+							$element.find("input").bootstrapSwitch('state', $scope.selection, false);
+						}
 					})
 
 				$scope.switchClicked = function(event) {
