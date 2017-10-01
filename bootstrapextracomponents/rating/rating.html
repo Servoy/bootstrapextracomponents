@@ -3,7 +3,7 @@
 		id="{{::model.svyMarkupId}}"
 		ng-model="model.dataProviderID" 
 		max="model.max" 
-		readonly="!model.enabled"
+		read-only="!model.enabled"
 		on-leave="onLeave($event)"
 		on-hover="onHover(value, $event)"
 		state-on="model.stateOn" 
@@ -11,5 +11,5 @@
 		ng-if='model.visible'
 	>
 	</span>
-	<span class="label" ng-class="'label-info lb-lg'" ng-show="model.showPercentageOnHover && overStar && !isReadonly">{{percent}}%</span>
+	<span class="label" ng-class="'label-info lb-lg'" ng-show="model.enabled != false && model.showPercentageOnHover && overStar">{{percent}}%</span>
 </div>

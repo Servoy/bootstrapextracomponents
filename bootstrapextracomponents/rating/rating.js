@@ -31,11 +31,13 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 				}
 				
 				$scope.onHover = function(value) {
-					console.log('hovering over ' + value)
-					$scope.percent = value / $scope.model.max * 100;
-					$scope.overStar = value;
-					var jsEvent = createJSEvent('onHover');
-					$scope.handlers.onHover(jsEvent, value);
+					if ($scope.model.enabled !== false) {
+						console.log('hovering over ' + value)
+						$scope.percent = value / $scope.model.max * 100;
+						$scope.overStar = value;
+						var jsEvent = createJSEvent('onHover');
+						$scope.handlers.onHover(jsEvent, value);
+					}
 				}				
 				
 				//internal
