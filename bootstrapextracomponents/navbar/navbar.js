@@ -11,14 +11,21 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
         	
             $scope.collapseClass = 'collapse navbar-collapse';
             
-            $(window).on('resize', function() {
+            $(window).on('resize', onWindowResize);
+            
+            $scope.$on("$destroy", function() {
+				$(window).off('resize', onWindowResize);
+
+			});
+            
+            function onWindowResize () {
                 if ($(window).width() > 768) {
                     $scope.collapseClass = 'collapse in navbar-collapse'
                 }
                 if ($(window).width() < 768) {
                     $scope.collapseClass = 'collapse navbar-collapse'
                 }
-            })
+            }
 
             var resolvingDisplayValue = false;
 
