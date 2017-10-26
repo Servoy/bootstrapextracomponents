@@ -32,7 +32,7 @@
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
-					<div ng-if="menuItem.displayType == 'INPUT' && (!menuItem.valuelist || !menuItem.valuelist.__internalState.valuelistid)" class="svy-navbar-input navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
 							<input 
 								type="text" 
@@ -50,7 +50,7 @@
 						</button>
 					</div><!-- /.svy-navbar-input -->
 
-					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && (!menuItem.valuelist || !menuItem.valuelist.__internalState.valuelistid)" class="svy-navbar-inputgroup navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && !menuItem.valuelist" class="svy-navbar-inputgroup navbar-form">
 						<div class="input-group">
 							<input 
 								type="text" 
@@ -70,7 +70,7 @@
 						</div>
 					</div><!-- /.svy-navbar-inputgroup -->
 
-					<div ng-if="menuItem.displayType == 'INPUT' && menuItem.valuelist && menuItem.valuelist.__internalState.valuelistid" class="svy-navbar-typeahead navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT' && menuItem.valuelist" class="svy-navbar-typeahead navbar-form">
 						<div class="form-group">
 							<input 
 								type="text" 
@@ -93,7 +93,7 @@
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
 
-					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist && menuItem.valuelist.__internalState.valuelistid" class="svy-navbar-typeahead-inputgroup navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist" class="svy-navbar-typeahead-inputgroup navbar-form">
 						<div class="input-group">
 							<input 
 								type="text" 
@@ -150,7 +150,7 @@
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
-					<div ng-if="menuItem.displayType == 'INPUT' && (!menuItem.valuelist || !menuItem.valuelist.__internalState.valuelistid)" class="svy-navbar-input navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
 							<input 
 								type="text" 
@@ -168,9 +168,9 @@
 						</button>
 					</div><!-- /.svy-navbar-input -->
 
-					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && (!menuItem.valuelist || !menuItem.valuelist.__internalState.valuelistid)" class="svy-navbar-inputgroup navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && !menuItem.valuelist" class="svy-navbar-inputgroup navbar-form">
 						<div class="input-group">
-								<input 
+							<input 
 								type="text" 
 								class="form-control" 
 								ng-model="menuItem.dataProvider" 
@@ -188,7 +188,7 @@
 						</div>
 					</div><!-- /.svy-navbar-inputgroup -->
 
-					<div ng-if="menuItem.displayType == 'INPUT' && menuItem.valuelist && menuItem.valuelist.__internalState.valuelistid" class="svy-navbar-typeahead navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT' && menuItem.valuelist" class="svy-navbar-typeahead navbar-form">
 						<div class="form-group">
 							<input 
 								type="text" 
@@ -211,7 +211,7 @@
 						</button>
 					</div><!-- /.svy-navbar-typeahead -->
 
-					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist && menuItem.valuelist.__internalState.valuelistid" class="svy-navbar-typeahead-inputgroup navbar-form">
+					<div ng-if="menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist" class="svy-navbar-typeahead-inputgroup navbar-form">
 						<div class="input-group">
 							<input 
 								type="text" 
