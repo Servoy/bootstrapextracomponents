@@ -101,7 +101,7 @@
 			"isActive"							: {"type": "boolean", "default": false},
 			"styleClass"	 					: {"type": "styleclass"},
 			"tooltip"							: {"type": "tagstring"},
-			"valuelist" 						: {"type" : "valuelist", "tags": { "scope" :"design", "logWhenOverMax": false}, "for": "dataProvider", "default":"autoVL", "pushToServer": "allow"}
+			"valuelist" 						: {"type" : "valuelist", "tags": { "scope" :"design", "logWhenOverMax": false}, "for": "dataProvider", "pushToServer": "allow"}
 		},
 		"subMenuItem": {
 			"itemId"							: {"type": "string"},
