@@ -1,9 +1,16 @@
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"88D37B10-370F-4A23-8C22-0A30A1BC4C93",variableType:8}
+ * @properties={typeid:35,uuid:"1364DFD3-F21C-43B2-B540-40D20F8E41CE",variableType:8}
  */
-var searchField = 4;
+var searchTypeahead;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"88D37B10-370F-4A23-8C22-0A30A1BC4C93"}
+ */
+var searchField = 'AO';
 
 /**
  * @type {Number}

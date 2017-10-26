@@ -163,6 +163,17 @@ itemId:"4",
 itemText:"Enter search",
 svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",
 text:"Enter search",
+valuelist:null
+},
+{
+dataProvider:"searchTypeahead",
+displayType:"INPUT_GROUP",
+iconName:"fa fa-search",
+inputButtonText:"Search",
+isActive:true,
+itemId:"41",
+svyUUID:"057D9ECB-D702-424A-BE85-99A7C634EB9D",
+text:"Enter product name",
 valuelist:"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
 },
 {
