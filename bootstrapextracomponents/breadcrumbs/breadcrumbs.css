@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 
-.svy-wrapper > * > .bootstrap-extra-breadcrumbs {
+.svy-wrapper > * > .bts-extra-breadcrumbs {
 	width: 100%;
 	
 	overflow: auto;
