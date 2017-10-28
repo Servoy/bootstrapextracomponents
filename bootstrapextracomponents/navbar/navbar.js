@@ -236,6 +236,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     // only if is right aligned
                     if (nav && ul && nav.hasClass('navbar-right')) {
                     	
+	                    var dialog = $target.closest('.svy-dialog')
                     	
                         // make sure the menu is not collapsed because min-width < 768
                         var viewPortWidth = $(window).width();
@@ -243,10 +244,19 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 	                    	
 	                        // location relative to viewport
 	                        var boundingRect = $target[0].getBoundingClientRect();
-	
-	                        // viewport right corner
-	                        var right = $(window).width() - (boundingRect.left + boundingRect.width);
-	                        var top = boundingRect.top + boundingRect.height;
+	                        // calculate fixed top/right position from either viewport or dialog
+	                        var right;
+	                        if (dialog.length > 0) {
+	                        	right = dialog.position().left + dialog.width() - (boundingRect.left + boundingRect.width);
+	                        } else {
+	                        	right = $(window).width() - (boundingRect.left + boundingRect.width);
+	                        }
+	                        var top
+							if (dialog.length > 0) {
+								top = boundingRect.top + boundingRect.height - dialog.position().top;
+							} else {
+								top = boundingRect.top + boundingRect.height;
+							}
 	                        ul.attr('style', 'position: fixed; right: ' + right + 'px; top: ' + top + 'px;')
                     	} else {		// restore default style for the list dropdown
 	                        ul.attr('style', 'position: static; right: auto; top: 100%');
