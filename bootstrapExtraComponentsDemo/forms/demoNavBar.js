@@ -62,14 +62,32 @@ function onDataChange_inverted(oldValue, newValue, event) {
  * @AllowToRunInFind
  */
 function onAction_createMenu(event) {
-	var menuItems = [];
+	var menuItem,
+		menuItems = [];
 	
-	menuItems.push({itemId: '1', text: 'Accounts', tooltip: 'Accounts'});
+	menuItem = elements.navbar.createMenuItem('Accounts', '1');
+	menuItem.tooltip = 'Accounts';
+	menuItems.push(menuItem);
+	
 	menuItems.push({itemId: '2', text: 'Invoices', tooltip: 'Invoices'});
 	menuItems.push({itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button'});
 	menuItems.push({text: 'Payables', tooltip: 'Payables'});
-	menuItems.push({itemId: '5', text: 'Search account...', displayType: 'INPUT', iconName: 'glyphicon glyphicon-search', tooltip: 'Search'});
-	menuItems.push({itemId: '6', text: 'Menu', position: 'RIGHT', tooltip: 'A submenu', subMenuItems: [{itemId: '6.1', text: 'Action'}, {itemId: '6.2', text: 'More action'}, {isDivider: true}, {itemId: '6.3', text: 'Last action'}]});
+	
+	menuItem = elements.navbar.createMenuItem('Search account...', '5');
+	menuItem.displayType = 'INPUT';
+	menuItem.iconName = 'glyphicon glyphicon-search';
+	menuItem.tooltip = 'Search';
+	menuItems.push(menuItem);
+	
+	menuItem = elements.navbar.createMenuItem('Menu', '6', 'RIGHT');
+	menuItem.tooltip = 'A Submenu';
+	var submenuItems = [];
+	submenuItems.push(elements.navbar.createMenuItem('Action', '6.1'));
+	submenuItems.push(elements.navbar.createMenuItem('More action', '6.2'));
+	submenuItems.push(elements.navbar.createMenuItem('Last action', '6.3'));
+	menuItem.subMenuItems = submenuItems;
+	menuItems.push(menuItem);
+	
 	menuItems.push({itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT'});
 	
 	elements.navbar.brandText = 'Accounting';

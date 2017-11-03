@@ -61,6 +61,14 @@
 				{ "name": "submenuItemId", "type": "string" },
 				{ "name": "enabled", "type": "boolean" }
 			]
+		},
+		"createMenuItem": {
+			"returns": "menuItem",
+			"parameters": [
+				{ "name": "text", "type": "string" },
+				{ "name": "itemId", "type": "string", "optional": true },
+				{ "name": "position", "type": "string", "optional": true }
+			]
 		}
 	},
 	"handlers": 
@@ -108,7 +116,7 @@
 			"text"								: {"type": "tagstring"},
 			"userData"							: {"type": "object"},
 			"iconName"							: {"type": "string"},
-			"enabled"							: {"type": "enabled", "default": true},
+			"enabled"							: {"type": "boolean", "default": true},
 			"onAction" 							: {"type": "function"},
 			"isDivider"							: {"type": "boolean"} 
 		}

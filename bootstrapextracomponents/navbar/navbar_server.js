@@ -12,8 +12,6 @@ $scope.api.setMenuItems = function(menuItems) {
 
 /**
  * Adds the given menu item to the Navbar
- * 
- * @param {bootstrapextracomponents-navbar.menuItem} menuItem
  */
 $scope.api.addMenuItem = function(menuItem) {
 	setItemDefaults(menuItem);
@@ -21,6 +19,24 @@ $scope.api.addMenuItem = function(menuItem) {
 		$scope.model.menuItems.push(menuItem);
 	} else {
 		$scope.model.menuItems = [menuItem];
+	}
+}
+
+/**
+ * Creates a new menuItem
+ * 
+ * @param {String} text the item's text
+ * @param {String} [itemId] optional ID to identify the item in scripting
+ * @param {String} [position] alignment of the item in the navbar as either LEFT or RIGHT
+ * @return {bootstrapextracomponents-navbar.menuItem}
+ */
+$scope.api.createMenuItem = function(text, itemId, position) {
+	return {
+		text: text,
+		itemId: itemId || Math.ceil(Math.random() * 10000000) + '',
+		displayType: 'MENU_ITEM',
+		position: position || 'LEFT',
+		enabled: true
 	}
 }
 
@@ -112,5 +128,12 @@ function setItemDefaults(item) {
 	item.position = item.position || 'LEFT';
 	item.enabled = item.enabled === undefined ? true : item.enabled;
 	item.itemId = item.itemId || Math.ceil(Math.random() * 10000000) + '';
+	if (item.subMenuItems && item.subMenuItems.length) {
+		for (var i = 0; i < item.subMenuItems.length; i++) {
+			var subMenuItem = item.subMenuItems[i];
+			subMenuItem.enabled = subMenuItem.enabled === undefined ? true : subMenuItem.enabled;
+			subMenuItem.itemId = subMenuItem.itemId || Math.ceil(Math.random() * 10000000) + '';
+		}
+	}
 	return item;
 }
