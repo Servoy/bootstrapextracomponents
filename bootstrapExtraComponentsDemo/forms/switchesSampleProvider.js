@@ -65,7 +65,7 @@ function getMoreInfo() {
 * @properties={typeid:24,uuid:"ADBCA828-FA3F-4250-8530-22CAF34DD5C4"}
 */
 function getSampleCode() {
-	return printMethodCode(forms.demoDropDown.onAction_createDropDown);
+	return printMethodCode(forms.demoSwitches.onDataChangeMethodID);
 }
 
 /**

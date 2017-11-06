@@ -50,16 +50,6 @@ function getMoreInfo() {
 
 /**
 *
-* @return {Array<String>} code lines
-*
-* @properties={typeid:24,uuid:"8E843298-6419-4FBD-8921-9D9E64D5C380"}
-*/
-function getSampleCode() {
-	return printMethodCode(forms.demoDropDown.onAction_createDropDown);
-}
-
-/**
-*
 * @return {String} Website URL
 *
 * @properties={typeid:24,uuid:"B95AE52B-EAEE-4A8B-916B-08DD97706F84"}
