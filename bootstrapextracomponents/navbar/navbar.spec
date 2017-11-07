@@ -34,7 +34,8 @@
 		},
 		"addMenuItem": {
 			"parameters": [
-				{ "name": "menuItem", "type": "menuItem" }
+				{ "name": "menuItem", "type": "menuItem" },
+				{ "name": "index", "type": "int", "optional": true }
 			]
 		},
 		"removeMenuItem": {
