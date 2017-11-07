@@ -12,11 +12,18 @@ $scope.api.setMenuItems = function(menuItems) {
 
 /**
  * Adds the given menu item to the Navbar
+ * 
+ * @param {bootstrapextracomponents-navbar.menuItem} menuItem the menuItem to add
+ * @param {Number} [index] optional index where the item will be inserted
  */
-$scope.api.addMenuItem = function(menuItem) {
+$scope.api.addMenuItem = function(menuItem, index) {
 	setItemDefaults(menuItem);
 	if ($scope.model.menuItems) {
-		$scope.model.menuItems.push(menuItem);
+		if (index >= 0) {
+			$scope.model.menuItems.splice(index, 0, menuItem);
+		} else {
+			$scope.model.menuItems.push(menuItem);
+		}
 	} else {
 		$scope.model.menuItems = [menuItem];
 	}
