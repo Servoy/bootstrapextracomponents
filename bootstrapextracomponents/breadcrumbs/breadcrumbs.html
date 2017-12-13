@@ -1,4 +1,4 @@
-<ol class="breadcrumb bts-extra-breadcrumbs {{model.styleClass}}" id="{{::model.svyMarkupId}}">
+<ol class="breadcrumb bts-extra-breadcrumbs {{model.styleClass}}" id="{{::model.svyMarkupId}}" ng-if="model.visible">
 	<li ng-if="!model.breadcrumbs || model.breadcrumbs.length == 0" class='active'>&nbsp;</li>
   	<li ng-repeat="crumb in model.breadcrumbs" 
 		ng-class="{ true: 'active {{model.lastCrumbStyleClass}}', false: '{{model.crumbStyleClass}}' }[$last == true] ">
