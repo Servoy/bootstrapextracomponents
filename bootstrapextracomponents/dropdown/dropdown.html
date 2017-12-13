@@ -1,4 +1,4 @@
-<div class="bts-extra-drop-down" 
+<div class="bts-extra-drop-down {{model.styleClass}}" 
 	id="{{::model.svyMarkupId}}"
 	ng-show='model.visible' 
 	ng-click="dropDownClicked($event)"
@@ -6,7 +6,7 @@
 	<!-- Simple dropdown -->
     <span 
 		ng-if="!model.isButton"
-		class="dropdown {{model.styleClass}}" 
+		class="dropdown {{model.buttonStyleClass}}" 
 		dropdown 
 		on-toggle="toggled(open)"
 		ng-disabled="!model.enabled">
@@ -31,7 +31,7 @@
 		dropdown 
 		is-open="status.isopen">
 		<button 
-			class="btn {{model.styleClass}} dropdown-toggle" 
+			class="btn {{model.buttonStyleClass}} dropdown-toggle" 
 			data-toggle="dropdown" 
 			type="button" 
 			aria-haspopup="true" 
@@ -59,14 +59,14 @@
 		dropdown 
 		is-open="status.isopen">
 		<button 
-			class="btn {{model.styleClass}}" 
+			class="btn {{model.buttonStyleClass}}" 
 			type="button" 
 			id="button-{{::model.svyMarkupId}}"
 			ng-disabled="!model.enabled">
         	{{model.text ? model.text : 'Button'}}
 		</button>
 		<button 
-			class="btn {{model.styleClass}} dropdown-toggle" 
+			class="btn {{model.buttonStyleClass}} dropdown-toggle" 
 			data-toggle="dropdown" 
 			type="button" 
 			aria-haspopup="true" 
