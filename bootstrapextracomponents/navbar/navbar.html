@@ -36,7 +36,7 @@
 						<div class="form-group">
 							<input 
 								type="text" 
-								class="form-control" 
+								class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								svy-focuslost="onInputChange($event, $index)" 
 								svy-enter="navBarClicked($event, $index)" 
@@ -54,7 +54,7 @@
 						<div class="input-group">
 							<input 
 								type="text" 
-								class="form-control" 
+								class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								svy-focuslost="onInputChange($event, $index)" 
 								svy-enter="navBarClicked($event, $index)" 
@@ -74,7 +74,7 @@
 						<div class="form-group">
 							<input 
 								type="text" 
-								class="form-control bts-typeahead" 
+								class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								typeahead-min-length="-1" 
 								typeahead-wait-ms="500" 
@@ -97,7 +97,7 @@
 						<div class="input-group">
 							<input 
 								type="text" 
-								class="form-control bts-typeahead" 
+								class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								typeahead-min-length="-1" 
 								typeahead-wait-ms="500" 
@@ -154,7 +154,7 @@
 						<div class="form-group">
 							<input 
 								type="text" 
-								class="form-control" 
+								class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								svy-focuslost="onInputChange($event, $index)" 
 								svy-enter="navBarClicked($event, $index)" 
@@ -172,7 +172,7 @@
 						<div class="input-group">
 							<input 
 								type="text" 
-								class="form-control" 
+								class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								svy-focuslost="onInputChange($event, $index)" 
 								svy-enter="navBarClicked($event, $index)" 
@@ -192,7 +192,7 @@
 						<div class="form-group">
 							<input 
 								type="text" 
-								class="form-control bts-typeahead" 
+								class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								typeahead-min-length="-1" 
 								typeahead-wait-ms="500" 
@@ -215,7 +215,7 @@
 						<div class="input-group">
 							<input 
 								type="text" 
-								class="form-control bts-typeahead" 
+								class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}" 
 								ng-model="menuItem.dataProvider" 
 								typeahead-min-length="-1" 
 								typeahead-wait-ms="500" 
