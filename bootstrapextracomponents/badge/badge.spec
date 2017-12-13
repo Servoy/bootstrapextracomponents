@@ -15,6 +15,7 @@
 		"badgeText"						: {"type": "tagstring", "initialValue": "0"},
 		"size" 							: {"type": "dimension",  "default" : {"width":100, "height":40}}, 
     	"location" 						: {"type": "point"},
+    	"imageStyleClass" 				: { "type" :"styleclass"},
     	"styleClass"					: {"type": "styleclass"},
     	"visible"						: {"type": "visible" },
     	"toolTipText"					: {"type": "tagstring"}

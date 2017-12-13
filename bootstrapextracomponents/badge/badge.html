@@ -8,7 +8,10 @@
 	ng-disabled='!model.enabled'
 	sablo-tabseq='model.tabSeq'
  	ng-if='model.visible'
- 	id="{{::model.svyMarkupId}}"><span ng-bind-html='model.text | htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span> <span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
+ 	id="{{::model.svyMarkupId}}">
+	<span class="badge-icon" ng-class="model.imageStyleClass" aria-hidden="true"></span>
+	<span class="badge-text" ng-bind-html='model.text | htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span>
+ 	<span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
 </a>
 <button 
 	ng-if="!model.displayType || model.displayType == 'BUTTON'"
@@ -20,6 +23,9 @@
 	ng-disabled='!model.enabled'
  	ng-if='model.visible' 
 	type="button"
- 	id="{{::model.svyMarkupId}}"><span ng-bind-html='model.text | htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span> <span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
+ 	id="{{::model.svyMarkupId}}">
+	<span class="badge-icon" ng-class="model.imageStyleClass" aria-hidden="true"></span>
+	<span class="badge-text" ng-bind-html='model.text | htmlFilter| trustAsHtml:servoyApi.trustAsHtml()'></span> 
+	<span ng-if="model.badgeText != null" class="badge">{{model.badgeText}}<span>
 </button>
 </div>

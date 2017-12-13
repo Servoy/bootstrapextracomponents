@@ -1,9 +1,13 @@
+.bts-extra-badge { 
+	display: inline-block;
+}
+
 .svy-wrapper > * > .bts-extra-badge {
 	width: 100%;
 	height: 100%;
-	
 	overflow: auto;
     white-space: nowrap;
+    display: block;
 	
 }
 
