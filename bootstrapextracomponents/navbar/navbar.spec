@@ -13,8 +13,10 @@
 	{
 		"styleClass" 							: {"type": "styleclass"},
 		"brandText"								: {"type": "tagstring", "default": ""},
+		"brandTextTabindex"						: {"type": "string"},
 		"brandLogo"								: {"type": "media"},
 		"brandLogoStyleClass" 					: {"type": "styleclass"},
+		"brandLogoTabindex"						: {"type": "string"},
 		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "allow"},
 		"visible"								: {"type": "visible"},
 		"inverse"								: {"type": "boolean"},
@@ -96,6 +98,7 @@
 	{
 		"menuItem": {
 			"itemId"							: {"type": "string"},
+			"tabindex"							: {"type": "string"},
 			"text"								: {"type": "tagstring"},
 			"enabled"							: {"type": "boolean", "default": true},
 			"userData"							: {"type": "object"},
@@ -114,6 +117,7 @@
 		},
 		"subMenuItem": {
 			"itemId"							: {"type": "string"},
+			"tabindex"							: {"type": "string"},
 			"text"								: {"type": "tagstring"},
 			"userData"							: {"type": "object"},
 			"iconName"							: {"type": "string"},
