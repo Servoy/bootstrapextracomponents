@@ -116,27 +116,54 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 					collapsible.collapse('hide'); //$NON-NLS-1$
 					setCollapsedState(index, true);
 				}
+				
+				//fix misconfigurations in isCollapsed vs. accordionMode
+				$scope.$watch('model.collapsibles', function(newValue, oldValue) {
+					if (newValue != null) {
+						//fix possible accordionMode misconfiguration
+						
+						var openedCollapseFound = false;
+						for (var cc = 0; cc < $scope.model.collapsibles.length; cc++) {
+							if ($scope.model.accordionMode) {
+								if (!$scope.model.collapsibles[cc].isCollapsed && openedCollapseFound) {
+									$scope.model.collapsibles[cc].isCollapsed = true;
+								}
+								if (!$scope.model.collapsibles[cc].isCollapsed) {
+									openedCollapseFound = true;
+								}
+							}
+							if ($scope.model.collapsibles[cc].form && !$scope.formState || !$scope.formState[cc]) {
+								getFormState(cc);
+							}
+						}
+					}
+				}, true)
 
+				function getFormState(collapsibleIndex) {
+					$sabloApplication.getFormState($scope.model.collapsibles[collapsibleIndex].form).then(
+						function(formState) {
+							if (formState.properties) {
+								if (!$scope.formState) {
+									$scope.formState = [];
+								}
+								$scope.formState[collapsibleIndex] = {
+									properties: formState.properties, 
+									absoluteLayout: formState.absoluteLayout
+								};
+								if (!$scope.model.collapsibles[collapsibleIndex].isCollapsed) {
+									$scope.svyServoyapi.formWillShow($scope.model.collapsibles[collapsibleIndex].form);
+								}
+							}
+						},
+						function(e) {
+							console.log(e);
+						}
+					);
+				}
+				
 				for (var x = 0; x < $scope.model.collapsibles.length; x++) {
 					if ($scope.model.collapsibles[x].form) {
-						(function(z) {
-							$sabloApplication.getFormState($scope.model.collapsibles[z].form).then(
-								function(formState) {
-									if (formState.properties) {
-										if (!$scope.formState) {
-											$scope.formState = [];
-										}
-										$scope.formState[z] = {
-											properties: formState.properties, 
-											absoluteLayout: formState.absoluteLayout
-										};
-									}
-								},
-								function(e) {
-									console.log(e);
-								}
-							);
-							})(x);
+						getFormState(x);
 					}
 				}
 			},
