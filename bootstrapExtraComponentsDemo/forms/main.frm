@@ -46,6 +46,13 @@ typeid:15,
 uuid:"2BF50BBB-9ABD-4C4D-AC06-C6B08CB2A91C"
 },
 {
+containsFormID:"B2905C61-80D8-481A-A768-06FB7E9BFAF7",
+location:"488,418",
+text:"Collapse",
+typeid:15,
+uuid:"2EBC0BDC-4B5E-4EAA-A10C-2B230BAC4CB2"
+},
+{
 containsFormID:"F5FD53D2-AC93-416C-8F83-B0FD712B4DC3",
 location:"39,171",
 text:"Breadcrumbs",
