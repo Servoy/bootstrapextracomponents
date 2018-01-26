@@ -47,7 +47,7 @@ uuid:"2BF50BBB-9ABD-4C4D-AC06-C6B08CB2A91C"
 },
 {
 containsFormID:"B2905C61-80D8-481A-A768-06FB7E9BFAF7",
-location:"488,418",
+location:"366,339",
 text:"Collapse",
 typeid:15,
 uuid:"2EBC0BDC-4B5E-4EAA-A10C-2B230BAC4CB2"
@@ -61,7 +61,7 @@ uuid:"3EBAF6FA-D207-49F4-A400-613EDC3311D6"
 },
 {
 containsFormID:"B91331A5-0F8B-4459-8E91-207834DB908B",
-location:"203,299",
+location:"207,277",
 text:"Carousel (foundset)",
 typeid:15,
 uuid:"5256F793-7F7E-47C8-8D55-7FBE60646B0F"
@@ -81,22 +81,29 @@ typeid:15,
 uuid:"6CC3BCD8-D8D5-4D86-B394-273B722F876A"
 },
 {
+containsFormID:"753A1315-EF2D-4CF1-97DA-5069C0BD5D09",
+location:"400,355",
+text:"Slider",
+typeid:15,
+uuid:"6F1B546F-DF99-48EC-A10C-59970F612DA4"
+},
+{
 containsFormID:"782E21C8-0877-4BE9-B043-75F937DD3C2C",
-location:"432,399",
+location:"332,323",
 text:"Switches",
 typeid:15,
 uuid:"B0096AFB-B31A-49F0-B86E-3106BDEE74F0"
 },
 {
 containsFormID:"369EEC79-C296-48F6-98B4-1D7252290E08",
-location:"327,362",
+location:"254,291",
 text:"Drop Down",
 typeid:15,
 uuid:"B9678D01-ACC4-412D-B3D0-7032A73F5BB2"
 },
 {
 containsFormID:"576112B3-D036-4809-8729-03207B1CEBDA",
-location:"376,380",
+location:"290,308",
 text:"Progress Bar",
 typeid:15,
 uuid:"CC9FB730-11B2-497E-BDE5-731DE7DA2945"

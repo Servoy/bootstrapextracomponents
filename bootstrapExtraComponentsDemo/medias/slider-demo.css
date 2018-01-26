@@ -1,0 +1,43 @@
+.custom-slider.bts-extra-slider .rz-bar {
+	background: #ffe4d1;
+	height: 2px;
+}
+
+.custom-slider.bts-extra-slider .rz-selection {
+	background: orange;
+}
+
+.custom-slider.bts-extra-slider .rz-pointer {
+	width: 8px;
+	height: 16px;
+	top: auto; /* to remove the default positioning */
+	background-color: #333;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.custom-slider.bts-extra-slider .rz-pointer:after {
+	display: none;
+}
+
+.custom-slider.bts-extra-slider .rz-bubble {
+	bottom: 14px;
+}
+
+.custom-slider.bts-extra-slider .rz-limit {
+	font-weight: bold;
+	color: orange;
+}
+
+.custom-slider.bts-extra-slider .rz-tick {
+	width: 1px;
+	height: 10px;
+	margin-left: 4px;
+	border-radius: 0;
+	background: #ffe4d1;
+	top: -1px;
+}
+
+.custom-slider.bts-extra-slider .rz-tick.rz-selected {
+	background: orange;
+}
