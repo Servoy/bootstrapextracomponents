@@ -85,15 +85,15 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				 * called onSlideEnd
 				 */
 				function onSlideEnd(sliderId, modelValue, highValue, pointerType) {
-					if ($scope.model.updateOnSlideEnd && highValue != null) {
+					if ($scope.model.dataChangeOnSlideEnd && highValue != null) {
 						$scope.svyServoyapi.apply('dataProviderHigh');
 					}
-					if ($scope.model.updateOnSlideEnd && modelValue != null) {
+					if ($scope.model.dataChangeOnSlideEnd && modelValue != null) {
 						$scope.svyServoyapi.apply('dataProvider');
 					}
 					if ($scope.handlers.onSlideEnd) {
 						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideEnd');
-						$scope.handlers.onSlideEnd(event);
+						$scope.handlers.onSlideEnd(event, modelValue, highValue);
 					}
 				}
 				
@@ -103,7 +103,7 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				function onSlideStart(sliderId, modelValue, highValue, pointerType) {
 					if ($scope.handlers.onSlideStart) {
 						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideStart');
-						$scope.handlers.onSlideStart(event);
+						$scope.handlers.onSlideStart(event, modelValue, highValue);
 					}
 				}
 				
@@ -140,6 +140,11 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 							case "enabled":
 								$scope.options.disabled = !value;
 								break;
+							case "readOnlySlider":
+								$scope.options.readOnly = value;
+								break;
+							case "readOnly":
+								break;
 							case "ticksValuesInterval":
 								$scope.options.showTicksValues = $scope.model.ticksValuesInterval;
 								break;								
@@ -159,8 +164,27 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 								break;
 							case "styleClass":
 								break;
+							case "stepsValueList":
+								var stepsArray = [];
+								for (var vl = 0; vl < value.length; vl++) {
+									var item = value[vl];
+									if (item.realValue == item.displayValue) {
+										//no "legend"										
+										stepsArray.push({value: item.realValue})
+									} else {
+										stepsArray.push({value: item.realValue, legend: item.displayValue})
+									}
+								}
+								$scope.options.stepsArray = stepsArray;
+								break;
 							case "formattingFunction":
 								$scope.formattingFunction = eval('(' + value + ')');
+								break;
+							case "selectionBarColorFunction":
+								$scope.options.getSelectionBarColor = eval('(' + value + ')');
+								break;
+							case "tickColorFunction":
+								$scope.options.getTickColor = eval('(' + value + ')');
 								break;
 							default:
 								$scope.options[property] = value;
@@ -181,16 +205,18 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 					delete $scope.model[$sabloConstants.modelChangeNotifier];
 				});
 				
+				console.log($scope.options);
+				
 			},
 			link: function($scope, $element, $attrs) {
 				$scope.$watch('model.dataProvider', function(newValue, oldValue) {
-					if (!$scope.model.updateOnSlideEnd) {
+					if (!$scope.model.dataChangeOnSlideEnd) {
 						$scope.svyServoyapi.apply('dataProvider');
 					}
 				});	
 				
 				$scope.$watch('model.dataProviderHigh', function(newValue, oldValue) {
-					if (!$scope.model.updateOnSlideEnd) {
+					if (!$scope.model.dataChangeOnSlideEnd) {
 						$scope.svyServoyapi.apply('dataProviderHigh');
 					}
 				});	

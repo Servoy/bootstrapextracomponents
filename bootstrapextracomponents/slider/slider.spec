@@ -5,21 +5,26 @@
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/slider/slider.js",
 	"libraries": [
-		{ "name": "rzslider-css", "version": "1.0", "url": "bootstrapextracomponents/slider/rzslider/rzslider.css", "mimetype": "text/css" }, 
-		{ "name": "slider", "version": "1.0", "url": "bootstrapextracomponents/slider/slider.css", "mimetype": "text/css" }, 
-		{ "name": "rzslider", "version": "6.4.3", "url": "bootstrapextracomponents/slider/rzslider/rzslider.js", "mimetype": "text/javascript" }
+		{ "name": "rzslider-css", "version": "1.0", "url": "bootstrapextracomponents/slider/rzslider/rzslider.min.css", "mimetype": "text/css" }, 
+		{ "name": "slider", "version": "1.0", "url": "bootstrapextracomponents/slider/bts-extra-slider.css", "mimetype": "text/css" }, 
+		{ "name": "rzslider", "version": "6.4.3", "url": "bootstrapextracomponents/slider/rzslider/rzslider.min.js", "mimetype": "text/javascript" }
 	],
 	"model":
 	{
+		"size"							: { "type": "dimension", "default": {"width": 400, "height": 70} },
+		
 		"dataProvider" 					: { "type": "dataprovider", "pushToServer": "allow", "ondatachange": { "onchange":"onDataChange", "callback":"onDataChangeCallback"} },
 		"dataProviderHigh" 				: { "type": "dataprovider", "pushToServer": "allow", "ondatachange": { "onchange":"onDataChangeHigh", "callback":"onDataChangeCallback"} },
 		"enabled" 						: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "dataProviderHigh", "onDataChange", "onDataChangeHigh"] },
 		"ticksValuesInterval"			: { "type": "int", "default": 0 },
 		"ticksInterval"					: { "type": "int", "default": null },
 		"styleClass"					: { "type": "styleclass" },
-		"updateOnSlideEnd"				: { "type": "boolean", "default": true },
+		"dataChangeOnSlideEnd"			: { "type": "boolean", "default": true },
 		"numberFormat"					: { "type": "format", "for":["dataProvider"]},
 		"formattingFunction"			: { "type": "tagstring" },
+		"selectionBarColorFunction"		: { "type": "tagstring" },
+		"tickColorFunction"				: { "type": "tagstring" },
+		
 		
 		"floor"							: { "type": "int", "default": 0 },
 		"ceil"							: { "type": "int", "default": null },
@@ -35,16 +40,24 @@
 		"draggableRangeOnly"			: { "type": "boolean", "default": false },
 		"showSelectionBar"				: { "type": "boolean", "default": false },
 		"showSelectionBarEnd"			: { "type": "boolean", "default": false },
+		"selectionBarGradient"			: { "type": "gradient" },
 		"showOuterSelectionBars"		: { "type": "boolean", "default": false },
 		"showTicks"						: { "type": "boolean", "default": false },
+		"showTicksValues"				: { "type": "boolean", "default": false },
 		"hidePointerLabels"				: { "type": "boolean", "default": false },
+		"hideLimitLabels"				: { "type": "boolean", "default": false },
+		"autoHideLimitLabels"			: { "type": "boolean", "default": false },
+		"stepsValueList"				: { "type": "valuelist", "for":["dataProvider"] },
 		"ticksArray"					: { "type": "int[]" },
-		"templateUrl"					: { "type": "media" },
-		"visible" 						: { "type": "boolean", "default": true}
+		"stepsArray"					: { "type": "int[]" },
+		"visible" 						: { "type": "boolean", "default": true},
+		"vertical" 						: { "type": "boolean", "default": false},
+		"logScale" 						: { "type": "boolean", "default": false}
 	},
 	"handlers": {
 		"onDataChange" : {
 			"returns": "boolean", 
+			"description": "Called when the dataProvider value changed",
 	        "parameters": [
 					{ "name": "oldValue", "type": "${dataproviderType}" }, 
 					{ "name": "newValue", "type": "${dataproviderType}" }, 
@@ -53,6 +66,7 @@
 	        },
 	    "onDataChangeHigh" : {
 			"returns": "boolean", 
+			"description": "Called when the dataProviderHigh value changed",
 	        "parameters": [
 					{ "name": "oldValue", "type": "${dataproviderType}" }, 
 					{ "name": "newValue", "type": "${dataproviderType}" }, 
@@ -60,20 +74,26 @@
 				]
 	        },
 	    "onSlideStart" : {
+			"description": "Called when user starts dragging the slider",
 			"parameters":[
-					{ "name": "event", "type": "JSEvent"} 
+					{ "name": "event", "type": "JSEvent"} , 
+					{ "name": "value", "type": "object"}, 
+					{ "name": "highValue", "type": "object"}
 				]
 	        },
 	    "onSlideEnd" : {
+			"description": "Called when user stops dragging the slider",
 			"parameters":[
-					{ "name": "event", "type": "JSEvent"} 
+					{ "name": "event", "type": "JSEvent"}, 
+					{ "name": "value", "type": "object"}, 
+					{ "name": "highValue", "type": "object"}
 				]
 	        }
 	},
 	"types": {
 		"gradient" : {
-			"from" 					: { "type": "string" },
-			"to" 					: { "type": "string" }
+			"from"		: { "type": "color" },
+			"to"		: { "type": "color" }
 		}
 	}
 }
