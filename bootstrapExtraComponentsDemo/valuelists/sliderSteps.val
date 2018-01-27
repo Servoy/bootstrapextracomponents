@@ -1,0 +1,13 @@
+addEmptyValue:1,
+customValues:"Very poor|1\r\
+|2\r\
+Fair|3\r\
+|4\r\
+Average|5\r\
+|6\r\
+Poor|7\r\
+|8\r\
+Excellent|9",
+name:"sliderSteps",
+typeid:34,
+uuid:"201C3FCC-966C-4D45-A7F7-FE06514CE606"
