@@ -2,16 +2,19 @@
 
 NGClient component package of all kinds of 'extra' bootstrap components. Current components are: 
 
-* Navbar: see http://getbootstrap.com/components/#navbar
-* Input group: see http://getbootstrap.com/components/#input-groups
-* Carousel: see https://angular-ui.github.io/bootstrap/
-* Button group: see http://getbootstrap.com/components/#btn-groups
-* Drop Down buttons: see http://getbootstrap.com/components/#btn-dropdowns
-* Progress bar: see http://getbootstrap.com/components/#progress
-* Rating: see https://angular-ui.github.io/bootstrap/
-* Badges: see http://getbootstrap.com/components/#badges
-* Breadcrumbs: see http://getbootstrap.com/components/#breadcrumbs
-* Switches: see http://bootstrapswitch.com
+* [Navbar](https://github.com/Servoy/bootstrapextracomponents/wiki/Navbar)  see http://getbootstrap.com/components/#navbar
+* [Input group](https://github.com/Servoy/bootstrapextracomponents/wiki/Inputgroup)  see http://getbootstrap.com/components/#input-groups
+* [Carousel](https://github.com/Servoy/bootstrapextracomponents/wiki/Carousel) see https://angular-ui.github.io/bootstrap/
+* [Button group](https://github.com/Servoy/bootstrapextracomponents/wiki/Button-group) see http://getbootstrap.com/components/#btn-groups
+* [Drop Down buttons](https://github.com/Servoy/bootstrapextracomponents/wiki/Drop-Down) see http://getbootstrap.com/components/#btn-dropdowns
+* [Progress bar](https://github.com/Servoy/bootstrapextracomponents/wiki/Progress-Bar) see http://getbootstrap.com/components/#progress
+* [Rating](https://github.com/Servoy/bootstrapextracomponents/wiki/Rating) see https://angular-ui.github.io/bootstrap/
+* [Badges](https://github.com/Servoy/bootstrapextracomponents/wiki/Badges) see http://getbootstrap.com/components/#badges
+* [Breadcrumbs](https://github.com/Servoy/bootstrapextracomponents/wiki/Breadcrumbs) see http://getbootstrap.com/components/#breadcrumbs
+* [Switches](https://github.com/Servoy/bootstrapextracomponents/wiki/Switch) see http://bootstrapswitch.com
+* [Slider](https://github.com/Servoy/bootstrapextracomponents/wiki/Slider) see http://bootstrapswitch.com
+* [Collapse](https://github.com/Servoy/bootstrapextracomponents/wiki/Collapse) see https://getbootstrap.com/docs/4.0/components/collapse/
+* [Slider](https://github.com/Servoy/bootstrapextracomponents/wiki/Slider) see https://github.com/angular-slider/angularjs-slider
 
 # Getting started
 
