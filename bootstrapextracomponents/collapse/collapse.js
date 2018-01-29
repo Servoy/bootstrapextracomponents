@@ -37,10 +37,11 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 			link: function($scope, $element, $attrs) {
 
 				function collapse(index, state) {
-					getCollapsible(index).collapse(state);
+					getCollapsibleElement(index).collapse(state);
 				}
 
 				function setCollapsedState(index, state) {
+					var collapsibleToChange = getCollapsible(index);
 					if ($scope.model.accordionMode && state === false) {
 						for (var i = 0; i < $scope.model.collapsibles.length; i++) {
 							var otherCollapse = getCollapsible(i);
@@ -53,15 +54,22 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 							}
 						}
 					}
-					if (state === false && $scope.model.collapsibles[index].form) {
-						$scope.svyServoyapi.formWillShow($scope.model.collapsibles[index].form);
-					} else if (state === true && $scope.model.collapsibles[index].form) {
-						$scope.svyServoyapi.hideForm($scope.model.collapsibles[index].form);
+					if (state === false && collapsibleToChange.form) {
+						$scope.svyServoyapi.formWillShow(collapsibleToChange.form);
+					} else if (state === true && collapsibleToChange.form) {
+						$scope.svyServoyapi.hideForm(collapsibleToChange.form);
 					}
 					$scope.model.collapsibles[index].isCollapsed = state;
 				}
-
+				
+				/**
+				 * @return {{form: String}}
+				 */
 				function getCollapsible(index) {
+					return $scope.model.collapsibles[index];
+				}
+
+				function getCollapsibleElement(index) {
 					if (! (index >= 0)) {
 						index = 0;
 					}
@@ -90,9 +98,10 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 				 * @param {Number} index the index of the collapsible to toggle
 				 */
 				$scope.api.toggle = function(index) {
+					var collapsibleElement = getCollapsibleElement(index);
 					var collapsible = getCollapsible(index);
-					collapsible.collapse('toggle'); //$NON-NLS-1$
-					setCollapsedState(index, !$scope.model.collapsibles[index].isCollapsed);
+					collapsibleElement.collapse('toggle'); //$NON-NLS-1$
+					setCollapsedState(index, !collapsible.isCollapsed);
 				}
 
 				/**
@@ -101,8 +110,8 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 				 * @param {Number} index the index of the collapsible to show
 				 */
 				$scope.api.show = function(index) {
-					var collapsible = getCollapsible(index);
-					collapsible.collapse('show'); //$NON-NLS-1$
+					var collapsibleElement = getCollapsibleElement(index);
+					collapsibleElement.collapse('show'); //$NON-NLS-1$
 					setCollapsedState(index, false);
 				}
 
@@ -112,13 +121,13 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 				 * @param {Number} index the index of the collapsible to hide
 				 */
 				$scope.api.hide = function(index) {
-					var collapsible = getCollapsible(index);
-					collapsible.collapse('hide'); //$NON-NLS-1$
+					var collapsibleElement = getCollapsibleElement(index);
+					collapsibleElement.collapse('hide'); //$NON-NLS-1$
 					setCollapsedState(index, true);
 				}
 				
 				//fix misconfigurations in isCollapsed vs. accordionMode
-				$scope.$watch('model.collapsibles', function(newValue, oldValue) {
+				$scope.$watch('model.collapsibles', function(newValue, oldValue) { //$NON-NLS-1$
 					if (newValue != null) {
 						//fix possible accordionMode misconfiguration
 						
