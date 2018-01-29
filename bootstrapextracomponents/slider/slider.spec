@@ -13,7 +13,7 @@
 	{
 		"size"							: { "type": "dimension", "default": {"width": 400, "height": 70} },
 		
-		"dataProvider" 					: { "type": "dataprovider", "pushToServer": "allow", "ondatachange": { "onchange":"onDataChange", "callback":"onDataChangeCallback"} },
+		"dataProvider" 					: { "type": "dataprovider", "pushToServer": "allow", "ondatachange": { "onchange":"onDataChangeMethodID", "callback":"onDataChangeCallback"} },
 		"dataProviderHigh" 				: { "type": "dataprovider", "pushToServer": "allow", "ondatachange": { "onchange":"onDataChangeHigh", "callback":"onDataChangeCallback"} },
 		"enabled" 						: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "dataProviderHigh", "onDataChange", "onDataChangeHigh"] },
 		"ticksValuesInterval"			: { "type": "int", "default": 0 },
@@ -67,7 +67,7 @@
 		}
 	},
 	"handlers": {
-		"onDataChange" : {
+		"onDataChangeMethodID" : {
 			"returns": "boolean", 
 			"description": "Called when the dataProvider value changed",
 	        "parameters": [
