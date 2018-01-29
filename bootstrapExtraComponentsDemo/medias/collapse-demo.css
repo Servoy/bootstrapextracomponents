@@ -97,10 +97,12 @@
 	background-color: #00A588;
 }
 
+/* Remove margin between the cards */
 .questions > div.bts-extra-collapse-collapsible {
 	margin-bottom: 0px;
 }
 
+/* make background light green when expanded and adjust borders */
 .questions-header {
 	background-color: #99DBCF;
 	border-width: 1px 1px 0px 1px;
@@ -108,14 +110,11 @@
 	color: #000000;
 }
 
+/* make background white when collapsed and remove all borders */
 .questions-header.collapsed {
 	background-color: #ffffff;
 	border-width: 0px 0px 0px 0px;
 	color: #000000;
-}
-
-.questions-header:after {
-	border-width: 0px 0px 0px 0px;
 }
 
 .svy-form.questions-form {
