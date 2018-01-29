@@ -25,8 +25,20 @@ typeid:19,
 uuid:"13C9B057-68DB-4CAA-B1BF-DD9C9622BF5C"
 },
 {
+customProperties:"",
+location:"795,16",
+name:"btnBasicToggle2c",
+onActionMethodID:"F9943F03-9932-45B9-A708-1540E23A9546",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"95,25",
+text:"Toggle",
+typeid:7,
+uuid:"146BFFF8-5F06-4293-ABB6-2BD01B4D14D6"
+},
+{
 location:"570,15",
-size:"300,25",
+size:"219,25",
 text:"Different content (forms, direct HTML)",
 transparent:true,
 typeid:7,
@@ -52,7 +64,23 @@ headerHtml:"<div>\r\
 \t<span>This contains a form<\/span>\r\
 <\/div>",
 headerStyleClass:"questions-header",
+isCollapsed:false,
 svyUUID:"79360BE8-D5BF-49B5-892A-BCBF07D8AE1B"
+},
+{
+collapsedIconName:null,
+expandedIconName:null,
+form:"C5DAC68A-284E-4C61-B365-C6ECD469F2D3",
+headerHtml:"<div>\r\
+\t<span class=\"fa-stack fa\">\r\
+\t\t<span class=\"fa fa-circle fa-stack-2x\" style=\"color: #00AA58;\"><\/span>\r\
+\t\t<span class=\"fa fa-check fa-stack-1x fa-inverse\" style=\"color: #C2E9E2;\"><\/span>\r\
+\t<\/span>\r\
+\t<span>This contains a form<\/span>\r\
+<\/div>",
+headerStyleClass:"questions-header",
+isCollapsed:true,
+svyUUID:"9C8B84B4-9A35-4B86-9919-6F7BF6ABFEDC"
 },
 {
 bodyStyleClass:"demo-card-body",
@@ -359,7 +387,7 @@ uuid:"C2764B2D-D000-4F6A-A0F9-44075DB7A392"
 },
 {
 location:"245,15",
-size:"300,25",
+size:"220,25",
 text:"HTML in header/cards, some css overwritten",
 transparent:true,
 typeid:7,

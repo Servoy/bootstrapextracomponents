@@ -1,7 +1,7 @@
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"4F6B913F-2362-4B56-9869-DCC40FE98967",variableType:4}
+ * @properties={typeid:35,uuid:"C7DC19AE-27F0-45D8-814A-B532AFCB7032",variableType:4}
  */
 var clickToggle = 0;
 
@@ -15,7 +15,7 @@ var clickToggle = 0;
  *
  * @private
  *
- * @properties={typeid:24,uuid:"C008F157-67F7-4291-A743-A704563EC080"}
+ * @properties={typeid:24,uuid:"AF9594F7-3B3C-404F-ACB8-FF4DD7FF3322"}
  */
 function onHide(event) {
 	application.output('onHide of collapsible contained form properly fired');
@@ -30,7 +30,7 @@ function onHide(event) {
  *
  * @private
  *
- * @properties={typeid:24,uuid:"331FC1BF-C21D-41EC-8498-DA083EB39A68"}
+ * @properties={typeid:24,uuid:"ED6FEBE9-0371-4A0C-A19B-0D86706865BF"}
  */
 function onShow(firstShow, event) {
 	application.output('onShow of collapsible contained form properly fired');
@@ -43,7 +43,7 @@ function onShow(firstShow, event) {
  *
  * @protected
  *
- * @properties={typeid:24,uuid:"9BCF4673-12C4-426F-86D6-8DFD3371AE27"}
+ * @properties={typeid:24,uuid:"83C18346-7B7E-4B22-934E-C45EA01B14D6"}
  */
 function onActionClick(event) {
 	clickToggle = clickToggle ? 0 : 1;

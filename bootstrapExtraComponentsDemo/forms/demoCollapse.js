@@ -121,3 +121,17 @@ function onDataChange_basicAccordionMode(oldValue, newValue, event) {
 function onAction_btnBasicToggle(event, index) {
 	elements.basic.toggle(index);
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"F9943F03-9932-45B9-A708-1540E23A9546"}
+ */
+function onAction_btnFormToggle(event) {
+	elements.formBased.toggle(0)
+	elements.formBased.toggle(1)
+}
