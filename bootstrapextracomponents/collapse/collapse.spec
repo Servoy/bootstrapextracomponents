@@ -10,7 +10,6 @@
 	],
 	"model":
 	{
-		"isCollapsed"			: { "type": "boolean", "default": "true" },
 		"collapsibles"			: { "type": "collapsible[]", "droppable": true, "pushToServer": "shallow" },
 		"accordionMode"			: { "type": "boolean", "default": "true" },
 		"styleClass"			: { "type": "styleclass" }

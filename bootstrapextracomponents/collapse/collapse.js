@@ -132,7 +132,7 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 									openedCollapseFound = true;
 								}
 							}
-							if ($scope.model.collapsibles[cc].form && !$scope.formState || !$scope.formState[cc]) {
+							if ($scope.model.collapsibles[cc].form && (!$scope.formState || !$scope.formState[cc])) {
 								getFormState(cc);
 							}
 						}
