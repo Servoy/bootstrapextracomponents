@@ -44,11 +44,11 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 					if ($scope.model.accordionMode && state === false) {
 						for (var i = 0; i < $scope.model.collapsibles.length; i++) {
 							var otherCollapse = getCollapsible(i);
-							if (i != index && !$scope.model.collapsibles[i].isCollapsed) {
-								$scope.model.collapsibles[i].isCollapsed = true;
+							if (i != index && !otherCollapse.isCollapsed) {
+								otherCollapse.isCollapsed = true;
 								collapse(i, 'hide');  //$NON-NLS-1$
-								if ($scope.model.collapsibles[i].form) {
-									$scope.svyServoyapi.hideForm($scope.model.collapsibles[i].form);
+								if (otherCollapse.form) {
+									$scope.svyServoyapi.hideForm(otherCollapse.form);
 								}
 							}
 						}
