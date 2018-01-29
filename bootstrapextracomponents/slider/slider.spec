@@ -5,7 +5,7 @@
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/slider/slider.js",
 	"libraries": [
-		{ "name": "rzslider-css", "version": "1.0", "url": "bootstrapextracomponents/slider/rzslider/rzslider.min.css", "mimetype": "text/css" }, 
+		{ "name": "rzslider-css", "version": "6.4.3", "url": "bootstrapextracomponents/slider/rzslider/rzslider.min.css", "mimetype": "text/css" }, 
 		{ "name": "slider", "version": "1.0", "url": "bootstrapextracomponents/slider/bts-extra-slider.css", "mimetype": "text/css" }, 
 		{ "name": "rzslider", "version": "6.4.3", "url": "bootstrapextracomponents/slider/rzslider/rzslider.min.js", "mimetype": "text/javascript" }
 	],
@@ -24,7 +24,12 @@
 		"formattingFunction"			: { "type": "tagstring" },
 		"selectionBarColorFunction"		: { "type": "tagstring" },
 		"tickColorFunction"				: { "type": "tagstring" },
+		"ticksTooltipFunction"			: { "type": "tagstring" },
+		"ticksValuesTooltipFunction"	: { "type": "tagstring" },
+		"getLegendFunction"				: { "type": "tagstring" },
+		"pointerColorFunction"			: { "type": "tagstring" },
 		
+		"readOnly"						: { "type": "protected", "blockingOn": true, "default": false,"for": ["dataProvider","onDataChangeMethod","dataProviderHigh","onDataChangeHigh"], "tags": {"scope":"runtime"} },
 		
 		"floor"							: { "type": "int", "default": 0 },
 		"ceil"							: { "type": "int", "default": null },
@@ -34,7 +39,10 @@
 		"maxLimit"						: { "type": "int", "default": null },
 		"minRange"						: { "type": "int", "default": null },
 		"maxRange"						: { "type": "int", "default": null },
+		"enforceStep"					: { "type": "boolean", "default": false },
+		"enforceRange"					: { "type": "boolean", "default": false },
 		"pushRange"						: { "type": "boolean", "default": false },
+		"rightToLeft"					: { "type": "boolean", "default": false },
 		"noSwitching"					: { "type": "boolean", "default": false },
 		"draggableRange"				: { "type": "boolean", "default": false },
 		"draggableRangeOnly"			: { "type": "boolean", "default": false },
@@ -53,6 +61,10 @@
 		"visible" 						: { "type": "boolean", "default": true},
 		"vertical" 						: { "type": "boolean", "default": false},
 		"logScale" 						: { "type": "boolean", "default": false}
+	},
+	"api": {
+		"refresh" : {
+		}
 	},
 	"handlers": {
 		"onDataChange" : {
@@ -77,16 +89,18 @@
 			"description": "Called when user starts dragging the slider",
 			"parameters":[
 					{ "name": "event", "type": "JSEvent"} , 
-					{ "name": "value", "type": "object"}, 
-					{ "name": "highValue", "type": "object"}
+					{ "name": "value", "type": "object", "description": "the value when the user dragged the pointer of a non-range slider or the low value in a range slider" }, 
+					{ "name": "highValue", "type": "object", "description": "the valueHigh when the user dragged the high value pointer in a range slider" },
+					{ "name": "pointerType", "type": "string", "description": "either \"value\" or \"valueHigh\"" }
 				]
 	        },
 	    "onSlideEnd" : {
 			"description": "Called when user stops dragging the slider",
 			"parameters":[
 					{ "name": "event", "type": "JSEvent"}, 
-					{ "name": "value", "type": "object"}, 
-					{ "name": "highValue", "type": "object"}
+					{ "name": "value", "type": "object", "description": "the value when the user dragged the pointer of a non-range slider or the low value in a range slider" }, 
+					{ "name": "highValue", "type": "object", "description": "the valueHigh when the user dragged the high value pointer in a range slider" },
+					{ "name": "pointerType", "type": "string", "description": "either \"value\" or \"valueHigh\"" }
 				]
 	        }
 	},

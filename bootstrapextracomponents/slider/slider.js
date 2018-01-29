@@ -1,74 +1,33 @@
-angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyformat'])
-	.directive('bootstrapextracomponentsSlider', ['$formatterUtils', '$timeout', '$sabloConstants', '$utils', 
-		function($formatterUtils, $timeout, $sabloConstants, $utils) {
+angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyformat']) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+	.directive('bootstrapextracomponentsSlider', ['$formatterUtils', '$timeout', '$sabloConstants', '$utils', "$log", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ 
+		function($formatterUtils, $timeout, $sabloConstants, $utils, $log) {
 		return {
-			restrict: 'E',
+			restrict: 'E', //$NON-NLS-1$ 
 			scope: {
-				model: '=svyModel',
-				api: "=svyApi",
-				handlers: "=svyHandlers",
-				svyServoyapi: "="
+				model: '=svyModel', //$NON-NLS-1$ 
+				api: "=svyApi", //$NON-NLS-1$ 
+				handlers: "=svyHandlers", //$NON-NLS-1$ 
+				svyServoyapi: "=" //$NON-NLS-1$ 
 			},
 			controller: function($scope, $element, $attrs) {
-				var options = {
-//					floor: 0,
-//				    ceil: 100000, //defaults to rz-slider-model
-//				    step: 500,
-//				    precision: 0,
-//				    minLimit: null,
-//				    maxLimit: null,
-//				    minRange: null,
-//				    maxRange: null,
-//				    pushRange: false,
-//				    id: null,
-//				    translate: formatValue,
-//				    getLegend: null,
-//				    stepsArray: null,
-//				    bindIndexForStepsArray: false,
-//				    draggableRange: false,
-//				    draggableRangeOnly: false,
-//				    showSelectionBar: true,
-//				    showSelectionBarEnd: false,
-//				    showOuterSelectionBars: false,
-//				    showSelectionBarFromValue: null,
-//				    hidePointerLabels: false,
-//				    hideLimitLabels: false,
-//				    autoHideLimitLabels: true,
-//				    readOnly: false,
-//				    disabled: false,
-//				    interval: 500,
-//				    showTicks: false,
-//				    showTicksValues: false,
-//				    ticksArray: null,
-//				    ticksTooltip: null,
-//				    ticksValuesTooltip: null,
-//				    vertical: false,
-//				    getSelectionBarColor: null,
-//				    getTickColor: null,
-//				    getPointerColor: null,
-//				    keyboardSupport: true,
-//				    scale: 1,
-//				    enforceStep: true,
-//				    enforceRange: false,
-//				    noSwitching: false,
-//				    onlyBindHandles: false,
-//				    onStart: null,
-//				    onChange: null,
-//				    onEnd: null,
-//				    rightToLeft: false,
-//				    reversedControls: false,
-//				    boundPointerLabels: true,
-//				    mergeRangeLabelsIfSame: false,
-//				    customTemplateScope: null,
-//				    logScale: false,
-//				    customValueToPosition: null,
-//				    customPositionToValue: null,
-//				    selectionBarGradient: {from: '#46B09C' , to: '#324D5C'},
-//				    ariaLabel: null,
-//				    ariaLabelledBy: null,
-//				    ariaLabelHigh: null,
-//				    ariaLabelledByHigh: null
-				}
+				/** "Missing" options
+				// id: null,
+				// bindIndexForStepsArray: false,
+				// showSelectionBarFromValue: null,
+				// interval: 500,
+				// keyboardSupport: true,
+				// onlyBindHandles: false,
+				// reversedControls: false,
+				// boundPointerLabels: true,
+				// mergeRangeLabelsIfSame: false,
+				// customTemplateScope: null,
+				// customValueToPosition: null,
+				// customPositionToValue: null,
+				// ariaLabel: null,
+				// ariaLabelledBy: null,
+				// ariaLabelHigh: null,
+				// ariaLabelledByHigh: null
+				*/
 				
 				$scope.options = {
 					onEnd: onSlideEnd,
@@ -82,18 +41,32 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				$scope.formattingFunction = null;
 				
 				/**
+				 * @type {Function}
+				 */
+				$scope.pointColorFunction = null;	
+				
+				function getPointerColor(value, pointerType) {
+					if (pointerType === 'min') { //$NON-NLS-1$ 
+						pointerType = 'value'; //$NON-NLS-1$ 
+					} else if (pointerType === 'max') { //$NON-NLS-1$ 
+						pointerType = 'high'; //$NON-NLS-1$ 
+					}
+					return $scope.pointColorFunction(value, pointerType);
+				}
+				
+				/**
 				 * called onSlideEnd
 				 */
 				function onSlideEnd(sliderId, modelValue, highValue, pointerType) {
-					if ($scope.model.dataChangeOnSlideEnd && highValue != null) {
-						$scope.svyServoyapi.apply('dataProviderHigh');
+					if ($scope.model.dataChangeOnSlideEnd && pointerType === 'max') { //$NON-NLS-1$ 
+						$scope.svyServoyapi.apply('dataProviderHigh'); //$NON-NLS-1$ 
 					}
-					if ($scope.model.dataChangeOnSlideEnd && modelValue != null) {
-						$scope.svyServoyapi.apply('dataProvider');
+					if ($scope.model.dataChangeOnSlideEnd && pointerType === 'min') { //$NON-NLS-1$ 
+						$scope.svyServoyapi.apply('dataProvider'); //$NON-NLS-1$ 
 					}
 					if ($scope.handlers.onSlideEnd) {
-						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideEnd');
-						$scope.handlers.onSlideEnd(event, modelValue, highValue);
+						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideEnd'); //$NON-NLS-1$ 
+						$scope.handlers.onSlideEnd(event, modelValue, highValue, pointerType === 'min' ? 'value' : 'high'); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					}
 				}
 				
@@ -102,8 +75,8 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				 */
 				function onSlideStart(sliderId, modelValue, highValue, pointerType) {
 					if ($scope.handlers.onSlideStart) {
-						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideStart');
-						$scope.handlers.onSlideStart(event, modelValue, highValue);
+						var event = $utils.createJSEvent({target: $element[0]}, 'onSlideStart'); //$NON-NLS-1$ 
+						$scope.handlers.onSlideStart(event, modelValue, highValue, pointerType === 'min' ? 'value' : 'high'); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					}
 				}
 				
@@ -113,8 +86,8 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				function formatValue(value, sliderId, label) {
 					if (!$scope.model.numberFormat || !$scope.formattingFunction || !value) return value;
 					if ($scope.formattingFunction) {
-						if (label === 'model') {
-							label = 'value';
+						if (label === 'model') { //$NON-NLS-1$
+							label = 'value'; //$NON-NLS-1$
 						}
 						return $scope.formattingFunction(value, label);
 					} else {
@@ -126,47 +99,74 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 				 * Servoy formatter to format a number with the given Servoy pattern
 				 */
 				function numberFormat(value, format) {
-					return $formatterUtils.format(value, format, 'NUMBER')
+					return $formatterUtils.format(value, format, 'NUMBER'); //$NON-NLS-1$
 				}
 				
+				/**
+				 * Refreshes the slider
+				 */
+				$scope.api.refresh = function () {
+					  $timeout(function () {
+					    $scope.$broadcast('rzSliderForceRender'); //$NON-NLS-1$
+					  });
+					};								
+				
+				//deal with model changes
 				Object.defineProperty($scope.model, $sabloConstants.modelChangeNotifier, {
 					configurable: true,
 					value: function(property, value) {
 						switch (property) {
-							case "dataProvider":
+							case "dataProvider": //$NON-NLS-1$
 								break;
-							case "dataProviderHigh":
+							case "dataProviderHigh": //$NON-NLS-1$
 								break;
-							case "enabled":
+							case "enabled": //$NON-NLS-1$
 								$scope.options.disabled = !value;
 								break;
-							case "readOnlySlider":
+							case "vertical": //$NON-NLS-1$
+								$scope.options.vertical = value;
+								$scope.api.refresh();
+								break;
+							case "readOnlySlider": //$NON-NLS-1$
 								$scope.options.readOnly = value;
 								break;
-							case "readOnly":
+							case "readOnly": //$NON-NLS-1$
+								$scope.options.readOnly = value;
 								break;
-							case "ticksValuesInterval":
-								$scope.options.showTicksValues = $scope.model.ticksValuesInterval;
-								break;								
-							case "ticksInterval":
+							case "ticksValuesInterval": //$NON-NLS-1$
+								if ($scope.model.showTicksValues) {
+									$scope.options.showTicksValues = $scope.model.ticksValuesInterval;
+								} else {
+									$scope.options.showTicksValues = false;
+								}
+								break;	
+							case "showTicksValues": //$NON-NLS-1$
+								if ($scope.model.ticksValuesInterval && value) {									
+									$scope.options.showTicksValues = $scope.model.ticksValuesInterval;
+								} else {
+									$scope.options.showTicksValues = value || false;
+								}
+								break;	
+							case "ticksInterval": //$NON-NLS-1$
 								if ($scope.model.showTicks) {
 									$scope.options.showTicks = $scope.model.ticksInterval;
 								} else {
 									$scope.options.showTicks = false;
 								}
 								break;
-							case "showTicks":
-								if ($scope.model.ticksInterval && $scope.options.showTicks) {									
+							case "showTicks": //$NON-NLS-1$
+								if ($scope.model.ticksInterval && value) {									
 									$scope.options.showTicks = $scope.model.ticksInterval;
 								} else {
-									$scope.options.showTicks = $scope.model.showTicks || false;
+									$scope.options.showTicks = value || false;
 								}
 								break;
-							case "styleClass":
+							case "styleClass": //$NON-NLS-1$
 								break;
-							case "stepsValueList":
+							case "stepsValueList": //$NON-NLS-1$
 								var stepsArray = [];
 								for (var vl = 0; vl < value.length; vl++) {
+									/** @type {{displayValue: String, realValue: Object}} */
 									var item = value[vl];
 									if (item.realValue == item.displayValue) {
 										//no "legend"										
@@ -177,14 +177,27 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 								}
 								$scope.options.stepsArray = stepsArray;
 								break;
-							case "formattingFunction":
-								$scope.formattingFunction = eval('(' + value + ')');
+							case "formattingFunction": //$NON-NLS-1$
+								$scope.formattingFunction = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
 								break;
-							case "selectionBarColorFunction":
-								$scope.options.getSelectionBarColor = eval('(' + value + ')');
+							case "selectionBarColorFunction": //$NON-NLS-1$
+								$scope.options.getSelectionBarColor = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
 								break;
-							case "tickColorFunction":
-								$scope.options.getTickColor = eval('(' + value + ')');
+							case "getLegendFunction": //$NON-NLS-1$
+								$scope.options.getLegend = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
+								break;
+							case "tickColorFunction": //$NON-NLS-1$
+								$scope.options.getTickColor = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
+								break;
+							case "ticksTooltipFunction": //$NON-NLS-1$
+								$scope.options.ticksTooltip = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
+								break;
+							case "ticksValuesTooltipFunction": //$NON-NLS-1$
+								$scope.options.ticksValuesTooltip = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
+								break;
+							case "pointerColorFunction": //$NON-NLS-1$
+								$scope.pointColorFunction = eval('(' + value + ')'); //$NON-NLS-1$ //$NON-NLS-2$
+								$scope.options.getPointerColor = getPointerColor;
 								break;
 							default:
 								$scope.options[property] = value;
@@ -200,35 +213,40 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 					modelChangeFunction(key, $scope.model[key]);
 				}
 				
-				var destroyListenerUnreg = $scope.$on("$destroy", function() {
+				/** @type {Function} */
+				var destroyListenerUnreg = $scope.$on("$destroy", function() { //$NON-NLS-1$
 					destroyListenerUnreg();
 					delete $scope.model[$sabloConstants.modelChangeNotifier];
 				});
 				
-				console.log($scope.options);
+				if ($log.debugEnabled && $log.debugLevel === $log.SPAM) {
+					$log.debug($scope.options);
+				}
 				
-			},
-			link: function($scope, $element, $attrs) {
-				$scope.$watch('model.dataProvider', function(newValue, oldValue) {
+				$scope.$watch('model.dataProvider', function(newValue, oldValue) { //$NON-NLS-1$
 					if (!$scope.model.dataChangeOnSlideEnd) {
-						$scope.svyServoyapi.apply('dataProvider');
+						//directly apply changes
+						$scope.svyServoyapi.apply('dataProvider'); //$NON-NLS-1$
 					}
 				});	
 				
-				$scope.$watch('model.dataProviderHigh', function(newValue, oldValue) {
+				$scope.$watch('model.dataProviderHigh', function(newValue, oldValue) { //$NON-NLS-1$
 					if (!$scope.model.dataChangeOnSlideEnd) {
-						$scope.svyServoyapi.apply('dataProviderHigh');
+						//directly apply changes
+						$scope.svyServoyapi.apply('dataProviderHigh'); //$NON-NLS-1$
 					}
 				});	
 				
 				$scope.api.onDataChangeCallback = function(event, returnval) {
-					console.log(returnval);
 				}
 				
 				$scope.api.onDataChangeCallbackHigh = function(event, returnval) {
-					console.log(returnval);
 				}
+				
 			},
-			templateUrl: 'bootstrapextracomponents/slider/slider.html'
+			link: function($scope, $element, $attrs) {
+				
+			},
+			templateUrl: 'bootstrapextracomponents/slider/slider.html' //$NON-NLS-1$
 		};
 	}])

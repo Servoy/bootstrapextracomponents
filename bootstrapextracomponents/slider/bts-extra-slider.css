@@ -1,28 +1,40 @@
-.bts-extra-slider.rzslider .rz-bar {
-/* 	background: #ffe4d1; */
-/* 	height: 2px; */
+/* Absolute form container */
+.svy-wrapper > * > .bts-extra-slider-container {
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.bts-extra-slider.rzslider .rz-selection {
-/* 	background: orange; */
+/* Slider container */
+.bts-extra-slider-container {
+/* 	overflow: hidden; */
 }
 
-.bts-extra-slider.rzslider .rz-pointer {
-/* 	width: 8px; */
-/* 	height: 16px; */
-/* 	top: auto; to remove the default positioning */
-/* 	bottom: 0; */
-/* 	background-color: #333; */
-/* 	border-top-left-radius: 3px; */
-/* 	border-top-right-radius: 3px; */
+/* Slider bar */
+.bts-extra-slider .rz-bar {
 }
 
+/* Selection bar */
+.bts-extra-slider .rz-selection {
+}
+
+/* Pointer */
+.bts-extra-slider .rz-pointer {
+
+}
+
+/* Pointer pseudo element (center circle) */
 .bts-extra-slider.rzslider .rz-pointer:after {
-/* 	display: none; */
 }
 
-.bts-extra-slider.rzslider .rz-bubble {
-/* 	bottom: 14px; */
+/* don't show the focus outline on the pointer when grabbed */
+.bts-extra-slider .rz-pointer:focus {
+	outline: none;
+}
+
+/* text bubbles */
+.bts-extra-slider .rz-bubble {
 }
 
 .bts-extra-slider.rzslider .rz-limit {
