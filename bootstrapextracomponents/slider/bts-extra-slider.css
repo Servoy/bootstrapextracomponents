@@ -8,15 +8,17 @@
 
 /* Slider container */
 .bts-extra-slider-container {
-/* 	overflow: hidden; */
+
 }
 
 /* Slider bar */
 .bts-extra-slider .rz-bar {
+	
 }
 
 /* Selection bar */
 .bts-extra-slider .rz-selection {
+	
 }
 
 /* Pointer */
@@ -26,6 +28,7 @@
 
 /* Pointer pseudo element (center circle) */
 .bts-extra-slider.rzslider .rz-pointer:after {
+	
 }
 
 /* don't show the focus outline on the pointer when grabbed */
@@ -35,22 +38,20 @@
 
 /* text bubbles */
 .bts-extra-slider .rz-bubble {
+	
 }
 
-.bts-extra-slider.rzslider .rz-limit {
-/* 	font-weight: bold; */
-/* 	color: orange; */
+/* limit labels */
+.bts-extra-slider .rz-limit {
+	
 }
 
-.bts-extra-slider.rzslider .rz-tick {
-/* 	width: 1px; */
-/* 	height: 10px; */
-/* 	margin-left: 4px; */
-/* 	border-radius: 0; */
-/* 	background: #ffe4d1; */
-/* 	top: -1px; */
+/* ticks */
+.bts-extra-slider .rz-tick {
+	
 }
 
-.bts-extra-slider.rzslider .rz-tick.rz-selected {
-/* 	background: orange; */
+/* selected tick */
+.bts-extra-slider .rz-tick.rz-selected {
+
 }
