@@ -127,9 +127,6 @@ angular.module('bootstrapextracomponentsSlider', ['servoy', 'rzModule', 'servoyf
 								$scope.options.vertical = value;
 								$scope.api.refresh();
 								break;
-							case "readOnlySlider": //$NON-NLS-1$
-								$scope.options.readOnly = value;
-								break;
 							case "readOnly": //$NON-NLS-1$
 								$scope.options.readOnly = value;
 								break;
