@@ -132,6 +132,10 @@ function onAction_btnBasicToggle(event, index) {
  * @properties={typeid:24,uuid:"F9943F03-9932-45B9-A708-1540E23A9546"}
  */
 function onAction_btnFormToggle(event) {
-	elements.formBased.toggle(0)
-	elements.formBased.toggle(1)
+	// note, in accordion mode i should open one collapsible per time
+	if (elements.formBased.collapsibles[0].isCollapsed) {
+		elements.formBased.show(0);
+	} else {
+		elements.formBased.show(1);
+	}
 }
