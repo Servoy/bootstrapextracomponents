@@ -18,7 +18,7 @@ var clickToggle = 0;
  * @properties={typeid:24,uuid:"C008F157-67F7-4291-A743-A704563EC080"}
  */
 function onHide(event) {
-	application.output('onHide of collapsible contained form properly fired');
+	application.output('onHide of collapsible contained form "' + controller.getName() + '" properly fired');
 	return true
 }
 
@@ -33,7 +33,7 @@ function onHide(event) {
  * @properties={typeid:24,uuid:"331FC1BF-C21D-41EC-8498-DA083EB39A68"}
  */
 function onShow(firstShow, event) {
-	application.output('onShow of collapsible contained form properly fired');
+	application.output('onShow of collapsible contained form "' + controller.getName() + '" properly fired');
 }
 
 /**
