@@ -93,9 +93,12 @@
 	"types": 
 	{
 		"card" : {
-			"cardId"						: "string",
-			"contentHtml" 					: "tagstring",
-			"styleClass"					: "styleclass"
+			"cardId"						: { "type": "string" },
+			"contentHtml" 					: { "type": "tagstring" },
+			"form" 							: { "type": "form", "default": "" },
+			"minResponsiveHeight"			: { "type": "int", "default": null },
+			"maxResponsiveHeight"			: { "type": "int", "default": null },
+			"styleClass"					: { "type": "styleclass" }
 		},
 		"collapsible" : {
 			"collapsableId"					: { "type": "string" },
@@ -108,7 +111,9 @@
 			"cards"							: { "type": "card[]" },
 			"styleClass"					: { "type": "styleclass", "default": "" },
 			"collapsedIconName"				: { "type": "string", "default": "fa fa-2x fa-angle-down" },
-			"expandedIconName"				: { "type": "string", "default": "fa fa-2x fa-angle-up" }
+			"expandedIconName"				: { "type": "string", "default": "fa fa-2x fa-angle-up" },
+			"minResponsiveHeight"			: { "type": "int", "default": null },
+			"maxResponsiveHeight"			: { "type": "int", "default": null }
 		}
 	}
 }

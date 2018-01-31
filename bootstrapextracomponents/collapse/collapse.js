@@ -9,24 +9,44 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 				api: "=svyApi"	//$NON-NLS-1$
 			},
 			controller: function($scope, $element, $attrs) {
-				$scope.getForm = function(index) {
-					if ($scope.model.collapsibles[index].form) {
-						return $scope.svyServoyapi.getFormUrl($scope.model.collapsibles[index].form);
+				
+				$scope.getForm = function(formToGet) {
+					if (formToGet) {
+						return $scope.svyServoyapi.getFormUrl(formToGet);
+					} else {
+						return "";
 					}
-					return "";
 				}
 
-				$scope.getFormHeight = function(index) {
-					var collapsible = $scope.model.collapsibles[index];
-					if (collapsible && collapsible.form) {
-						if ($scope.formState && $scope.formState[index] && $scope.formState[index].absoluteLayout === true) {
-							return { height: $scope.formState[index].properties.designSize.height + 'px' }; //$NON-NLS-1$
+				$scope.getFormStyle = function(formToGet) {
+					if (formToGet && $scope.formState && $scope.formState[formToGet]) {
+						//form found
+						var style;
+						/** @type {{absoluteLayout: Boolean, minResponsiveHeight: Number, maxResponsiveHeight: Number, properties: {designSize: {height: Number, width: Number}}}} */
+						var formState = $scope.formState[formToGet];
+						if (formState.absoluteLayout === true) {
+							//absolute layout
+							style = {
+								height: formState.properties.designSize.height + 'px'  //$NON-NLS-1$
+							}
+							return style;
+						} else if (formState.absoluteLayout !== true) {
+							//responsive layout; possibly add min- and/or max-height
+							style = {};
+							if (formState.minResponsiveHeight != null) {
+								style['min-height'] = formState.minResponsiveHeight; //$NON-NLS-1$
+							}
+							if (formState.maxResponsiveHeight != null) {
+								style['max-height'] = formState.maxResponsiveHeight; //$NON-NLS-1$
+							}
+							return style;
 						}
 					}
-					return { height: 400 + "px" }; //$NON-NLS-1$
+					return null;
 				}
 				
 				$scope.trustAsHtml = function(string) {
+					//allow html content
 				    return $sce.trustAsHtml(string);
 				};
 				
@@ -37,29 +57,57 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 			link: function($scope, $element, $attrs) {
 
 				function collapse(index, state) {
+					//set collapse state
 					getCollapsibleElement(index).collapse(state);
 				}
 
 				function setCollapsedState(index, state) {
 					var collapsibleToChange = getCollapsible(index);
+					
 					if ($scope.model.accordionMode && state === false) {
+						//collapsible is being expanded and we are in accordionMode
 						for (var i = 0; i < $scope.model.collapsibles.length; i++) {
 							var otherCollapse = getCollapsible(i);
+							//if another collapsible is open, close that
 							if (i != index && !otherCollapse.isCollapsed) {
 								otherCollapse.isCollapsed = true;
 								collapse(i, 'hide');  //$NON-NLS-1$
 								if (otherCollapse.form) {
+									//a form needs to be hidden
 									$scope.svyServoyapi.hideForm(otherCollapse.form);
+								} else if (otherCollapse.cards) {
+									//maybe cards have forms to hide
+									toggleCardFormVisibility(otherCollapse.cards, true);
 								}
 							}
 						}
 					}
-					if (state === false && collapsibleToChange.form) {
-						$scope.svyServoyapi.formWillShow(collapsibleToChange.form);
-					} else if (state === true && collapsibleToChange.form) {
-						$scope.svyServoyapi.hideForm(collapsibleToChange.form);
+					
+					//toggle form visibility
+					if (collapsibleToChange.form) {
+						if (state === false) {
+							$scope.svyServoyapi.formWillShow(collapsibleToChange.form);
+						} else if (state === true) {
+							$scope.svyServoyapi.hideForm(collapsibleToChange.form);
+						}
 					}
+					
+					if (collapsibleToChange.cards) {
+						//toggle form visibility on cards
+						toggleCardFormVisibility(collapsibleToChange.cards, state);
+					}
+					
 					$scope.model.collapsibles[index].isCollapsed = state;
+				}
+				
+				function toggleCardFormVisibility(cardsArray, state) {
+					for (var c = 0; c < cardsArray.length; c++) {
+						if (cardsArray[c].form && state === false) {
+							$scope.svyServoyapi.formWillShow(cardsArray[c].form);								
+						} else if (cardsArray[c].form && state === true) {
+							$scope.svyServoyapi.hideForm(cardsArray[c].form);
+						}
+					}
 				}
 				
 				/**
@@ -141,38 +189,48 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 									openedCollapseFound = true;
 								}
 							}
-							if ($scope.model.collapsibles[cc].form && (!$scope.formState || !$scope.formState[cc])) {
-								getFormState(cc);
+							if ($scope.model.collapsibles[cc].form) {
+								getFormState($scope.model.collapsibles[cc].form, !$scope.model.collapsibles[cc].isCollapsed, $scope.model.collapsibles[cc]);
+							}
+							if ($scope.model.collapsibles[cc].cards) {
+								for (var c = 0; c < $scope.model.collapsibles[cc].cards.length; c++) {
+									var card = $scope.model.collapsibles[cc].cards[c];
+									if (card.form) {
+										getFormState(card.form, !$scope.model.collapsibles[cc].isCollapsed, $scope.model.collapsibles[cc]);
+									}
+								}
 							}
 						}
 					}
 				}, true)
 
-				function getFormState(collapsibleIndex) {
-					$sabloApplication.getFormState($scope.model.collapsibles[collapsibleIndex].form).then(
+				/**
+				 * Loads a form's absoluteLayout property and its properties to be able to obtain the design size
+				 */
+				function getFormState(form, formWillShow, collapsibleOrCard) {
+					$sabloApplication.getFormState(form).then(
 						function(formState) {
 							if (formState.properties) {
 								if (!$scope.formState) {
-									$scope.formState = [];
+									$scope.formState = {};
 								}
-								$scope.formState[collapsibleIndex] = {
+								$scope.formState[form] = {
 									properties: formState.properties, 
-									absoluteLayout: formState.absoluteLayout
+									absoluteLayout: formState.absoluteLayout,
+									maxResponsiveHeight: collapsibleOrCard.maxResponsiveHeight,
+									minResponsiveHeight: collapsibleOrCard.minResponsiveHeight
 								};
-								if (!$scope.model.collapsibles[collapsibleIndex].isCollapsed) {
-									$scope.svyServoyapi.formWillShow($scope.model.collapsibles[collapsibleIndex].form);
+								if (formWillShow) {
+									$scope.svyServoyapi.formWillShow(form);
 								}
 							}
-						},
-						function(e) {
-							console.log(e);
 						}
 					);
 				}
 				
 				for (var x = 0; x < $scope.model.collapsibles.length; x++) {
 					if ($scope.model.collapsibles[x].form) {
-						getFormState(x);
+						getFormState($scope.model.collapsibles[x].form, !$scope.model.collapsibles[x].isCollapsed, $scope.model.collapsibles[x]);
 					}
 				}
 			},
