@@ -84,7 +84,6 @@ function onAction_btnBuildWithAPI(event) {
 	collapsible.cards.push(component.createCard('Card #1', 'card' + numOfCollapsibles + '.1'));
 	collapsible.cards.push(component.createCard('Card #2', 'card' + numOfCollapsibles + '.2'));
 	collapsible.cards.push(component.createCard('Card #3', 'card' + numOfCollapsibles + '.3'));
-	
 	component.addCollapsible(collapsible);
 	
 	component.accordionMode = basicAccordionMode;
@@ -133,7 +132,7 @@ function onAction_btnBasicToggle(event, index) {
  */
 function onAction_btnFormToggle(event) {
 	// note, in accordion mode i should open one collapsible per time
-	if (elements.formBased.collapsibles[0].isCollapsed) {
+	if (elements.formBased.isCollapsed(0)) {
 		elements.formBased.show(0);
 	} else {
 		elements.formBased.show(1);
