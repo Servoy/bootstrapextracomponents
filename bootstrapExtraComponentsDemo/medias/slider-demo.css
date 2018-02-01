@@ -15,8 +15,10 @@
 	background-image: url('servoy_logo.png');
 	background-size: 75%;
 	background-repeat: no-repeat;
-    background-position: center; 
-    background-color: white;
+    background-position: left;
+    background-position: 3px 50%;
+/*     background-color: white; */
+    background-color: transparent;
     border-color: #E9720B;
     top: -16px;
 }

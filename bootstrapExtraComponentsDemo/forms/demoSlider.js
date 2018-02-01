@@ -3,7 +3,7 @@
  *
  * @properties={typeid:35,uuid:"C27233F4-291E-45E6-A276-BB84E65A59A3",variableType:4}
  */
-var sliderValueHigh = 2;
+var sliderValueHigh = 15;
 
 /**
  * @type {Number}
@@ -29,14 +29,14 @@ var lastActionMsg;
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"28992AF6-082F-4F22-BAC7-97A5FD8ECCAD",variableType:4}
+ * @properties={typeid:35,uuid:"28992AF6-082F-4F22-BAC7-97A5FD8ECCAD",variableType:8}
  */
 var optValue = 1;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"431CBFD7-4B22-4B10-B25E-0AAB8BCE000E",variableType:4}
+ * @properties={typeid:35,uuid:"431CBFD7-4B22-4B10-B25E-0AAB8BCE000E",variableType:8}
  */
 var optValueHigh = 5;
 
@@ -130,6 +130,82 @@ var optTicksValueInterval = 1;
  * @properties={typeid:35,uuid:"A40E0E91-249C-4608-97CF-A121719692D2",variableType:4}
  */
 var optRightToLeft = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"EF8E2C5C-BDDA-4537-97F6-DC9542CBD58C",variableType:4}
+ */
+var optAutoHideLimits = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"B9675D3E-1176-40D3-8E57-DB32B58A681A",variableType:4}
+ */
+var optDraggableRangeOnly = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"0B47CEAF-5D48-414E-B5D5-ABD8AAA703F1",variableType:4}
+ */
+var optHidePointerLabels = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"D87B824D-B8E0-448B-AD07-AE568668FCDA",variableType:4}
+ */
+var optNoSwitching = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"DA061D57-3899-4BD8-904F-891F57660FCE",variableType:4}
+ */
+var optPushRange = 0;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"51890B10-3AFD-4698-A685-C92DF11F57ED",variableType:4}
+ */
+var optMinRange;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"901F6263-F9C8-4369-A34E-B1D912CF1F3A",variableType:4}
+ */
+var optMaxRange;
+
+
+/**
+ * @properties={typeid:24,uuid:"8F483694-B112-4596-BC9E-F40662AB2930"}
+ */
+function apllyAllOptions() {
+	elements.slider_all_options.floor = optFloor;
+	elements.slider_all_options.ceil = optCeil;
+	elements.slider_all_options.step = optStep;
+	elements.slider_all_options.precision = optPrecision;
+	elements.slider_all_options.ticksValuesInterval = optTicksValueInterval;
+	elements.slider_all_options.ticksInterval = optTicksInterval;
+	elements.slider_all_options.hideLimitLabels = optHideLimits ? true : false;
+	elements.slider_all_options.draggableRange = optDraggableRange ? true : false;
+	elements.slider_all_options.showTicks = optShowTicks ? true : false;
+	elements.slider_all_options.showTicksValues = optShowTickValues ? true : false;
+	elements.slider_all_options.enabled = optDisabled ? false : true;
+	elements.slider_all_options.rightToLeft = optRightToLeft ? true : false;
+	elements.slider_all_options.dataChangeOnSlideEnd = optDataChangeOnSlideEnd ? true : false;
+	elements.slider_all_options.autoHideLimitLabels = optAutoHideLimits ? true : false;
+	elements.slider_all_options.draggableRangeOnly = optDraggableRangeOnly ? true : false;
+	elements.slider_all_options.hidePointerLabels = optHidePointerLabels ? true : false;
+	elements.slider_all_options.noSwitching = optNoSwitching ? true : false;
+	elements.slider_all_options.pushRange = optPushRange ? true : false;
+	elements.slider_all_options.minRange = optMinRange;
+	elements.slider_all_options.maxRange = optMaxRange;
+}
 
 /**
  * @param oldValue
@@ -253,25 +329,6 @@ function onDataChange_options(oldValue, newValue, event) {
 	return true
 }
 
-
-/**
- * @properties={typeid:24,uuid:"8F483694-B112-4596-BC9E-F40662AB2930"}
- */
-function apllyAllOptions() {
-	elements.slider_all_options.floor = optFloor;
-	elements.slider_all_options.ceil = optCeil;
-	elements.slider_all_options.step = optStep;
-	elements.slider_all_options.precision = optPrecision;
-	elements.slider_all_options.ticksValuesInterval = optTicksValueInterval;
-	elements.slider_all_options.ticksInterval = optTicksInterval;
-	elements.slider_all_options.hideLimitLabels = optHideLimits ? true : false;
-	elements.slider_all_options.draggableRange = optDraggableRange ? true : false;
-	elements.slider_all_options.showTicks = optShowTicks ? true : false;
-	elements.slider_all_options.showTicksValues = optShowTickValues ? true : false;
-	elements.slider_all_options.enabled = optDisabled ? false : true;
-	elements.slider_all_options.rightToLeft = optRightToLeft ? true : false;
-	elements.slider_all_options.dataChangeOnSlideEnd = optDataChangeOnSlideEnd ? true : false;
-}
 /**
  * Callback method for when form is shown.
  *
