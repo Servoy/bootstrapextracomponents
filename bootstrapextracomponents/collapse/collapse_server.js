@@ -2,14 +2,14 @@
  * Creates a new collapsible that can be added to the Collapse component using addCollapsible
  * 
  * @param {String} [textOrHtml]
- * @param {String} [collapsableId]
+ * @param {String} [collapsibleId]
  * 
  * @return {bootstrapextracomponents-collapse.collapsible}
  */
-$scope.api.createCollapsible = function(textOrHtml, collapsableId) {
+$scope.api.createCollapsible = function(textOrHtml, collapsibleId) {
 	return {
 		headerHtml: textOrHtml || null,
-		collapsableId: collapsableId || Math.ceil(Math.random() * 10000000) + '',
+		collapsibleId: collapsibleId || Math.ceil(Math.random() * 10000000) + '',
 		headerStyleClass: null,
 		collapsibleHtml: null,
 		form: null,
@@ -17,7 +17,9 @@ $scope.api.createCollapsible = function(textOrHtml, collapsableId) {
 		cards: [],
 		styleClass: null,
 		collapsedIconName: 'fa fa-2x fa-angle-down',
-		expandedIconName: 'fa fa-2x fa-angle-up'
+		expandedIconName: 'fa fa-2x fa-angle-up',
+		minResponsiveHeight: null,
+		maxResponsiveHeight: null
 	}
 }
 
@@ -33,7 +35,10 @@ $scope.api.createCard = function(textOrHtml, cardId, styleClass) {
 	return {
 		contentHtml: textOrHtml || null,
 		cardId: cardId || Math.ceil(Math.random() * 10000000) + '',
-		styleClass: styleClass || null
+		form: null, 
+		styleClass: styleClass || null,
+		minResponsiveHeight: null,
+		maxResponsiveHeight: null
 	}
 }
 
@@ -81,6 +86,82 @@ $scope.api.getCardById = function(cardId) {
 					return collapsible.cards[c];
 				}
 			}
+		}
+	}
+	
+	return null;
+}
+
+/**
+ * Returns the card with the given index
+ * @param {Number} cardIndex the index of the card to get (0 based)
+ * @param {Number} [collapsibleIndex] if not given, the first collapsible is used
+ * 
+ * @return {bootstrapextracomponents-collapse.card} the card or null when not found
+ */
+$scope.api.getCard = function(cardIndex, collapsibleIndex) {
+	if (!(collapsibleIndex >= 0)) {
+		collapsibleIndex = 0;
+	}
+	if (!$scope.model.collapsibles || $scope.model.collapsibles.length === 0 || !$scope.model.collapsibles[collapsibleIndex]) {
+		return null;
+	}
+	
+	if ($scope.model.collapsibles[collapsibleIndex].cards && $scope.model.collapsibles[collapsibleIndex].cards[cardIndex]) {
+		return $scope.model.collapsibles[collapsibleIndex].cards[cardIndex];
+	}
+	
+	return null;
+}
+
+/**
+ * Returns the collapsible with the given index (0 based)
+ * @param {Number} [collapsibleIndex] if not given, the first collapsible is used
+ * 
+ * @return {bootstrapextracomponents-collapse.card} the card or null when not found
+ */
+$scope.api.getCollapsible = function(collapsibleIndex) {
+	if (!(collapsibleIndex >= 0)) {
+		collapsibleIndex = 0;
+	}
+	if (!$scope.model.collapsibles || $scope.model.collapsibles.length === 0 || !$scope.model.collapsibles[collapsibleIndex]) {
+		return null;
+	}
+	
+	return $scope.model.collapsibles[collapsibleIndex];
+}
+
+/**
+ * Returns whether the collapsible at the given index (or the first one if no index is provided) is collapsed
+ * @param {Number} collapsibleIndex
+ * 
+ * @return {Boolean}
+ */
+$scope.api.isCollapsed = function(collapsibleIndex) {
+	if (!(collapsibleIndex >= 0)) {
+		collapsibleIndex = 0;
+	}
+	var collapsible = $scope.model.collapsibles[collapsibleIndex];
+	if (collapsible) {
+		return collapsible.isCollapsed;
+	}
+	return false;
+}
+
+/**
+ * Returns the card with the given index
+ * @param {String} [collapsibleId] if not given, the first collapsible is used
+ * 
+ * @return {bootstrapextracomponents-collapse.card} the card or null when not found
+ */
+$scope.api.getCollapsibleById = function(collapsibleId) {
+	if (!$scope.model.collapsibles || $scope.model.collapsibles.length === 0) {
+		return null;
+	}
+	
+	for (var c = 0; c < $scope.model.collapsibles.length; c++) {
+		if ($scope.model.collapsibles[c].collapsibleId == collapsibleId) {
+			return $scope.model.collapsibles[c];
 		}
 	}
 	

@@ -177,18 +177,7 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 				//fix misconfigurations in isCollapsed vs. accordionMode
 				$scope.$watch('model.collapsibles', function(newValue, oldValue) { //$NON-NLS-1$
 					if (newValue != null) {
-						//fix possible accordionMode misconfiguration
-						
-						var openedCollapseFound = false;
 						for (var cc = 0; cc < $scope.model.collapsibles.length; cc++) {
-							if ($scope.model.accordionMode) {
-								if (!$scope.model.collapsibles[cc].isCollapsed && openedCollapseFound) {
-									$scope.model.collapsibles[cc].isCollapsed = true;
-								}
-								if (!$scope.model.collapsibles[cc].isCollapsed) {
-									openedCollapseFound = true;
-								}
-							}
 							if ($scope.model.collapsibles[cc].form) {
 								getFormState($scope.model.collapsibles[cc].form, !$scope.model.collapsibles[cc].isCollapsed, $scope.model.collapsibles[cc]);
 							}
@@ -228,11 +217,26 @@ angular.module('bootstrapextracomponentsCollapse', ['servoy']) //$NON-NLS-1$ //$
 					);
 				}
 				
-				for (var x = 0; x < $scope.model.collapsibles.length; x++) {
-					if ($scope.model.collapsibles[x].form) {
-						getFormState($scope.model.collapsibles[x].form, !$scope.model.collapsibles[x].isCollapsed, $scope.model.collapsibles[x]);
+				function initCollapsibles() {
+					//get form states and fix possible accordionMode misconfiguration
+					var openedCollapseFound = false;
+					for (var x = 0; x < $scope.model.collapsibles.length; x++) {
+						if ($scope.model.collapsibles[x].form) {
+							getFormState($scope.model.collapsibles[x].form, !$scope.model.collapsibles[x].isCollapsed, $scope.model.collapsibles[x]);
+						}
+						
+						if ($scope.model.accordionMode) {
+							if (!$scope.model.collapsibles[x].isCollapsed && openedCollapseFound) {
+								$scope.model.collapsibles[x].isCollapsed = true;
+							}
+							if (!$scope.model.collapsibles[x].isCollapsed) {
+								openedCollapseFound = true;
+							}
+						}
 					}
 				}
+				
+				initCollapsibles();
 			},
 			templateUrl: 'bootstrapextracomponents/collapse/collapse.html' //$NON-NLS-1$
 		};

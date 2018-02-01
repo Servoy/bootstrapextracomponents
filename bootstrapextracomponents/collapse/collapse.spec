@@ -12,54 +12,77 @@
 	{
 		"collapsibles"			: { "type": "collapsible[]", "droppable": true, "pushToServer": "shallow" },
 		"accordionMode"			: { "type": "boolean", "default": "true" },
+		"expandedIndices"		: { "type": "int[]", "default": null },
 		"styleClass"			: { "type": "styleclass" }
 	},
 	"api": 
 	{
-		"createCollapsible"		: { 
-			"returns" 		: "collapsible", 
-			"parameters"	: [ 
+		"createCollapsible"	: { 
+			"returns" 	: "collapsible", 
+			"parameters": [ 
 				{ "name": "textOrHtml", "type": "string", "optional": true }, 
-				{ "name": "collapsableId", "type": "string", "optional": true }
+				{ "name": "collapsibleId", "type": "string", "optional": true }
 			] 
 		},
 		"createCard"		: { 
-			"returns" 		: "card", 
-			"parameters"	: [ 
+			"returns" 	: "card", 
+			"parameters": [ 
 				{ "name": "textOrHtml", "type": "string", "optional": true }, 
 				{ "name": "cardId", "type": "string", "optional": true },
 				{ "name": "styleClass", "type": "string", "optional": true }
 			] 
 		},
+		"getCard"			: {
+			"returns"	: "card",
+			"parameters": [ 
+				{ "name": "index", "type": "int" }, 
+				{ "name": "collapsibleIndex", "type": "int" }
+			] 
+		},
 		"getCardById"		: {
 			"returns"		: "card",
-			"parameters"	: [ 
+			"parameters": [ 
 				{ "name": "cardId", "type": "string" }
 			] 
 		},
-		"addCollapsible"		: { 
-			"parameters"	: [ 
+		"addCollapsible"	: { 
+			"parameters": [ 
 				{ "name": "collapsible", "type": "collapsible" }, 
 				{ "name": "index", "type": "int", "optional": true }
 			] 
 		},
-		"setCollapsibles"		: { 
-			"parameters"	: [ 
+		"getCollapsible"	: { 
+			"parameters": [ 
+				{ "name": "index", "type": "int" }
+			] 
+		},
+		"getCollapsibleById": { 
+			"parameters": [ 
+				{ "name": "collapsibleId", "type": "string" }
+			] 
+		},
+		"isCollapsed"	: { 
+			"parameters": [ 
+				{ "name": "index", "type": "int", "optional": true }
+			] 
+		},
+		"setCollapsibles"	: { 
+			"parameters": [ 
 				{ "name": "collapsibles", "type": "collapsible[]" }
 			] 
 		},
-		"toggle"				: { 
-			"parameters"	: [ 
+		"toggle"			: { 
+			"parameters": [ 
 				{ "name": "index", "type": "int", "optional": true } 
 			] 
 		},
-		"show"					: { 
-			"parameters"	: [ 
+		"show"				: { 
+			"parameters": [ 
 				{ "name": "index", "type": "int", "optional": true } 
 			] 
 		},
-		"hide"					: { 
-			"parameters"	: [ 
+		"hide"				: { 
+			"parameters": [ 
 				{ "name": "index", "type": "int", "optional": true } 
 			] 
 		}
@@ -101,13 +124,13 @@
 			"styleClass"					: { "type": "styleclass" }
 		},
 		"collapsible" : {
-			"collapsableId"					: { "type": "string" },
+			"collapsibleId"					: { "type": "string" },
+			"isCollapsed" 					: { "type": "boolean", "tags": { "scope": "design" }, "default": "true" },
 			"headerHtml" 					: { "type": "tagstring", "default": "" },
 			"headerStyleClass" 				: { "type": "styleclass", "default": "" },
 			"bodyStyleClass"				: { "type": "styleclass" },
 			"collapsibleHtml" 				: { "type": "tagstring", "default": "" },
 			"form" 							: { "type": "form", "default": "" },
-			"isCollapsed"					: { "type": "boolean", "default": "true" },
 			"cards"							: { "type": "card[]" },
 			"styleClass"					: { "type": "styleclass", "default": "" },
 			"collapsedIconName"				: { "type": "string", "default": "fa fa-2x fa-angle-down" },
