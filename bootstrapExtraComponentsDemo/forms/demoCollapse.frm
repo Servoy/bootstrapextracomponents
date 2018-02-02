@@ -64,7 +64,6 @@ headerHtml:"<div>\r\
 \t<span>This contains a form<\/span>\r\
 <\/div>",
 headerStyleClass:"questions-header",
-isCollapsed:false,
 svyUUID:"79360BE8-D5BF-49B5-892A-BCBF07D8AE1B"
 },
 {
@@ -79,7 +78,6 @@ headerHtml:"<div>\r\
 \t<span>This contains a form<\/span>\r\
 <\/div>",
 headerStyleClass:"questions-header",
-isCollapsed:true,
 svyUUID:"9C8B84B4-9A35-4B86-9919-6F7BF6ABFEDC"
 },
 {
@@ -103,7 +101,6 @@ headerStyleClass:"questions-header",
 svyUUID:"CFB914CA-CB75-4AB1-A542-91445995EE68"
 }
 ],
-isCollapsed:false,
 location:{
 x:570,
 y:50
@@ -120,7 +117,7 @@ styleClass:"questions"
 location:"570,50",
 name:"formBased",
 size:"320,440",
-typeName:"bootstrapextracomponents-collapse",
+typeName:"servoyextra-collapse",
 typeid:47,
 uuid:"2E19D031-E2ED-4D3F-B77C-67970C1EA1EE"
 },
@@ -142,7 +139,7 @@ width:270
 location:"915,105",
 name:"basicApi",
 size:"270,385",
-typeName:"bootstrapextracomponents-collapse",
+typeName:"servoyextra-collapse",
 typeid:47,
 uuid:"6F6E346B-A635-45ED-924D-DC1F87218596"
 },
@@ -186,7 +183,6 @@ headerHtml:"<div>\r\
 <div class=\"demo-header\">$ 745.75<\/div>\r\
 <div class=\"demo-text\">2 accounts<\/div>\r\
 <\/div>",
-isCollapsed:true,
 styleClass:"collapse-checking",
 svyUUID:"914C0489-AE50-4017-B41C-18138B78230A"
 },
@@ -222,7 +218,6 @@ headerHtml:"<div>\r\
 <div class=\"demo-header\">$ 9,425.12<\/div>\r\
 <div class=\"demo-text\">3 accounts<\/div>\r\
 <\/div>",
-isCollapsed:true,
 styleClass:"collapse-savings",
 svyUUID:"DCF9E08B-5C01-44A6-8CAD-A0BE90913772"
 },
@@ -248,10 +243,13 @@ headerHtml:"<div>\r\
 <div class=\"demo-header\">$ 2,000.00<\/div>\r\
 <div class=\"demo-text\">1 loan<\/div>\r\
 <\/div>",
-isCollapsed:false,
 styleClass:"collapse-loans",
 svyUUID:"D13AD7CE-AB9A-4267-8CE7-12A76B1DD024"
 }
+],
+expandedIndices:[
+1,
+2
 ],
 location:{
 x:245,
@@ -270,7 +268,7 @@ styleClass:"collapse-accounts"
 location:"245,50",
 name:"styling",
 size:"300,440",
-typeName:"bootstrapextracomponents-collapse",
+typeName:"servoyextra-collapse",
 typeid:47,
 uuid:"95109E92-CF14-48F1-BDE1-43BC731D5B51"
 },
@@ -381,7 +379,7 @@ width:205
 location:"15,125",
 name:"basic",
 size:"205,365",
-typeName:"bootstrapextracomponents-collapse",
+typeName:"servoyextra-collapse",
 typeid:47,
 uuid:"C2764B2D-D000-4F6A-A0F9-44075DB7A392"
 },

@@ -7,6 +7,7 @@
 		<project>svyMicroSamples</project>
 		<project>exampleSharedWebPackages</project>
 		<project>bootstrapextracomponents</project>
+		<project>servoy-extra-components</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

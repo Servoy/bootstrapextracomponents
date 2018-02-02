@@ -128,7 +128,7 @@ width:450
 location:"580,358",
 name:"slider_all_options",
 size:"450,90",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"30449C64-08CE-455A-A33F-3E7BCA12FF0B"
 },
@@ -252,7 +252,7 @@ ticksValuesInterval:10
 location:"150,300",
 name:"test",
 size:"400,80",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"4CF910F1-6C55-49E1-827D-5C933AE92FE8"
 },
@@ -289,7 +289,7 @@ stepsValueList:"201C3FCC-966C-4D45-A7F7-FE06514CE606"
 location:"150,195",
 name:"slider_slider_steps_value_list",
 size:"400,95",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"6AEEF8A7-4B55-48C4-B69E-07E23D40465A"
 },
@@ -399,7 +399,7 @@ width:400
 location:"150,55",
 name:"slider_basic",
 size:"400,60",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"9C46AF40-CB61-441E-B0C1-E7FC2AC0C84C"
 },
@@ -446,7 +446,7 @@ vertical:true
 location:"1055,56",
 name:"slider_vertical",
 size:"150,372",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"ABEBFF6F-ED9E-4202-8294-B17C16E0A732"
 },
@@ -553,7 +553,7 @@ width:400
 location:"150,125",
 name:"slider_range",
 size:"400,60",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"EDF93711-2271-4C05-8B9C-6C382E1EFD1E"
 },
@@ -653,7 +653,7 @@ ticksValuesInterval:5
 location:"150,390",
 name:"slider_servoy_style",
 size:"400,60",
-typeName:"bootstrapextracomponents-slider",
+typeName:"servoyextra-slider",
 typeid:47,
 uuid:"FC652EF8-F088-41F2-AE12-CB535CAE2591"
 },

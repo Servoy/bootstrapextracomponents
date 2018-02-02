@@ -1,76 +1,76 @@
 /** Collapse */
 
-.collapse-accounts.bts-extra-collapse-header {   
+.collapse-accounts.svy-collapse-header {   
 	border-width: 1px 1px 0px 1px;
 }
 
-.collapse-accounts.bts-extra-collapse-header:after {
+.collapse-accounts.svy-collapse-header:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 2px solid #246973; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-checking > div.bts-extra-collapse-header {
+.collapse-checking > div.svy-collapse-header {
 	background-color: #00515C;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-checking > div.bts-extra-collapse-header:after {
+.collapse-checking > div.svy-collapse-header:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 2px solid #246973; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-checking > div.bts-extra-collapse-header.collapsed:after {
+.collapse-checking > div.svy-collapse-header.collapsed:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 0px solid #246973; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-checking > div > div.bts-extra-collapse-card-body {
+.collapse-checking > div > div.svy-collapse-card-body {
 	background-color: #00515C;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-savings > div.bts-extra-collapse-header {
+.collapse-savings > div.svy-collapse-header {
 	background-color: #007269;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-savings > div > div.bts-extra-collapse-card-body {
+.collapse-savings > div > div.svy-collapse-card-body {
 	background-color: #007269;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-savings > div.bts-extra-collapse-header:after {
+.collapse-savings > div.svy-collapse-header:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 2px solid #00d8c7; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-savings > div.bts-extra-collapse-header.collapsed:after {
+.collapse-savings > div.svy-collapse-header.collapsed:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 0px solid #00d8c7; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-loans > div.bts-extra-collapse-header {
+.collapse-loans > div.svy-collapse-header {
 	background-color: #00A588;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-loans > div > div.bts-extra-collapse-card-body {
+.collapse-loans > div > div.svy-collapse-card-body {
 	background-color: #00A588;
 	border-width: 0px 0px 0px 0px;
 	color: #ffffff;
 }
 
-.collapse-loans > div.bts-extra-collapse-header:after {
+.collapse-loans > div.svy-collapse-header:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 2px solid #22B097; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.collapse-loans > div.bts-extra-collapse-header.collapsed:after {
+.collapse-loans > div.svy-collapse-header.collapsed:after {
     width: 70%; /* Change this to whatever width you want. */
     border-bottom: 0px solid #22B097; /* This creates the border. Replace black with whatever color you want. */
 }
@@ -98,7 +98,7 @@
 }
 
 /* Remove margin between the cards */
-.questions > div.bts-extra-collapse-collapsible {
+.questions > div.svy-collapse-collapsible {
 	margin-bottom: 0px;
 }
 

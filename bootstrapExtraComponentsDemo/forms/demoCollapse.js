@@ -14,7 +14,7 @@ var basicAccordionMode = elements.basic.accordionMode ? 1 : 0;
 	
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-collapse.collapsible} collapsible
+ * @param {servoyextra-collapse.collapsible} collapsible
  * @param {Number} collapsibleIndex
  *
  * @private
@@ -27,7 +27,7 @@ function onCollapsableShown(event, collapsible, collapsibleIndex) {
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-collapse.collapsible} collapsible
+ * @param {servoyextra-collapse.collapsible} collapsible
  * @param {Number} collapsibleIndex
  *
  * @private
@@ -40,8 +40,8 @@ function onCollapsibleHidden(event, collapsible, collapsibleIndex) {
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-collapse.card} card
- * @param {bootstrapextracomponents-collapse.collapsible} collapsible
+ * @param {servoyextra-collapse.card} card
+ * @param {servoyextra-collapse.collapsible} collapsible
  * @param {Number} cardIndex
  * @param {Number} collapsibleIndex
  *
@@ -51,9 +51,10 @@ function onCollapsibleHidden(event, collapsible, collapsibleIndex) {
  */
 function onCardClicked(event, card, collapsible, cardIndex, collapsibleIndex) {
 	lastActionMsg = 'onCardClicked fired from element "' + event.getElementName() + '" , collapsible index ' + collapsibleIndex + ', card index ' + cardIndex;
-	if (card.cardId === 'btnNewLoan') {
+	if (card && card.cardId === 'btnNewLoan') {
 		plugins.dialogs.showWarningDialog('Not implemented', 'Sorry, this feature is not implemented in this demo!');
 	}
+	application.output(lastActionMsg);
 }
 
 /**
