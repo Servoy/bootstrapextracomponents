@@ -10,16 +10,10 @@ Web-Component: True
 Name: progressbar/progressbar.spec
 Web-Component: True
 
-Name: slider/slider.spec
-Web-Component: True
-
 Name: buttonsGroup/buttonsGroup.spec
 Web-Component: True
 
 Name: dropdown/dropdown.spec
-Web-Component: True
-
-Name: collapse/collapse.spec
 Web-Component: True
 
 Name: navbar/navbar.spec
