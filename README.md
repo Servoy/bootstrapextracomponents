@@ -12,8 +12,6 @@ NGClient component package of all kinds of 'extra' bootstrap components. Current
 * [Badges](https://github.com/Servoy/bootstrapextracomponents/wiki/Badges) see http://getbootstrap.com/components/#badges
 * [Breadcrumbs](https://github.com/Servoy/bootstrapextracomponents/wiki/Breadcrumbs) see http://getbootstrap.com/components/#breadcrumbs
 * [Switches](https://github.com/Servoy/bootstrapextracomponents/wiki/Switch) see http://bootstrapswitch.com
-* [Collapse](https://github.com/Servoy/bootstrapextracomponents/wiki/Collapse) see https://getbootstrap.com/docs/4.0/components/collapse/
-* [Slider](https://github.com/Servoy/bootstrapextracomponents/wiki/Slider) see https://github.com/angular-slider/angularjs-slider
 
 # Getting started
 
