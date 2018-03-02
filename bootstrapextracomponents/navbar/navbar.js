@@ -203,6 +203,15 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 }
             }
 
+            function indexOf(item){
+            	for (var i = 0; i < $scope.model.menuItems.length; i++) {
+                    var menuItem = $scope.model.menuItems[i];
+                    if (menuItem.itemId == item.itemId) {
+                    	return i;
+                    }
+            	}
+            	return -1;
+            }
             $scope.navBarClicked = function(event, index) {
                 if (event.target.getAttribute('id') == 'navbar-collapse') {
                     //click on navbar (background)
@@ -269,6 +278,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     var jsEvent = $utils.createJSEvent(event, 'action');
                     $window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
                 } else if (itemClicked && $scope.handlers.onMenuItemClicked) {
+                	var index = indexOf(itemClicked);
+                	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
                     $scope.handlers.onMenuItemClicked(event, createItemArg(itemClicked));
                 }
             }
