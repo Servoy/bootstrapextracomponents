@@ -142,8 +142,12 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1)
                 	$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
                 }
-                try {                	
-                    var itemId = event.target.getAttribute('data-menu-item-id');
+                try {  
+                	var dataMenuItemElement = event.target.closest('[data-menu-item-id]');
+                	if (!dataMenuItemElement) {
+                		return null;
+                	}
+                    var itemId = dataMenuItemElement.getAttribute('data-menu-item-id');
                     var itemClicked;
                     if (!itemId) {
                         return null;
@@ -276,9 +280,9 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 makeItemActive(itemClicked);
                 if (itemClicked && itemClicked.onAction) {
                     var jsEvent = $utils.createJSEvent(event, 'action');
+                	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
                     $window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
                 } else if (itemClicked && $scope.handlers.onMenuItemClicked) {
-                	var index = indexOf(itemClicked);
                 	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
                     $scope.handlers.onMenuItemClicked(event, createItemArg(itemClicked));
                 }
