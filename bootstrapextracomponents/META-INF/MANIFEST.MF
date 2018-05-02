@@ -3,8 +3,8 @@ Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
 Bundle-Version: 1.2.6
 Package-Type: Web-Component
-JS-ClientLibs: bootstrapextracomponents/lib/js/bootstrap.min.js;name=bootstrap;version=3.3.7,
- 
+JS-ClientLibs: bootstrapextracomponents/lib/js/bootstrap.min.js;name=bootstrap;version=3.3.7
+
 Name: badge/badge.spec
 Web-Component: True
 
