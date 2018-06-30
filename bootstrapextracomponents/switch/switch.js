@@ -10,7 +10,7 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 			},
 			link: function($scope, $element, $attrs) {
 				$scope.selection = false;
-				
+
 				$scope.$watch('model.dataProviderID', function(newVal, oldVal) {
 						$scope.selection = getSelectionFromDataprovider();
 						if (newVal != oldVal) {
@@ -18,15 +18,14 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						}
 					})
 
-				$scope.switchClicked = function(event) {
-					if ($scope.model.valuelistID && $scope.model.valuelistID[0]) {
-						$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.model.valuelistID[0].realValue ? null : $scope.model.valuelistID[0].realValue;
+				$scope.switchClicked = function() {
+					if ($scope.model.selectedValue) {
+						$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.model.selectedValue ? null : $scope.model.selectedValue;
 					} else if (angular.isString($scope.model.dataProviderID)) {
 						$scope.model.dataProviderID = $scope.model.dataProviderID == "1" ? "0" : "1";
 					} else {
 						$scope.model.dataProviderID = $scope.model.dataProviderID > 0 ? 0 : 1;
 					}
-
 					$scope.svyServoyapi.apply('dataProviderID')
 					if ($scope.handlers.onActionMethodID) {
 						$scope.handlers.onActionMethodID(event)
@@ -34,8 +33,10 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				}
 
 				function getSelectionFromDataprovider() {
-					if (!$scope.model.dataProviderID)
-						return false;
+					if (!$scope.model.dataProviderID) return false;
+					if ($scope.model.selectedValue) {
+						return $scope.model.dataProviderID == $scope.model.selectedValue;
+					}
 					if (angular.isString($scope.model.dataProviderID)) {
 						return $scope.model.dataProviderID == "1";
 					} else {
@@ -43,64 +44,16 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 					}
 				}
 
-				$scope.api.getWidth = $apifunctions.getWidth($element[0]);
-				$scope.api.getHeight = $apifunctions.getHeight($element[0]);
-				$scope.api.getLocationX = $apifunctions.getX($element[0]);
-				$scope.api.getLocationY = $apifunctions.getY($element[0]);
-
-				var element = $element.children().first();
-				var inputElement = element.children().first();
-				var spanElement = element.children().last();
 				var tooltipState = null;
-				var className = null;
 				Object.defineProperty($scope.model, $sabloConstants.modelChangeNotifier, {
 						configurable: true,
 						value: function(property, value) {
 							switch (property) {
-							case "styleClass":
-								if (className)
-									element.removeClass(className);
-								className = value;
-								if (className)
-									element.addClass(className);
-								break;
-							case "borderType":
-								$svyProperties.setBorder(element, value);
-								break;
-							case "background":
-							case "transparent":
-								$svyProperties.setCssProperty(element, "backgroundColor", $scope.model.transparent ? "transparent" : $scope.model.background);
-								break;
-							case "foreground":
-								$svyProperties.setCssProperty(element, "color", value);
-								break;
-							case "horizontalAlignment":
-								$svyProperties.setHorizontalAlignmentFlexbox(element, value);
-								break;
 							case "toolTipText":
 								if (tooltipState)
 									tooltipState(value);
 								else
-									tooltipState = $svyProperties.createTooltipState(element, value);
-								break;
-							case "enabled":
-								if (value && $scope.model.editable)
-									inputElement.removeAttr("disabled");
-								else
-									inputElement.attr("disabled", "disabled");
-								break;
-							case "editable":
-								if (value && $scope.model.enabled)
-									inputElement.removeAttr("disabled");
-								else
-									inputElement.attr("disabled", "disabled");
-								break;
-							case "margin":
-								if (value)
-									inputElement.css(value);
-								break;
-							case "fontType":
-								$svyProperties.setCssProperty(spanElement, "font", value);
+									tooltipState = $svyProperties.createTooltipState($element, value);
 								break;
 							}
 						}
@@ -112,8 +65,27 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				// data can already be here, if so call the modelChange function so
 				// that it is initialized correctly.
 				var modelChangFunction = $scope.model[$sabloConstants.modelChangeNotifier];
-				for (var key in $scope.model) {
+				for (key in $scope.model) {
 					modelChangFunction(key, $scope.model[key]);
+				}
+
+				/**
+				 * Request the focus to this checkbox.
+				 *
+				 * @example %%prefix%%%%elementName%%.requestFocus();
+				 * @param mustExecuteOnFocusGainedMethod
+				 *            (optional) if false will not execute the onFocusGained
+				 *            method; the default value is true
+				 */
+				$scope.api.requestFocus = function(mustExecuteOnFocusGainedMethod) {
+					var input = $element.find('input');
+					if (mustExecuteOnFocusGainedMethod === false && $scope.handlers.onFocusGainedMethodID) {
+						input.unbind('focus');
+						input[0].focus();
+						input.bind('focus', $scope.handlers.onFocusGainedMethodID)
+					} else {
+						input[0].focus();
+					}
 				}
 
 			},
