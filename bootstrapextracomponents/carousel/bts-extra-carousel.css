@@ -3,6 +3,11 @@
 	height: 100%;
 }
 
+.svy-layoutcontainer > * > .bts-extra-carousel .carousel-inner,
+.svy-layoutcontainer > * > .bts-extra-carousel .carousel-inner .item {
+	height: 100%;
+}
+
 .svy-wrapper > * > .bts-extra-carousel > .carousel-inner {
 	height: inherit;
     width: inherit;

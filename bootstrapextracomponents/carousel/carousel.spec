@@ -22,7 +22,8 @@
 		"location" 							: { "type": "point" },
 		"styleClass" 						: { "type": "styleclass"},
 		"imageCssInternal"					: { "type": "object", "tags" : { "scope": "private" } },
-		"imageCss"							: { "type": "cssProperty[]" }
+		"imageCss"							: { "type": "cssProperty[]" },
+		"responsiveHeight": 				  { "type": "int", "default": 300 }
 	},
 	"api": 
 	{

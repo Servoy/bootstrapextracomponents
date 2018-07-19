@@ -143,10 +143,11 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 	$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
                 }
                 try {  
-                	var dataMenuItemElement = event.target.closest('[data-menu-item-id]');
-                	if (!dataMenuItemElement) {
+                	var dataMenuItemElement = $(event.target).closest('[data-menu-item-id]');
+                	if (!dataMenuItemElement || !dataMenuItemElement[0]) {
                 		return null;
                 	}
+                	dataMenuItemElement = dataMenuItemElement[0];
                     var itemId = dataMenuItemElement.getAttribute('data-menu-item-id');
                     var itemClicked;
                     if (!itemId) {
@@ -280,10 +281,14 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 makeItemActive(itemClicked);
                 if (itemClicked && itemClicked.onAction) {
                     var jsEvent = $utils.createJSEvent(event, 'action');
-                	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
+                    if ($scope.model.menuItems[index]) {
+                    	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
+                    }
                     $window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
                 } else if (itemClicked && $scope.handlers.onMenuItemClicked) {
-                	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
+                    if ($scope.model.menuItems[index]) {
+                    	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
+                    }
                     $scope.handlers.onMenuItemClicked(event, createItemArg(itemClicked));
                 }
             }
