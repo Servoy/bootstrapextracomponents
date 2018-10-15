@@ -17,7 +17,7 @@
 		"brandLogo"								: {"type": "media"},
 		"brandLogoStyleClass" 					: {"type": "styleclass"},
 		"brandLogoTabindex"						: {"type": "string"},
-		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "allow"},
+		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "shallow"},
 		"visible"								: {"type": "visible"},
 		"inverse"								: {"type": "boolean"},
 		"fixed"									: {"type": "string", "default": null, "values": ["top", "bottom"]},

@@ -281,14 +281,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 makeItemActive(itemClicked);
                 if (itemClicked && itemClicked.onAction) {
                     var jsEvent = $utils.createJSEvent(event, 'action');
-                    if ($scope.model.menuItems[index]) {
-                    	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
-                    }
                     $window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
                 } else if (itemClicked && $scope.handlers.onMenuItemClicked) {
-                    if ($scope.model.menuItems[index]) {
-                    	$scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
-                    }
                     $scope.handlers.onMenuItemClicked(event, createItemArg(itemClicked));
                 }
             }
