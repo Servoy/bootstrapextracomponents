@@ -54,6 +54,7 @@ uuid:"1C61B43D-0657-4D22-82C1-9F4995307C2A"
 },
 {
 json:{
+buttonStyleClass:"btn-danger",
 enabled:true,
 isButton:true,
 isSplitButton:true,
@@ -96,7 +97,6 @@ size:{
 height:40,
 width:180
 },
-styleClass:"btn-danger",
 text:"Drop split button"
 },
 location:"290,30",
@@ -122,6 +122,7 @@ uuid:"5B707C21-0B87-4380-9274-DB100704FB5E"
 },
 {
 json:{
+buttonStyleClass:"btn-primary",
 enabled:true,
 isButton:true,
 isSplitButton:false,
@@ -163,7 +164,6 @@ size:{
 height:40,
 width:140
 },
-styleClass:"btn-primary",
 text:"Drop button"
 },
 location:"150,30",
@@ -212,6 +212,7 @@ uuid:"D08F682C-2E39-47F7-8E50-1ED02A351478"
 },
 {
 json:{
+buttonStyleClass:"btn-default",
 isSplitButton:true,
 location:{
 x:20,
