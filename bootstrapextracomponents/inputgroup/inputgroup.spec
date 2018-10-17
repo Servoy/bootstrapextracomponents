@@ -13,9 +13,10 @@
 	{
 		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
 		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
+		"editable" 							: { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProvider","onDataChangeMethodID"] },
 		"format"							: { "type": "format", "for": [ "dataProvider" ] },
 		"inputType"							: { "type": "string", "tags": { "scope": "design" }, "values": [ "text", "password", "number" ], "default": "text" },
-		"readOnly"							: { "type": "protected", "blockingOn": true, "default": false, "for": [ "dataProvider", "onDataChange" ] },
+		"readOnly"							: { "type": "protected", "blockingOn": true, "default": false, "for": [ "dataProvider", "onDataChangeMethodID" ], "tags": { "scope": "runtime" } },
 		"placeholderText"					: { "type": "tagstring" } ,
 		"styleClass"						: { "type": "styleclass", "tags": { "scope": "design" } },
 		"tabSeq"							: { "type": "tabseq", "tags": { "scope": "design" } },
