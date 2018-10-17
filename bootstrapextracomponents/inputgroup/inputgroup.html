@@ -4,7 +4,7 @@
 	ng-class='model.styleClass'>
 	
 	<!-- addOnButtons left -->
-	<div ng-if="hasLeftButtons()" class="input-group-btn">
+	<div ng-if="hasLeftButtons()" class="input-group-btn addon-left">
       	<button 
 			ng-repeat="button in model.addOnButtons" 
 			ng-if="button.position == 'LEFT' && (button.text || button.imageStyleClass)" 
@@ -24,7 +24,7 @@
 	<span 
 		ng-repeat="addon in model.addOns" 
 		ng-if="addon.position == 'LEFT'" 
-		class="input-group-addon">{{addon.text}}
+		class="input-group-addon addon-left">{{addon.text}}
 	</span>
 	<!-- end addOns left -->
 
@@ -47,12 +47,12 @@
 	<span 
 		ng-repeat="addon in model.addOns" 
 		ng-if="addon.position == 'RIGHT'" 
-		class="input-group-addon">{{addon.text}}
+		class="input-group-addon addon-right">{{addon.text}}
 	</span>
     <!-- end addOns right -->
 
 	<!-- addOnButtons right -->
-	<div ng-if="hasRightButtons()" class="input-group-btn">
+	<div ng-if="hasRightButtons()" class="input-group-btn addon-right">
       	<button 
 			ng-repeat="button in model.addOnButtons" 
 			ng-if="button.position == 'RIGHT' && (button.text || button.imageStyleClass)" 
