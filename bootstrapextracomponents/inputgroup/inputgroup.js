@@ -10,15 +10,15 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 			link: function($scope, $element, $attrs) {
 
 				var formatState = null;
-				var child = $element.children().children();
-				var ngModel = child.controller("ngModel");
+				var input = $element.find('input');
+				var ngModel = input.controller("ngModel");
 
 				$scope.$watch('model.format', function() {
 						if ($scope.model.format) {
 							if (formatState) {
-								formatState(value);
+								formatState($scope.model.format);
 							} else {
-								formatState = $formatterUtils.createFormatState($element, $scope, ngModel, true, $scope.model.format);
+								formatState = $formatterUtils.createFormatState(input, $scope, ngModel, true, $scope.model.format);
 							}
 						}
 					})
