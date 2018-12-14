@@ -28,7 +28,8 @@
 
 					<div ng-if="menuItem.displayType == 'TEXT'" class="svy-navbar-text">
 						<p class="nav navbar-text" svy-tooltip="menuItem.tooltip">
-							<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
+							<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span>
+							<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
@@ -123,11 +124,14 @@
 					</div><!-- /.svy-navbar-typeahead-inputgroup -->
 
 					<a tabindex="{{menuItem.tabindex}}" ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-item {{menuItem.styleClass}}" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span>
+						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 					</a><!-- /.svy-navbar-item -->
 
 					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}} <span class="caret"></span>
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> 
+						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
+						<span class="caret"></span>
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
 						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
@@ -150,7 +154,8 @@
 
 					<div ng-if="menuItem.displayType == 'TEXT'" class="svy-navbar-text">
 						<p class="nav navbar-text" svy-tooltip="menuItem.tooltip">
-							<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
+							<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> 
+							<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
@@ -245,11 +250,14 @@
 					</div><!-- /.svy-navbar-typeahead-inputgroup -->
 
 					<a tabindex="{{menuItem.tabindex}}" ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-item {{menuItem.styleClass}}" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}}
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span>
+						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 					</a><!-- /.svy-navbar-item -->
 
 					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> {{menuItem.text}} <span class="caret"></span>
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> 
+						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
+						<span class="caret"></span>
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
 						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
