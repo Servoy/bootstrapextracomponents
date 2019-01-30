@@ -10,7 +10,7 @@
 		dropdown 
 		on-toggle="toggled(open)"
 		ng-disabled="!model.enabled">
-      <a href class="dropdown-toggle" dropdown-toggle>
+      <a class="dropdown-toggle" dropdown-toggle>
 		{{ model.text ? model.text : 'Button' }}
       </a>
       <ul 
@@ -18,7 +18,7 @@
 		role="menu"
 		id="button-dropdown-ul-{{::model.svyMarkupId}}">
         <li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
-			<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+			<a data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 				<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
 			</a>
 		</li>
@@ -46,7 +46,7 @@
 			aria-labelledby="button-dropdown-{{::model.svyMarkupId}}"
 			id="button-dropdown-ul-{{::model.svyMarkupId}}">
 			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
-				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+				<a data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
 				</a>
 			</li>
@@ -82,7 +82,7 @@
 			aria-labelledby="button-{{::model.svyMarkupId}}"
 			id="button-dropdown-ul-{{::model.svyMarkupId}}">
 			<li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
-				<a href="#" data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
+				<a data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
 					<span ng-if="item.iconName" data-menu-item-id="{{item.itemId}}" class="{{item.iconName}}"></span> {{item.text}}
 				</a>
 			</li>
