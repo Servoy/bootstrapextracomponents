@@ -108,6 +108,7 @@
 			"onAction" 							: {"type": "function"},
 			"displayType"						: {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP"]},
 			"dataProvider" 						: {"type": "dataprovider", "pushToServer": "allow" },
+			"displayValue" 						: {"type": "string", "tags": { "scope": "private" } },
 			"inputButtonText"					: {"type": "tagstring"},
 			"inputButtonStyleClass"				: {"type": "styleclass"},
 			"isActive"							: {"type": "boolean", "default": false},
