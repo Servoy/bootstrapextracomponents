@@ -1,6 +1,7 @@
 <div class="bts-extra-btn-radio btn-group">
   <button type="button" 
 		class= "btn {{model.styleClass}}"
+ 		sablo-tabseq="model.tabSeq"
 		ng-repeat="item in model.valuelistID | filter:notNullOrEmpty('realValue')"
 		ng-class="selectedValues[item.realValue] ? 'active' : ''" 
 		svy-click="onClick(item)">{{item.displayValue}}</button>
