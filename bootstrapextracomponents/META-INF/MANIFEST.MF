@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
-Bundle-Version: 1.2.7
+Bundle-Version: 1.2.8
 Package-Type: Web-Component
 JS-ClientLibs: bootstrapextracomponents/lib/js/bootstrap.min.js;name=bootstrap;version=3.3.7
 
