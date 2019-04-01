@@ -6,8 +6,7 @@
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"serverscript": "bootstrapextracomponents/inputgroup/inputgroup_server.js",
 	"libraries": [
-		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"},
-		{"name":"font-awesome.css", "version":"4.7.0", "url":"bootstrapextracomponents/font-awesome/css/font-awesome.min.css", "mimetype":"text/css", "group": false}
+		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"}
 	],
 	"model": 
 	{
