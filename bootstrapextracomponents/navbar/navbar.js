@@ -231,6 +231,11 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     //skip simple click in Input
                     return;
                 }
+                
+                // apply the change to the dataprovider at the on enter
+                if (event.target.tagName == 'INPUT') {
+                    $scope.svyServoyapi.apply('menuItems[' + index + '].dataProvider');
+                }
 
                 /** adjust fixed position of navbar dropdown when right aligned */
                 var $target = $(event.target);
