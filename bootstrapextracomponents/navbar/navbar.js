@@ -189,7 +189,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     itemText = item.displayValue;
                 }
                 if (item.displayType == 'INPUT' || item.displayType == 'INPUT_GROUP') {
-                    itemText = item.dataProvider + '';
+                    itemText = item.dataProvider != null ? item.dataProvider + '' : null;
                 }
                 return { itemId: item.itemId ? item.itemId : null, text: itemText ? itemText : null, userData: item.userData ? item.userData : null };
             }
