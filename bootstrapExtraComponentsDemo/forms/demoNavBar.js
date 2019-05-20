@@ -3,14 +3,14 @@
  *
  * @properties={typeid:35,uuid:"1364DFD3-F21C-43B2-B540-40D20F8E41CE",variableType:8}
  */
-var searchTypeahead;
+var searchTypeahead = 1;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"88D37B10-370F-4A23-8C22-0A30A1BC4C93"}
  */
-var searchField = 'AO';
+var searchField = 'Search Text';
 
 /**
  * @type {Number}
@@ -37,6 +37,9 @@ var searchFieldText = "";
  * @properties={typeid:24,uuid:"1C2DE078-10A9-418B-BD65-D909FBEB82F1"}
  */
 function onMenuItemClicked(event, menuItem) {
+	if (menuItem.itemId == 4) {
+		plugins.webnotificationsToastr.info("Search " + searchField)
+	}
 	elements.lblLastClick.text = 'Menu item "' + menuItem.text + '" with ID ' + menuItem.itemId;
 }
 
@@ -204,4 +207,18 @@ function onAction_enableDisable(event) {
 	if (items && items.length > 0) {
 		elements.navbar.setMenuItemEnabled(items[0].itemId, !items[0].enabled);
 	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC"}
+ */
+function onActionSearch() {
+	plugins.webnotificationsToastr.success("Search " + searchField)
+}
+
+/**
+ * @properties={typeid:24,uuid:"17ED2B3A-B6F5-4B66-91EF-8BB9F7387FDB"}
+ */
+function onActionSearchTypeahead() {
+	plugins.webnotificationsToastr.success("Search " + searchTypeahead)
 }
