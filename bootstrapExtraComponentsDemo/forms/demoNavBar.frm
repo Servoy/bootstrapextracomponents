@@ -160,9 +160,18 @@ iconName:"glyphicon glyphicon-search",
 inputButtonText:"Search",
 itemId:"4",
 itemText:"Enter search",
+onAction:"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
 svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",
 text:"Enter search",
 valuelist:null
+},
+{
+dataProvider:"searchField",
+displayType:"INPUT",
+itemId:"42",
+onAction:"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
+svyUUID:"2F78EAFD-1B4B-4DE3-9D64-3393980AED75",
+text:"Input Search"
 },
 {
 dataProvider:"searchTypeahead",
@@ -170,6 +179,7 @@ displayType:"INPUT_GROUP",
 iconName:"fa fa-search",
 inputButtonText:"Search",
 itemId:"41",
+onAction:"17ED2B3A-B6F5-4B66-91EF-8BB9F7387FDB",
 svyUUID:"057D9ECB-D702-424A-BE85-99A7C634EB9D",
 text:"Enter product name",
 valuelist:"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
