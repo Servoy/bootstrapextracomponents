@@ -12,7 +12,7 @@
 			<a tabindex="{{model.brandLogoTabindex}}" ng-if="model.brandLogo != null" svy-click="handlers.onBrandClicked($event)" class="navbar-brand {{handlers.onBrandClicked ? 'clickable' : ''}}" href="#" style="padding: 0px;">
 				<img class="{{model.brandLogoStyleClass}}" alt="Logo" ng-src="{{model.brandLogo}}">
 			</a>
-			<a tabindex="{{model.brandTextTabindex}}" ng-if="model.brandText" svy-click="handlers.onBrandClicked($event)" class="navbar-brand {{handlers.onBrandClicked ? 'clickable' : ''}}" href="#">{{model.brandText}}</a>
+			<a tabindex="{{model.brandTextTabindex}}" ng-if="model.brandText" svy-click="handlers.onBrandClicked($event)" class="navbar-brand {{handlers.onBrandClicked ? 'clickable' : ''}}" href="#" ng-bind-html="model.brandText| htmlFilter| trustAsHtml:svyServoyapi.trustAsHtml()"></a>
 		</div><!-- /.navbar-header -->
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
