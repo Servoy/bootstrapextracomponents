@@ -150,12 +150,23 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
             function getItem(event) {
             	  //collapse menu if in mobile view            	
                 //if ($(window).width() < 768) {   
-                if (isCollapseIn()) {   
-                	//if collapseOnClick is set don't collapse menu if we are selecting a drop-down
-                	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1) {
-                		$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
-                	}
-                }
+				if (isCollapseIn()) {
+					//if collapseOnClick is set don't collapse menu if we are selecting a drop-down
+					if ($scope.model.collapseOnClick) {
+						if (event.target.className.indexOf('dropdown') == -1) {
+							
+							// check if is a SPAN direct child of dropdown
+							if ($(event.target)[0] && $(event.target)[0].nodeName == "SPAN") {
+								var parentNode = event.target.parentNode;
+								if (!parentNode || parentNode.className.indexOf('dropdown') == -1) {
+									$('#' + $scope.model.svyMarkupId + '-toggle-button').click();
+								}
+							} else {
+								$('#' + $scope.model.svyMarkupId + '-toggle-button').click();
+							}
+						}
+					}
+				}
                 try {  
                 	var dataMenuItemElement = $(event.target).closest('[data-menu-item-id]');
                 	if (!dataMenuItemElement || !dataMenuItemElement[0]) {
