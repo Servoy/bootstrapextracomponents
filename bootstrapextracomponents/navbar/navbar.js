@@ -11,7 +11,6 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
         	
             $scope.collapseClass = 'collapse navbar-collapse';
             
-            $(window).on('resize', onWindowResize);
             
             $scope.$on("$destroy", function() {
 				$(window).off('resize', onWindowResize);
@@ -20,6 +19,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
             
             // What was this used for !? I don't see side effects removing it. 
             // The collapse will go in/out when pressing the toggle button
+            
+//			$(window).on('resize', onWindowResize);
 //            function onWindowResize () {
 //                if ($(window).width() > 768) {
 //                    $scope.collapseClass = 'collapse in navbar-collapse'
@@ -151,8 +152,9 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 //if ($(window).width() < 768) {   
                 if (isCollapseIn()) {   
                 	//if collapseOnClick is set don't collapse menu if we are selecting a drop-down
-                	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1)
-                	$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
+                	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1) {
+                		$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
+                	}
                 }
                 try {  
                 	var dataMenuItemElement = $(event.target).closest('[data-menu-item-id]');
