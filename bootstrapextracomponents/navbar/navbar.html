@@ -16,7 +16,7 @@
 		</div><!-- /.navbar-header -->
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="{{model.collapsing == true ? collapseClass : '' }}" id="{{::model.svyMarkupId}}-navbar-collapse" ng-click="navBarClicked($event, 1)" svy-rightclick="navBarRightClicked($event)">
+		<div class="{{model.collapsing == true ? 'collapse navbar-collapse' : '' }}" id="{{::model.svyMarkupId}}-navbar-collapse" ng-click="navBarClicked($event, 1)" svy-rightclick="navBarRightClicked($event)">
 			<ul class="nav navbar-nav navbar-left">
 				<li ng-repeat="menuItem in model.menuItems" ng-if="menuItem.position == 'LEFT'" class="{{menuItem.menuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
 					

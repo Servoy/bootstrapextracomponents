@@ -18,14 +18,16 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 
 			});
             
-            function onWindowResize () {
-                if ($(window).width() > 768) {
-                    $scope.collapseClass = 'collapse in navbar-collapse'
-                }
-                if ($(window).width() < 768) {
-                    $scope.collapseClass = 'collapse navbar-collapse'
-                }
-            }
+            // What was this used for !? I don't see side effects removing it. 
+            // The collapse will go in/out when pressing the toggle button
+//            function onWindowResize () {
+//                if ($(window).width() > 768) {
+//                    $scope.collapseClass = 'collapse in navbar-collapse'
+//                }
+//                if ($(window).width() < 768) {
+//                    $scope.collapseClass = 'collapse navbar-collapse'
+//                }
+//            }
 
             var resolvingDisplayValue = false;
 
@@ -111,6 +113,15 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
             }
         },
         controller: function($scope, $element, $attrs, $window, $utils) {
+        	
+            function isCollapseIn() {
+            	var el = $element.find('.navbar-collapse.collapse.in');
+            	if (el.length) {
+            		return true;
+            	} else {
+            		return false;
+            	}
+            }
 
             function setValueListRealValue(menuItem) {
                 if (angular.element('[typeahead-popup]').attr('aria-hidden') == "true") {
@@ -137,7 +148,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 
             function getItem(event) {
             	  //collapse menu if in mobile view            	
-                if ($(window).width() < 768) {      
+                //if ($(window).width() < 768) {   
+                if (isCollapseIn()) {   
                 	//if collapseOnClick is set don't collapse menu if we are selecting a drop-down
                 	if ($scope.model.collapseOnClick && event.target.className.indexOf('dropdown') == -1)
                 	$('#'+$scope.model.svyMarkupId + '-toggle-button').click();
@@ -270,7 +282,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     	
                         // make sure the menu is not collapsed because min-width < 768
                         var viewPortWidth = $(window).width();
-                    	if (viewPortWidth >= 768) {
+                    	//if (viewPortWidth >= 768) {
+                    	if (!isCollapseIn()) {
 	                    	
 	                        // location relative to viewport
 	                        var boundingRect = $target[0].getBoundingClientRect();
