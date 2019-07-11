@@ -12,10 +12,10 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
             $scope.collapseClass = 'collapse navbar-collapse';
             
             
-            $scope.$on("$destroy", function() {
-				$(window).off('resize', onWindowResize);
-
-			});
+//            $scope.$on("$destroy", function() {
+//				$(window).off('resize', onWindowResize);
+//
+//			});
             
             // What was this used for !? I don't see side effects removing it. 
             // The collapse will go in/out when pressing the toggle button
