@@ -135,7 +135,7 @@
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
 						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
-							<a tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
+							<a ng-if="subMenuItem.isDivider != true" tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
 								<span tabindex="{{menuItem.tabindex}}" ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
 							</a>
 						</li>
@@ -261,7 +261,7 @@
 					</a>
 					<ul ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
 						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
-							<a tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
+							<a ng-if="subMenuItem.isDivider != true" tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
 								<span tabindex="{{menuItem.tabindex}}" ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
 							</a>
 						</li>
