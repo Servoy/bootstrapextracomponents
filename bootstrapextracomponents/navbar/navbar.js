@@ -48,7 +48,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 if (!valueList) {
                     return;
                 }
-                if (valueList && valueList.length > 0 && valueList[0].displayValue) {
+                if (valueList && valueList.length > 0) {
                     var found = false;
                     var realValue = typeof valueList[0].realValue == "number" && !isNaN(Number(itemValue)) ? Number(itemValue) : itemValue;
                     for (var i = 0; i < valueList.length; i++) {
