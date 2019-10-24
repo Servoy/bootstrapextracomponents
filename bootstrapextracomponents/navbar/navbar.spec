@@ -39,6 +39,11 @@
 				{ "name": "index", "type": "int", "optional": true }
 			]
 		},
+		"getMenuItem": {
+			"parameters": [
+				{ "name": "itemId", "type": "string" }
+			]
+		},
 		"removeMenuItem": {
 			"parameters": [
 				{ "name": "itemId", "type": "string" }

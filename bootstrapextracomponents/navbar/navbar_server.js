@@ -1,7 +1,7 @@
 /**
  * Sets the menu items of the Navbar
  * 
- * @param {bootstrapextracomponents-navbar.menuItem[]} menuItems
+ * @param {Array<CustomType<bootstrapextracomponents-navbar.menuItem>>} menuItems
  */
 $scope.api.setMenuItems = function(menuItems) {
 	for (var i = 0; i < menuItems.length; i++) {
@@ -13,7 +13,7 @@ $scope.api.setMenuItems = function(menuItems) {
 /**
  * Adds the given menu item to the Navbar
  * 
- * @param {bootstrapextracomponents-navbar.menuItem} menuItem the menuItem to add
+ * @param {CustomType<bootstrapextracomponents-navbar.menuItem>} menuItem the menuItem to add
  * @param {Number} [index] optional index where the item will be inserted
  */
 $scope.api.addMenuItem = function(menuItem, index) {
@@ -35,7 +35,7 @@ $scope.api.addMenuItem = function(menuItem, index) {
  * @param {String} text the item's text
  * @param {String} [itemId] optional ID to identify the item in scripting
  * @param {String} [position] alignment of the item in the navbar as either LEFT or RIGHT
- * @return {bootstrapextracomponents-navbar.menuItem}
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.createMenuItem = function(text, itemId, position) {
 	return {
@@ -117,9 +117,23 @@ $scope.api.setSubMenuItemEnabled = function(menuItemId, subMenuItemId, enabled) 
 }
 
 /**
+ * Returns the menu item with the given ID or null if not found
+ * 
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+ */
+$scope.api.getMenuItem = function(itemId) {
+	for (var i = 0; i < $scope.model.menuItems.length; i++) {
+		if ($scope.model.menuItems[i].itemId == itemId) {
+			return $scope.model.menuItems[i];
+		}
+	}
+	return null;
+}
+
+/**
  * Returns the currently selected menu item
  * 
- * @return {bootstrapextracomponents-navbar.menuItem}
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.getSelectedMenu = function() {
 	for (var i = 0; i < $scope.model.menuItems.length; i++) {
