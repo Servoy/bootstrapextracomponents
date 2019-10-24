@@ -123,7 +123,8 @@
 			"iconName"							: {"type": "string"},
 			"enabled"							: {"type": "boolean", "default": true},
 			"onAction" 							: {"type": "function"},
-			"isDivider"							: {"type": "boolean"} 
+			"isDivider"							: {"type": "boolean"} ,
+			"styleClass"	 					: {"type": "styleclass"}
 		}
 	}
 }
