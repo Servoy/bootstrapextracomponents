@@ -40,6 +40,7 @@
 			]
 		},
 		"getMenuItem": {
+			"returns": "menuItem",
 			"parameters": [
 				{ "name": "itemId", "type": "string" }
 			]
