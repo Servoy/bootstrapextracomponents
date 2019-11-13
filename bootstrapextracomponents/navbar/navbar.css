@@ -1,3 +1,4 @@
+/* Brand Logo */
 .navbar-brand > img {
 	height: 100%;
 	padding: 10px 15px 10px 15px;
@@ -19,4 +20,15 @@ nav .navbar-right .dropdown-menu {
 .bts-extra-navbar .navbar-nav .navbar-form {
 	margin-right: 0;
 	margin-left: 0;
+}
+
+/* Type IMAGE*/
+.svy-navbar-img {
+	height: 50px;
+	padding: 5px 15px;
+}
+
+.svy-navbar-item-img {
+	height: 100%;
+	max-width: 100%;
 }

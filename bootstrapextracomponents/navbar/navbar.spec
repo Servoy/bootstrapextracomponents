@@ -110,7 +110,7 @@
 			"position"							: {"type": "string", "default": "LEFT", "values": ["LEFT", "RIGHT"]},
 			"subMenuItems"						: {"type": "subMenuItem[]"},
 			"onAction" 							: {"type": "function"},
-			"displayType"						: {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP"]},
+			"displayType"						: {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP", "IMAGE"]},
 			"dataProvider" 						: {"type": "dataprovider", "pushToServer": "allow" },
 			"displayValue" 						: {"type": "string", "tags": { "scope": "private" } },
 			"inputButtonText"					: {"type": "tagstring"},

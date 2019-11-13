@@ -33,6 +33,10 @@
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
+					<div ng-if="menuItem.displayType == 'IMAGE'" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
+	   					<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+					</div><!-- /.svy-navbar-img -->
+
 					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
 							<input 
@@ -158,6 +162,10 @@
 							<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						</p>
 					</div><!-- /.svy-navbar-text -->
+
+					<div ng-if="menuItem.displayType == 'IMAGE'" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
+	   					<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+					</div><!-- /.svy-navbar-img -->
 
 					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
