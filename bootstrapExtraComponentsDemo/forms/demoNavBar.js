@@ -30,7 +30,7 @@ var searchFieldText = "";
  * Called whenever a menu item is clicked or a submenu item is selected with the JSEvent and the menuItem object clicked on.
  *
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-navbar.menuItem} menuItem
+ * @param {CustomType<bootstrapextracomponents-navbar.menuItem>} menuItem
  *
  * @private
  *
@@ -65,8 +65,6 @@ function onDataChange_inverted(oldValue, newValue, event) {
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
- *
- * @private
  *
  * @properties={typeid:24,uuid:"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34"}
  * @AllowToRunInFind
@@ -109,12 +107,10 @@ function onAction_createMenu(event) {
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE"}
  */
 function onAction_addItem(event) {
-	/** @type {bootstrapextracomponents-navbar.menuItem} */
+	/** @type {CustomType<bootstrapextracomponents-navbar.menuItem>} */
 	var itemToAdd = {itemId: application.getUUID().toString(), text: 'Item added'}
 	elements.navbar.addMenuItem(itemToAdd);
 }
@@ -123,8 +119,6 @@ function onAction_addItem(event) {
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
- *
- * @private
  *
  * @properties={typeid:24,uuid:"B4E14E6F-6ED0-4130-B92E-24422C07CB3B"}
  */

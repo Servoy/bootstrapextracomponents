@@ -10,12 +10,10 @@ var autoRemove = 0;
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"57AAF4B7-4F01-44C4-8B96-3E81F284B737"}
  */
 function onAction_createBreadcrumbs(event) {
-	/** @type {Array<bootstrapextracomponents-breadcrumbs.crumb>} */
+	/** @type {Array<CustomType<bootstrapextracomponents-breadcrumbs.crumb>>} */
 	var crumbs = [
 		{displayName: 'First'}, 
 		{displayName: 'Second'}, 
@@ -30,13 +28,11 @@ function onAction_createBreadcrumbs(event) {
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
- * 
- * @private
  *
  * @properties={typeid:24,uuid:"BF3ED412-4C88-4D02-8297-3A7B1C2847E5"}
  */
 function onAction_addBreadcrumbs(event) {
-	/** @type {bootstrapextracomponents-breadcrumbs.crumb} */
+	/** @type {CustomType<bootstrapextracomponents-breadcrumbs.crumb>} */
 	var crumb = {displayName: 'Sixth'};
 	elements.breadcrumbs.addCrumb(crumb);
 	crumb = {displayName: 'Seventh'}
@@ -48,8 +44,6 @@ function onAction_addBreadcrumbs(event) {
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"4E833762-E188-4F89-ABED-861E922E39BC"}
  */
 function onAction_removeLastBreadcrumb(event) {
@@ -60,7 +54,7 @@ function onAction_removeLastBreadcrumb(event) {
  * Called whenever a breadcrumb item is clicked with the JSEvent and the item clicked on.
  *
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-breadcrumbs.crumb} crumb
+ * @param {CustomType<bootstrapextracomponents-breadcrumbs.crumb>} crumb
  * @param {Number} index
  *
  * @private

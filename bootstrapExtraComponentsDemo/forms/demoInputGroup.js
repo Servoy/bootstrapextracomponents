@@ -134,11 +134,11 @@ function onRightClick_button(event, btnName, btnText, btnIndex) {
 function onAction_api_create_group(event) {
 	elements.input_group_11.clearAddOns();
 	elements.input_group_11.clearAddOnButtons();
-	/** @type {Array<bootstrapextracomponents-input-group.AddOn>} */
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOn>>} */
 	var addOns = [{text: '@'}]
 	elements.input_group_11.setAddOns(addOns);
 	
-	/** @type {Array<bootstrapextracomponents-input-group.AddOnButton>} */
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} */
 	var addOnButtons = [
 		{
 			position: 'RIGHT', 

@@ -37,7 +37,7 @@ var imageCounter = 1;
  * @AllowToRunInFind
  */
 function onAction_btnAddImage(event) {
-	/** @type {bootstrapextracomponents-carousel.slide} */
+	/** @type {CustomType<bootstrapextracomponents-carousel.slide>} */
 	var slideToAdd = {
 		imageUrl: "http://lorempixel.com/800/600/city/" + imageCounter,
 		caption: 'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
@@ -60,11 +60,11 @@ function onAction_btnAddImage(event) {
  * @AllowToRunInFind
  */
 function onAction_btnSetSlides(event) {
-	/** @type {Array<bootstrapextracomponents-carousel.slide>} */
+	/** @type {Array<CustomType<bootstrapextracomponents-carousel.slide>>} */
 	var slides = [];
 	imageCounter = 1;
 	for (var i = 0; i < 5; i++) {
-		/** @type {bootstrapextracomponents-carousel.slide} */
+		/** @type {CustomType<bootstrapextracomponents-carousel.slide>} */
 		var slideToAdd = {
 			imageUrl: "http://lorempixel.com/800/600/city/" + imageCounter,
 			caption: 'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
@@ -157,7 +157,7 @@ function onAction_btnRemoveSlide(event) {
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-carousel.slide} slide
+ * @param {CustomType<bootstrapextracomponents-carousel.slide>} slide
  *
  * @private
  *

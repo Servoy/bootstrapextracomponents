@@ -125,7 +125,7 @@ function onAction_btnRemoveSlide(event) {
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-carousel.slide} slide
+ * @param {CustomType<bootstrapextracomponents-carousel.slide>} slide
  *
  * @private
  *
