@@ -1,7 +1,7 @@
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-dropdown.MenuItem} menuItem
+ * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem
  *
  * @private
  *
@@ -24,7 +24,7 @@ function onAction_splitButton(event) {
 
 /**
  * @param {JSEvent} event
- * @param {bootstrapextracomponents-dropdown.MenuItem} menuItem
+ * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem
  * 
  * @private
  *
@@ -45,7 +45,7 @@ function onAction_createDropDown(event) {
 	elements.dropdown_api.text = 'Created by API';
 	elements.dropdown_api.styleClass = 'btn-success';
 	
-	/** @type {Array<bootstrapextracomponents-dropdown.MenuItem>} */
+	/** @type {Array<CustomType<bootstrapextracomponents-dropdown.MenuItem>>} */
 	var menuItems = [
 		{itemId: 1, text: 'Action', iconName: scopes.faIcons.getRandomIcon()},
 		{itemId: 2, text: 'More action', iconName: scopes.faIcons.getRandomIcon()},
@@ -66,7 +66,7 @@ function onAction_createDropDown(event) {
  * @properties={typeid:24,uuid:"FC2A8371-DDFE-4219-B6C9-32B08625E1E6"}
  */
 function onAction_addMenuItems(event) {
-	/** @type {bootstrapextracomponents-dropdown.MenuItem} */
+	/** @type {CustomType<bootstrapextracomponents-dropdown.MenuItem>} */
 	var itemToAdd = {itemId: elements.dropdown_api.menuItems.length + 1, text: 'Very last action', iconName: scopes.faIcons.getRandomIcon()};
 	elements.dropdown_api.addMenuItem(itemToAdd);
 }

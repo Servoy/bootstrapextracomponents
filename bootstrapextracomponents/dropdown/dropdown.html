@@ -6,16 +6,16 @@
 	<!-- Simple dropdown -->
     <span 
 		ng-if="!model.isButton"
+		id="button-dropdown-{{::model.svyMarkupId}}"
 		class="dropdown {{model.buttonStyleClass}}" 
 		dropdown 
 		on-toggle="toggled(open)"
 		ng-disabled="!model.enabled">
-      <a class="dropdown-toggle" dropdown-toggle>
-		{{ model.text ? model.text : 'Button' }}
-      </a>
+      <a class="dropdown-toggle" dropdown-toggle role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="{{model.imageStyleClass}}"></span> {{ model.text ? model.text : 'Button' }} </a>
       <ul 
 		class="bts-extra-dropdown-menu dropdown-menu" 
-		role="menu"
+		role="menu" 
+		aria-labelledby="button-dropdown-{{::model.svyMarkupId}}"
 		id="button-dropdown-ul-{{::model.svyMarkupId}}">
         <li ng-repeat="item in model.menuItems" class="{{item.isDivider ? 'divider' : ''}} {{item.enabled == false ? 'disabled' : ''}}">
 			<a data-menu-item-id="{{item.itemId ? item.itemId : item.text}}">
@@ -38,7 +38,7 @@
 			aria-expanded="true" 
 			id="button-dropdown-{{::model.svyMarkupId}}"
 			ng-disabled="!model.enabled">
-        	{{model.text ? model.text : 'Button'}} <span class="caret"></span>
+			<span><span class="{{model.imageStyleClass}}"></span> {{model.text ? model.text : 'Button'}} </span><span class="caret"></span>
 		</button>
 		<ul 
 			class="bts-extra-dropdown-menu dropdown-menu"
@@ -63,7 +63,7 @@
 			type="button" 
 			id="button-{{::model.svyMarkupId}}"
 			ng-disabled="!model.enabled">
-        	{{model.text ? model.text : 'Button'}}
+			<span><span class="{{model.imageStyleClass}}"></span> {{model.text ? model.text : 'Button'}} </span>
 		</button>
 		<button 
 			class="btn {{model.buttonStyleClass}} dropdown-toggle" 

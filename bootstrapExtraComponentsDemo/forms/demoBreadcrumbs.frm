@@ -87,7 +87,7 @@ typeid:47,
 uuid:"9EB70A59-E699-45A5-BFFA-D678CF6D6DC5"
 },
 {
-dataProviderID:"autoHide",
+dataProviderID:"autoRemove",
 displayType:4,
 location:"20,25",
 onDataChangeMethodID:"35AB0AE6-7373-4A81-97F3-F89ED7CC94B7",

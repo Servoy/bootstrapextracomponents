@@ -45,8 +45,6 @@ function onAction$updateColor(event, color) {
  * @param {JSEvent} event
  * @return {boolean}
  *
- * @private
- *
  * @properties={typeid:24,uuid:"A80867E5-6DA4-439F-A91F-6C2EE61DD2E9"}
  */
 function onDataChangeMethodID(oldValue, newValue, event) {
