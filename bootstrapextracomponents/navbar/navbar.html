@@ -33,9 +33,22 @@
 						</p>
 					</div><!-- /.svy-navbar-text -->
 
-					<div ng-if="menuItem.displayType == 'IMAGE'" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
-	   					<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
-					</div><!-- /.svy-navbar-img -->
+					<a ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
+						<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+					</a><!-- /.svy-navbar-img -->
+
+					<a ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" href="#" class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+						<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+						<span class="caret"></span>
+					</a>
+					<ul ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" class="dropdown-menu">
+						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
+							<a ng-if="subMenuItem.isDivider != true" tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
+								<span tabindex="{{menuItem.tabindex}}" ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
+							</a>
+						</li>
+					</ul><!-- /.svy-navbar-img-dropdown -->
+					
 
 					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
@@ -162,10 +175,22 @@
 							<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						</p>
 					</div><!-- /.svy-navbar-text -->
+					
+					<a ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
+						<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+					</a><!-- /.svy-navbar-img -->
 
-					<div ng-if="menuItem.displayType == 'IMAGE'" class="svy-navbar-img" svy-tooltip="menuItem.tooltip">
-	   					<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
-					</div><!-- /.svy-navbar-img -->
+					<a ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" href="#" class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+						<img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" ng-src="{{menuItem.dataProvider.url ? menuItem.dataProvider.url : null}}"/>
+						<span class="caret"></span>
+					</a>
+					<ul ng-if="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" class="dropdown-menu">
+						<li ng-repeat="subMenuItem in menuItem.subMenuItems" class="{{subMenuItem.isDivider ? 'divider' : ''}} {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}">
+							<a ng-if="subMenuItem.isDivider != true" tabindex="{{menuItem.tabindex}}" href="#" data-menu-item-id="{{subMenuItem.itemId}}">
+								<span tabindex="{{menuItem.tabindex}}" ng-if="subMenuItem.iconName" data-menu-item-id="{{subMenuItem.itemId}}" class="{{subMenuItem.iconName}}"></span> {{subMenuItem.text}}
+							</a>
+						</li>
+					</ul><!-- /.svy-navbar-img-dropdown -->
 
 					<div ng-if="menuItem.displayType == 'INPUT' && !menuItem.valuelist" class="svy-navbar-input navbar-form">
 						<div class="form-group">
