@@ -112,6 +112,15 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 var target = event.target;
                 target.blur();
             }
+            
+			            
+			/** Sets focus on the passed element on the navbar
+			 * 
+			 */
+			$scope.api.requestFocus = function(itemId) {
+				var inputEl = $("*[data-menu-item-id="+ itemId + "]");
+				if (inputEl[0]) inputEl[0].focus();
+			}            
         },
         controller: function($scope, $element, $attrs, $window, $utils) {
         	

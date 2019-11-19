@@ -77,6 +77,11 @@
 				{ "name": "itemId", "type": "string", "optional": true },
 				{ "name": "position", "type": "string", "optional": true }
 			]
+		},
+		"requestFocus": {
+			"parameters": [
+				{ "name": "itemId", "type": "string" }
+			]
 		}
 	},
 	"handlers": 
