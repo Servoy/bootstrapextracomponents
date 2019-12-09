@@ -2,7 +2,7 @@
     "name":"bootstrapextracomponents",
     "displayName":"Bootstrap Extra Components",
     "packageType": "Web-Component",
-    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/1020px-Boostrap_logo.svg.png",
+    "icon": "https://raw.githubusercontent.com/Servoy/bootstrapextracomponents/master/bootstrapextracomponents/icon/bootstrap-solid.png",
     "description": "A set of bootstrap extra components like a navbar, carousel, breadcrumbs, input group and radio button group",
     "wikiUrl": "https://github.com/Servoy/bootstrapextracomponents/wiki",
     "sourceUrl" : "https://github.com/Servoy/bootstrapextracomponents",
@@ -25,6 +25,7 @@
       {"version":"1.2.4","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.4/bootstrapextracomponents.zip", "servoy-version":"8.2.0"},
       {"version":"1.2.5","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.5/bootstrapextracomponents.zip", "servoy-version":"8.2.0"},
       {"version":"1.2.6","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.6/bootstrapextracomponents.zip", "servoy-version":"8.2.0"},
-      {"version":"1.2.7","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.7/bootstrapextracomponents.zip", "servoy-version":"8.2.0"}
+      {"version":"1.2.7","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.7/bootstrapextracomponents.zip", "servoy-version":"8.2.0"},
+	  {"version":"1.2.8","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v1.2.8/bootstrapextracomponents.zip", "servoy-version":"2019.09"}
     ]
 }
