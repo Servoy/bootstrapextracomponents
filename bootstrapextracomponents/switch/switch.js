@@ -19,6 +19,10 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 					})
 
 				$scope.switchClicked = function() {
+					if ($scope.model.enabled == false) {
+						return;
+					}
+					
 					if ($scope.model.selectedValue) {
 						$scope.model.dataProviderID = $scope.model.dataProviderID == $scope.model.selectedValue ? null : $scope.model.selectedValue;
 					} else if (angular.isString($scope.model.dataProviderID)) {
@@ -31,7 +35,7 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						$scope.handlers.onActionMethodID(event)
 					}
 				}
-
+				
 				function getSelectionFromDataprovider() {
 					if (!$scope.model.dataProviderID) return false;
 					if ($scope.model.selectedValue) {
