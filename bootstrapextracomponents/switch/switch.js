@@ -14,7 +14,10 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				$scope.$watch('model.dataProviderID', function(newVal, oldVal) {
 						$scope.selection = getSelectionFromDataprovider();
 						if (newVal != oldVal) {
-							$element.find("input").bootstrapSwitch('state', $scope.selection, false);
+							// using timeout because such call should run at the next digest loop when the switch visibility is toggled together with the dataprovider value
+							$timeout(function () {
+								$element.find("input").bootstrapSwitch('state', $scope.selection, false);
+							})
 						}
 					})
 
