@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-rating",
 	"displayName": "Rating",
+	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/rating/rating.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

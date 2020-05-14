@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-progressbar",
 	"displayName": "Progress Bar",
+	"categoryName": "Visualization",
 	"version": 1,
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/progressbar/progressbar.js",

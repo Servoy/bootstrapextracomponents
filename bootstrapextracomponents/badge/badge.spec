@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-badge",
 	"displayName": "Badge",
+	"categoryName": "Buttons & Text",
 	"version": 1,
 	"definition": "bootstrapextracomponents/badge/badge.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

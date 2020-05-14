@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-switch",
 	"displayName": "Switch",
+	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/switch/switch.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

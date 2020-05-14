@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-input-group",
 	"displayName": "Input Group",
+	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/inputgroup/inputgroup.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

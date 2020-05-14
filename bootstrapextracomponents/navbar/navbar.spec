@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-navbar",
 	"displayName": "Navbar",
+	"categoryName": "Navigation",
 	"version": 1,
 	"definition": "bootstrapextracomponents/navbar/navbar.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-breadcrumbs",
 	"displayName": "Breadcrumbs",
+	"categoryName": "Navigation",
 	"version": 1,
 	"definition": "bootstrapextracomponents/breadcrumbs/breadcrumbs.js",
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",

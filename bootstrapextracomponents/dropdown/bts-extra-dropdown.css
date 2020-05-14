@@ -1,3 +1,7 @@
+.bts-extra-drop-down {
+	display: inline-block;
+}
+
 /* be more specific to override Servoy's dropdown menu positioning */
 ul.bts-extra-dropdown-menu {
 	position: absolute;

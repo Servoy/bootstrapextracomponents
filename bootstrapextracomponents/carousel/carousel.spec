@@ -1,6 +1,7 @@
 {
 	"name": "bootstrapextracomponents-carousel",
 	"displayName": "Carousel",
+	"categoryName": "Media",
 	"version": 1,
 	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
 	"definition": "bootstrapextracomponents/carousel/carousel.js",
