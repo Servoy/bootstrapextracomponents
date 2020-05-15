@@ -3,7 +3,7 @@
 	"displayName": "Carousel",
 	"categoryName": "Media",
 	"version": 1,
-	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
+	"icon": "bootstrapextracomponents/carousel/media.png",
 	"definition": "bootstrapextracomponents/carousel/carousel.js",
 	"serverscript": "bootstrapextracomponents/carousel/carousel_server.js",
 	"libraries": [

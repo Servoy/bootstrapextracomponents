@@ -4,7 +4,7 @@
 	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/rating/rating.js",
-	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
+	"icon": "bootstrapextracomponents/rating/icon.png",
 	"libraries": [
 		{"name":"rating.css", "version":"1.0.0", "url":"bootstrapextracomponents/rating/bts-extra-rating.css", "mimetype":"text/css"}
 	],

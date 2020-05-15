@@ -3,7 +3,7 @@
 	"displayName": "Drop Down",
 	"categoryName": "Buttons & Text",
 	"version": 1,
-	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
+	"icon": "bootstrapextracomponents/dropdown/icon.png",
 	"definition": "bootstrapextracomponents/dropdown/dropdown.js",
 	"serverscript": "bootstrapextracomponents/dropdown/dropdown_server.js",
 	"libraries": [

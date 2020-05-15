@@ -4,7 +4,7 @@
 	"categoryName": "Buttons & Text",
 	"version": 1,
 	"definition": "bootstrapextracomponents/badge/badge.js",
-	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
+	"icon": "bootstrapextracomponents/badge/icon.png",
 	"libraries": [
 		{"name":"badge.css", "version":"1.0.0", "url":"bootstrapextracomponents/badge/badge.css", "mimetype":"text/css"}
 	],

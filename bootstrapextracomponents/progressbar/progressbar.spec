@@ -3,7 +3,7 @@
 	"displayName": "Progress Bar",
 	"categoryName": "Visualization",
 	"version": 1,
-	"icon": "bootstrapextracomponents/icon/bootstrap-solid.png",
+	"icon": "bootstrapextracomponents/progressbar/progress_bar.png",
 	"definition": "bootstrapextracomponents/progressbar/progressbar.js",
 	"serverscript": "bootstrapextracomponents/progressbar/progressbar_server.js",
 	"libraries": [
