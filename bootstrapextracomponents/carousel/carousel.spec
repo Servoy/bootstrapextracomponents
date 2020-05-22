@@ -9,6 +9,7 @@
 	"libraries": [
 		{"name":"carousel.css", "version":"1.0.0", "url":"bootstrapextracomponents/carousel/bts-extra-carousel.css", "mimetype":"text/css"}
 	],
+	"keywords": ['slideshow'],
 	"model":
 	{
 		"cycleInterval" 					: { "type": "int", "default": 5000 },

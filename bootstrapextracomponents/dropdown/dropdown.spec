@@ -9,6 +9,7 @@
 	"libraries": [
 		{"name":"bts-extra-dropdown.css", "version":"1.0.0", "url":"bootstrapextracomponents/dropdown/bts-extra-dropdown.css", "mimetype":"text/css"}
 	],
+	"keywords": [],
 	"model":
 	{
 		"isButton" 						: { "type": "boolean", "default": true },

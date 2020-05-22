@@ -8,6 +8,7 @@
 	"libraries": [
 		{"name":"rating.css", "version":"1.0.0", "url":"bootstrapextracomponents/rating/bts-extra-rating.css", "mimetype":"text/css"}
 	],
+	"keywords": ['valuation', 'score', 'assessment'],
 	"model":
 	{
 		"dataProviderID" 		: { "type": "dataprovider", "pushToServer": "allow","tags": { "scope" :"design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}},

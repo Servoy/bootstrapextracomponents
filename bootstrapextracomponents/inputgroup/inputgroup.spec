@@ -9,6 +9,7 @@
 	"libraries": [
 		{"name":"inputgroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/inputgroup/inputgroup.css", "mimetype":"text/css"}
 	],
+	"keywords": [],
 	"model": 
 	{
 		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },

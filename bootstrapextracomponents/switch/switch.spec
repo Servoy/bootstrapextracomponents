@@ -11,6 +11,7 @@
 	{"name":"bootstrap-switch.js", "version":"3.3.4", "url":"bootstrapextracomponents/switch/bootstrap-switch.js", "mimetype":"text/javascript"},
 	{"name":"angular-bootstrap-switch.js", "version":"0.5.2", "url":"bootstrapextracomponents/switch/angular-bootstrap-switch.js", "mimetype":"text/javascript"}
 	],
+	"keywords": ['swap'],
 	"model":
 	{	
 		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 	        
