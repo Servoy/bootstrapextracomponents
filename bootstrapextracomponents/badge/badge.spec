@@ -8,7 +8,7 @@
 	"libraries": [
 		{"name":"badge.css", "version":"1.0.0", "url":"bootstrapextracomponents/badge/badge.css", "mimetype":"text/css"}
 	],
-	"keywords": ['tag'],
+	"keywords": ["tag"],
 	"model":
 	{
 		"enabled" 						: {"type": "enabled", "blockingOn": false, "default": true, "for": ["onAction", "onDoubleClick", "onRightClick"] },

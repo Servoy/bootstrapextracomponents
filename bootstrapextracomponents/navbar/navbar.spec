@@ -9,7 +9,7 @@
 	"libraries": [
 		{"name":"navbar.css", "version":"1.0.0", "url":"bootstrapextracomponents/navbar/navbar.css", "mimetype":"text/css"}
 	],
-	"keywords": ['navigation'],
+	"keywords": ["navigation"],
 	"model":
 	{
 		"styleClass" 							: {"type": "styleclass"},

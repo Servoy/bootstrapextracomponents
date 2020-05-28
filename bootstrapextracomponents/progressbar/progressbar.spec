@@ -9,7 +9,7 @@
 	"libraries": [
 		{"name":"bts-extra-progressbar.css", "version":"1.0.0", "url":"bootstrapextracomponents/progressbar/bts-extra-progressbar.css", "mimetype":"text/css"}
 	],
-	"keywords": ['loading'],
+	"keywords": ["loading"],
 	"model":
 	{
 		"styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},

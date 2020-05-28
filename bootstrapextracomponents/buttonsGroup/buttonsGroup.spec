@@ -4,7 +4,7 @@
 "definition": "bootstrapextracomponents/buttonsGroup/buttonsGroup.js",
 "icon": "bootstrapextracomponents/buttonsGroup/icon.png",
 "libraries": [{"name":"btsextra-buttonsGroup.css", "version":"1.0.0", "url":"bootstrapextracomponents/buttonsGroup/css/btsextra-buttonsGroup.css", "mimetype":"text/css"}],
-"keywords": ['set'],
+"keywords": ["set"],
 "version": 1,
 	"model":
 	{

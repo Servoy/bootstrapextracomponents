@@ -9,7 +9,7 @@
 	"libraries": [
 		{"name":"breadcrumbs.css", "version":"1.0.0", "url":"bootstrapextracomponents/breadcrumbs/breadcrumbs.css", "mimetype":"text/css"}
 	],
-	"keywords": ['navigation'],
+	"keywords": ["navigation"],
 	"model":
 	{
 		"breadcrumbs" 					: {"type": "crumb[]", "pushToServer": "allow"},
