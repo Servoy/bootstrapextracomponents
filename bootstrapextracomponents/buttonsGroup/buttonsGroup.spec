@@ -18,7 +18,8 @@
 	   "location": 					{ "type": "point", "pushToServer": "deep"}, 
 	   "size": 						{ "type": "dimension",  "default" : {"width":180, "height":32}, "pushToServer": "deep"},
 	   "format": 					{ "type": "format", "for": "dataProviderID", "tags": { "scope" :"private" }},
-	   "tabSeq": 					{ "type": "tabseq", "tags": { "scope" :"design" }}
+	   "tabSeq": 					{ "type": "tabseq", "tags": { "scope" :"design" }},
+	   "showAs": 					{ "type": "string", "values": [{"text":null}, {"html":"html"}, {"trusted_html":"trusted_html"}]}
 	},
 	"handlers": {
 		"onDataChangeMethodID" : {

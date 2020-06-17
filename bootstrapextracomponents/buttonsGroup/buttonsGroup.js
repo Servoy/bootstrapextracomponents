@@ -159,6 +159,14 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
 					return false;
 				}
 				
+		    	 $scope.isTrustedHTML = function() {
+		              if($scope.svyServoyapi.trustAsHtml() || $scope.model.showAs === 'trusted_html') {
+		                  return true;
+		              }
+		              return false;
+		          }
+
+				
 				/**
 				 * Returns true if allow multiselection with input group 
 				 * */
