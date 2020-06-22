@@ -11,26 +11,23 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
         	
             $scope.collapseClass = 'collapse navbar-collapse';
             
-            
-//            $scope.$on("$destroy", function() {
-//				$(window).off('resize', onWindowResize);
-//
-//			});
-            
-            // What was this used for !? I don't see side effects removing it. 
-            // The collapse will go in/out when pressing the toggle button
-            
-//			$(window).on('resize', onWindowResize);
-//            function onWindowResize () {
-//                if ($(window).width() > 768) {
-//                    $scope.collapseClass = 'collapse in navbar-collapse'
-//                }
-//                if ($(window).width() < 768) {
-//                    $scope.collapseClass = 'collapse navbar-collapse'
-//                }
-//            }
-
             var resolvingDisplayValue = false;
+            
+            $scope.setValue = function(index) {
+				var found = false;
+				for (var i = 0; i < $scope.model.menuItems[index].valuelist.length; i++) {
+					var item = $scope.model.menuItems[index].valuelist[i];
+					if (item.realValue === $scope.model.menuItems[index].dataProvider) {
+						$scope.model.menuItems[index].value = item.realValue;
+						found = true;
+						break;
+					}
+				}
+				if(!found)
+				{
+					$scope.model.menuItems[index].value = $scope.model.menuItems[index].dataProvider;
+				}
+            }
 
             $scope.formatLabel = function(index) {
                 var menuItem = $scope.model.menuItems[index];
@@ -42,7 +39,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 var type = undefined;
                 var displayValue = null;
 
-                var itemValue = menuItem.dataProvider;
+                var itemValue = menuItem.value;
 
                 var valueList = menuItem.valuelist;
                 if (!valueList) {
@@ -144,7 +141,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                         var hasMatchingDisplayValue = false;
                         for (var i = 0; i < valueList.length; i++) {
                             if (itemValue === valueList[i].displayValue) {
-                                menuItem.dataProvlider = valueList[i].realValue;
+                                menuItem.dataProvider = valueList[i].realValue;
                                 hasMatchingDisplayValue = true;
                                 break;
                             }
