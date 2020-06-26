@@ -84,6 +84,22 @@
 			"parameters": [
 				{ "name": "itemId", "type": "string" }
 			]
+		},
+		"getLocation": 
+		{
+			"parameters": 
+			[
+				{ "name": "itemId",	"type": "string" }
+			],
+			"returns" : "point"
+		},
+		"getSize": 
+		{
+			"parameters": 
+			[
+				{ "name": "itemId",	"type": "string" }
+			],
+			"returns" : "dimension"
 		}
 	},
 	"handlers": 

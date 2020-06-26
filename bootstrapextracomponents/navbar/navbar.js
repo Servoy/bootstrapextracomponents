@@ -117,7 +117,39 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 			$scope.api.requestFocus = function(itemId) {
 				var inputEl = $("*[data-menu-item-id="+ itemId + "]");
 				if (inputEl[0]) inputEl[0].focus();
-			}            
+			}
+			
+			/**
+			 * Retrieves the screen location of a specific navbar item. Returns the location as point (object with x and y properties).
+			 * 
+			 * @param {string} itemId the node to retrieve location for.
+			 * @return {point} the location of the item.
+			 */
+			$scope.api.getLocation = function(itemId)
+			{
+				if (itemId)
+				{
+					var position = $("*[data-menu-item-id="+ itemId + "]").offset();
+					return {x: position.left, y: position.top};
+				}
+				return null;
+			}
+			
+			/**
+			 * Retrieves the size of a specific navbar item. Returns the size as dimension (object with width and height properties).
+			 * 
+			 * @param {string} itemId the node to retrieve size for.
+			 * @return {dimension} the size of the item.
+			 */
+			$scope.api.getSize = function(itemId)
+			{
+				if (itemId)
+				{
+					var domElement = $("*[data-menu-item-id="+ itemId + "]");
+					return {width: domElement.width(), height: domElement.height()};
+				}
+				return null;
+			}
         },
         controller: function($scope, $element, $attrs, $window, $utils) {
         	
