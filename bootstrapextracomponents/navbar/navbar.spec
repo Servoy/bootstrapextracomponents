@@ -91,7 +91,7 @@
 			[
 				{ "name": "itemId",	"type": "string" }
 			],
-			"returns" : "point"
+			"returns" : "location"
 		},
 		"getSize": 
 		{
@@ -99,7 +99,7 @@
 			[
 				{ "name": "itemId",	"type": "string" }
 			],
-			"returns" : "dimension"
+			"returns" : "size"
 		}
 	},
 	"handlers": 
@@ -155,6 +155,14 @@
 			"onAction" 							: {"type": "function"},
 			"isDivider"							: {"type": "boolean"} ,
 			"styleClass"	 					: {"type": "styleclass"}
+		},
+		"location":{
+			"x"									: {"type":	"int"},
+			"y"									: {"type":	"int"}
+		},
+		"size": {
+			"width"								: {"type":	"int"},
+			"height"							: {"type":	"int"}
 		}
 	}
 }
