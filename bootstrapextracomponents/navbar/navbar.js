@@ -123,7 +123,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 			 * Retrieves the screen location of a specific navbar item. Returns the location as point (object with x and y properties).
 			 * 
 			 * @param {string} itemId the node to retrieve location for.
-			 * @return {location} the location of the item.
+			 * @return {point} the location of the item.
 			 */
 			$scope.api.getLocation = function(itemId)
 			{
@@ -139,7 +139,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 			 * Retrieves the size of a specific navbar item. Returns the size as dimension (object with width and height properties).
 			 * 
 			 * @param {string} itemId the node to retrieve size for.
-			 * @return {size} the size of the item.
+			 * @return {dimension} the size of the item.
 			 */
 			$scope.api.getSize = function(itemId)
 			{
