@@ -147,8 +147,8 @@
 						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 					</a><!-- /.svy-navbar-item -->
 
-					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> 
+					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" class="{{menuItem.iconName}}"></span> 
 						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						<span class="caret"></span>
 					</a>
@@ -291,8 +291,8 @@
 						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 					</a><!-- /.svy-navbar-item -->
 
-					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
-						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" data-menu-item-id="{{menuItem.itemId}}" class="{{menuItem.iconName}}"></span> 
+					<a ng-if="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" href="#" data-menu-item-id="{{menuItem.itemId}}" class="svy-navbar-dropdown dropdown-toggle {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" svy-tooltip="menuItem.tooltip">
+						<span tabindex="{{menuItem.tabindex}}" ng-if="menuItem.iconName" class="{{menuItem.iconName}}"></span> 
 						<span class="svy-navbar-item-text">{{menuItem.text}}</span>
 						<span class="caret"></span>
 					</a>
