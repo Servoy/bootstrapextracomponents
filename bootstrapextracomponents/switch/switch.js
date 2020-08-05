@@ -33,6 +33,7 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 					} else {
 						$scope.model.dataProviderID = $scope.model.dataProviderID > 0 ? 0 : 1;
 					}
+					$scope.svyServoyapi.startEdit('dataProviderID');
 					$scope.svyServoyapi.apply('dataProviderID')
 					if ($scope.handlers.onActionMethodID) {
 						$scope.handlers.onActionMethodID(event)
