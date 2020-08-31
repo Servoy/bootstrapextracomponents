@@ -16,13 +16,15 @@
 			ng-if="model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" 
 			ng-click="onClick($event,slide)"
 			btse-carousel-smart-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}"
-			btse-carousel-smart-src-watch="slide.active" 
+			btse-carousel-smart-src-watch="slide.active"
+			svy-attributes='model.attributes' 
 		>
 		<img 
 			class="bts-extra-carousel-img" 
 			ng-style="model.imageCssInternal" 
 			ng-click="onClick($event,slide)"
-			ng-if="!model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" ng-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}" 
+			ng-if="!model.lazyLoading" src="bootstrapextracomponents/carousel/resources/loading.gif" ng-src="{{slide.image != null && slide.image.url != null ? slide.image.url : 'bootstrapextracomponents/carousel/resources/missing.png'}}"
+			svy-attributes='model.attributes' 
 		>
 		<div ng-if="slide.caption" class="carousel-caption">
 			<h4 ng-bind-html='slide.caption| htmlFilter | trustAsHtml:servoyApi.trustAsHtml()'></h4>
