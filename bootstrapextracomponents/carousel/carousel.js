@@ -102,7 +102,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 									var updatedRecord = $scope.model.slidesFoundset.viewPort.rows[changedRow.startIndex]
 									$scope.slides[changedRow.startIndex].caption = updatedRecord.caption;
 									$scope.slides[changedRow.startIndex].image = updatedRecord.image;
-								}
+								} else if (changedRow.type == 1) {
+									createSlidesFromFs();
+									break;
+								}	
+								
 							}
 						} else if (changes.selectedRowIndexesChanged) {
 							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
