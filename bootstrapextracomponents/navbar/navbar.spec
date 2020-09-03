@@ -125,6 +125,7 @@
 	"types":
 	{
 		"menuItem": {
+			"attributes"						: {"type": "map"},
 			"itemId"							: {"type": "string"},
 			"tabindex"							: {"type": "string"},
 			"text"								: {"type": "tagstring"},
