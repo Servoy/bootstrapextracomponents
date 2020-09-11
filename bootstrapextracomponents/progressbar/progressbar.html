@@ -6,6 +6,7 @@
 	animate="model.animate"
 	max="model.max"
 	sablo-tabseq='model.tabSeq'
+	svy-attributes='model.attributes'
 	id="{{::model.svyMarkupId}}"
 	>
 	<b ng-if="!model.valueText && model.showValue && model.showValueAsPercentage">{{(100*model.value/model.max) | number:0}}%</b>
