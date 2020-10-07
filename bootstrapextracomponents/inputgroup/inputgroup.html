@@ -1,7 +1,6 @@
 <div class="bts-extra-input-group input-group" 
 	id="{{::model.svyMarkupId}}" 
 	ng-show='model.visible' 
-	svy-attributes='model.attributes'
 	ng-class='model.styleClass'>
 	
 	<!-- addOnButtons left -->
@@ -39,6 +38,7 @@
 	   	svy-focuslost='handlers.onFocusLostMethodID($event)'
 	   	svy-enter='handlers.onAction($event)'
 	   	svy-rightclick='handlers.onRightClick($event)'
+	   	svy-attributes='model.attributes'
       	svy-autoapply
 		sablo-tabseq='model.tabSeq'
 		svy-decimal-key-converter
