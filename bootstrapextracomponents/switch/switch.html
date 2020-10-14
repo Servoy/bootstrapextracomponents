@@ -1,9 +1,8 @@
 <div class="bts-extra-switch">
-<label>
+<label sablo-tabseq='model.tabSeq'>
 	<input type="checkbox"
 			ng-if='model.visible'
 		    ng-model ="selection"			
-			sablo-tabseq='model.tabSeq'
 			ng-click="switchClicked($event)"        
 			id="{{::model.svyMarkupId}}"			
 			bs-switch
