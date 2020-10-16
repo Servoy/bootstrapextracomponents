@@ -100,12 +100,17 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 			controller: function($scope, $element, $attrs) {
 				var label = $element.find("label");
 				
-				label.bind("keydown keypress", function (event) {
-		            if(event.which === 13) {
-						$scope.switchClicked(event);
-		                event.preventDefault();
-		            }
-		        });
+				label.bind("keydown keypress", function(event) {
+						switch (event.which) {
+						case 13:	// ENTER
+						case 32:	// SPACE
+							$scope.switchClicked(event);
+							event.preventDefault();
+							break;
+						default:
+							break;
+						}
+					});
 			},
 			templateUrl: 'bootstrapextracomponents/switch/switch.html'
 		};
