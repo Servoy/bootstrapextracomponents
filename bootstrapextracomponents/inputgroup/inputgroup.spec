@@ -114,11 +114,13 @@
 	{
 		"AddOn": 
 		{
+			"attributes"						: {"type": "map"},
 			"text"								: { "type": "tagstring", "initialValue": "addOn" },
 			"position"							: { "type": "string", "default": "LEFT", "values": [ "LEFT", "RIGHT" ] }
 		},
 		"AddOnButton": 
 		{
+			"attributes"						: {"type": "map"},
 			"text"								: { "type": "tagstring", "initialValue": "addOn" },
 			"name"								: { "type": "string", "initialValue": "btn" },
 			"position"							: { "type": "string", "default": "RIGHT", "values": [ "LEFT", "RIGHT" ] },

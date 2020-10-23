@@ -14,7 +14,8 @@
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
-			sablo-tabseq='model.tabSeq'>
+			sablo-tabseq='model.tabSeq'
+			svy-attributes='button.attributes'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
     </div>
@@ -24,7 +25,8 @@
 	<span 
 		ng-repeat="addon in model.addOns" 
 		ng-if="addon.position == 'LEFT'" 
-		class="input-group-addon addon-left">{{addon.text}}
+		class="input-group-addon addon-left"
+		svy-attributes='addon.attributes'>{{addon.text}}
 	</span>
 	<!-- end addOns left -->
 
@@ -48,7 +50,8 @@
 	<span 
 		ng-repeat="addon in model.addOns" 
 		ng-if="addon.position == 'RIGHT'" 
-		class="input-group-addon addon-right">{{addon.text}}
+		class="input-group-addon addon-right"
+		svy-attributes='addon.attributes'>{{addon.text}}
 	</span>
     <!-- end addOns right -->
 
@@ -63,7 +66,8 @@
 			svy-click='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 		   	svy-dblclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
 			svy-rightclick='buttonClicked($event, button.text, model.addOnButtons.indexOf(button))'
-			sablo-tabseq='model.tabSeq'>
+			sablo-tabseq='model.tabSeq'
+			svy-attributes='button.attributes'>
 		<span ng-class="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
 		</button>
     </div>
