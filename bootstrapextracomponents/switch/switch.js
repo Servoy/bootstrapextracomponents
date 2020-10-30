@@ -78,22 +78,13 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				}
 
 				/**
-				 * Request the focus to this checkbox.
+				 * Request the focus to this switch.
 				 *
 				 * @example %%prefix%%%%elementName%%.requestFocus();
-				 * @param mustExecuteOnFocusGainedMethod
-				 *            (optional) if false will not execute the onFocusGained
-				 *            method; the default value is true
 				 */
-				$scope.api.requestFocus = function(mustExecuteOnFocusGainedMethod) {
-					var input = $element.find('input');
-					if (mustExecuteOnFocusGainedMethod === false && $scope.handlers.onFocusGainedMethodID) {
-						input.unbind('focus');
-						input[0].focus();
-						input.bind('focus', $scope.handlers.onFocusGainedMethodID)
-					} else {
-						input[0].focus();
-					}
+				$scope.api.requestFocus = function() {
+					var input = $element.find('label');
+					input[0].focus();
 				}
 
 			},
