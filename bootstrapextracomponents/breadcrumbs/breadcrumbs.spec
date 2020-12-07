@@ -44,7 +44,7 @@
 	"handlers": 
 	{
 		"onCrumbClicked": {
-			"description": "Called whenever a breadcrumb item is clicked with the JSEvent and the item clicked on",
+			"doc": "Called whenever a breadcrumb item is clicked with the JSEvent and the item clicked on",
 			"parameters": [{
 				"name": "event",
 				"type": "JSEvent"

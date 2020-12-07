@@ -105,7 +105,7 @@
 	"handlers": 
 	{
 		"onMenuItemClicked": {
-			"description": "Called whenever a menu item is clicked or a submenu item is selected with the JSEvent and the menuItem object clicked on",
+			"doc": "Called whenever a menu item is clicked or a submenu item is selected with the JSEvent and the menuItem object clicked on",
 			"parameters": [{
 				"name": "event",
 				"type": "JSEvent"
@@ -115,7 +115,7 @@
 			}]
 		},
 		"onBrandClicked": {
-			"description": "Called when the user clicks on the brand logo or text",
+			"doc": "Called when the user clicks on the brand logo or text",
 			"parameters": [{
 				"name": "event",
 				"type": "JSEvent"

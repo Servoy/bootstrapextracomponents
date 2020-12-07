@@ -24,14 +24,12 @@
 	"handlers": 
 	{
 		"onLeave": {
-			"description": "",
 			"parameters": [
 				{ "name": "event", "type": "JSEvent" },
 				{ "name": "value", "type": "int" }
 			]
 		},
 		"onHover": {
-			"description": "",
 			"parameters": [
 				{ "name": "event", "type": "JSEvent" },
 				{ "name": "value", "type": "int" }
