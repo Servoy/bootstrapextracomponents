@@ -255,6 +255,17 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						if (carouselDiv.innerWidth()) {
 							size.width = carouselDiv.innerWidth();
 						}
+                        else
+                        {
+                            scope.$watch(function() {return carouselDiv.innerWidth()}, function(newVal, oldVal) {
+                                if (newVal) {
+                                    scope.model.divSize = {
+                                        width: carouselDiv.innerWidth(),
+                                        height: carouselDiv.innerHeight()
+                                    };
+                                }
+                             });
+                        }
 						if (carouselDiv.innerHeight()) {
 							size.height = carouselDiv.innerHeight();
 						}
@@ -263,9 +274,9 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				}
 				
 				//first time page load
-				if (!scope.model.divSize) {
+				//if (!scope.model.divSize) {
 					scope.getDivSize();
-				}
+			//	}
 				
 				if (scope.model.imageOptions != 'Crop') {
 					angular.element($window).bind('resize', function() {
