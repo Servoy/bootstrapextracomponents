@@ -57,7 +57,7 @@ angular.module('bootstrapextracomponentsInputGroup', ['servoy']).directive('boot
 				$scope.buttonClicked = function(event, btnText, btnIndex) {
 					var btn = $scope.model.addOnButtons[btnIndex];
 					var jsEvent;
-					if (btn && btn.onAction) {
+					if (btn && btn.onAction && event.type == 'click') {
 						jsEvent = $utils.createJSEvent(event,'action');
 						jsEvent.data = btnText;
 						$window.executeInlineScript(btn.onAction.formname, btn.onAction.script, [jsEvent, btn.name, btnText, btnIndex])
