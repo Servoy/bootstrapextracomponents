@@ -80,7 +80,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     return;
                 }
                 if (angular.element('[uib-typeahead-popup]').attr('aria-hidden') == "true") {
-                    if (menuItem.valuelist && menuItem.valuelist.length > 0 && menuItem.valuelist[0].displayValue) {
+                    if (menuItem.valuelist && menuItem.valuelist.length > 0) {
                         var hasMatchingDisplayValue = false;
                         for (var i = 0; i < menuItem.valuelist.length; i++) {
                             if (event.target.value === menuItem.valuelist[i].displayValue) {
