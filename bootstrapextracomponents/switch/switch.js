@@ -9,17 +9,13 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				svyServoyapi: "="
 			},
 			link: function($scope, $element, $attrs) {
-				$scope.selection = false;
-
-				$scope.$watch('model.dataProviderID', function(newVal, oldVal) {
-						$scope.selection = getSelectionFromDataprovider();
-						if (newVal != oldVal) {
-							// using timeout because such call should run at the next digest loop when the switch visibility is toggled together with the dataprovider value
-							$timeout(function () {
-								$element.find("input").bootstrapSwitch('state', $scope.selection, false);
-							})
-						}
-					})
+				
+				// set selection
+				$scope.selection = getSelectionFromDataprovider();
+				
+				// StyleClass applied while the switch is still initializing. Will be removed as soon dataProvider selection is set
+				// Optionally used to hide the component while the state is yet 'indeterminate'
+				$scope.initStyleClass = "bts-extra-switch-initializing";
 
 				$scope.switchClicked = function() {
 					if ($scope.model.enabled == false) {
@@ -57,6 +53,19 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						configurable: true,
 						value: function(property, value) {
 							switch (property) {
+							case "dataProviderID": 
+								// 
+								$scope.selection = getSelectionFromDataprovider();
+								// using timeout because such call should run at the next digest loop when the switch visibility is toggled together with the dataprovider value
+								$timeout(function () {
+									$element.find("input").bootstrapSwitch('state', $scope.selection, false);
+									
+									// at next digest loop change the initStyleClass
+									$timeout(function () {
+										$scope.initStyleClass = "";
+									})
+								})
+								break;
 							case "toolTipText":
 								if (tooltipState)
 									tooltipState(value);
@@ -67,6 +76,7 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 						}
 					});
 				var destroyListenerUnreg = $scope.$on("$destroy", function() {
+						$element.find("input").bootstrapSwitch('destroy');
 						destroyListenerUnreg();
 						delete $scope.model[$sabloConstants.modelChangeNotifier];
 					});
