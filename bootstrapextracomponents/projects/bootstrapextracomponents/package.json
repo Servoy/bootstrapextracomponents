@@ -1,0 +1,23 @@
+{
+  "name": "@servoy/bootstrapextracomponents",
+  "version": "1.3.3",
+  "peerDependencies": {
+    "@angular/animations": ">=12",
+    "@angular/cdk": ">=12",
+    "@angular/common": ">=12",
+    "@angular/core": ">=12",
+    "@angular/forms": ">=12",
+    "bootstrap": "5.0.1",
+    "luxon": ">=1"
+  },
+  "dependencies": {
+   "jw-bootstrap-switch-ng2": "^2.0.5",
+    "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "tslib": "*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Servoy/bootstrapextracomponents"
+  }
+}

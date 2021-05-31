@@ -1,4 +1,8 @@
 Manifest-Version: 1.0
+NG2-CSS-ClientLibs: ~@servoy/bootstrapextracomponents/assets/svy_bootstrapextracomponents.css
+NPM-PackageName: @servoy/bootstrapextracomponents
+NG2-Module: ServoyBootstrapExtraComponentsModule
+Entry-Point: dist/servoy/bootstrapextracomponents
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
 Bundle-Version: 1.3.4

@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c73821cc-c3cd-481c-a275-0657b4a6c943"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@servoy/bootstrapextracomponents": {
+      "projectType": "library",
+      "root": "projects/bootstrapextracomponents",
+      "sourceRoot": "projects/bootstrapextracomponents/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/bootstrapextracomponents/tsconfig.lib.json",
+            "project": "projects/bootstrapextracomponents/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/bootstrapextracomponents/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "preserveSymlinks": true,
+            "main": "projects/bootstrapextracomponents/src/test.ts",
+            "tsConfig": "projects/bootstrapextracomponents/tsconfig.spec.json",
+            "karmaConfig": "projects/bootstrapextracomponents/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "preserveSymlinks": true,
+            "lintFilePatterns": [
+              "projects/bootstrapextracomponents/src/**/*.ts",
+              "projects/bootstrapextracomponents/src/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@servoy/bootstrapextracomponents"
+}
