@@ -151,12 +151,12 @@
 
                     <a tabindex="{{menuItem.tabindex}}" *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName" [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
-                        <span class="svy-navbar-item-text">{{menuItem.text}}</span>
+                        &nbsp;<span class="svy-navbar-item-text">{{menuItem.text}}</span>
                     </a><!-- /.svy-navbar-item -->
 
                     <a *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" (click)="openMenu($event)" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName" class="{{menuItem.iconName}}"></span> 
-                        <span class="svy-navbar-item-text">{{menuItem.text}}</span>
+                        &nbsp;<span class="svy-navbar-item-text">{{menuItem.text}}</span>
                         <span class="caret" ></span>
                     </a>
                     <div *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
@@ -171,7 +171,7 @@
                 </li>
                 </ng-container>
             </ul><!-- /.navbar-nav -->
-            <ul class="nav navbar-nav ml-auto">
+            <ul class="nav navbar-nav ms-auto">
                  <ng-container *ngFor="let menuItem of menuItems;let $index = index" >
                 <li *ngIf="menuItem.position == 'RIGHT'" class="svy-navbar-button nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
                     
@@ -309,12 +309,12 @@
 
                     <a tabindex="{{menuItem.tabindex}}" *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName" [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
-                        <span class="svy-navbar-item-text">{{menuItem.text}}</span>
+                        &nbsp;<span class="svy-navbar-item-text">{{menuItem.text}}</span>
                     </a><!-- /.svy-navbar-item -->
 
                     <a *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" (click)="openMenu($event)" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName" class="{{menuItem.iconName}}"></span> 
-                        <span class="svy-navbar-item-text">{{menuItem.text}}</span>
+                        &nbsp;<span class="svy-navbar-item-text">{{menuItem.text}}</span>
                         <span class="caret"></span>
                     </a>
                     <div *ngIf="menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null" class="dropdown-menu">
