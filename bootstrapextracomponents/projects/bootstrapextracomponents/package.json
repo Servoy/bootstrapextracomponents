@@ -12,7 +12,7 @@
   },
   "dependencies": {
    "jw-bootstrap-switch-ng2": "^2.0.5",
-    "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "@ng-bootstrap/ng-bootstrap": ">=10",
     "tslib": "*"
   },
   "license": "MIT",
