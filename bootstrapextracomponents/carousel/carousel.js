@@ -1,4 +1,4 @@
-angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootstrapextracomponentsCarousel', ['$log', function($log) {
+angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootstrapextracomponentsCarousel', ['$log', '$foundsetTypeConstants', function($log, $foundsetTypeConstants) {
 		return {
 			restrict: 'E',
 			scope: {
@@ -84,38 +84,67 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					}
 					
 					//initially, load all slides
-					createSlidesFromFs();
+//					createSlidesFromFs();
 					
 					//add a listener to get notified of changes of dataproviders or added and deleted records
-					$scope.model.slidesFoundset.addChangeListener(function(changes) {
-						if (!changes.viewportRowsUpdated && changes.viewPortSizeChanged) {
+//					$scope.model.slidesFoundset.addChangeListener(function(changes) {
+//						if (!changes.viewportRowsUpdated && changes.viewPortSizeChanged) {
+//							createSlidesFromFs();
+//						} else if (changes.viewportRowsUpdated && changes.viewportRowsUpdated.updates && changes.viewportRowsUpdated.updates.length > 0) {
+//							for (var ru = 0; ru < changes.viewportRowsUpdated.updates.length; ru++) {
+//								var changedRow = changes.viewportRowsUpdated.updates[ru];
+//								if ('type' in changedRow && changedRow.type == 2 && 'startIndex' in changedRow && 'endIndex' in changedRow && changedRow.startIndex == changedRow.endIndex) {
+//									//row has been deleted
+//									$log.debug('row deleted');
+//									createSlidesFromFs();
+//								} else if ('startIndex' in changedRow && 'endIndex' in changedRow && changedRow.type == 0) {
+//									//row has been updated
+//									var updatedRecord = $scope.model.slidesFoundset.viewPort.rows[changedRow.startIndex]
+//									$scope.slides[changedRow.startIndex].caption = updatedRecord.caption;
+//									$scope.slides[changedRow.startIndex].image = updatedRecord.image;
+//								} else if (changedRow.type == 1) {
+//									createSlidesFromFs();
+//									break;
+//								}	
+//								
+//							}
+//						} else if (changes.selectedRowIndexesChanged) {
+//							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
+//						}
+//					});
+					
+					$scope.$watch('model.slidesFoundset', function(oldValue, newValue) {
+						if ($scope.svyServoyapi.isInDesigner() || !newValue) return;
+
+						// load data
+						createSlidesFromFs();
+
+						// addFoundsetListener
+						$scope.model.slidesFoundset.addChangeListener(foundsetListener);
+					});
+					
+					var foundsetListener = function(changes) {
+						// check to see what actually changed and update what is needed in browser
+						if (changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROWS_COMPLETELY_CHANGED]) {
 							createSlidesFromFs();
-						} else if (changes.viewportRowsUpdated && changes.viewportRowsUpdated.updates && changes.viewportRowsUpdated.updates.length > 0) {
-							for (var ru = 0; ru < changes.viewportRowsUpdated.updates.length; ru++) {
-								var changedRow = changes.viewportRowsUpdated.updates[ru];
-								if ('type' in changedRow && changedRow.type == 2 && 'startIndex' in changedRow && 'endIndex' in changedRow && changedRow.startIndex == changedRow.endIndex) {
-									//row has been deleted
-									$log.debug('row deleted');
-									createSlidesFromFs();
-								} else if ('startIndex' in changedRow && 'endIndex' in changedRow && changedRow.type == 0) {
-									//row has been updated
-									var updatedRecord = $scope.model.slidesFoundset.viewPort.rows[changedRow.startIndex]
-									$scope.slides[changedRow.startIndex].caption = updatedRecord.caption;
-									$scope.slides[changedRow.startIndex].image = updatedRecord.image;
-								} else if (changedRow.type == 1) {
-									createSlidesFromFs();
-									break;
-								}	
-								
-							}
-						} else if (changes.selectedRowIndexesChanged) {
+						} else if (changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROW_UPDATES_RECEIVED]) {
+							createSlidesFromFs();
+						}
+						if (changes[$foundsetTypeConstants.NOTIFY_SELECTED_ROW_INDEXES_CHANGED] && changes.selectedRowIndexesChanged.newValue[0] != $scope.active) {
 							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
 						}
+					};
+					
+					var destroyListenerUnreg = $scope.$on("$destroy", function() {
+						if ($scope.model.slidesFoundset) {
+							$scope.model.slidesFoundset.removeChangeListener(foundsetListener);
+						}
+						destroyListenerUnreg();
 					});
 					
 					//watch the slides to find changes of the selected slide and update the foundset accordignly
 					$scope.$watch('active', function(newValue, oldValue) {
-						if (newValue != null && oldValue != null) {
+						if ($scope.model.updateRecordSelection == true && newValue != null && oldValue != null) {
 							if (newValue > -1 && newValue !== $scope.model.slidesFoundset.selectedRowIndexes[0]) {
 								//update selected record when the slide index has changed and is not the selected record on the foundset
 								$scope.model.slidesFoundset.requestSelectionUpdate([newValue]).then(
@@ -167,7 +196,6 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 								$scope.model.imageCssInternal.height = $scope.model.divSize ? $scope.model.divSize.height : null || ($scope.$parent.absoluteLayout ? $scope.model.size.height : $scope.model.responsiveHeight) + "px";
 									
 							}
-							console.log($scope.model.imageOptions)
 						}
 					}
 				}, true);
@@ -180,9 +208,6 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						$scope.slides[oldValue].active = true;						
 					}
 				});
-				
-				console.log($scope.model.imageCssInternal)
-
 				
 			},
 			controller: function($scope, $element, $attrs, $utils) {

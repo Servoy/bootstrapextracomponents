@@ -25,7 +25,8 @@
 		"styleClass" 						: { "type": "styleclass"},
 		"imageCssInternal"					: { "type": "object", "tags" : { "scope": "private" } },
 		"imageCss"							: { "type": "cssProperty[]" },
-		"responsiveHeight": 				  { "type": "int", "default": 300 }
+		"responsiveHeight"					: { "type": "int", "default": 300 },
+		"updateRecordSelection"				: { "type": "boolean", "default" : false, "tags": { "doc": "When <code>true</code> the foundset's selection is updated with any slide selection" } }
 	},
 	"api": 
 	{
