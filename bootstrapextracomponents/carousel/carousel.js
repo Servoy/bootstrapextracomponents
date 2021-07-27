@@ -293,6 +293,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
                         }
 						if (carouselDiv.innerHeight()) {
 							size.height = carouselDiv.innerHeight();
+						} else if (!scope.model.divSize && scope.$parent.absoluteLayout) {
+							var parentElementName = carouselDiv.parent().attr('name');
+							if (parentElementName && scope.$parent.layout[parentElementName] && scope.$parent.layout[parentElementName].height) {
+								size.height = scope.$parent.layout[parentElementName].height;
+							}
 						}
 						scope.model.divSize = size;
 					}
