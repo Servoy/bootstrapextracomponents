@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, ViewChild, SimpleChanges, Renderer2, Input, ChangeDetectionStrategy } from '@angular/core';
 import { BaseCustomObject, IFoundset, ServoyBaseComponent } from '@servoy/public';
-import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 
 @Component( {
     selector: 'bootstrapextracomponents-carousel',
@@ -28,6 +28,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     @Input() imageCssInternal: any;
     @Input() imageCss: Array<CssProperty>;
     @Input() responsiveHeight: number;
+    @Input() updateRecordSelection: boolean;
 
     innerSlides: Array<Slide>;
 
@@ -94,11 +95,11 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     getSelectedIndex() {
         const activeId = this.ngCarousel.activeId;
-        return parseInt( activeId.substr( activeId.length - 1 ), 10 );
+        return parseInt( activeId.substr( activeId.lastIndexOf('-') + 1 ), 10 );
     }
 
     setSelectedIndex( index: number ) {
-        this.ngCarousel.activeId = 'ngb-slide-' + index;
+        this.ngCarousel.activeId =  this.servoyApi.getMarkupId() + '-' + index;
         this.ngCarousel.select( this.ngCarousel.activeId );
     }
 
@@ -108,6 +109,19 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
             layoutStyle.height = this.responsiveHeight;
         }
         return layoutStyle;
+    }
+
+    onSlid(event: NgbSlideEvent) {
+        if (this.updateRecordSelection && this.slidesFoundset) {
+            const currentIndex = this.getSelectedIndex();
+            if (currentIndex !== this.slidesFoundset.selectedRowIndexes[0]) {
+                //update selected record when the slide index has changed and is not the selected record on the foundset
+                this.slidesFoundset.requestSelectionUpdate([currentIndex]).then((serverRows) => {
+                }, (serverRows) => {
+                    //selection failed, what now
+                });
+            }
+        }
     }
 
     private createSlides = () => {

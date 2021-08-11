@@ -10,8 +10,9 @@
         [keyboard]="true"
         [pauseOnHover]="!noPause"
         [animation]="!noTransition"
-        [wrap]="true">
-		<ng-template ngbSlide *ngFor="let slide of innerSlides;index as i;">
+        [wrap]="true"
+		(slid)="onSlid($event)">
+		<ng-template ngbSlide *ngFor="let slide of innerSlides;index as i;" [id]="servoyApi.getMarkupId() + '-' + i">
             <div class="picsum-img-wrapper">
 				<img class="bts-extra-carousel-img"
 				    alt="i" 
