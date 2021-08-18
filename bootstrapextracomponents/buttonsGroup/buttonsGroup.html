@@ -3,7 +3,7 @@
   <button type="button" 
 		class= "btn {{model.styleClass}}"
  		sablo-tabseq="model.tabSeq"
-		ng-repeat="item in model.valuelistID | filter:notNullOrEmpty('realValue') && notNullOrEmpty('displayValue')"
+		ng-repeat="item in model.valuelistID | filter:item && (notNullOrEmpty('realValue') || notNullOrEmpty('displayValue'))"
 		ng-class="selectedValues[item.realValue] ? 'active' : ''" 
 		svy-click="onClick(item)">
   	 	<span ng-bind='item.displayValue' ng-if='model.showAs != "html" && model.showAs != "trusted_html"'></span>
