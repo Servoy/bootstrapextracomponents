@@ -15,8 +15,8 @@ angular.module('bootstrapextracomponentsButtonsGroup', ['servoy']).directive('bo
             }
 
             updateDesignerValuelist();
-            $scope.notNullOrEmpty = $utils.notNullOrEmpty // adding it to the root scope doesn't fix the resolution of the comparator in the filter (in this directive). it has to be in local scope. TODO remove the need for this
-            $scope.selectedValues = {};
+            $scope.notNullOrEmptyValueListItem = $utils.notNullOrEmptyValueListItem // TODO remove the need for this
+			$scope.selectedValues = {};
 
             var oldValue;
             var tooltipState = null;
