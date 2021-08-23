@@ -74,62 +74,36 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					//create slides on %scope.slides
 					function createSlidesFromFs() {
 						var slides = [];
-						for (var i = 0; i < $scope.model.slidesFoundset.viewPort.rows.length; i++) {
-							var row = $scope.model.slidesFoundset.viewPort.rows[i];
-							var slide = { id: i, active: i === 0, image: row.image ? row.image : null, caption: row.caption ? row.caption : null, rowId: row._svyRowId }
-							slides.push(slide);
+						if ($scope.model.slidesFoundset) {
+    						for (var i = 0; i < $scope.model.slidesFoundset.viewPort.rows.length; i++) {
+    							var row = $scope.model.slidesFoundset.viewPort.rows[i];
+    							var slide = { id: i, active: i === 0, image: row.image ? row.image : null, caption: row.caption ? row.caption : null, rowId: row._svyRowId }
+    							slides.push(slide);
+    						}
 						}
 						$scope.slides = slides;
-						$scope.active = $scope.model.slidesFoundset.selectedRowIndexes[0];
+						$scope.active = ($scope.model.slidesFoundset && $scope.model.slidesFoundset.selectedRowIndexes.length > 0) ?
+						                      $scope.model.slidesFoundset.selectedRowIndexes[0] : null;
 					}
-					
-					//initially, load all slides
-//					createSlidesFromFs();
-					
-					//add a listener to get notified of changes of dataproviders or added and deleted records
-//					$scope.model.slidesFoundset.addChangeListener(function(changes) {
-//						if (!changes.viewportRowsUpdated && changes.viewPortSizeChanged) {
-//							createSlidesFromFs();
-//						} else if (changes.viewportRowsUpdated && changes.viewportRowsUpdated.updates && changes.viewportRowsUpdated.updates.length > 0) {
-//							for (var ru = 0; ru < changes.viewportRowsUpdated.updates.length; ru++) {
-//								var changedRow = changes.viewportRowsUpdated.updates[ru];
-//								if ('type' in changedRow && changedRow.type == 2 && 'startIndex' in changedRow && 'endIndex' in changedRow && changedRow.startIndex == changedRow.endIndex) {
-//									//row has been deleted
-//									$log.debug('row deleted');
-//									createSlidesFromFs();
-//								} else if ('startIndex' in changedRow && 'endIndex' in changedRow && changedRow.type == 0) {
-//									//row has been updated
-//									var updatedRecord = $scope.model.slidesFoundset.viewPort.rows[changedRow.startIndex]
-//									$scope.slides[changedRow.startIndex].caption = updatedRecord.caption;
-//									$scope.slides[changedRow.startIndex].image = updatedRecord.image;
-//								} else if (changedRow.type == 1) {
-//									createSlidesFromFs();
-//									break;
-//								}	
-//								
-//							}
-//						} else if (changes.selectedRowIndexesChanged) {
-//							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
-//						}
-//					});
-					
-					$scope.$watch('model.slidesFoundset', function(oldValue, newValue) {
-						if ($scope.svyServoyapi.isInDesigner() || !newValue) return;
+
+					$scope.$watch('model.slidesFoundset', function(_oldValue, newValue) {
+						if ($scope.svyServoyapi.isInDesigner()) return;
 
 						// load data
 						createSlidesFromFs();
 
 						// addFoundsetListener
-						$scope.model.slidesFoundset.addChangeListener(foundsetListener);
+						if (newValue) newValue.addChangeListener(foundsetListener);
 					});
 					
 					var foundsetListener = function(changes) {
 						// check to see what actually changed and update what is needed in browser
-						if (changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROWS_COMPLETELY_CHANGED]) {
-							createSlidesFromFs();
-						} else if (changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROW_UPDATES_RECEIVED]) {
-							createSlidesFromFs();
+						if (changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROWS_COMPLETELY_CHANGED]
+						      || changes[$foundsetTypeConstants.NOTIFY_VIEW_PORT_ROW_UPDATES_RECEIVED]
+						      || changes[$foundsetTypeConstants.NOTIFY_FULL_VALUE_CHANGED]) {
+							createSlidesFromFs(); // update data
 						}
+
 						if (changes[$foundsetTypeConstants.NOTIFY_SELECTED_ROW_INDEXES_CHANGED] && changes.selectedRowIndexesChanged.newValue[0] != $scope.active) {
 							$scope.active = changes.selectedRowIndexesChanged.newValue[0];
 						}
