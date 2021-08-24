@@ -14,5 +14,5 @@
       "jw-bootstrap-switch-ng2": "jw-bootstrap-switch-ng2"
     }
   },
-  "allowedNonPeerDependencies": ["jw-bootstrap-switch-ng2", "@ng-bootstrap/ng-bootstrap"]
+  "allowedNonPeerDependencies": ["jw-bootstrap-switch-ng2", "@ng-bootstrap/ng-bootstrap", "bootstrap"]
 }
