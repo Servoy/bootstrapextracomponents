@@ -178,7 +178,7 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 					if (newValue != null) {
 						$scope.slides[newValue].active = true;
 					}
-					if (oldValue != null) {
+					if (oldValue != null && $scope.slides[oldValue]) {
 						$scope.slides[oldValue].active = true;						
 					}
 				});
