@@ -86,9 +86,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 						                      $scope.model.slidesFoundset.selectedRowIndexes[0] : null;
 					}
 
-					$scope.$watch('model.slidesFoundset', function(_oldValue, newValue) {
+					$scope.$watch('model.slidesFoundset', function(newValue, oldValue) {
 						if ($scope.svyServoyapi.isInDesigner()) return;
 
+						if (oldValue) oldValue.removeChangeListener(foundsetListener);
+						
 						// load data
 						createSlidesFromFs();
 
@@ -175,11 +177,11 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				}, true);
 				
 				$scope.$watch('active', function(newValue, oldValue) {
+					if (oldValue != null && $scope.slides[oldValue]) {
+						$scope.slides[oldValue].active = false;						
+					}
 					if (newValue != null) {
 						$scope.slides[newValue].active = true;
-					}
-					if (oldValue != null && $scope.slides[oldValue]) {
-						$scope.slides[oldValue].active = true;						
 					}
 				});
 				
