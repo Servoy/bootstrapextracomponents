@@ -15,7 +15,7 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 				}	
 				
 				$scope.$watch('model.dataProviderID', function(newValue, oldValue) {
-					$scope.svyServoyapi.apply('dataProviderID');
+					if ($scope.model.enabled !== false) $scope.svyServoyapi.apply('dataProviderID');
 				});	
 			},
 			controller: function($scope, $element, $attrs) {
@@ -27,7 +27,7 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 					console.log('leaving ' + $scope.model.dataProviderID)
 					$scope.overStar = null;
 					var jsEvent = createJSEvent('onLeave');
-					$scope.handlers.onLeave(jsEvent, $scope.model.dataProviderID);
+					if($scope.handlers.onLeave) $scope.handlers.onLeave(jsEvent, $scope.model.dataProviderID);
 				}
 				
 				$scope.onHover = function(value) {
@@ -36,7 +36,7 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 						$scope.percent = value / $scope.model.max * 100;
 						$scope.overStar = value;
 						var jsEvent = createJSEvent('onHover');
-						$scope.handlers.onHover(jsEvent, value);
+						if($scope.handlers.onHover) $scope.handlers.onHover(jsEvent, value);
 					}
 				}				
 				
