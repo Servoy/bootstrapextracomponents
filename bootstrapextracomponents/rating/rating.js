@@ -15,7 +15,7 @@ angular.module('bootstrapextracomponentsRating', ['servoy']).directive('bootstra
 				}	
 				
 				$scope.$watch('model.dataProviderID', function(newValue, oldValue) {
-					if ($scope.model.enabled !== false) $scope.svyServoyapi.apply('dataProviderID');
+					if ($scope.model.enabled !== false && newValue !== oldValue) $scope.svyServoyapi.apply('dataProviderID');
 				});	
 			},
 			controller: function($scope, $element, $attrs) {
