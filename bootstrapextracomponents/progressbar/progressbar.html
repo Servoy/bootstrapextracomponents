@@ -1,7 +1,7 @@
 <uib-progressbar
 	ng-if='model.visible'
 	class="bts-extra-progressbar {{model.styleClass}}"
-	value="model.value"
+	value="model.dataProviderID ? model.dataProviderID : model.value"
 	type={{model.type}}
 	animate="model.animate"
 	max="model.max"
@@ -9,7 +9,7 @@
 	svy-attributes='model.attributes'
 	id="{{::model.svyMarkupId}}"
 	>
-	<b ng-if="!model.valueText && model.showValue && model.showValueAsPercentage">{{(100*model.value/model.max) | number:0}}%</b>
-	<b ng-if="!model.valueText && model.showValue && !model.showValueAsPercentage">{{model.value + ' / ' + model.max}}</b>
+	<b ng-if="!model.valueText && model.showValue && model.showValueAsPercentage">{{(100*(model.dataProviderID ? model.dataProviderID : model.value)/model.max) | number:0}}%</b>
+	<b ng-if="!model.valueText && model.showValue && !model.showValueAsPercentage">{{(model.dataProviderID ? model.dataProviderID : model.value) + ' / ' + model.max}}</b>
 	<b ng-if="model.valueText">{{model.valueText}}</b>
 </uib-progressbar>

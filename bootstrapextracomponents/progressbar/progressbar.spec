@@ -12,7 +12,8 @@
 	"keywords": ["loading"],
 	"model":
 	{
-		"styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
+		"dataProviderID"            : { "type":"dataprovider", "tags": { "scope": "design" }, "displayTagsPropertyName" : "displaysTags"}, 
+        "styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
 		"value"						: "float",
 		"type"						: { "type": "string", "default": "info", "values":["info", "success", "warning", "danger"]},
 		"animate"					: { "type": "boolean", "default": true},

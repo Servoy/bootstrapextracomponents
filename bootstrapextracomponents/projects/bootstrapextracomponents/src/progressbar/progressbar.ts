@@ -16,12 +16,13 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
     @Input() valueText: string;
     @Input() max: number;
     @Input() tabSeq: number;
+    @Input() dataProviderID: any;
 
     svyOnInit() {
         super.svyOnInit();
     }
 
-    updateProgressBar = function(value, text) {
+    updateProgressBar = function(value: number, text: string) {
         this.value = value;
         if (text != undefined) {
             this.valueText = text;
