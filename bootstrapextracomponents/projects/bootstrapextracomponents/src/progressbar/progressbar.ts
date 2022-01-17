@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -18,16 +18,22 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
     @Input() tabSeq: number;
     @Input() dataProviderID: any;
 
-    svyOnInit() {
-        super.svyOnInit();
+     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
+            super(renderer, cdRef);
+    }
+
+    getNativeElement() {
+        if (this.elementRef) {
+            return this.elementRef.nativeElement.firstChild as HTMLDivElement;
+        }
+        return null;
     }
 
     updateProgressBar = function(value: number, text: string) {
         this.value = value;
-        if (text != undefined) {
+        if (text !== undefined) {
             this.valueText = text;
         }
-    }
-
+    };
 }
 
