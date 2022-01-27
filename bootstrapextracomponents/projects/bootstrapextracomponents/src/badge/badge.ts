@@ -22,7 +22,6 @@ export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElemen
     @Input() visible: boolean;
     @Input() toolTipText: string;
 
-    buttonClass = 'btn-outline-secondary';
     timeoutID: number;
 
     isTrustedHTML(): boolean {

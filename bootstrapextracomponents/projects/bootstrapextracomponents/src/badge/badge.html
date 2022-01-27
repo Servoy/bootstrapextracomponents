@@ -1,34 +1,34 @@
 <div class="bts-extra-badge" #element>
-    <a
+    <a 
         *ngIf="displayType == 'LABEL'"
         [ngClass] = 'styleClass'
-        class="badge"    
         [svyTooltip]="toolTipText"
         [class.disabled] = '!enabled'
         [id]="servoyApi.getMarkupId()">
-            <span class="badge-icon" aria-hidden="true">
+            <span  aria-hidden="true">
                 <i [ngClass]="imageStyleClass" aria-hidden="true"></i>
             </span>
-            <span class="badge-text" [innerHTML]="text | htmlFilter | trustAsHtml:isTrustedHTML()">
+            <span  [innerHTML]="text | htmlFilter | trustAsHtml:isTrustedHTML()">
             </span>
-            <span *ngIf="badgeText != null" class="badge badge-pill badge-dark">
+            <span *ngIf="badgeText != null" 
+                class="badge rounded-pill bg-dark label-badge-class">
                 {{badgeText}}
             </span>
     </a>
     <button
         type='button'
         [svyTooltip]="toolTipText"
-        class = 'btn {{styleClass ? styleClass : buttonClass}}'
+        class = "btn {{styleClass ? styleClass : 'btn-default'}}"
         *ngIf="!displayType || displayType == 'BUTTON'"    
         [disabled] = '!enabled'
         [id]="servoyApi.getMarkupId()">
-	        <span class="badge-icon" aria-hidden="true">
+	        <span aria-hidden="true">
                 <i  [ngClass]="imageStyleClass" aria-hidden="true"></i>
 	        </span>
-	        <span class="badge-text" [innerHTML]="text | htmlFilter | trustAsHtml:isTrustedHTML()">
+	        <span  [innerHTML]="text | htmlFilter | trustAsHtml:isTrustedHTML()">
             </span> 
-	        <span *ngIf="badgeText != null" 
-	            class="badge badge-pill badge-dark">
+	        <span *ngIf="badgeText != null"
+	            class="badge rounded-pill bg-dark">
 	            {{badgeText}}
 	        </span>
     </button>

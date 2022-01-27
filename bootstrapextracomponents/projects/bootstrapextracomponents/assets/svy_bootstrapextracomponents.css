@@ -20,19 +20,27 @@
     display: inline-block;
 }
 
-.bts-extra-badge > * >  .badge-pill {
-    font-size: 86%;
-    padding: 3px 7px;
-    margin-left: 5px;
-}
-
 .svy-wrapper > * > .bts-extra-badge {
     width: 100%;
     height: 100%;
     overflow: auto;
     white-space: nowrap;
     display: block;
-    
+}
+
+.svy-wrapper>*>.bts-extra-badge a {
+	color: #337ab7 !important;
+	text-decoration: none !important;
+}
+
+.svy-wrapper>*>.bts-extra-badge .label-badge-class {
+    background-color: #777777 !important;
+}
+
+.svy-wrapper > * > .bts-extra-badge a:hover, a:focus {
+    color: #23527c !important;
+    text-decoration: underline !important;
+    cursor: pointer;
 }
 
 .svy-wrapper > * > .bts-extra-badge .btn {
@@ -42,11 +50,6 @@
     line-height: normal;
     padding-top: initial;
     padding-bottom: initial;
-    position: absolute;
-}
-.svy-wrapper > * > .bts-extra-badge .btn:focus {
-    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
-    background-color: #e6e6e6;
 }
 
 .svy-wrapper > * > .bts-extra-input-group {
