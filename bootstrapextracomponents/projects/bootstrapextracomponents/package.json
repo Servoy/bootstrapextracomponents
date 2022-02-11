@@ -1,6 +1,6 @@
 {
   "name": "@servoy/bootstrapextracomponents",
-  "version": "1.4.3",
+  "version": "2022.3.0",
   "peerDependencies": {
     "@angular/animations": "^13",
     "@angular/common": "^13",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
    "jw-bootstrap-switch-ng2": "^2",
-    "@ng-bootstrap/ng-bootstrap": "^10",
+    "@ng-bootstrap/ng-bootstrap": "^11",
     "bootstrap": "^5",
     "tslib": "*"
   },
