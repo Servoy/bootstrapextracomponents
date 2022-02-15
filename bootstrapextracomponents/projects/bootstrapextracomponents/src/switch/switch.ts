@@ -43,6 +43,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
             this.requestFocus();
         });
+        super.svyOnInit();
     }
 
     svyOnChanges(changes: SimpleChanges) {
