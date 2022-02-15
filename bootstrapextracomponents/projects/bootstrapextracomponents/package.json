@@ -9,7 +9,8 @@
   },
   "dependencies": {
    "jw-bootstrap-switch-ng2": "^2",
-    "@ng-bootstrap/ng-bootstrap": "^11",
+    "@ng-bootstrap/ng-bootstrap": "^12",
+    "@popperjs/core": "^2",
     "bootstrap": "^5",
     "tslib": "*"
   },
