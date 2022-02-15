@@ -7,5 +7,5 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "allowedNonPeerDependencies": ["jw-bootstrap-switch-ng2", "@ng-bootstrap/ng-bootstrap", "bootstrap"]
+  "allowedNonPeerDependencies": ["jw-bootstrap-switch-ng2", "@ng-bootstrap/ng-bootstrap",  "@popperjs/core", "bootstrap"]
 }
