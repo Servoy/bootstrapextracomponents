@@ -8,10 +8,10 @@
     "@angular/forms": "^13"
   },
   "dependencies": {
-   "jw-bootstrap-switch-ng2": "^2",
-    "@ng-bootstrap/ng-bootstrap": "^12",
-    "@popperjs/core": "^2",
-    "bootstrap": "^5",
+   "jw-bootstrap-switch-ng2": "<3",
+    "@ng-bootstrap/ng-bootstrap": "<13",
+    "@popperjs/core": "<3",
+    "bootstrap": "<6",
     "tslib": "*"
   },
   "license": "MIT",
