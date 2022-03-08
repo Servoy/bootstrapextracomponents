@@ -26,7 +26,8 @@
 	        "labelWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "handleWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "componentSize" : { "type" : "tagstring" ,"default": "Normal", "values":[{"Mini":"mini"},{"Small":"small"},{"Normal":"normal"},{"Large":"large"}] },
-			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},					
+			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},	
+			"size" : {"type" :"dimension",  "default" : {"width":300, "height":40}},				
 	        "visible" : "visible"
 	},
 	"handlers":
