@@ -143,7 +143,7 @@
 			"isActive"							: {"type": "boolean", "default": false},
 			"styleClass"	 					: {"type": "styleclass"},
 			"tooltip"							: {"type": "tagstring"},
-			"valuelist" 						: {"type" : "valuelist", "tags": { "scope" :"design", "logWhenOverMax": false}, "for": "dataProvider", "pushToServer": "allow"},
+			"valuelist" 						: {"type" : "valuelist", "tags": {  "logWhenOverMax": false}, "for": "dataProvider", "pushToServer": "allow"},
 			"value"								: {"type": "object", "tags": { "scope": "private" }} 
 		},
 		"subMenuItem": {
