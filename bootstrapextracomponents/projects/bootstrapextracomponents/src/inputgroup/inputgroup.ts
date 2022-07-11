@@ -2,20 +2,20 @@ import { Component, ChangeDetectorRef, SimpleChanges, ViewChild, Directive, Elem
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
 
-@Component( {
+@Component({
     selector: 'bootstrapextracomponents-input-group',
     templateUrl: './inputgroup.html',
     changeDetection: ChangeDetectionStrategy.OnPush
-} )
+})
 export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivElement> {
 
-    @ViewChild( 'input', { static: false } ) input: ElementRef<HTMLInputElement>;
+    @ViewChild('input', { static: false }) input: ElementRef<HTMLInputElement>;
 
-    @Input() onAction: ( e: Event, data?: any ) => void;
-    @Input() onRightClick: ( e: Event, data?: any ) => void;
-    @Input() onDataChangeMethodID: ( e: Event ) => void;
-    @Input() onFocusGainedMethodID: ( e: Event ) => void;
-    @Input() onFocusLostMethodID: ( e: Event ) => void;
+    @Input() onAction: (e: Event, data?: any) => void;
+    @Input() onRightClick: (e: Event, data?: any) => void;
+    @Input() onDataChangeMethodID: (e: Event) => void;
+    @Input() onFocusGainedMethodID: (e: Event) => void;
+    @Input() onFocusLostMethodID: (e: Event) => void;
 
     @Output() dataProviderChange = new EventEmitter();
     @Input() dataProvider: any;
@@ -37,8 +37,8 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     preventSimpleClick = false;
     timer: any;
 
-    constructor( renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService ) {
-        super( renderer, cdRef );
+    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService) {
+        super(renderer, cdRef);
     }
 
     public getFocusElement(): HTMLElement {
@@ -47,113 +47,122 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 
     svyOnInit() {
         super.svyOnInit();
-        this.attachFocusListeners( this.getFocusElement() );
+        this.attachFocusListeners(this.getFocusElement());
         if (this.dataProvider === undefined) {
             this.dataProvider = null;
         }
-        if ( this.onAction ) {
-            this.renderer.listen( this.getFocusElement(), 'click', e => this.onAction( e ) );
+        if (this.onAction) {
+            this.renderer.listen(this.getFocusElement(), 'click', e => {
+                if (this.editable == false) { 
+                    this.onAction(e) 
+                }
+            });
+            this.renderer.listen(this.getFocusElement(), 'keydown', e => {
+                if (e.keyCode === 13) {
+                    setTimeout(() => this.onAction(e), 100);
+                }
+            });
         }
-        if ( this.onRightClick ) {
-            this.renderer.listen( this.getFocusElement(), 'contextmenu', e => {
-                this.onRightClick( e ); return false;
-            } );
+        if (this.onRightClick) {
+            this.renderer.listen(this.getFocusElement(), 'contextmenu', e => {
+                this.onRightClick(e); return false;
+            });
         }
     }
 
-    svyOnChanges( changes: SimpleChanges ) {
-        if ( changes ) {
-            for ( const property of Object.keys( changes ) ) {
+    svyOnChanges(changes: SimpleChanges) {
+        if (changes) {
+            for (const property of Object.keys(changes)) {
                 const change = changes[property];
-                switch ( property ) {
+                switch (property) {
                     case 'placeholderText':
-                        if ( change.currentValue ) this.renderer.setAttribute( this.getFocusElement(), 'placeholder', change.currentValue );
-                        else this.renderer.removeAttribute( this.getFocusElement(), 'placeholder' );
+                        if (change.currentValue) this.renderer.setAttribute(this.getFocusElement(), 'placeholder', change.currentValue);
+                        else this.renderer.removeAttribute(this.getFocusElement(), 'placeholder');
                         break;
                 }
             }
-            super.svyOnChanges( changes );
+            super.svyOnChanges(changes);
         }
     }
 
     pushUpdate() {
         this.dataProviderChange.emit(this.dataProvider);
     }
-    
-    requestFocus( mustExecuteOnFocusGainedMethod: boolean ) {
+
+    requestFocus(mustExecuteOnFocusGainedMethod: boolean) {
         this.mustExecuteOnFocus = mustExecuteOnFocusGainedMethod;
         this.getFocusElement().focus();
     }
 
-    attachFocusListeners( nativeElement: HTMLElement ) {
-        if ( this.onFocusGainedMethodID )
-            this.renderer.listen( nativeElement, 'focus', ( e ) => {
-                if ( this.mustExecuteOnFocus !== false ) {
-                    this.onFocusGainedMethodID( e );
+    attachFocusListeners(nativeElement: HTMLElement) {
+        if (this.onFocusGainedMethodID)
+            this.renderer.listen(nativeElement, 'focus', (e) => {
+                if (this.mustExecuteOnFocus !== false) {
+                    this.onFocusGainedMethodID(e);
                 }
                 this.mustExecuteOnFocus = true;
-            } );
-        if ( this.onFocusLostMethodID )
-            this.renderer.listen( nativeElement, 'blur', ( e ) => {
-                this.onFocusLostMethodID( e );
-            } );
+            });
+        if (this.onFocusLostMethodID)
+            this.renderer.listen(nativeElement, 'blur', (e) => {
+                this.onFocusLostMethodID(e);
+            });
     }
     hasLeftButtons() {
-        return this.filterButtons( 'LEFT' ).length > 0;
+        return this.filterButtons('LEFT').length > 0;
     }
 
     hasRightButtons() {
-        return this.filterButtons( 'RIGHT' ).length > 0;
+        return this.filterButtons('RIGHT').length > 0;
     }
 
-    filterButtons( position: string ) {
-        if ( !this.addOnButtons ) {
+    filterButtons(position: string) {
+        if (!this.addOnButtons) {
             return [];
         }
-        return this.addOnButtons.filter(( addOnBtn: any ) => addOnBtn.position === position );
+        return this.addOnButtons.filter((addOnBtn: any) => addOnBtn.position === position);
     }
 
 
-    buttonClicked( event: any, btnText: string, btnIndex: number ) {
+    buttonClicked(event: any, btnText: string, btnIndex: number) {
         const addOnButton = this.addOnButtons[btnIndex];
         this.timer = 0;
         this.preventSimpleClick = false;
 
-        if ( addOnButton && addOnButton.onAction && event.type === 'click' ) {
-            if ( addOnButton.onDoubleClick ) {
+        if (addOnButton && addOnButton.onAction && event.type === 'click') {
+            if (addOnButton.onDoubleClick) {
                 this.timer = setTimeout(() => {
-                    if ( !this.preventSimpleClick ) {
-                        const jsEvent = this.servoyService.createJSEvent( event, 'action' );
-                        this.servoyService.executeInlineScript( addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex] );
+                    if (!this.preventSimpleClick) {
+                        const jsEvent = this.servoyService.createJSEvent(event, 'action');
+                        this.servoyService.executeInlineScript(addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
                     }
-                }, 250 );
+                }, 250);
 
             } else {
-                const jsEvent = this.servoyService.createJSEvent( event, 'action' );
-                this.servoyService.executeInlineScript( addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex] );
+                const jsEvent = this.servoyService.createJSEvent(event, 'action');
+                this.servoyService.executeInlineScript(addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
             }
         }
     }
 
-    buttonDoubleClicked( event: any, btnText: string, btnIndex: number ) {
+    buttonDoubleClicked(event: any, btnText: string, btnIndex: number) {
         const addOnButton = this.addOnButtons[btnIndex];
 
-        if ( addOnButton && event.type === 'dblclick' && addOnButton.onDoubleClick ) {
+        if (addOnButton && event.type === 'dblclick' && addOnButton.onDoubleClick) {
             this.preventSimpleClick = true;
-            clearTimeout( this.timer );
-            const jsEvent = this.servoyService.createJSEvent( event, 'doubleclick' );
-            this.servoyService.executeInlineScript( addOnButton.onDoubleClick.formname, addOnButton.onDoubleClick.script, [jsEvent, addOnButton.name, btnText, btnIndex] );
+            clearTimeout(this.timer);
+            const jsEvent = this.servoyService.createJSEvent(event, 'doubleclick');
+            this.servoyService.executeInlineScript(addOnButton.onDoubleClick.formname, addOnButton.onDoubleClick.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
 
         }
 
     }
 
-    buttonRightClicked( event: any, btnText: string, btnIndex: number ) {
+    buttonRightClicked(event: any, btnText: string, btnIndex: number) {
         const addOnButton = this.addOnButtons[btnIndex];
-        if ( addOnButton && event.type === 'contextmenu' && addOnButton.onRightClick ) {
+        if (addOnButton && event.type === 'contextmenu' && addOnButton.onRightClick) {
             event.preventDefault();
-            const jsEvent = this.servoyService.createJSEvent( event, 'rightclick' );
-            this.servoyService.executeInlineScript( addOnButton.onRightClick.formname, addOnButton.onRightClick.script, [jsEvent, addOnButton.name, btnText, btnIndex] );
+            const jsEvent = this.servoyService.createJSEvent(event, 'rightclick');
+            this.servoyService.executeInlineScript(addOnButton.onRightClick.formname, addOnButton.onRightClick.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
         }
     }
 }
@@ -173,21 +182,21 @@ export class AddOnButton extends AddOn {
     public imageStyleClass: string;
 }
 
-@Directive( {
+@Directive({
     selector: '[svyAttributesInputGroup]'
-} )
+})
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class SvyAttributesInputGroup implements OnInit {
-    @Input( 'svyAttributesInputGroup' ) attributes: Array<{ key: string; value: string }>;
+    @Input('svyAttributesInputGroup') attributes: Array<{ key: string; value: string }>;
 
-    constructor( private el: ElementRef, private renderer: Renderer2 ) {
+    constructor(private el: ElementRef, private renderer: Renderer2) {
 
     }
 
     ngOnInit(): void {
-        if ( this.attributes ) {
+        if (this.attributes) {
             const nativeElem = this.el.nativeElement;
-            Array.from( this.attributes ).forEach( attribute => this.renderer.setAttribute( nativeElem, attribute.key, attribute.value ) );
+            Array.from(this.attributes).forEach(attribute => this.renderer.setAttribute(nativeElem, attribute.key, attribute.value));
         }
     }
 }
