@@ -72,6 +72,11 @@
 				{ "name": "enabled", "type": "boolean" }
 			]
 		},
+		"openSubMenu": {
+            "parameters": [
+                { "name": "itemId", "type": "string" }
+            ]
+        },
 		"createMenuItem": {
 			"returns": "menuItem",
 			"parameters": [

@@ -111,15 +111,14 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
             }
             menuItem.getStateHolder().notifyChangeListener();
         }
-        else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues())
-        {
-             menuItem.dataProvider = (event.target as HTMLInputElement).value;
-             menuItem.getStateHolder().getChangedKeys().add('dataProvider');
+        else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues()) {
+            menuItem.dataProvider = (event.target as HTMLInputElement).value;
+            menuItem.getStateHolder().getChangedKeys().add('dataProvider');
         }
         this.menuItemsChange.emit(this.menuItems);
         this.navBarClicked(event);
     }
-    
+
     valueChanged(value: { displayValue: string; realValue: any }, index: number) {
         const menuItem = this.menuItems[index];
         if (!menuItem) {
@@ -131,7 +130,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         menuItem.getStateHolder().getChangedKeys().add('dataProvider');
         this.menuItemsChange.emit(this.menuItems);
     }
-    
+
     navBarClicked(event: Event) {
         let $target = event.target as Element;
         if ($target.getAttribute('id') === 'navbar-collapse') {
@@ -415,20 +414,29 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     openMenu(event: MouseEvent) {
-        let $target = event.target as Element;;
-        $target = $target.closest('.dropdown');
-        if ($target) {
-            $target = $target.querySelector('.dropdown-menu');
-            if ($target) {
-                this.renderer.addClass($target, 'show');
+       this.showSubMenu(event.target as Element);
+    }
+
+    openSubMenu(itemId: string) {
+        this.showSubMenu(this.getNativeElement().querySelector('[data-menu-item-id=' + itemId + ']'));
+
+    }
+
+    showSubMenu(element: Element) {
+        if (element) {
+            element = element.closest('.dropdown');
+            if (element) {
+                element = element.querySelector('.dropdown-menu');
+            }
+            if (element) {
+                this.renderer.addClass(element, 'show');
                 const closeOnClick = () => {
-                    this.renderer.removeClass($target, 'show');
+                    this.renderer.removeClass(element, 'show');
                     this.document.removeEventListener('mousedown', closeOnClick);
                 };
                 this.document.addEventListener('mousedown', closeOnClick);
             }
         }
-
     }
 }
 class BaseMenuItem extends BaseCustomObject {

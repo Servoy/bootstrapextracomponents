@@ -119,6 +119,13 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
 				if (inputEl[0]) inputEl[0].focus();
 			}
 			
+            /** Opens the submenu of the specified menu item.
+             * 
+             */
+            $scope.api.openSubMenu = function(itemId) {
+                $("*[data-menu-item-id="+ itemId + "]").dropdown('toggle');
+            }
+            
 			/**
 			 * Retrieves the screen location of a specific navbar item. Returns the location as point (object with x and y properties).
 			 * 
