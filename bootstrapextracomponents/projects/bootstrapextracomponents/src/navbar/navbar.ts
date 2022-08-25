@@ -418,7 +418,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     openSubMenu(itemId: string) {
-        this.showSubMenu(this.getNativeElement().querySelector('[data-menu-item-id=' + itemId + ']'));
+        this.showSubMenu(this.getNativeElement().querySelector("[data-menu-item-id='" + itemId + "']"));
 
     }
 
