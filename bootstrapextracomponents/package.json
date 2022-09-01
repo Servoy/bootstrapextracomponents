@@ -1,6 +1,6 @@
 {
   "name": "bootstrapextracomponents",
-  "version": "2022.6.1",
+  "version": "2022.9.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -42,8 +42,8 @@
     "@angular/platform-browser-dynamic": "14.2.0",
     "@chiragrupani/karma-chromium-edge-launcher": "2.2.2",
     "@types/jasmine": "4.3.0",
-    "@typescript-eslint/eslint-plugin": "5.36.0",
-    "@typescript-eslint/parser": "5.36.0",
+    "@typescript-eslint/eslint-plugin": "5.36.1",
+    "@typescript-eslint/parser": "5.36.1",
     "adm-zip": "0.5.9",
     "eslint": "8.23.0",
     "eslint-plugin-import": "2.26.0",
