@@ -6,6 +6,10 @@
         [readonly]="!enabled"
         (leave)="onLeaveEvent()"
         (hover)="onHoverEvent($event)"
-        (rateChange)="onChange()"></ngb-rating >
+        (rateChange)="onChange()">
+        <ng-template let-fill="fill" let-index="index">
+            <i [ngClass]="fill == 100 ? (stateOn ? stateOn : 'fa-solid fa-star') : (stateOff ? stateOff : 'fa-regular fa-star')"></i>
+        </ng-template>
+    </ngb-rating >
     <span class="label badge-info" *ngIf="enabled != false && showPercentageOnHover && overStar">{{percent}}%</span>
 </div>
