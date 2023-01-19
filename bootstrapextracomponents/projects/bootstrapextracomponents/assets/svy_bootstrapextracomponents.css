@@ -75,6 +75,7 @@
 
 .bts-extra-progressbar > .progress-bar {
     line-height: 20px;
+    overflow: visible;
 }
 
 .svy-wrapper > * > .bts-extra-switch {
