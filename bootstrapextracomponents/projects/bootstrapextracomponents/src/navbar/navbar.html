@@ -13,7 +13,7 @@
   
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="{{collapsing == true ? 'collapse navbar-collapse' : '' }}" id="{{servoyApi.getMarkupId()}}-navbar-collapse" (click)="navBarClicked($event)">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav me-auto">
                 <ng-container *ngFor="let menuItem of menuItems;let $index = index" >
                 <li  *ngIf="menuItem.position == 'LEFT'" class="nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
                     

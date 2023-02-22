@@ -163,10 +163,10 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if ($target.classList.contains('svy-navbar-dropdown')) { // if is a dropdown menu
             const parent = $target.parentElement;
             const nav = $target.closest('.navbar-nav'); // closest navbar anchestor
-            const ul = parent.querySelector('ul'); // first child of type ul
+            const div = parent.querySelector('div'); // first child of type div
 
             // only if is right aligned
-            if (nav && ul && (nav.classList.contains('navbar-left') || nav.classList.contains('navbar-right'))) {
+            if (nav && div && (nav.classList.contains('ms-auto') || nav.classList.contains('me-auto'))) {
 
                 const ITEM_POSITION = {
                     LEFT: 'left',
@@ -174,9 +174,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                 };
 
                 let alignPosition: string;
-                if (nav.classList.contains('navbar-right')) {
+                if (nav.classList.contains('ms-auto')) {
                     alignPosition = ITEM_POSITION.RIGHT;
-                } else if (nav.classList.contains('navbar-left')) {
+                } else if (nav.classList.contains('me-auto')) {
                     alignPosition = ITEM_POSITION.LEFT;
                 }
 
@@ -188,7 +188,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                 if (!this.isCollapseIn()) {
                     const position = dialog ? dialog.getBoundingClientRect() : null;
                     // location relative to viewport
-                    const boundingRect = $target[0].getBoundingClientRect();
+                    const boundingRect = $target.getBoundingClientRect();
                     // calculate fixed top/right position from either viewport or dialog
                     let alignLocation = 0;
                     if (alignPosition === ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
@@ -217,13 +217,13 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                         top = boundingRect.top + boundingRect.height;
                     }
 
-                    this.renderer.setStyle(ul, 'position', 'fixed');
-                    this.renderer.setStyle(ul, alignPosition, alignLocation + 'px');
-                    this.renderer.setStyle(ul, 'top', top + 'px');
+                    this.renderer.setStyle(div, 'position', 'fixed');
+                    this.renderer.setStyle(div, alignPosition, alignLocation + 'px');
+                    this.renderer.setStyle(div, 'top', top + 'px');
                 } else {        // restore default style for the list dropdown
-                    this.renderer.setStyle(ul, 'position', 'static');
-                    this.renderer.setStyle(ul, 'right', 'auto');
-                    this.renderer.setStyle(ul, 'top', '100%');
+                    this.renderer.setStyle(div, 'position', 'static');
+                    this.renderer.setStyle(div, 'right', 'auto');
+                    this.renderer.setStyle(div, 'top', '100%');
                 }
             }
         }
