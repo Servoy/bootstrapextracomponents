@@ -1,6 +1,6 @@
 <nav #element
     [id]="servoyApi.getMarkupId()" 
-    class="navbar navbar-expand-lg bts-extra-navbar {{inverse ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}} {{fixed ? 'fixed-' + fixed : ''}} {{styleClass}}">
+    class="navbar navbar-expand-lg bts-extra-navbar {{inverse ? 'navbar-dark bg-dark' : 'bts-navbar-default'}} {{fixed ? 'fixed-' + fixed : ''}} {{styleClass}}">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
          <a [tabindex]="brandLogoTabindex" *ngIf="brandLogo != null" (click)="clickBrand($event)" class="navbar-brand {{onBrandClicked ? 'clickable' : ''}}" style="padding-top: 0px;padding-bottom:0px;padding-right:5px">
