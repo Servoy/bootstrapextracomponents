@@ -27,6 +27,7 @@ nav .navbar-right .dropdown-menu {
 .svy-navbar-img {
     height: 50px;
     padding: 5px 15px;
+    user-select: none;
 }
 
 .svy-navbar-item-img {
@@ -36,4 +37,8 @@ nav .navbar-right .dropdown-menu {
 
 .bts-extra-navbar .container-fluid{
     padding: 0px;
+}
+
+.svy-wrapper .bts-extra-navbar {
+   height: 100%;
 }

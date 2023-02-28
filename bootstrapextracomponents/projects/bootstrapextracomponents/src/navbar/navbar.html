@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
          <a [tabindex]="brandLogoTabindex" *ngIf="brandLogo != null" (click)="clickBrand($event)" class="navbar-brand {{onBrandClicked ? 'clickable' : ''}}" style="padding-top: 0px;padding-bottom:0px;padding-right:5px">
-            <img [ngClass]="brandLogoStyleClass" alt="Logo" [src]="brandLogo">
+            <img draggable="false" [ngClass]="brandLogoStyleClass" alt="Logo" [src]="brandLogo">
          </a>
          <a [tabindex]="brandTextTabindex" *ngIf="brandText" (click)="clickBrand($event)" [innerHTML]="brandText | htmlFilter | trustAsHtml:isTrustedHTML()" class="navbar-brand" ></a>
          <button *ngIf="collapsing" (click)="toggleCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" [attr.data-target]="'#'+ servoyApi.getMarkupId() + '-navbar-collapse'" [attr.aria-controls]="servoyApi.getMarkupId()+'-navbar-collapse'" aria-expanded="false">
@@ -31,11 +31,11 @@
                     </div><!-- /.svy-navbar-text -->
 
                     <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
-                        <img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider.url ? menuItem.dataProvider.url : null"/>
+                        <img draggable="false" class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider?.url"/>
                     </a><!-- /.svy-navbar-img -->
 
                     <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" (click)="openMenu($event)" [svyAttributes]='menuItem.attributes' class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" [svyTooltip]="menuItem.tooltip">
-                        <img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider.url ? menuItem.dataProvider.url : null"/>
+                        <img draggable="false" class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider?.url"/>
                         <span class="caret" ></span>
                     </a>
                     <div *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" class="dropdown-menu">
@@ -189,11 +189,11 @@
                     </div><!-- /.svy-navbar-text -->
 
                     <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId" class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
-                        <img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider.url ? menuItem.dataProvider.url : null"/>
+                        <img draggable="false" class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider?.url"/>
                     </a><!-- /.svy-navbar-img -->
 
                     <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" (click)="openMenu($event)" [svyAttributes]='menuItem.attributes' class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" [svyTooltip]="menuItem.tooltip">
-                        <img class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider.url ? menuItem.dataProvider.url : null"/>
+                        <img draggable="false" class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}" [src]="menuItem.dataProvider?.url"/>
                         <span class="caret" ></span>
                     </a>
                    <div *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null" class="dropdown-menu">
