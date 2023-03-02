@@ -20,7 +20,7 @@
 </nav>
 
 <ng-template #nocollapse>
-    <ul class="nav navbar-nav me-auto">
+    <ul class="nav navbar-nav me-auto" (click)="navBarClicked($event)">
         <ng-container *ngFor="let menuItem of menuItems;let $index = index">
             <li *ngIf="menuItem.position == 'LEFT'"
                 class="nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
@@ -200,7 +200,7 @@
             </li>
         </ng-container>
     </ul><!-- /.navbar-nav -->
-    <ul class="nav navbar-nav ms-auto">
+    <ul class="nav navbar-nav ms-auto" (click)="navBarClicked($event)">
         <ng-container *ngFor="let menuItem of menuItems;let $index = index">
             <li *ngIf="menuItem.position == 'RIGHT'"
                 class="svy-navbar-button nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
@@ -384,8 +384,7 @@
 
 <ng-template #collapse>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="{{servoyApi.getMarkupId()}}-navbar-collapse"
-        (click)="navBarClicked($event)">
+    <div class="collapse navbar-collapse" id="{{servoyApi.getMarkupId()}}-navbar-collapse">
         <ng-container [ngTemplateOutlet]="nocollapse"></ng-container>
     </div><!-- /.navbar-collapse -->
 </ng-template>
