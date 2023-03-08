@@ -37,7 +37,8 @@
     background-color: #777777 !important;
 }
 
-.svy-wrapper > * > .bts-extra-badge a:hover, a:focus {
+.svy-wrapper > * > .bts-extra-badge a:hover, 
+.svy-wrapper > * > .bts-extra-badge a:focus {
     color: #23527c !important;
     text-decoration: underline !important;
     cursor: pointer;
