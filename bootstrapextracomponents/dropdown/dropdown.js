@@ -53,7 +53,18 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 					var element = event.currentTarget;
 					var ul = $('#button-dropdown-ul-' + $scope.model.svyMarkupId);
 					if (element && ul) {
-						var boundingRect = element.getBoundingClientRect();
+						var boundingRect;
+						if (element.closest('div.svy-dialog')) {
+							var parent = element.closest('div.svy-wrapper');
+							boundingRect = {
+								left: parseInt(parent.style.left.split("px")[0]),
+								top:  parseInt(parent.style.top.split("px")[0]),
+								height: element.getBoundingClientRect().height * 2
+							}
+						} else {
+							boundingRect = element.getBoundingClientRect();
+						}
+						 
 						ul.attr('style', 'position: fixed; left: ' + boundingRect.left + 'px; top: ' + (boundingRect.top + boundingRect.height + 2) + 'px;')
 					}
 					if (event.target.id === 'button-dropdown-' + $scope.model.svyMarkupId) {
