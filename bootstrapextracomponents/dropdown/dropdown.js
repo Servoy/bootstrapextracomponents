@@ -55,11 +55,22 @@ angular.module('bootstrapextracomponentsDropdown', ['servoy']).directive('bootst
 					if (element && ul) {
 						var boundingRect;
 						if (element.closest('div.svy-dialog')) {
+							// css pos
 							var parent = element.closest('div.svy-wrapper');
-							boundingRect = {
-								left: parseInt(parent.style.left.split("px")[0]),
-								top:  parseInt(parent.style.top.split("px")[0]),
-								height: element.getBoundingClientRect().height * 2
+							if (parent){
+								boundingRect = {
+									left: parseInt(parent.style.left.split("px")[0]),
+									top:  parseInt(parent.style.top.split("px")[0]),
+									height: element.getBoundingClientRect().height * 2
+								}
+							} else {
+								// responsive
+								parent = element.closest('.bts-extra-drop-down');
+								boundingRect = {
+									left: element.offsetLeft - 15,
+									top:  element.offsetTop,
+									height: element.getBoundingClientRect().height * 2
+								}
 							}
 						} else {
 							boundingRect = element.getBoundingClientRect();
