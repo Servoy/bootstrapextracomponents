@@ -62,8 +62,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         }
     }
 
-    applyClickOnEnter(e: KeyboardEvent) {
+    applyClickOnEnter(e: KeyboardEvent,menuItem: MenuItem, index: number) {
         if (this.formattingService.testKeyPressed(e, 13)) {
+            this.onInputChange(menuItem, index);
             this.navBarClicked(e);
         }
     }
@@ -145,11 +146,6 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if (event.type === 'click' && $target.tagName === 'INPUT') {
             //skip simple click in Input
             return;
-        }
-
-        // apply the change to the dataprovider at the on enter
-        if ($target.tagName === 'INPUT') {
-            this.menuItemsChange.emit(this.menuItems);
         }
 
         /** adjust fixed position of navbar dropdown when right aligned */

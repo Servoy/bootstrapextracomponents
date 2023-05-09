@@ -81,7 +81,7 @@
                         <input [tabindex]="menuItem.tabindex" type="text"
                             class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
-                            (keyup)="applyClickOnEnter($event)" [svyTooltip]="menuItem.tooltip"
+                            (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                             [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
                     </div>
@@ -101,7 +101,7 @@
                         <input [tabindex]="menuItem.tabindex" type="text"
                             class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
-                            (keyup)="applyClickOnEnter($event)" [svyTooltip]="menuItem.tooltip"
+                            (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
                             [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
                         <span *ngIf="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn"
@@ -261,7 +261,7 @@
                         <input [tabindex]="menuItem.tabindex" type="text"
                             class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
-                            (keyup)="applyClickOnEnter($event)" [svyTooltip]="menuItem.tooltip"
+                            (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                             [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
                     </div>
@@ -281,7 +281,7 @@
                         <input [tabindex]="menuItem.tabindex" type="text"
                             class="form-control {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
-                            (keyup)="applyClickOnEnter($event)" [svyTooltip]="menuItem.tooltip"
+                            (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
                             [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
                         <span *ngIf="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn"
