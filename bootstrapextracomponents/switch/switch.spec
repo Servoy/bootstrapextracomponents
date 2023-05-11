@@ -42,6 +42,7 @@
 								{"name":"newValue","type":"${dataproviderType}"}, 
 								{"name":"event","type":"JSEvent"} 
 							 ],
+				"code": "return true",
 				"doc": "Handle changed data, return false if the value should not be accepted.\nJSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope) - present since 2021.06 release"			 
 	        }
 	},
