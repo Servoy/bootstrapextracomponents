@@ -6,6 +6,7 @@
 			ng-click="switchClicked($event)"        
 			id="{{::model.svyMarkupId}}"			
 			bs-switch
+			switch-change="switchChanged()"
 			switch-active="{{ model.enabled }}"			
     		switch-size="{{ model.componentSize }}"
     		switch-animate="{{ model.animate }}"

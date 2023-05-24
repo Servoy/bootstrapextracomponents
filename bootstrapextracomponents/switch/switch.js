@@ -16,6 +16,15 @@ angular.module('bootstrapextracomponentsSwitch', ['servoy', 'frapontillo.bootstr
 				// StyleClass applied while the switch is still initializing. Will be removed as soon dataProvider selection is set
 				// Optionally used to hide the component while the state is yet 'indeterminate'
 				$scope.initStyleClass = "bts-extra-switch-initializing";
+				
+				$scope.switchChanged = function () {
+					// monitoring switch changed. If clicking on the handler in a Mobile device, the ng-click doesn't fire.
+					var currentSelection = $element.find("input").bootstrapSwitch('state');
+					if (currentSelection && !$scope.model.dataProviderID || !currentSelection && $scope.model.dataProviderID) {
+						// forcing the switch clicked if selection state != dataProviderID selection
+						$scope.switchClicked();
+					} 
+				}
 
 				$scope.switchClicked = function() {
 					if ($scope.model.enabled == false) {
