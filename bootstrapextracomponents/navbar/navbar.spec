@@ -4,6 +4,7 @@
 	"categoryName": "Navigation",
 	"version": 1,
 	"definition": "bootstrapextracomponents/navbar/navbar.js",
+	"doc": "bootstrapextracomponents/navbar/navbar_doc.js",
 	"icon": "bootstrapextracomponents/navbar/icon.png",
 	"serverscript": "bootstrapextracomponents/navbar/navbar_server.js",
 	"libraries": [

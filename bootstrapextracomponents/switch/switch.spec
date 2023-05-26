@@ -4,6 +4,7 @@
 	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/switch/switch.js",
+	"doc": "bootstrapextracomponents/switch/switch_doc.js",
 	"icon": "bootstrapextracomponents/switch/icon.png",
 	"libraries": [
 	{"name":"switch.css", "version":"1.0.0", "url":"bootstrapextracomponents/switch/switch.css", "mimetype":"text/css"},

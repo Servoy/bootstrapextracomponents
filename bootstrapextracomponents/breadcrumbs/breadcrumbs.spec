@@ -4,6 +4,7 @@
 	"categoryName": "Navigation",
 	"version": 1,
 	"definition": "bootstrapextracomponents/breadcrumbs/breadcrumbs.js",
+	"doc": "bootstrapextracomponents/breadcrumbs/breadcrumbs_doc.js",
 	"icon": "bootstrapextracomponents/breadcrumbs/icon.png",
 	"serverscript": "bootstrapextracomponents/breadcrumbs/breadcrumbs_server.js",
 	"libraries": [

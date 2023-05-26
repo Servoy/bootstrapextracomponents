@@ -5,6 +5,7 @@
 	"version": 1,
 	"icon": "bootstrapextracomponents/dropdown/icon.png",
 	"definition": "bootstrapextracomponents/dropdown/dropdown.js",
+	"doc": "bootstrapextracomponents/dropdown/dropdown_doc.js",
 	"serverscript": "bootstrapextracomponents/dropdown/dropdown_server.js",
 	"libraries": [
 		{"name":"bts-extra-dropdown.css", "version":"1.0.0", "url":"bootstrapextracomponents/dropdown/bts-extra-dropdown.css", "mimetype":"text/css"}

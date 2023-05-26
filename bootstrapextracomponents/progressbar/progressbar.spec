@@ -5,6 +5,7 @@
 	"version": 1,
 	"icon": "bootstrapextracomponents/progressbar/progress_bar.png",
 	"definition": "bootstrapextracomponents/progressbar/progressbar.js",
+	"doc": "bootstrapextracomponents/progressbar/progressbar_doc.js",
 	"serverscript": "bootstrapextracomponents/progressbar/progressbar_server.js",
 	"libraries": [
 		{"name":"bts-extra-progressbar.css", "version":"1.0.0", "url":"bootstrapextracomponents/progressbar/bts-extra-progressbar.css", "mimetype":"text/css"}

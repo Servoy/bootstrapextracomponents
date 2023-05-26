@@ -4,6 +4,7 @@
 	"categoryName": "Input Control",
 	"version": 1,
 	"definition": "bootstrapextracomponents/inputgroup/inputgroup.js",
+	"doc": "bootstrapextracomponents/inputgroup/inputgroup_doc.js",
 	"icon": "bootstrapextracomponents/inputgroup/icon.png",
 	"serverscript": "bootstrapextracomponents/inputgroup/inputgroup_server.js",
 	"libraries": [

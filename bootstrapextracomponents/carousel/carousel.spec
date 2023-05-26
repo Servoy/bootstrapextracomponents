@@ -5,6 +5,7 @@
 	"version": 1,
 	"icon": "bootstrapextracomponents/carousel/media.png",
 	"definition": "bootstrapextracomponents/carousel/carousel.js",
+	"doc": "bootstrapextracomponents/carousel/carousel_doc.js",
 	"serverscript": "bootstrapextracomponents/carousel/carousel_server.js",
 	"libraries": [
 		{"name":"carousel.css", "version":"1.0.0", "url":"bootstrapextracomponents/carousel/bts-extra-carousel.css", "mimetype":"text/css"}
