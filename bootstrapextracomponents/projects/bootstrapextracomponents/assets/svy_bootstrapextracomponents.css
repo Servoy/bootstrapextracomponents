@@ -83,3 +83,32 @@
 .svy-wrapper > * > .bts-extra-switch {
     overflow: hidden;
 }
+
+.bts-extra-carousel .carousel-control-prev .carousel-control-prev-icon,
+.bts-extra-carousel .carousel-control-next .carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+  outline: #666563;
+  border-radius: 50%;
+  border: 1px solid #666563;
+  background: #666563;
+  display: flex;
+}
+
+.bts-extra-carousel .carousel-control-next .carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 40px;
+  color: #ffffff;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.bts-extra-carousel .carousel-control-prev .carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 40px;
+  padding: 11px;
+  display: flex;
+  align-items: center;
+}
