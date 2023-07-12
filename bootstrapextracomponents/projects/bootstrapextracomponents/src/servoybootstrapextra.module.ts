@@ -14,7 +14,7 @@ import { ServoyPublicModule, SpecTypesService } from '@servoy/public';
 import { NgbModule }  from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ServoyBootstrapExtraSwitch } from './switch/switch';
-import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
+import { JwBootstrapSwitchNg2Module } from '@servoy/jw-bootstrap-switch-ng2';
 
 @NgModule({
     declarations: [
