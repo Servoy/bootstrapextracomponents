@@ -46,7 +46,12 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     svyOnChanges( changes: SimpleChanges ) {
         if ( changes ) {
             if ( changes.slidesFoundset ) {
-                this.createSlides();
+				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize)) {
+					this.createSlides();
+				} else {
+					const index = changes.slidesFoundset.currentValue.selectedRowIndexes[0];
+					this.setSelectedIndex(index);
+				}
             }
             if ( changes.imageOptions ) {
                 const currentValue = changes.imageOptions.currentValue;
@@ -99,8 +104,9 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     }
 
     setSelectedIndex( index: number ) {
-        this.ngCarousel.activeId =  this.servoyApi.getMarkupId() + '-' + index;
-        this.ngCarousel.select( this.ngCarousel.activeId );
+		this.ngCarousel.pause();
+        this.ngCarousel.select( this.servoyApi.getMarkupId() + '-' + index );
+        this.ngCarousel.cycle();
     }
 
     getStyle(): any {
