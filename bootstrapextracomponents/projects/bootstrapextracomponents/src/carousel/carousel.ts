@@ -31,6 +31,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     @Input() updateRecordSelection: boolean;
 
     innerSlides: Array<Slide>;
+    foundsetID: number;
 
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
     missingImage = 'bootstrapextracomponents/carousel/resources/missing.png';
@@ -46,7 +47,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     svyOnChanges( changes: SimpleChanges ) {
         if ( changes ) {
             if ( changes.slidesFoundset ) {
-				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize)) {
+				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize) || (this.foundsetID != this.slidesFoundset.foundsetId)) {
 					this.createSlides();
 				} else {
 					const index = changes.slidesFoundset.currentValue.selectedRowIndexes[0];
@@ -139,6 +140,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                 slide.caption = row.caption ? row.caption : null;
                 this.innerSlides.push( slide );
             }
+            this.foundsetID = this.slidesFoundset.foundsetId
         } else {
             if ( this.slides !== null && this.slides !== undefined ) {
                 this.innerSlides = this.slides;
