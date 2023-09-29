@@ -142,7 +142,7 @@
 			"subMenuItems"						: {"type": "subMenuItem[]"},
 			"onAction" 							: {"type": "function"},
 			"displayType"						: {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP", "IMAGE"]},
-			"dataProvider" 						: {"type": "dataprovider", "pushToServer": "allow" },
+			"dataProvider" 						: {"type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true } },
 			"displayValue" 						: {"type": "string", "tags": { "scope": "private" } },
 			"inputButtonText"					: {"type": "tagstring"},
 			"inputButtonStyleClass"				: {"type": "styleclass"},

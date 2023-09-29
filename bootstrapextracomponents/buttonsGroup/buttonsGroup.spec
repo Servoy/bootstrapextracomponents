@@ -8,7 +8,7 @@
 "version": 1,
 	"model":
 	{
-	   "dataProviderID": 			{ "type": "dataprovider", "pushToServer": "allow", "tags": { "scope" :"design" }, "ondatachange": { "onchange":"onDataChangeMethodID", "callback":"onDataChangeCallback"}},
+	   "dataProviderID": 			{ "type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope" :"design" }, "ondatachange": { "onchange":"onDataChangeMethodID", "callback":"onDataChangeCallback"}},
 	   "styleClass": 				{ "type": "styleclass", "tags": { "scope" :"design" }, "values" :["btn-default", "btn-primary"], "default" : "btn-default"}, 
 	   "valuelistID": 				{ "type": "valuelist",  "for": "dataProviderID"},
 	   "inputType": 				{ "type": "string" , "tags": { "scope" :"design" }, "values" : [{"CHECKBOX": "checkbox"}, {"RADIO": "radio"}], "default" : "radio" },

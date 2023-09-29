@@ -13,7 +13,7 @@
 	"keywords": ["loading"],
 	"model":
 	{
-		"dataProviderID"            : { "type":"dataprovider", "tags": { "scope": "design" }, "displayTagsPropertyName" : "displaysTags"}, 
+		"dataProviderID"            : { "type":"dataprovider", "tags": { "wizard": true, "scope": "design" }, "displayTagsPropertyName" : "displaysTags"}, 
         "styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
 		"value"						: "float",
 		"type"						: { "type": "string", "default": "info", "values":["info", "success", "warning", "danger"]},

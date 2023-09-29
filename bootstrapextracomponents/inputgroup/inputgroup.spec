@@ -13,7 +13,7 @@
 	"keywords": [],
 	"model": 
 	{
-		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
+		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
 		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
 		"editable" 							: { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProvider","onDataChangeMethodID"] },
 		"format"							: { "type": "format", "for": [ "dataProvider" ] },
