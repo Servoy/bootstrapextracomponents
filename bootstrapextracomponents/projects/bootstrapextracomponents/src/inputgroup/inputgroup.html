@@ -39,6 +39,7 @@
         [readonly]="readOnly || !editable" 
         (change)="pushUpdate()"
         [(ngModel)]="dataProvider"
+        [svyFormat]="format"
         [svyStartEdit]="'dataProvider'"
         [hostComponent]="this"
         [sabloTabseq]="tabSeq"
