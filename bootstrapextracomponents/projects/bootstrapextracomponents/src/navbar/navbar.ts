@@ -134,6 +134,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
             menuItem.getStateHolder().getChangedKeys().add('dataProvider');
         }
         this.menuItemsChange.emit(this.menuItems);
+        this.onInputChange(menuItem, index);
         this.navBarClicked(event);
     }
 

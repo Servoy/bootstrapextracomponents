@@ -83,7 +83,7 @@
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
                             (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
-                            [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
+                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
                     </div>
                     <button [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName || menuItem.inputButtonText"
                         [svyAttributes]='menuItem.attributes'
@@ -103,7 +103,7 @@
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
                             (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
-                            [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
+                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
                         <span *ngIf="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn"
                             [attr.data-menu-item-id]="menuItem.itemId">
                             <button
@@ -124,9 +124,9 @@
                             class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" [ngbTypeahead]="getFilterValues($index)"
                             [container]="'body'" [resultFormatter]="resultFormatter" [inputFormatter]="inputFormatter"
-                            (change)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
+                            (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                             (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
-                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text"
+                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
                             [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
                             #instance="ngbTypeahead" />
                     </div>
@@ -147,9 +147,9 @@
                             class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" [ngbTypeahead]="getFilterValues($index)"
                             [container]="'body'" [resultFormatter]="resultFormatter" [inputFormatter]="inputFormatter"
-                            (change)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
+                            (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                             (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
-                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text"
+                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
                             [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
                             #instance="ngbTypeahead" />
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName || menuItem.inputButtonText"
@@ -263,7 +263,7 @@
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
                             (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
-                            [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
+                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
                     </div>
                     <button [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName || menuItem.inputButtonText"
                         [svyAttributes]='menuItem.attributes'
@@ -283,7 +283,7 @@
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
                             (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
-                            [placeholder]="menuItem.text" [disabled]="menuItem.enabled == false ? true : false" />
+                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
                         <span *ngIf="menuItem.iconName || menuItem.inputButtonText" class="input-group-btn"
                             [attr.data-menu-item-id]="menuItem.itemId">
                             <button
@@ -304,9 +304,9 @@
                             class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" [ngbTypeahead]="getFilterValues($index)"
                             [container]="'body'" [resultFormatter]="resultFormatter" [inputFormatter]="inputFormatter"
-                            (change)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
+                            (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                             (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
-                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text"
+                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
                             [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
                             #instance="ngbTypeahead" />
                     </div>
@@ -327,9 +327,9 @@
                             class="form-control bts-typeahead {{menuItem.styleClass ? menuItem.styleClass : ''}}"
                             [(ngModel)]="menuItem.dataProvider" [ngbTypeahead]="getFilterValues($index)"
                             [container]="'body'" [resultFormatter]="resultFormatter" [inputFormatter]="inputFormatter"
-                            (change)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
+                            (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                             (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
-                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text"
+                            [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
                             [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
                             #instance="ngbTypeahead" />
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName || menuItem.inputButtonText"
