@@ -96,6 +96,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
     resultFormatter = (result: { displayValue: string; realValue: any }) => {
         if (result.displayValue === null) return '';
+        if (result.displayValue === '') return '\u00A0';
         //return this.formattingService.format(result.displayValue, null, false);
         return result.displayValue;
     };
