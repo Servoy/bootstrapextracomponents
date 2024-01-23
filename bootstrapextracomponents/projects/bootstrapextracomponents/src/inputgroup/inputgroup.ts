@@ -133,13 +133,13 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
                 this.timer = setTimeout(() => {
                     if (!this.preventSimpleClick) {
                         const jsEvent = this.servoyService.createJSEvent(event, 'action');
-                        this.servoyService.executeInlineScript(addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
+                        addOnButton.onAction(jsEvent, addOnButton.name, btnText, btnIndex);
                     }
                 }, 250);
 
             } else {
                 const jsEvent = this.servoyService.createJSEvent(event, 'action');
-                this.servoyService.executeInlineScript(addOnButton.onAction.formname, addOnButton.onAction.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
+                addOnButton.onAction(jsEvent, addOnButton.name, btnText, btnIndex);
             }
         }
     }
@@ -151,7 +151,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
             this.preventSimpleClick = true;
             clearTimeout(this.timer);
             const jsEvent = this.servoyService.createJSEvent(event, 'doubleclick');
-            this.servoyService.executeInlineScript(addOnButton.onDoubleClick.formname, addOnButton.onDoubleClick.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
+            addOnButton.onDoubleClick(jsEvent, addOnButton.name, btnText, btnIndex);
 
         }
 
@@ -162,7 +162,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
         if (addOnButton && event.type === 'contextmenu' && addOnButton.onRightClick) {
             event.preventDefault();
             const jsEvent = this.servoyService.createJSEvent(event, 'rightclick');
-            this.servoyService.executeInlineScript(addOnButton.onRightClick.formname, addOnButton.onRightClick.script, [jsEvent, addOnButton.name, btnText, btnIndex]);
+            addOnButton.onRightClick(jsEvent, addOnButton.name, btnText, btnIndex);
         }
     }
 }
@@ -175,9 +175,9 @@ export class AddOn extends BaseCustomObject {
 
 export class AddOnButton extends AddOn {
     public name: string;
-    public onAction: { formname: string; script: string };
-    public onDoubleClick: { formname: string; script: string };
-    public onRightClick: { formname: string; script: string };
+    public onAction: (...args: unknown[]) => void;
+    public onDoubleClick: (...args: unknown[]) => void;
+    public onRightClick: (...args: unknown[]) => void;
     public styleClass: string;
     public imageStyleClass: string;
 }
