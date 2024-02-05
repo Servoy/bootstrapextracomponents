@@ -39,21 +39,21 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         @Inject(DOCUMENT) private document: Document, private servoyService: ServoyPublicService) {
         super(renderer, cdRef);
     }
-    
+
     @HostListener('keydown', ['$event'])
-  	onKeyDown(event: KeyboardEvent) {
-		  if (event.key === 'ArrowDown') {
-			  event.preventDefault();
-			  this.navigateSubMenu(event.target as Element, event.key);
-		  } else if (event.key === 'ArrowUp') {
-			  event.preventDefault();
-			  this.navigateSubMenu(event.target as Element, event.key);
-		  } else if (event.key === 'Escape') {
-			  this.closeSubMenu(event.target as Element)
-		  } else if (event.key === 'Enter') {
-			  this.closeOtherSubMenu(event.target as Element);
-		  }
-	}
+    onKeyDown(event: KeyboardEvent) {
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            this.navigateSubMenu(event.target as Element, event.key);
+        } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            this.navigateSubMenu(event.target as Element, event.key);
+        } else if (event.key === 'Escape') {
+            this.closeSubMenu(event.target as Element)
+        } else if (event.key === 'Enter') {
+            this.closeOtherSubMenu(event.target as Element);
+        }
+    }
 
     svyOnInit() {
         super.svyOnInit();
@@ -79,7 +79,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         }
     }
 
-    applyClickOnEnter(e: KeyboardEvent,menuItem: MenuItem, index: number) {
+    applyClickOnEnter(e: KeyboardEvent, menuItem: MenuItem, index: number) {
         if (this.formattingService.testKeyPressed(e, 13)) {
             this.onInputChange(menuItem, index);
             this.navBarClicked(e);
@@ -101,12 +101,30 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         return result.displayValue;
     };
 
-    inputFormatter = (result: any) => {
-        if (result === null) return '';
-        if (result.displayValue !== undefined) result = result.displayValue;
-        // return this.formattingService.format(result, null, false);
-        return result;
-    };
+    inputFormatterWrap(menuItem: MenuItem): (item: any) => string {
+        return (result: any) => {
+            if (result === null) return '';
+            if (result.displayValue !== undefined) result = result.displayValue;
+            else if (menuItem.valuelist?.hasRealValues()) {
+                // on purpose test with == so that "2" equals to 2
+                const value = menuItem.valuelist.find((item) => {
+                    // eslint-disable-next-line eqeqeq
+                    if (item.realValue == result) {
+                        return true;
+                    }
+                    if (item.realValue instanceof Date && result instanceof Date) {
+                        return item.realValue.getTime() === result.getTime();
+                    }
+                    return false;
+                });
+                if (value) {
+                    result = value.displayValue;
+                }
+            }
+            // return this.formattingService.format(result, null, false);
+            return result;
+        }
+    }
 
     doSvyApply(event: Event, index: number) {
         const menuItem = this.menuItems[index];
@@ -152,7 +170,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     navBarClicked(event: Event) {
-		event.preventDefault();
+        event.preventDefault();
         let $target = event.target as Element;
         if ($target.getAttribute('id') === 'navbar-collapse') {
             //click on navbar (background)
@@ -179,7 +197,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if ($target.classList.contains('svy-navbar-dropdown')) { // if is a dropdown menu
             this.indexToFocus = 0;
             this.firstShow = true;
-            
+
             const parent = $target.parentElement;
             const nav = $target.closest('.navbar-nav'); // closest navbar anchestor
             const div = parent.querySelector('div'); // first child of type div
@@ -416,7 +434,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     clickBrand(event: Event) {
-		event.preventDefault();
+        event.preventDefault();
         if (this.onBrandClicked) {
             this.onBrandClicked(event);
         }
@@ -434,7 +452,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     openMenu(event: MouseEvent) {
-       this.showSubMenu(event.target as Element);
+        this.showSubMenu(event.target as Element);
     }
 
     openSubMenu(itemId: string) {
@@ -458,57 +476,57 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
             }
         }
     }
-    
+
     closeSubMenu(element: Element) {
-		if (element) {
+        if (element) {
             element = element.closest('.dropdown');
             if (element) {
                 element = element.querySelector('.dropdown-menu');
                 if (element) {
-                	this.renderer.removeClass(element, 'show');
-            	}
-            } 
+                    this.renderer.removeClass(element, 'show');
+                }
+            }
         }
-	}
-	
-	closeOtherSubMenu(element: Element) {
-		if (element) {
+    }
+
+    closeOtherSubMenu(element: Element) {
+        if (element) {
             element = element.closest('.dropdown');
             if (element) {
                 element = element.querySelector('.dropdown-menu');
                 if (element) {
-					const allSubMenus = element.closest('bootstrapextracomponents-navbar').querySelectorAll('.dropdown-menu');
-					allSubMenus.forEach((item)=> item !== element && this.closeSubMenu(item));
-            	}
-            } 
+                    const allSubMenus = element.closest('bootstrapextracomponents-navbar').querySelectorAll('.dropdown-menu');
+                    allSubMenus.forEach((item) => item !== element && this.closeSubMenu(item));
+                }
+            }
         }
-	}
-	
-	navigateSubMenu(element: Element, direction: String) {
-		if (element) {
+    }
+
+    navigateSubMenu(element: Element, direction: String) {
+        if (element) {
             element = element.closest('.dropdown');
             if (element) {
                 element = element.querySelector('.dropdown-menu');
                 if (element.classList.contains('show')) {
-                	const elements = element.querySelectorAll('a');
-                	if (!this.firstShow) {
-						if (direction === 'ArrowDown' && this.indexToFocus < (elements.length - 1)) {
-							this.indexToFocus++;
-						} else if (direction === 'ArrowUp' && this.indexToFocus > 0) {
-							this.indexToFocus--;
-						}
-					}
-					elements[this.indexToFocus].focus();
-					this.firstShow = false;
-            	} else {
-					this.indexToFocus = 0;
-            		this.firstShow = true;
-            		this.closeOtherSubMenu(element);
-					this.showSubMenu(element);
-				}
-            } 
+                    const elements = element.querySelectorAll('a');
+                    if (!this.firstShow) {
+                        if (direction === 'ArrowDown' && this.indexToFocus < (elements.length - 1)) {
+                            this.indexToFocus++;
+                        } else if (direction === 'ArrowUp' && this.indexToFocus > 0) {
+                            this.indexToFocus--;
+                        }
+                    }
+                    elements[this.indexToFocus].focus();
+                    this.firstShow = false;
+                } else {
+                    this.indexToFocus = 0;
+                    this.firstShow = true;
+                    this.closeOtherSubMenu(element);
+                    this.showSubMenu(element);
+                }
+            }
         }
-	}
+    }
 }
 class BaseMenuItem extends BaseCustomObject {
     public text: string;
