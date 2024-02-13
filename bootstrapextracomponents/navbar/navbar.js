@@ -123,6 +123,7 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
              * 
              */
             $scope.api.openSubMenu = function(itemId) {
+                $scope.positionMenu($("*[data-menu-item-id="+ itemId + "]"));
                 $("*[data-menu-item-id="+ itemId + "]").dropdown('toggle');
             }
             
@@ -315,70 +316,8 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                 	$target = $target.parent();
                 }
                 
-                // if clicked on a dropdown menu
-                if ($target.hasClass('svy-navbar-dropdown')) { // if is a dropdown menu
-                    var parent = $target.parent();
-                    var nav = $target.closest('.navbar-nav'); // closest navbar anchestor
-                    var ul = $(parent.find('ul')[0]); // first child of type ul
-                    
-                    // only if is right aligned
-                    if (nav && ul && (nav.hasClass('navbar-left') || nav.hasClass('navbar-right'))) {
-                    	
-                    	var ITEM_POSITION = {
-                    		LEFT: 'left',
-							RIGHT: 'right'
-                    	}
-                    	
-                    	var alignPosition;
-                    	if (nav.hasClass('navbar-right')) {
-                    		alignPosition = ITEM_POSITION.RIGHT
-                    	} else if (nav.hasClass('navbar-left')) {
-                    		alignPosition = ITEM_POSITION.LEFT;
-                    	}
-                    	
-	                    var dialog = $target.closest('.svy-dialog')
-                    	
-                        // make sure the menu is not collapsed because min-width < 768
-                        var viewPortWidth = $(window).width();
-                    	//if (viewPortWidth >= 768) {
-                    	if (!isCollapseIn()) {
-	                    	
-	                        // location relative to viewport
-	                        var boundingRect = $target[0].getBoundingClientRect();
-	                        // calculate fixed top/right position from either viewport or dialog
-	                        var alignLocation = 0;
-	                        if (alignPosition == ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
-		                        var right;
-		                        if (dialog.length > 0) {
-		                        	right = dialog.position().left + dialog.width() - (boundingRect.left + boundingRect.width);
-		                        } else {
-		                        	right = $(window).width() - (boundingRect.left + boundingRect.width);
-		                        }
-		                        alignLocation = right;
-	                        } else { // anchor the sub-menu to the left
-		                        var left;
-		                        if (dialog.length > 0) {
-		                        	left = boundingRect.left - dialog.position().left;
-		                        } else {
-		                        	left = boundingRect.left;
-		                        }
-		                        alignLocation = left;
-	                        }
-	                        
-	                        // TODO shall i manage if item if navbar is anchored to the bottom !?
-	                        var top
-							if (dialog.length > 0) {
-								top = boundingRect.top + boundingRect.height - dialog.position().top;
-							} else {
-								top = boundingRect.top + boundingRect.height;
-							}
-	                        
-	                        ul.attr('style', 'position: fixed; ' + alignPosition + ': ' + alignLocation + 'px; top: ' + top + 'px;')
-                    	} else {		// restore default style for the list dropdown
-	                        ul.attr('style', 'position: static; right: auto; top: 100%');
-                    	}
-                    }
-                }
+                $scope.positionMenu($target);
+               
                 var itemClicked = getItem(event);
                 makeItemActive(itemClicked);
                 if (itemClicked && itemClicked.onAction) {
@@ -386,6 +325,71 @@ angular.module('bootstrapextracomponentsNavbar', ['servoy']).directive('bootstra
                     $window.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, createItemArg(itemClicked)]);
                 } else if (itemClicked && $scope.handlers.onMenuItemClicked) {
                     $scope.handlers.onMenuItemClicked(event, createItemArg(itemClicked));
+                }
+            }
+            
+            $scope.positionMenu = function($target) {
+                 // if clicked on a dropdown menu
+                if ($target.hasClass('svy-navbar-dropdown')) { // if is a dropdown menu
+                    var parent = $target.parent();
+                    var nav = $target.closest('.navbar-nav'); // closest navbar anchestor
+                    var ul = $(parent.find('ul')[0]); // first child of type ul
+                    
+                    // only if is right aligned
+                    if (nav && ul && (nav.hasClass('navbar-left') || nav.hasClass('navbar-right'))) {
+                        
+                        var ITEM_POSITION = {
+                            LEFT: 'left',
+                            RIGHT: 'right'
+                        }
+                        
+                        var alignPosition;
+                        if (nav.hasClass('navbar-right')) {
+                            alignPosition = ITEM_POSITION.RIGHT
+                        } else if (nav.hasClass('navbar-left')) {
+                            alignPosition = ITEM_POSITION.LEFT;
+                        }
+                        
+                        var dialog = $target.closest('.svy-dialog')
+                        
+                        //if (viewPortWidth >= 768) {
+                        if (!isCollapseIn()) {
+                            
+                            // location relative to viewport
+                            var boundingRect = $target[0].getBoundingClientRect();
+                            // calculate fixed top/right position from either viewport or dialog
+                            var alignLocation = 0;
+                            if (alignPosition == ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
+                                var right;
+                                if (dialog.length > 0) {
+                                    right = dialog.position().left + dialog.width() - (boundingRect.left + boundingRect.width);
+                                } else {
+                                    right = $(window).width() - (boundingRect.left + boundingRect.width);
+                                }
+                                alignLocation = right;
+                            } else { // anchor the sub-menu to the left
+                                var left;
+                                if (dialog.length > 0) {
+                                    left = boundingRect.left - dialog.position().left;
+                                } else {
+                                    left = boundingRect.left;
+                                }
+                                alignLocation = left;
+                            }
+                            
+                            // TODO shall i manage if item if navbar is anchored to the bottom !?
+                            var top
+                            if (dialog.length > 0) {
+                                top = boundingRect.top + boundingRect.height - dialog.position().top;
+                            } else {
+                                top = boundingRect.top + boundingRect.height;
+                            }
+                            
+                            ul.attr('style', 'position: fixed; ' + alignPosition + ': ' + alignLocation + 'px; top: ' + top + 'px;')
+                        } else {        // restore default style for the list dropdown
+                            ul.attr('style', 'position: static; right: auto; top: 100%');
+                        }
+                    }
                 }
             }
         },

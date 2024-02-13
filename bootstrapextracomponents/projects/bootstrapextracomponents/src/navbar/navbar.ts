@@ -192,8 +192,21 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if ($target.parentElement.classList.contains('svy-navbar-dropdown')) {
             $target = $target.parentElement;
         }
+        
+        this.positionMenu($target);
+       
+        const itemClicked = this.getItem(event);
+        this.makeItemActive(itemClicked);
+        if (itemClicked && itemClicked.onAction) {
+            const jsEvent = this.servoyService.createJSEvent(event, 'action');
+            this.servoyService.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, this.createItemArg(itemClicked)]);
+        } else if (itemClicked && this.onMenuItemClicked) {
+            this.onMenuItemClicked(event, this.createItemArg(itemClicked));
+        }
+    }
 
-        // if clicked on a dropdown menu
+    positionMenu($target: Element){
+         // if clicked on a dropdown menu
         if ($target.classList.contains('svy-navbar-dropdown')) { // if is a dropdown menu
             this.indexToFocus = 0;
             this.firstShow = true;
@@ -264,16 +277,8 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                 }
             }
         }
-        const itemClicked = this.getItem(event);
-        this.makeItemActive(itemClicked);
-        if (itemClicked && itemClicked.onAction) {
-            const jsEvent = this.servoyService.createJSEvent(event, 'action');
-            this.servoyService.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, this.createItemArg(itemClicked)]);
-        } else if (itemClicked && this.onMenuItemClicked) {
-            this.onMenuItemClicked(event, this.createItemArg(itemClicked));
-        }
     }
-
+    
     isCollapseIn(): boolean {
         const el = this.getNativeElement().querySelector('.navbar-collapse.collapse.in');
         if (el) {
@@ -462,6 +467,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
     showSubMenu(element: Element) {
         if (element) {
+            this.positionMenu(element);
             element = element.closest('.dropdown');
             if (element) {
                 element = element.querySelector('.dropdown-menu');
