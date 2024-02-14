@@ -2,14 +2,14 @@
   "name": "@servoy/bootstrapextracomponents",
   "version": "2023.12.1",
   "peerDependencies": {
-    "@angular/animations": "^16",
-    "@angular/common": "^16",
-    "@angular/core": "^16",
-    "@angular/forms": "^16"
+    "@angular/animations": "^17",
+    "@angular/common": "^17",
+    "@angular/core": "^17",
+    "@angular/forms": "^17"
   },
   "dependencies": {
    "@servoy/jw-bootstrap-switch-ng2": "^16",
-    "@ng-bootstrap/ng-bootstrap": "^15",
+    "@ng-bootstrap/ng-bootstrap": "^16",
     "@popperjs/core": "<3",
     "bootstrap": "<6",
     "tslib": "*"
