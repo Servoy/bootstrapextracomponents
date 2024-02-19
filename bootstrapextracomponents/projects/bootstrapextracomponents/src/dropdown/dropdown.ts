@@ -44,7 +44,7 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     menuClicked(e: Event, menuItem: MenuItem) {
         if (menuItem.onAction) {
             const jsEvent = this.servoyService.createJSEvent(e, 'action');
-            this.servoyService.executeInlineScript(menuItem.onAction.formname, menuItem.onAction.script, [jsEvent, this.createItemArg(menuItem)]);
+            menuItem.onAction(jsEvent, this.createItemArg(menuItem));
         } else if (this.onMenuItemSelected) {
              this.onMenuItemSelected(event, this.createItemArg(menuItem));
         }
@@ -64,6 +64,6 @@ export class MenuItem extends BaseMenuItem {
     public isDivider: boolean;
     public enabled: boolean;
     public iconName: string;
-    public onAction: { formname: string; script: string };
+    public onAction: (...args: unknown[]) => void;
 }
 

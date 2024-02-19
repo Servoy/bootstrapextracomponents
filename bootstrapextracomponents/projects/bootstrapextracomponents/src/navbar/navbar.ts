@@ -199,7 +199,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         this.makeItemActive(itemClicked);
         if (itemClicked && itemClicked.onAction) {
             const jsEvent = this.servoyService.createJSEvent(event, 'action');
-            this.servoyService.executeInlineScript(itemClicked.onAction.formname, itemClicked.onAction.script, [jsEvent, this.createItemArg(itemClicked)]);
+            itemClicked.onAction(jsEvent, this.createItemArg(itemClicked));
         } else if (itemClicked && this.onMenuItemClicked) {
             this.onMenuItemClicked(event, this.createItemArg(itemClicked));
         }
@@ -542,7 +542,7 @@ class BaseMenuItem extends BaseCustomObject {
     public styleClass: string;
     public userData: any;
     public iconName: string;
-    public onAction: { formname: string; script: string };
+    public onAction: (...args: unknown[]) => void;
 }
 
 export class MenuItem extends BaseMenuItem {
