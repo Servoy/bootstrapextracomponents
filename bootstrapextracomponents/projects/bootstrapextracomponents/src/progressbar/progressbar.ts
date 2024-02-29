@@ -29,11 +29,12 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
         return null;
     }
 
-    updateProgressBar = function(value: number, text: string) {
+    updateProgressBar(value: number, text: string) {
         this.value = value;
         if (text !== undefined) {
             this.valueText = text;
         }
-    };
+        this.cdRef.detectChanges();
+    }
 }
 
