@@ -8,9 +8,9 @@
 	"icon": "bootstrapextracomponents/switch/icon.png",
 	"libraries": [
 	{"name":"switch.css", "version":"1.0.0", "url":"bootstrapextracomponents/switch/switch.css", "mimetype":"text/css"},
-	{"name":"bootstrap-switch.css", "version":"3.3.4", "url":"bootstrapextracomponents/switch/bootstrap-switch.css", "mimetype":"text/css"},
-	{"name":"bootstrap-switch.js", "version":"3.3.4", "url":"bootstrapextracomponents/switch/bootstrap-switch.js", "mimetype":"text/javascript"},
-	{"name":"angular-bootstrap-switch.js", "version":"0.5.2", "url":"bootstrapextracomponents/switch/angular-bootstrap-switch.js", "mimetype":"text/javascript"}
+	{"name":"bootstrap-switch.css", "version":"3.3.4", "url":"bootstrapextracomponents/switch/bs-switch.css", "mimetype":"text/css"},
+	{"name":"bootstrap-switch.js", "version":"3.3.4", "url":"bootstrapextracomponents/switch/bs-switch.js", "mimetype":"text/javascript"},
+	{"name":"angular-bootstrap-switch.js", "version":"0.5.2", "url":"bootstrapextracomponents/switch/angular-bs-switch.js", "mimetype":"text/javascript"}
 	],
 	"keywords": ["swap"],
 	"model":
