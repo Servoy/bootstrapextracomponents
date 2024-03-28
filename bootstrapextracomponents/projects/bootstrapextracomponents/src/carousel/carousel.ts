@@ -42,6 +42,12 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     svyOnInit() {
         super.svyOnInit();
+        if (this.elementRef?.nativeElement?.getBoundingClientRect().width) {
+			this.size.width = this.elementRef.nativeElement.getBoundingClientRect().width;
+		}
+		if (this.elementRef?.nativeElement?.getBoundingClientRect().height) {
+			this.size.height = this.elementRef.nativeElement.getBoundingClientRect().height;
+		}
     }
 
     svyOnChanges( changes: SimpleChanges ) {
@@ -146,6 +152,16 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                 this.innerSlides = this.slides;
             }
         }
+        if (this.servoyApi.isInDesigner()) {
+			const slide = new Slide();
+			slide.imageUrl = this.missingImage;
+			this.innerSlides = [slide];
+		}
+		if (this.innerSlides.length === 0) {
+			this.elementRef.nativeElement.classList.add('bts-extra-carousel-hidden');
+		} else {
+			this.elementRef.nativeElement.classList.remove('bts-extra-carousel-hidden');
+		}
     };
 }
 

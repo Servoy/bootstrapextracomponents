@@ -100,7 +100,7 @@
   content: '>';
   font-size: 40px;
   color: #ffffff;
-  padding: 14px;
+  padding: 12px;
   display: flex;
   align-items: center;
 }
@@ -108,7 +108,21 @@
 .bts-extra-carousel .carousel-control-prev .carousel-control-prev-icon:after {
   content: '<';
   font-size: 40px;
-  padding: 11px;
+  padding: 12px;
   display: flex;
   align-items: center;
+}
+
+.bts-extra-carousel .carousel-control-prev {
+	left: 5px;
+	justify-content: start;
+}
+
+.bts-extra-carousel .carousel-control-next {
+	right: 5px;
+	justify-content: end;
+}
+
+.bts-extra-carousel-hidden {
+	visibility: hidden;
 }
