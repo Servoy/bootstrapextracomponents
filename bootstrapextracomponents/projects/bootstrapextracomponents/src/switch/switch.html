@@ -1,5 +1,6 @@
 <div class="bts-extra-switch" [ngClass]="styleClass" [sabloTabseq]="tabSeq" [id]="servoyApi.getMarkupId()" #element>
     <bSwitch
+        [disabled]="!enabled"
         [switch-disabled]="!enabled"
         [switch-size]="componentSize"
         [switch-animate]="animate"
