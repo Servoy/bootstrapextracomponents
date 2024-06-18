@@ -53,7 +53,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     svyOnChanges( changes: SimpleChanges ) {
         if ( changes ) {
             if ( changes.slidesFoundset ) {
-				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize) || (this.foundsetID != this.slidesFoundset.foundsetId)) {
+				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize) || (this.foundsetID != this.slidesFoundset.foundsetId) || this.imagesOrOrderChanged()) {
 					this.createSlides();
 				} else {
 					const index = changes.slidesFoundset.currentValue.selectedRowIndexes[0];
@@ -136,6 +136,23 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
             }
         }
     }
+	
+	imagesOrOrderChanged(): boolean {
+		const newSlides = [];
+		if ( this.slidesFoundset !== null && this.slidesFoundset !== undefined ) {
+			for ( const row of this.slidesFoundset.viewPort.rows ) {
+				const slide = new Slide();
+				slide.imageUrl = row.image && row.image.url ? row.image.url : null;
+				slide.caption = row.caption ? row.caption : null;
+				newSlides.push( slide );
+			}
+			
+			if (JSON.stringify(this.innerSlides) !== JSON.stringify(newSlides)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
     private createSlides = () => {
         this.innerSlides = [];
