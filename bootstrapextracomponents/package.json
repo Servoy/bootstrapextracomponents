@@ -24,7 +24,7 @@
     "@servoy/public": "2024.3.0",
     "@servoy/jw-bootstrap-switch-ng2": "16.0.0",
     "rxjs": "7.8.1",
-    "tslib": "2.6.2",
+    "tslib": "2.6.3",
     "zone.js": "0.14.4"
   },
   "devDependencies": {
