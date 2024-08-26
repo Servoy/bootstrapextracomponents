@@ -20,6 +20,7 @@
 		"brandLogoStyleClass" 					: {"type": "styleclass"},
 		"brandLogoTabindex"						: {"type": "string"},
 		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "shallow"},
+		"servoyMenu"                            : {"type" :"JSMenu", "extraPropertiesCategory" : "Navbar","extraProperties": { "attributes": "map","tabindex": "string", "userData": "object", "position": {"type": "string", "default": "LEFT", "values": ["LEFT", "RIGHT"]}, "displayType": {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP", "IMAGE"]},"inputButtonText" : "tagstring", "inputButtonStyleClass": "styleclass","isActive" : "boolean","isDivider":"boolean"}},
 		"visible"								: {"type": "visible"},
 		"inverse"								: {"type": "boolean"},
 		"fixed"									: {"type": "string", "default": null, "values": ["top", "bottom"]},

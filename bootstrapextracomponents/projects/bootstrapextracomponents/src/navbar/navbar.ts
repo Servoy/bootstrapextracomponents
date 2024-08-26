@@ -26,6 +26,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
     @Input() menuItems: Array<MenuItem>;
     @Output() menuItemsChange = new EventEmitter();
+    @Input() servoyMenu: any;
 
     @Input() onMenuItemClicked: (e: Event, menuItem: BaseMenuItem) => void;
     @Input() onBrandClicked: (e: Event) => void;
@@ -34,6 +35,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     typeaheadInit = false;
     indexToFocus = 0;
     firstShow = true;
+    private shouldCopyServoyMenu = false;
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, public formattingService: FormattingService,
         @Inject(DOCUMENT) private document: Document, private servoyService: ServoyPublicService) {
@@ -57,12 +59,24 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         super.svyOnInit();
+        if (this.servoyMenu && (!this.menuItems || this.menuItems.length == 0)) {
+            this.shouldCopyServoyMenu = true;
+            this.copyServoyMenu();
+        }
     }
 
     svyOnChanges(changes: SimpleChanges) {
         super.svyOnChanges(changes);
         if (changes.menuItems) {
             this.initTypeaheads(changes.menuItems.currentValue);
+        }
+        if (changes.servoyMenu) {
+            if (!changes.servoyMenu.firstChange) {
+                this.copyServoyMenu();
+            } else if (this.servoyMenu && (!this.menuItems || this.menuItems.length == 0)) {
+                this.shouldCopyServoyMenu = true;
+                this.copyServoyMenu();
+            }
         }
     }
 
@@ -192,9 +206,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if ($target.parentElement.classList.contains('svy-navbar-dropdown')) {
             $target = $target.parentElement;
         }
-        
+
         this.positionMenu($target);
-       
+
         const itemClicked = this.getItem(event);
         this.makeItemActive(itemClicked);
         if (itemClicked && itemClicked.onAction) {
@@ -205,8 +219,8 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         }
     }
 
-    positionMenu($target: Element){
-         // if clicked on a dropdown menu
+    positionMenu($target: Element) {
+        // if clicked on a dropdown menu
         if ($target.classList.contains('svy-navbar-dropdown')) { // if is a dropdown menu
             this.indexToFocus = 0;
             this.firstShow = true;
@@ -278,7 +292,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
             }
         }
     }
-    
+
     isCollapseIn(): boolean {
         const el = this.getNativeElement().querySelector('.navbar-collapse.collapse.in');
         if (el) {
@@ -530,6 +544,50 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                     this.closeOtherSubMenu(element);
                     this.showSubMenu(element);
                 }
+            }
+        }
+    }
+
+    private copyServoyMenu() {
+        if (this.shouldCopyServoyMenu) {
+            if (this.servoyMenu) {
+                const oldMenu = new Array();
+                for (let i = 0; i < this.servoyMenu.items.length; i++) {
+                    const source = this.servoyMenu.items[i];
+                    const menuItem = {} as MenuItem;
+                    menuItem.text = source.menuText;
+                    menuItem.itemId = source.itemID;
+                    menuItem.styleClass = source.styleClass;
+                    menuItem.enabled = source.enabled;
+                    menuItem.iconName = source.iconStyleClass;
+                    menuItem.tabindex = source.extraProperties?.Navbar?.tabindex;
+                    menuItem.userData = source.extraProperties?.Navbar?.userData;
+                    menuItem.attributes = source.extraProperties?.Navbar?.attributes;
+                    menuItem.position = source.extraProperties?.Navbar?.position;
+                    menuItem.displayType = source.extraProperties?.Navbar?.displayType;
+                    menuItem.tooltip = source.tooltipText;
+                    menuItem.inputButtonText = source.extraProperties?.Navbar?.inputButtonText;
+                    menuItem.inputButtonStyleClass = source.extraProperties?.Navbar?.inputButtonStyleClass;
+                    menuItem.isActive = source.isSelected;
+                    if (source.items && source.items.length > 0) {
+                        menuItem.subMenuItems = new Array();
+                        for (let i = 0; i < source.items.length; i++) {
+                            const subMenuItem = {} as SubMenuItem;
+                            const childSource = source.items[i];
+                            subMenuItem.text = childSource.menuText;
+                            subMenuItem.itemId = childSource.itemID;
+                            subMenuItem.styleClass = childSource.styleClass;
+                            subMenuItem.enabled = childSource.enabled;
+                            subMenuItem.iconName = childSource.iconStyleClass;
+                            subMenuItem.tabindex = childSource.extraProperties?.Navbar?.tabindex;
+                            subMenuItem.userData = childSource.extraProperties?.Navbar?.userData;
+                            subMenuItem.isDivider = childSource.extraProperties?.Navbar?.isDivider;
+                            menuItem.subMenuItems.push(subMenuItem);
+                        }
+                    }
+                    oldMenu.push(menuItem);
+                }
+                this.menuItems = oldMenu;
             }
         }
     }
