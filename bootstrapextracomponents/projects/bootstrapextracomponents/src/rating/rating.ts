@@ -9,6 +9,7 @@ import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@s
 export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivElement> {
     @Input() onLeave: (e: JSEvent, data?: any) => void;
     @Input() onHover: (e: JSEvent, data?: any) => void;
+    @Input() onDataChangeMethodID: (oldValue: any, newValue: any, e: Event) => boolean;
 
     @Input() enabled: boolean;
     @Input() dataProviderID: number;
