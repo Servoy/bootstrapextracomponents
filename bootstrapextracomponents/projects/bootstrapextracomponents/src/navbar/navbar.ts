@@ -25,7 +25,6 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     @Input() collapseOnClick: boolean;
 
     @Input() menuItems: Array<MenuItem>;
-    @Output() menuItemsChange = new EventEmitter();
     @Input() servoyMenu: any;
 
     @Input() onMenuItemClicked: (e: Event, menuItem: BaseMenuItem) => void;
@@ -105,7 +104,11 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     onInputChange(menuItem: MenuItem, index: number) {
-        this.servoyApi.apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
+        if (this.shouldCopyServoyMenu) {
+            this.servoyApi.apply('servoyMenu.items[' + index + '].extraProperties.Navbar.dataProvider', menuItem.dataProvider);
+        }  else {
+            this.servoyApi.apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
+        }
     }
 
     resultFormatter = (result: { displayValue: string; realValue: any }) => {
@@ -150,23 +153,18 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
             for (const vlValue of menuItem.valuelist) {
                 if ((event.target as HTMLInputElement).value === vlValue.displayValue) {
                     menuItem.dataProvider = vlValue.realValue;
-                    menuItem.getStateHolder().getChangedKeys().add('dataProvider');
                     hasMatchingDisplayValue = true;
                     break;
                 }
             }
             if (!hasMatchingDisplayValue) {
                 menuItem.dataProvider = null;
-                menuItem.getStateHolder().getChangedKeys().add('dataProvider');
                 (event.target as HTMLInputElement).value = null;
             }
-            menuItem.getStateHolder().notifyChangeListener();
         }
         else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues()) {
             menuItem.dataProvider = (event.target as HTMLInputElement).value;
-            menuItem.getStateHolder().getChangedKeys().add('dataProvider');
         }
-        this.menuItemsChange.emit(this.menuItems);
         this.onInputChange(menuItem, index);
         this.navBarClicked(event);
     }
@@ -179,8 +177,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
         if (value && value.realValue !== undefined) menuItem.dataProvider = value.realValue;
         else if (value) menuItem.dataProvider = value;
         else menuItem.dataProvider = null;
-        menuItem.getStateHolder().getChangedKeys().add('dataProvider');
-        this.menuItemsChange.emit(this.menuItems);
+        this.onInputChange(menuItem, index);
     }
 
     navBarClicked(event: Event) {
@@ -565,6 +562,8 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                     menuItem.attributes = source.extraProperties?.Navbar?.attributes;
                     menuItem.position = source.extraProperties?.Navbar?.position;
                     menuItem.displayType = source.extraProperties?.Navbar?.displayType;
+                    menuItem.dataProvider = source.extraProperties?.Navbar?.dataProvider;
+                    menuItem.valuelist = source.extraProperties?.Navbar?.valuelist;
                     menuItem.tooltip = source.tooltipText;
                     menuItem.inputButtonText = source.extraProperties?.Navbar?.inputButtonText;
                     menuItem.inputButtonStyleClass = source.extraProperties?.Navbar?.inputButtonStyleClass;
