@@ -2,7 +2,7 @@ import { Component, SimpleChanges, Input, Renderer2, ChangeDetectorRef, Directiv
 import { DOCUMENT } from '@angular/common';
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustomObject, IValuelist } from '@servoy/public';
+import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustomObject,IJSMenu, IValuelist } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-navbar',
@@ -25,7 +25,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     @Input() collapseOnClick: boolean;
 
     @Input() menuItems: Array<MenuItem>;
-    @Input() servoyMenu: any;
+    @Input() servoyMenu: IJSMenu;
 
     @Input() onMenuItemClicked: (e: Event, menuItem: BaseMenuItem) => void;
     @Input() onBrandClicked: (e: Event) => void;
@@ -104,8 +104,8 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
     }
 
     onInputChange(menuItem: MenuItem, index: number) {
-        if (this.shouldCopyServoyMenu) {
-            this.servoyApi.apply('servoyMenu.items[' + index + '].extraProperties.Navbar.dataProvider', menuItem.dataProvider);
+        if (this.servoyMenu) {
+            this.servoyMenu.pushDataProviderValue('Navbar','dataProviderValue',index, menuItem.dataProvider);
         }  else {
             this.servoyApi.apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
         }
@@ -562,7 +562,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
                     menuItem.attributes = source.extraProperties?.Navbar?.attributes;
                     menuItem.position = source.extraProperties?.Navbar?.position;
                     menuItem.displayType = source.extraProperties?.Navbar?.displayType;
-                    menuItem.dataProvider = source.extraProperties?.Navbar?.dataProvider;
+                    menuItem.dataProvider = source.extraProperties?.Navbar?.dataProviderValue;
                     menuItem.valuelist = source.extraProperties?.Navbar?.valuelist;
                     menuItem.tooltip = source.tooltipText;
                     menuItem.inputButtonText = source.extraProperties?.Navbar?.inputButtonText;

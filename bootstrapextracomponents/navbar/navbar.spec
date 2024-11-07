@@ -20,7 +20,7 @@
 		"brandLogoStyleClass" 					: {"type": "styleclass"},
 		"brandLogoTabindex"						: {"type": "string"},
 		"menuItems" 							: {"type": "menuItem[]", "pushToServer": "shallow"},
-		"servoyMenu"                            : {"type" :"JSMenu", "pushToServer": "shallow", "extraPropertiesCategory" : "Navbar","extraProperties": { "attributes": "map","tabindex": "string", "userData": "object", "position": {"type": "string", "default": "LEFT", "values": ["LEFT", "RIGHT"]}, "displayType": {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP", "IMAGE"]},"inputButtonText" : "tagstring", "inputButtonStyleClass": "styleclass","isActive" : "boolean","isDivider":"boolean","dataProvider" : { "type" : "dataprovider", "pushToServer": "allow"},"valuelist" : {"type" : "valuelist", "tags": {  "logWhenOverMax": false}, "for": "dataProvider"}}},
+		"servoyMenu"                            : {"type" :"JSMenu", "pushToServer": "shallow", "extraPropertiesCategory" : "Navbar","extraProperties": { "attributes": "map","tabindex": "string", "userData": "object", "position": {"type": "string", "default": "LEFT", "values": ["LEFT", "RIGHT"]}, "displayType": {"type": "string", "default": "MENU_ITEM", "values": ["MENU_ITEM", "TEXT", "BUTTON", "INPUT", "INPUT_GROUP", "IMAGE"]},"inputButtonText" : "tagstring", "inputButtonStyleClass": "styleclass","isActive" : "boolean","isDivider":"boolean","dataProviderValue" : "string", "valuelist" : {"type" : "valuelist", "tags": {  "logWhenOverMax": false}, "for": "dataProviderValue"}}},
 		"visible"								: {"type": "visible"},
 		"inverse"								: {"type": "boolean"},
 		"fixed"									: {"type": "string", "default": null, "values": ["top", "bottom"]},
