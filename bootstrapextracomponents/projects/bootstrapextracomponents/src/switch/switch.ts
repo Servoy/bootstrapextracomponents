@@ -38,8 +38,6 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         this.inputEl = this.getNativeElement().querySelector('input');
-        this.inputEl.tabIndex = this.getNativeElement().tabIndex;
-        this.getNativeElement().tabIndex = 0;
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
             this.requestFocus();
         });
@@ -58,6 +56,12 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
         }
     }
 
+    setTabIndex(tabIndex: number) {
+        if (this.inputEl){
+             this.inputEl.tabIndex = tabIndex;
+        }
+    }
+    
     onChange(e: Event) {
         if (typeof this.dataProviderID === 'string') {
             this.dataProviderID = this.dataProviderID === '1' ? '0' : '1';
