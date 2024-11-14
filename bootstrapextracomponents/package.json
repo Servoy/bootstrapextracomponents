@@ -19,7 +19,7 @@
     "@angular/common": "18.1.2",
     "@angular/core": "18.1.2",
     "@angular/forms": "18.1.2",
-    "@ng-bootstrap/ng-bootstrap": "17.0.0",
+    "@ng-bootstrap/ng-bootstrap": "17.0.1",
     "@popperjs/core": "2.11.8",
     "@servoy/jw-bootstrap-switch-ng2": "18.0.0",
     "@servoy/public": "2024.9.0",
