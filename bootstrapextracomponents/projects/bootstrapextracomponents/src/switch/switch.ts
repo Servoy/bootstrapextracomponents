@@ -31,6 +31,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     @Input() onDataChangeMethodID: (oldValue: any, newValue: any, e: Event) => boolean;
 
     inputEl: HTMLInputElement;
+    runtimeTabIndex: number = -1;
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private doc: Document) {
         super(renderer, cdRef);
@@ -38,6 +39,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         this.inputEl = this.getNativeElement().querySelector('input');
+        this.inputEl.tabIndex = this.runtimeTabIndex;
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
             this.requestFocus();
         });
@@ -57,6 +59,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     }
 
     setTabIndex(tabIndex: number) {
+        this.runtimeTabIndex = tabIndex;
         if (this.inputEl){
              this.inputEl.tabIndex = tabIndex;
         }
