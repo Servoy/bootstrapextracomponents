@@ -22,8 +22,6 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     @Input() lazyLoading: boolean;
     @Input() imageOptions: string;
     @Input() visible: boolean;
-    @Input() size: { width: number; height: number };
-    @Input() location: any;
     @Input() styleClass: string;
     @Input() imageCssInternal: any;
     @Input() imageCss: Array<CssProperty>;
@@ -35,6 +33,8 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
     missingImage = 'bootstrapextracomponents/carousel/resources/missing.png';
+    
+    private size: { width: number; height: number } = { width: 0, height: 0 };
 
     constructor( renderer: Renderer2, cdRef: ChangeDetectorRef, _config: NgbCarouselConfig ) {
         super( renderer, cdRef );
