@@ -17,7 +17,7 @@
 				<img class="bts-extra-carousel-img"
 				    alt="i" 
 				    [ngStyle]="imageCssInternal"
-					(click)="onSlideClicked($event,slide)"
+					(click)="slideClicked($event,slide)"
 					*ngIf="lazyLoading"
 					loading="lazy"
 					[src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
@@ -26,7 +26,7 @@
 					class="bts-extra-carousel-img" 
 					alt="i"
 					[ngStyle]="imageCssInternal"
-					(click)="onSlideClicked($event,slide)" 
+					(click)="slideClicked($event,slide)" 
                     *ngIf="!lazyLoading"
 					[src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
 			    >

@@ -153,6 +153,12 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 		}
 		return false;
 	}
+    
+    slideClicked( e: Event, slide: Slide):void {
+        if (this.onSlideClicked) {
+            this.onSlideClicked(e, slide);
+        }
+    }
 
     private createSlides = () => {
         this.innerSlides = [];
