@@ -34,7 +34,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
     missingImage = 'bootstrapextracomponents/carousel/resources/missing.png';
     
-    private size: { width: number; height: number } = { width: 0, height: 0 };
+    private size: { width: string|number; height: string|number} = { width: '100%', height: '100%' };
 
     constructor( renderer: Renderer2, cdRef: ChangeDetectorRef, _config: NgbCarouselConfig ) {
         super( renderer, cdRef );
@@ -119,7 +119,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     getStyle(): any {
         const layoutStyle: any = {};
         if ( !this.servoyApi.isInAbsoluteLayout() ) {
-            layoutStyle.height = this.responsiveHeight;
+            layoutStyle.height = this.responsiveHeight + 'px';
         }
         return layoutStyle;
     }
