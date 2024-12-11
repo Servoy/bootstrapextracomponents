@@ -30,7 +30,6 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     @Input() visible: boolean;
     @Input() addOns: AddOn[];
     @Input() addOnButtons: AddOnButton[];
-    @Input() size: { width: number; height: number };
     @Input() toolTipText: string;
 
     mustExecuteOnFocus = true;

@@ -15,8 +15,6 @@ export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElemen
     @Input() displayType: string;
     @Input() text: string;
     @Input() badgeText: string;
-    @Input() size: { width: number; height: number };
-    @Input() location: any;
     @Input() imageStyleClass: string;
     @Input() styleClass: string;
     @Input() visible: boolean;
