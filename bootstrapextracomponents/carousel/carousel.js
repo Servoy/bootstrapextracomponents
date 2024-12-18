@@ -187,12 +187,8 @@ angular.module('bootstrapextracomponentsCarousel', ['servoy']).directive('bootst
 				
 			},
 			controller: function($scope, $element, $attrs, $utils) {
-				if ($scope.svyServoyapi.isInDesigner() && !($scope.model.slides || $scope.model.slides.length == 0)) {
-					$scope.model.slides = [
-						{ image: 'http://lorempixel.com/400/200/' }, 
-						{ image: 'http://lorempixel.com/400/200/food' }, 
-						{ image: 'http://lorempixel.com/400/200/sports' }, 
-						{ image: 'http://lorempixel.com/400/200/people' }];
+				if ($scope.svyServoyapi.isInDesigner() && !($scope.model.slides || ($scope.model.slides && $scope.model.slides.length == 0))) {
+					$scope.model.slides = [ {}, {} ];
 				}
 				
 				function getSlide(slide) {
