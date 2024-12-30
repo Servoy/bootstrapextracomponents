@@ -3,15 +3,11 @@
   "version": "2024.12.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --configuration production",
-    "build_debug": "ng build --watch",
-    "make_release": "ng build --configuration production && node scripts/build.js",
-    "test": "ng test --watch --browsers Chrome",
-    "test_edge": "ng test --watch --browsers Edge",
-    "test_edge_nowatch": "ng test --watch=false --browsers Edge",
-    "test_headless": "ng test --browsers headlessChrome --watch=false",
-    "lint": "ng lint"
+    "build": "ng build @servoy/bootstrapextracomponents --configuration production",
+    "build_debug": "ng build @servoy/bootstrapextracomponents --watch",
+    "make_release": "ng build @servoy/bootstrapextracomponents --configuration production && node scripts/build.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --config video=false --component --browser chrome"
   },
   "private": true,
   "dependencies": {
