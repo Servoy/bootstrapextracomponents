@@ -4,7 +4,8 @@ import { ServoyBaseComponent } from '@servoy/public';
 @Component({
     selector: 'bootstrapextracomponents-progressbar',
     templateUrl: './progressbar.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDivElement> {
     @Input() styleClass: string;

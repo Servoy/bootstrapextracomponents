@@ -4,7 +4,8 @@ import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@s
 @Component({
     selector: 'bootstrapextracomponents-rating',
     templateUrl: './rating.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivElement> {
     @Input() onLeave: (e: JSEvent, data?: any) => void;

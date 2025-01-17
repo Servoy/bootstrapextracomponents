@@ -3,7 +3,8 @@ import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@ser
 
 @Component({
     selector: 'bootstrapextracomponents-dropdown',
-    templateUrl: './dropdown.html'
+    templateUrl: './dropdown.html',
+    standalone: false
 })
 export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivElement> {
 

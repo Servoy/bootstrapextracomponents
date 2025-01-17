@@ -5,7 +5,8 @@ import { Format } from '@servoy/public';
 @Component({
     selector: 'bootstrapextracomponents-input-group',
     templateUrl: './inputgroup.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivElement> {
 
@@ -182,7 +183,8 @@ export class AddOnButton extends AddOn {
 }
 
 @Directive({
-    selector: '[svyAttributesInputGroup]'
+    selector: '[svyAttributesInputGroup]',
+    standalone: false
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class SvyAttributesInputGroup implements OnInit {

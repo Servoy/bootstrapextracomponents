@@ -7,7 +7,8 @@ import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent, NgbSlide } from '@ng-boo
     templateUrl: './carousel.html',
     styleUrls: ['./bts-extra-carousel.css'],
     providers: [NgbCarouselConfig],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 } )
 export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivElement> {
 
@@ -87,8 +88,8 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                     this.imageCssInternal = {
                         'max-width': '100%',
                         'max-height': '100%',
-                        width: this.size ? this.size.width + 'px' : null || ( this.servoyApi.isInAbsoluteLayout() ? this.size.width + 'px' : '100%' ),
-                        height: this.size ? this.size.height + 'px' : null || ( this.servoyApi.isInAbsoluteLayout() ? this.size.height + 'px' : this.responsiveHeight + 'px' ),
+                        width: this.size ? this.size.width + 'px' : ( !this.servoyApi.isInAbsoluteLayout() ? '100%' : null ),
+                        height: this.size ? this.size.height + 'px' : ( !this.servoyApi.isInAbsoluteLayout() ? this.responsiveHeight + 'px': null),
                         'object-fit': 'contain'
                     };
                 }

@@ -4,7 +4,8 @@ import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-switch',
-    templateUrl: './switch.html'
+    templateUrl: './switch.html',
+    standalone: false
 })
 /**
  * Bootstrap switch component based on https://github.com/JulioWar/jw-bootstrap-switch-ng2

@@ -4,7 +4,8 @@ import { ServoyBaseComponent } from '@servoy/public';
 @Component({
     selector: 'bootstrapextracomponents-badge',
     templateUrl: './badge.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElement> {
     @Input() onAction: (e: Event, data?: any) => void;

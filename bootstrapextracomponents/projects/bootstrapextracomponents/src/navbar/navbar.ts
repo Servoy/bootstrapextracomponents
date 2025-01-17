@@ -6,7 +6,8 @@ import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustom
 
 @Component({
     selector: 'bootstrapextracomponents-navbar',
-    templateUrl: './navbar.html'
+    templateUrl: './navbar.html',
+    standalone: false
 })
 export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivElement> {
 
@@ -625,7 +626,8 @@ class SubMenuItem extends BaseMenuItem {
 }
 
 @Directive({
-    selector: '[svyAttributes]'
+    selector: '[svyAttributes]',
+    standalone: false
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class SvyAttributes implements OnInit {

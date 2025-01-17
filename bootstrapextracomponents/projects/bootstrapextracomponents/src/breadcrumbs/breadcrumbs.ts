@@ -3,7 +3,8 @@ import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-breadcrumbs',
-    templateUrl: './breadcrumbs.html'
+    templateUrl: './breadcrumbs.html',
+    standalone: false
 })
 export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLElement> {
 

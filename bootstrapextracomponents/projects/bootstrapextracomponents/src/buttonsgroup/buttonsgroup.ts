@@ -4,7 +4,8 @@ import { Format } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-buttons-group',
-    templateUrl: './buttonsgroup.html'
+    templateUrl: './buttonsgroup.html',
+    standalone: false
 })
 export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLElement> {
 
