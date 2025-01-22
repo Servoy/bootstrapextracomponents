@@ -1,7 +1,7 @@
 /**
  * Sets the menu items of the Dropdown
  * 
- * @param {bootstrapextracomponents-dropdown.MenuItem[]} menuItems
+ * @param {Array<CustomType<bootstrapextracomponents-dropdown.MenuItem>>} menuItems An array of bootstrapextracomponents-dropdown.MenuItem items to be set for the Dropdown, replacing any existing items.
  */
 function setMenuItems(menuItems) {
 }
@@ -9,7 +9,7 @@ function setMenuItems(menuItems) {
 /**
  * Adds the given menu item to the Dropdown
  * 
- * @param {bootstrapextracomponents-dropdown.MenuItem} menuItem
+ * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem menuItem The bootstrapextracomponents-dropdown.MenuItem item to be added to the Dropdown.
  */
 function addMenuItem(menuItem) {
 }
@@ -17,8 +17,8 @@ function addMenuItem(menuItem) {
 /**
  * Removes the menu item with the given item ID
  * 
- * @param {String} menuItemId
+ * @param {String} itemId The unique identifier of the menu item to be removed from the Dropdown.
  */
-function removeMenuItem(menuItemId) {
+function removeMenuItem(itemId) {
 }
 

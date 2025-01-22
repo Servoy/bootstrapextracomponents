@@ -6,7 +6,7 @@
  * text - the text of the item
  * position - LEFT or RIGHT (defaults to LEFT)
  *
- * @param {bootstrapextracomponents-input-group.AddOn} addOnToAdd - object with text, position (LEFT, RIGHT)
+ * @param {CustomType<bootstrapextracomponents-input-group.AddOn>} addOn - object with text, position (LEFT, RIGHT)
  */
 function addAddOn(addOnToAdd) {
 }
@@ -19,7 +19,7 @@ function addAddOn(addOnToAdd) {
  * text - the text of the item
  * position - LEFT or RIGHT (defaults to LEFT)
  *
- * @param {Array<bootstrapextracomponents-input-group.AddOn>} addOns - Array of objects with text, position (LEFT, RIGHT)
+ * @param {Array<CustomType<bootstrapextracomponents-input-group.AddOn>>} addOns addOns - Array of objects with text, position (LEFT, RIGHT)
  */
 function setAddOns(addOns) {
 }
@@ -43,7 +43,7 @@ function clearAddOns() {
  * styleClass - the style class of the button (e.g. btn-danger)
  * imageStyleClass - image style class of the button
  *
- * @param {bootstrapextracomponents-input-group.AddOnButton} addButtonOnToAdd
+ * @param {CustomType<bootstrapextracomponents-input-group.AddOnButton>} addOnButton addButtonOnToAdd
  */
 function addAddOnButton(addButtonOnToAdd) {
 }
@@ -61,7 +61,7 @@ function addAddOnButton(addButtonOnToAdd) {
  * styleClass - the style class of the button (e.g. btn-danger)
  * imageStyleClass - image style class of the button
  *
- * @param {Array<bootstrapextracomponents-input-group.AddOnButton>} addOnButtons
+ * @param {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} addOnButtons An array of AddOnButton objects to configure the input group's buttons, each with properties such as text, position, event handlers, and styling.
  */
 function setAddOnButtons(addOnButtons) {
 }

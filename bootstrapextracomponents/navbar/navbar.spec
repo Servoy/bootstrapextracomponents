@@ -60,6 +60,7 @@
 			]
 		},
 		"getSelectedMenu": {
+			"returns": "menuItem"
 		},
 		"setMenuItemEnabled": {
 			"parameters": [

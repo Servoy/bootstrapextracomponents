@@ -1,10 +1,10 @@
 /**
  * Sets the menu items of the Navbar
  * 
+ * @param {Array<CustomType<bootstrapextracomponents-navbar.menuItem>>} menuItems An array of menu items to be set for the Navbar, replacing any existing menu configuration.
+ * 
  * @example
  * %%elementName%%.setMenuItems(menuItems)
- * 
- * @param {Array<CustomType<bootstrapextracomponents-navbar.menuItem>>} menuItems
  */
 function setMenuItems(menuItems) {
 }
@@ -30,7 +30,7 @@ function addMenuItem(menuItem, index) {
  * @param {String} text the item's text
  * @param {String} [itemId] optional ID to identify the item in scripting
  * @param {String} [position] alignment of the item in the navbar as either LEFT or RIGHT
- * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>} A newly created menu item object with the specified text, optional ID, and position alignment.
  */
 function createMenuItem(text, itemId, position) {
 }
@@ -41,9 +41,9 @@ function createMenuItem(text, itemId, position) {
  * @example
  * %%elementName%%.removeMenuItem('itemID')
  * 
- * @param {String} menuItemId
+ * @param {String} itemId The unique identifier of the menu item to be removed from the Dropdown.
  */
-function removeMenuItem(menuItemId) {
+function removeMenuItem(itemId) {
 }
 
 /**
@@ -52,9 +52,9 @@ function removeMenuItem(menuItemId) {
  * @example
  * %%elementName%%.setMenuSelected('itemID')
  * 
- * @param {String} menuItemId
+ * @param {String} itemId The unique identifier of the menu item to be set as selected.
  */
-function setMenuSelected(menuItemId) {
+function setMenuSelected(itemId) {
 }
 
 /**
@@ -63,10 +63,10 @@ function setMenuSelected(menuItemId) {
  * @example
  * %%elementName%%.setMenuItemEnabled('itemID',false)
  * 
- * @param {String} menuItemId
- * @param {Boolean} enabled
+ * @param {String} itemId The unique identifier of the menu item to enable or disable.
+ * @param {Boolean} enabled A flag indicating whether to enable (true) or disable (false) the specified menu item.
  */
-function setMenuItemEnabled(menuItemId, enabled) {
+function setMenuItemEnabled(itemId, enabled) {
 }
 
 /**
@@ -75,20 +75,22 @@ function setMenuItemEnabled(menuItemId, enabled) {
  * @example
  * %%elementName%%.setSubMenuItemEnabled('itemID','submenuID',false)
  * 
- * @param {String} menuItemId
- * @param {String} subMenuItemId
- * @param {Boolean} enabled
+ * @param {String} itemId The unique identifier of the menu item containing the submenu.
+ * @param {String} submenuItemId The unique identifier of the submenu item to enable or disable.
+ * @param {Boolean} enabled A flag indicating whether to enable (true) or disable (false) the specified submenu item.
  */
-function setSubMenuItemEnabled(menuItemId, subMenuItemId, enabled) {
+function setSubMenuItemEnabled(itemId, submenuItemId, enabled) {
 }
 
 /**
  * Returns the menu item with the given ID or null if not found
  * 
+ * @param {String} itemId The unique identifier of the menu item to retrieve.
+ * 
  * @example
  * var item = %%elementName%%.getMenuItem('itemID')
  * 
- * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>} The menu item with the specified ID, or null if no such item exists.
  */
 function getMenuItem(itemId) {
 }
@@ -99,7 +101,7 @@ function getMenuItem(itemId) {
  * @example
  * var item = %%elementName%%.getSelectedMenu()
  * 
- * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+ * @return {CustomType<bootstrapextracomponents-navbar.menuItem>} The currently selected menu item, or null if no item is selected.
  */
 function getSelectedMenu() {
 }
@@ -110,7 +112,7 @@ function getSelectedMenu() {
  * @example
  * %%elementName%%.requestFocus('itemId')
  * 
- * @param {String} menuItemId
+ * @param {String} itemId The unique identifier of the menu item on the navbar to set focus on.
  */
 function requestFocus(itemId) {
 }
@@ -121,7 +123,7 @@ function requestFocus(itemId) {
  * @example
  * %%elementName%%.openSubMenu('itemId')
  * 
- * @param {String} menuItemId
+ * @param {String} itemId The unique identifier of the menu item whose submenu should be opened.
  */
 function openSubMenu(itemId) {
 }
