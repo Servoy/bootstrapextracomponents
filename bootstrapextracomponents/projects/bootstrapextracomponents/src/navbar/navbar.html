@@ -37,7 +37,7 @@
                 </div><!-- /.svy-navbar-button -->
 
                 <div *ngIf="menuItem.displayType == 'TEXT'" class="svy-navbar-text">
-                    <p class="nav navbar-text" [svyTooltip]="menuItem.tooltip">
+                    <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName"
                             [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
                         <span class="svy-navbar-item-text">{{menuItem.text}}</span>
@@ -219,7 +219,7 @@
                 </div><!-- /.svy-navbar-button -->
 
                 <div *ngIf="menuItem.displayType == 'TEXT'" class="svy-navbar-text">
-                    <p class="nav navbar-text" [svyTooltip]="menuItem.tooltip">
+                    <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                         <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName"
                             [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
                         <span class="svy-navbar-item-text">{{menuItem.text}}</span>
