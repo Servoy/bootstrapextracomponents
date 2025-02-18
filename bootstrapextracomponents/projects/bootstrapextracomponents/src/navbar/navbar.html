@@ -44,6 +44,14 @@
                     </p>
                 </div><!-- /.svy-navbar-text -->
 
+                <div *ngIf="menuItem.displayType == 'HTML_TEXT'" class="svy-navbar-text">
+                    <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
+                        <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName"
+                            [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
+                        <span class="svy-navbar-item-text" [innerHTML]="menuItem.text | htmlFilter | trustAsHtml:isTrustedHTML()"></span>
+                    </p>
+                </div><!-- /.svy-navbar-text -->
+                
                 <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" href="#"
                     [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                     class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
@@ -226,6 +234,14 @@
                     </p>
                 </div><!-- /.svy-navbar-text -->
 
+                <div *ngIf="menuItem.displayType == 'HTML_TEXT'" class="svy-navbar-text">
+                    <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
+                        <span [tabindex]="menuItem.tabindex" *ngIf="menuItem.iconName"
+                            [attr.data-menu-item-id]="menuItem.itemId" class="{{menuItem.iconName}}"></span>
+                        <span class="svy-navbar-item-text" [innerHTML]="menuItem.text | htmlFilter | trustAsHtml:isTrustedHTML()"></span>
+                    </p>
+                </div><!-- /.svy-navbar-text -->
+                
                 <a *ngIf="menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null" href="#"
                     [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                     class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
