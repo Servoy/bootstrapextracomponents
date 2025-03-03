@@ -1,16 +1,3 @@
-
-
-var handlers = {
-    /**
-     * Called whenever a breadcrumb item is clicked with the JSEvent and the item clicked on
-     * 
-     * @param {JSEvent} event
-     * @param {CustomType<bootstrapextracomponents-breadcrumbs.crumb>} crumb
-     * @param {Number} index
-     */
-    onCrumbClicked: function() {}
-};
-
 /**
  * Sets all crumbs
  *

@@ -1,20 +1,3 @@
-var imageCssInternal;
-
-/**
- * When <code>true</code> the foundset's selection is updated with any slide selection
- */
-var updateRecordSelection;
-
-
-
-var handlers = {
-    /**
-     * @param {JSEvent} event
-     * @param {CustomType<bootstrapextracomponents-carousel.slide>} slide
-     */
-    onSlideClicked: function() {}
-};
-
 /**
  * Adds the given slide
  * 
