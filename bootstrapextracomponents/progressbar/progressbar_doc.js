@@ -1,3 +1,8 @@
+var dataProviderID;
+
+var tabSeq;
+
+
 /**
  * Sets the progress, optionally setting the text of the bar
  *
