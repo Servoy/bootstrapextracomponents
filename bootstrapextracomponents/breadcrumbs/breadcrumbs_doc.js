@@ -1,3 +1,31 @@
+var breadcrumbs;
+
+var autoRemoveWhenClicked;
+
+var styleClass;
+
+var crumbStyleClass;
+
+var lastCrumbStyleClass;
+
+var size;
+
+var location;
+
+var visible;
+
+
+var handlers = {
+    /**
+     * Called whenever a breadcrumb item is clicked with the JSEvent and the item clicked on
+     *
+     * @param {JSEvent} event
+     * @param {CustomType<bootstrapextracomponents-breadcrumbs.crumb>} crumb
+     * @param {Number} index
+     */
+    onCrumbClicked: function() {}
+};
+
 /**
  * Sets all crumbs
  *

@@ -1,3 +1,28 @@
+var dataProviderID;
+
+var styleClass;
+
+var value;
+
+var type;
+
+var animate;
+
+var showValue;
+
+var showValueAsPercentage;
+
+var valueText;
+
+var max;
+
+var tabSeq;
+
+var visible;
+
+var size;
+
+
 /**
  * Sets the progress, optionally setting the text of the bar
  *

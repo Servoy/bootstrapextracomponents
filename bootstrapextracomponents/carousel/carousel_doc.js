@@ -1,3 +1,43 @@
+var cycleInterval;
+
+var noPause;
+
+var noTransition;
+
+var slides;
+
+var slidesFoundset;
+
+var lazyLoading;
+
+var imageOptions;
+
+var visible;
+
+var size;
+
+var location;
+
+var styleClass;
+
+var imageCss;
+
+var responsiveHeight;
+
+/**
+ * When <code>true</code> the foundset's selection is updated with any slide selection
+ */
+var updateRecordSelection;
+
+
+var handlers = {
+    /**
+     * @param {JSEvent} event
+     * @param {CustomType<bootstrapextracomponents-carousel.slide>} slide
+     */
+    onSlideClicked: function() {}
+};
+
 /**
  * Adds the given slide
  * 

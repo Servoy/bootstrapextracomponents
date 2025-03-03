@@ -1,3 +1,66 @@
+var dataProvider;
+
+var enabled;
+
+var editable;
+
+var format;
+
+var inputType;
+
+var readOnly;
+
+var placeholderText;
+
+var styleClass;
+
+var tabSeq;
+
+var visible;
+
+var addOns;
+
+var addOnButtons;
+
+var size;
+
+var toolTipText;
+
+
+var handlers = {
+    /**
+     * @param {JSEvent} event
+     */
+    onAction: function() {},
+
+    /**
+     * Handle changed data, return false if the value should not be accepted.
+     * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope) - present since 2021.06 release
+     *
+     * @param {${dataproviderType}} oldValue
+     * @param {${dataproviderType}} newValue
+     * @param {JSEvent} event
+     *
+     * @returns {Boolean}
+     */
+    onDataChangeMethodID: function() {},
+
+    /**
+     * @param {JSEvent} event
+     */
+    onFocusGainedMethodID: function() {},
+
+    /**
+     * @param {JSEvent} event
+     */
+    onFocusLostMethodID: function() {},
+
+    /**
+     * @param {JSEvent} event
+     */
+    onRightClick: function() {}
+};
+
 /**
  * Adds an addOn to this input group
  *

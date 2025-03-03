@@ -1,3 +1,39 @@
+var isButton;
+
+var isSplitButton;
+
+var menuItems;
+
+var text;
+
+var styleClass;
+
+var buttonStyleClass;
+
+var imageStyleClass;
+
+var enabled;
+
+var size;
+
+var visible;
+
+var toolTipText;
+
+
+var handlers = {
+    /**
+     * @param {JSEvent} event
+     */
+    onAction: function() {},
+
+    /**
+     * @param {JSEvent} event
+     * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem
+     */
+    onMenuItemSelected: function() {}
+};
+
 /**
  * Sets the menu items of the Dropdown
  * 
