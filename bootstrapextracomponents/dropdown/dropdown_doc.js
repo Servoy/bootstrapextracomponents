@@ -58,3 +58,25 @@ function addMenuItem(menuItem) {
 function removeMenuItem(itemId) {
 }
 
+
+
+var svy_types = {
+
+    MenuItem: {
+
+        itemId : null,
+
+        text : null,
+
+        userData : null,
+
+        iconName : null,
+
+        enabled : null,
+
+        onAction : null,
+
+        isDivider : null,
+
+    }
+}

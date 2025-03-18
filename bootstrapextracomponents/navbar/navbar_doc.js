@@ -243,3 +243,150 @@ function getLocation(itemId) {
  */
 function getSize(itemId) {
 }
+
+
+var svy_types = {
+
+    menuItem: {
+
+        /**
+         * Additional custom HTML attributes for the menu item.
+         */
+        attributes : null,
+
+        /**
+         * Identifier of a menu item. This property is required to allow the component to figure out what item a user selected.
+         */
+        itemId : null,
+
+        /**
+         * Tab order for the menu item in the tab navigation sequence.
+         */
+        tabindex : null,
+
+        /**
+         * The text shown. Is used as placeholder text on INPUT or INPUT_GROUP items.
+         */
+        text : null,
+
+        /**
+         * Determines whether the menu item is interactive or disabled.
+         */
+        enabled : null,
+
+        /**
+         * Custom data associated with the menu item for reference.
+         */
+        userData : null,
+
+        /**
+         * An optional icon added to the menu item. Any glyphicon or font awesome icon can be used (e.g. 'fa fa-car'). When used with INPUT or INPUT_GROUP used as the button's icon.
+         */
+        iconName : null,
+
+        /**
+         * Controls whether an item is shown on the left or on the right of the navbar.
+         */
+        position : null,
+
+        /**
+         * An optional array of sub menus for a MENU_ITEM type. When set, the item will be shown as a dropdown.
+         */
+        subMenuItems : null,
+
+        /**
+         * Function that will be called if the item is clicked on (MENU_ITEM, BUTTON), a submenu is selected (MENU_ITEM with subMenuItems) or the user hits enter, leaves the field or clicks the optional button (INPUT, INPUT_GROUP). If not set, the component will call the onMenuItemClicked method assigned to the component itself.
+         */
+        onAction : null,
+
+        /**
+         * Controls the appearance of the menu item. One of 'MENU_ITEM', 'TEXT', 'BUTTON', 'INPUT' or 'INPUT_GROUP'.
+         */
+        displayType : null,
+
+        /**
+         * Dataprovider for a text field (only used for display types 'INPUT' and 'INPUT_GROUP')
+         */
+        dataProvider : null,
+
+        /**
+         * Text of the optional button shown with INPUT or INPUT_GROUP.
+         */
+        inputButtonText : null,
+
+        /**
+         * Style class to control the optional button shown with INPUT or INPUT_GROUP. Typically one of bootstraps button classes ('btn-default', 'btn-primary', 'btn-success', 'btn-info', 'btn-warning', 'btn-danger', 'btn-link').
+         */
+        inputButtonStyleClass : null,
+
+        /**
+         * When 'true', a MENU_ITEM item will be shown as 'active'.
+         */
+        isActive : null,
+
+        /**
+         * Additional style class(es) of the menu item.
+         */
+        styleClass : null,
+
+        /**
+         * Tooltip text shown when hovering over the menu item.
+         */
+        tooltip : null,
+
+        /**
+         * When set, an INPUT or INPUT_GROUP item will show a typeahead list.
+         */
+        valuelist : null,
+
+    },
+
+    subMenuItem: {
+
+        /**
+         * Identifier of a submenu item. This property is required to allow the component to figure out what item a user selected.
+         */
+        itemId : null,
+
+        /**
+         * Tab order for the submenu item in the tab navigation sequence.
+         */
+        tabindex : null,
+
+        /**
+         * The text shown. Is used as placeholder text on INPUT or INPUT_GROUP items.
+         */
+        text : null,
+
+        /**
+         * Custom data associated with the submenu item for reference.
+         */
+        userData : null,
+
+        /**
+         * An optional icon added to the submenu item. Any glyphicon or font awesome icon can be used (e.g. 'fa fa-car'). When used with INPUT or INPUT_GROUP used as the button's icon.
+         */
+        iconName : null,
+
+        /**
+         * Determines whether the submenu item is interactive or disabled.
+         */
+        enabled : null,
+
+        /**
+         * Function that will be called if the item is clicked.
+         */
+        onAction : null,
+
+        /**
+         * When this property is set to `true`, then the submenu item will be displayed as a visually divider line.
+         */
+        isDivider : null,
+
+        /**
+         * Additional style class(es) of the menu item.
+         */
+        styleClass : null,
+
+    }
+}

@@ -142,3 +142,38 @@ function clearAddOnButtons(addOnButtons) {
  */
 function requestFocus() {
 }
+
+var svy_types = {
+
+    AddOn: {
+
+        attributes : null,
+
+        text : null,
+
+        position : null,
+
+    },
+
+    AddOnButton: {
+
+        attributes : null,
+
+        text : null,
+
+        name : null,
+
+        position : null,
+
+        onAction : null,
+
+        onDoubleClick : null,
+
+        onRightClick : null,
+
+        styleClass : null,
+
+        imageStyleClass : null,
+
+    }
+}

@@ -55,3 +55,14 @@ function removeCrumbsAfter(index) {
  */
 function removeLastCrumb() {
 }
+
+var svy_types = {
+
+    crumb: {
+
+        crumbId : null,
+
+        displayName : null,
+
+    }
+}

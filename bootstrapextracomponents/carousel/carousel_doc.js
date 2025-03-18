@@ -77,3 +77,22 @@ function getSelectedIndex() {
  */
 function setSelectedIndex(index) {
 }
+
+var svy_types = {
+
+    slide: {
+
+        imageUrl : null,
+
+        caption : null,
+
+    },
+
+    cssProperty: {
+
+        propertyName : null,
+
+        propertyValue : null,
+
+    }
+}
