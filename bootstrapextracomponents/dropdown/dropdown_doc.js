@@ -1,35 +1,77 @@
+/**
+ * Displays a list of menu items.
+ * It can be rendered as a standard button or a split button and supports dynamic menu management.
+ */
+
+/**
+ * Indicates whether the Dropdown is rendered as a standard button.
+ */
 var isButton;
 
+/**
+ * Indicates whether the Dropdown is rendered as a split button.
+ */
 var isSplitButton;
 
+/**
+ * An array of menu items to be displayed in the Dropdown.
+ */
 var menuItems;
 
+/**
+ * The text displayed on the Dropdown button.
+ */
 var text;
 
+/**
+ * CSS style classes applied to the Dropdown component.
+ */
 var styleClass;
 
+/**
+ * CSS style classes applied specifically to the button part of the Dropdown.
+ */
 var buttonStyleClass;
 
+/**
+ * CSS style classes applied to the image or icon associated with the Dropdown.
+ */
 var imageStyleClass;
 
+/**
+ * Flag indicating whether the Dropdown is enabled for user interaction.
+ */
 var enabled;
 
+/**
+ * Dimensions (width and height) of the Dropdown component.
+ */
 var size;
 
+/**
+ * Flag indicating whether the Dropdown is visible.
+ */
 var visible;
 
+/**
+ * Tooltip text displayed when hovering over the Dropdown.
+ */
 var toolTipText;
 
 
 var handlers = {
     /**
-     * @param {JSEvent} event
+     * Fired when the Dropdown button is activated.
+     *
+     * @param {JSEvent} event the event object containing details about the click event e.g. target element, mouse coordinates
      */
     onAction: function() {},
 
     /**
-     * @param {JSEvent} event
-     * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem
+     * Fired when a menu item within the Dropdown is selected.
+     *
+     * @param {JSEvent} event the event object containing details about the selection event e.g. target element, mouse coordinates
+     * @param {CustomType<bootstrapextracomponents-dropdown.MenuItem>} menuItem the menu item object that was selected
      */
     onMenuItemSelected: function() {}
 };
@@ -59,24 +101,49 @@ function removeMenuItem(itemId) {
 }
 
 
-
+/**
+ * Type definitions for bootstrapextracomponents-dropdown types.
+ */
 var svy_types = {
 
+    /**
+     * Represents a Menu Item for the Dropdown component.
+     */
     MenuItem: {
 
-        itemId : null,
+        /**
+         * The unique identifier of the menu item.
+         */
+        itemId: null,
 
-        text : null,
+        /**
+         * The text displayed for the menu item.
+         */
+        text: null,
 
-        userData : null,
+        /**
+         * Optional user data associated with the menu item.
+         */
+        userData: null,
 
-        iconName : null,
+        /**
+         * The name of the icon to be displayed alongside the menu item text.
+         */
+        iconName: null,
 
-        enabled : null,
+        /**
+         * Flag indicating whether the menu item is enabled.
+         */
+        enabled: null,
 
-        onAction : null,
+        /**
+         * A handler function that is executed when the menu item is activated.
+         */
+        onAction: null,
 
-        isDivider : null,
-
+        /**
+         * Flag indicating whether this menu item is a divider.
+         */
+        isDivider: null,
     }
 }

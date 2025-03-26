@@ -1,4 +1,8 @@
 /**
+ * A component that represents a navigation bar with branding and menu items.
+ */
+
+/**
  * The CSS class(es) to be added to navbar element.
  */
 var styleClass;
@@ -58,8 +62,14 @@ var fixed;
  */
 var markClickedItemActive;
 
+/**
+ * The dimensions of the navbar component.
+ */
 var size;
 
+/**
+ * The position of the navbar component on the form.
+ */
 var location;
 
 /**
@@ -77,15 +87,15 @@ var handlers = {
     /**
      * Called whenever a menu item is clicked or a submenu item is selected with the JSEvent and the menuItem object clicked on
      *
-     * @param {JSEvent} event
-     * @param {CustomType<bootstrapextracomponents-navbar.menuItem>} menuItem
+     * @param {JSEvent} event The event object containing details about the click event e.g. target element, mouse coordinates
+     * @param {CustomType<bootstrapextracomponents-navbar.menuItem>} menuItem The menu item object that was clicked
      */
     onMenuItemClicked: function() {},
 
     /**
      * Called when the user clicks on the brand logo or text
      *
-     * @param {JSEvent} event
+     * @param {JSEvent} event The event object containing details about the click event e.g. target element, mouse coordinates
      */
     onBrandClicked: function() {}
 };
@@ -244,9 +254,14 @@ function getLocation(itemId) {
 function getSize(itemId) {
 }
 
-
+/**
+ * Type definitions for bootstrapextracomponents-navbar types.
+ */
 var svy_types = {
 
+    /**
+     * Represents a menu item in the navbar.
+     */
     menuItem: {
 
         /**
@@ -341,6 +356,9 @@ var svy_types = {
 
     },
 
+    /**
+     * Represents a submenu item in the navbar.
+     */
     subMenuItem: {
 
         /**
