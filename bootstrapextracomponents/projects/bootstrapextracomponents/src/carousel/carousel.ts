@@ -61,6 +61,9 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 					this.setSelectedIndex(index);
 				}
             }
+            if (changes.slides && !this.slidesFoundset) {
+                this.createSlides(); 
+            }
             if ( changes.imageOptions ) {
                 const currentValue = changes.imageOptions.currentValue;
                 if ( currentValue === 'Reduce' && !this.imageCss ) {
