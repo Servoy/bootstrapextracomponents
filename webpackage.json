@@ -50,9 +50,7 @@
       {"version":"2024.3.2","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2024.3.2/bootstrapextracomponents.zip", "servoy-version":"2024.3.0"},
       {"version":"2024.9.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2024.9.0/bootstrapextracomponents.zip", "servoy-version":"2024.9.0"},
       {"version":"2024.12.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2024.12.0/bootstrapextracomponents.zip", "servoy-version":"2024.12.0"},
-      {"version":"2025.3.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2025.3.0/bootstrapextracomponents.zip", "servoy-version":"2025.3.0"}
-
-
-        
+      {"version":"2025.3.0","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2025.3.0/bootstrapextracomponents.zip", "servoy-version":"2025.3.0"},
+      {"version":"2025.3.1","url":"https://github.com/Servoy/bootstrapextracomponents/releases/download/v2025.3.1/bootstrapextracomponents.zip", "servoy-version":"2025.3.0"}
     ]
 }
