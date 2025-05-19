@@ -53,7 +53,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     svyOnChanges( changes: SimpleChanges ) {
         if ( changes ) {
-            if ( changes.slidesFoundset ) {
+            if ( changes.slidesFoundset && changes.slidesFoundset.currentValue ) {
 				if (!this.innerSlides || (this.innerSlides.length !=  this.slidesFoundset.serverSize) || (this.foundsetID != this.slidesFoundset.foundsetId) || this.imagesOrOrderChanged()) {
 					this.createSlides();
 				} else {

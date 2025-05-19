@@ -35,3 +35,5 @@
 //     }
 //   }
 // }
+
+import '@angular/localize/init';
