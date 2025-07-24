@@ -1,77 +1,89 @@
-<div class="bts-extra-input-group input-group" 
-    [id]="servoyApi.getMarkupId()"
-    [ngClass]='styleClass'
-    [svyTooltip]="toolTipText"
-    #element>
-    
-    <!-- addOnButtons left -->
-    <div *ngIf="hasLeftButtons()" class="input-group-btn addon-left input-group-prepend">
-        <ng-container *ngFor="let button of addOnButtons">
-	        <button 
-	            *ngIf="button.position == 'LEFT' && (button.text || button.imageStyleClass)"
-	            [disabled]="!enabled" 
-	            class="btn {{button.styleClass ? button.styleClass : 'btn-outline-secondary'}}" 
-	            type="button"
-	            (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
-                (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
-                (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
-                [sabloTabseq]="tabSeq"
-	            [svyAttributesInputGroup]="button.attributes">
-	            <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
-	        </button>
-	    </ng-container>
+<div class="bts-extra-input-group input-group"
+  [id]="servoyApi.getMarkupId()"
+  [ngClass]='styleClass'
+  [svyTooltip]="toolTipText"
+  #element>
+
+  <!-- addOnButtons left -->
+  @if (hasLeftButtons()) {
+    <div class="input-group-btn addon-left input-group-prepend">
+      @for (button of addOnButtons; track button) {
+        @if (button.position == 'LEFT' && (button.text || button.imageStyleClass)) {
+          <button
+            [disabled]="!enabled"
+            class="btn {{button.styleClass ? button.styleClass : 'btn-outline-secondary'}}"
+            type="button"
+            (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
+            (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
+            (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
+            [sabloTabseq]="tabSeq"
+            [svyAttributesInputGroup]="button.attributes">
+            <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
+          </button>
+        }
+      }
     </div>
-    <!-- end addOnButtons left -->
+  }
+  <!-- end addOnButtons left -->
 
-    <!-- addOns left -->
-    <ng-container *ngFor="let addon of addOns" class="input-group-prepend">
-	    <span 
-	        *ngIf="addon.position == 'LEFT'" 
-	        class="input-group-addon addon-left input-group-text"
-	        [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
-	    </span>
+  <!-- addOns left -->
+  @for (addon of addOns; track addon) {
+    <ng-container class="input-group-prepend">
+      @if (addon.position == 'LEFT') {
+        <span
+          class="input-group-addon addon-left input-group-text"
+          [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
+        </span>
+      }
     </ng-container>
-    <!-- end addOns left -->
+  }
+  <!-- end addOns left -->
 
-    <input [type]="inputType" #input
-        class='form-control bts-textbox'
-        [disabled]="!enabled"
-        [readonly]="readOnly || !editable" 
-        (change)="pushUpdate()"
-        [(ngModel)]="dataProvider"
-        [svyFormat]="format"
-        [svyStartEdit]="'dataProvider'"
-        [hostComponent]="this"
-        [sabloTabseq]="tabSeq"
-        [svyDecimalKeyConverter]="format"
-        />
+  <input [type]="inputType" #input
+    class='form-control bts-textbox'
+    [disabled]="!enabled"
+    [readonly]="readOnly || !editable"
+    (change)="pushUpdate()"
+    [(ngModel)]="dataProvider"
+    [svyFormat]="format"
+    [svyStartEdit]="'dataProvider'"
+    [hostComponent]="this"
+    [sabloTabseq]="tabSeq"
+    [svyDecimalKeyConverter]="format"
+    />
 
     <!-- addOns right -->
-    <ng-container *ngFor="let addon of addOns" class="input-group-append">
-	    <span 
-	        *ngIf="addon.position == 'RIGHT'" 
-	        class="input-group-addon input-group-text addon-right"
-	        [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
-	    </span>
-    </ng-container>
+    @for (addon of addOns; track addon) {
+      <ng-container class="input-group-append">
+        @if (addon.position == 'RIGHT') {
+          <span
+            class="input-group-addon input-group-text addon-right"
+            [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
+          </span>
+        }
+      </ng-container>
+    }
     <!-- end addOns right -->
 
     <!-- addOnButtons right -->
-    <div *ngIf="hasRightButtons()" class="input-group-btn addon-right input-group-append">
-        <ng-container *ngFor="let button of addOnButtons">
-            <button 
-	            *ngIf="button.position == 'RIGHT' && (button.text || button.imageStyleClass)" 
-	            [disabled]="!enabled" 
-	            class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}" 
-	            type="button"
-	            (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
-                (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
-                (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
-	            [sabloTabseq]="tabSeq"
-	            [svyAttributesInputGroup]="button.attributes">
-	            <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
-	        </button>
-        </ng-container>
-    </div>
+    @if (hasRightButtons()) {
+      <div class="input-group-btn addon-right input-group-append">
+        @for (button of addOnButtons; track button) {
+          @if (button.position == 'RIGHT' && (button.text || button.imageStyleClass)) {
+            <button
+              [disabled]="!enabled"
+              class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}"
+              type="button"
+              (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
+              (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
+              (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
+              [sabloTabseq]="tabSeq"
+              [svyAttributesInputGroup]="button.attributes">
+              <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
+            </button>
+          }
+        }
+      </div>
+    }
     <!-- end addOnButtons right -->
-</div>
+  </div>

@@ -1,5 +1,5 @@
-import { Component, SimpleChanges, Input, Renderer2, ChangeDetectorRef, Directive, ElementRef, OnInit, Output, EventEmitter, Inject, HostListener } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, SimpleChanges, Input, Renderer2, ChangeDetectorRef, Directive, ElementRef, OnInit, Output, EventEmitter, Inject, HostListener, DOCUMENT } from '@angular/core';
+
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustomObject, IJSMenu, IValuelist } from '@servoy/public';

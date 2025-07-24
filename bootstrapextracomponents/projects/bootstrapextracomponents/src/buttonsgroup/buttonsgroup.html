@@ -1,14 +1,19 @@
 <div class="bts-extra-btn-radio btn-group"
-    [id]="servoyApi.getMarkupId()"
-    [svyTooltip]="toolTipText"
-    #element>
-  <button type="button" 
-        class= "btn {{styleClass}}"
-        [sabloTabseq]="tabSeq"
-        *ngFor="let item of valuelistID | notNullOrEmpty; let i = index;"
-        [ngClass]="selectedValues[item.realValue] ? 'active' : ''" 
-        (click)="onClick(item)">
-        <span [textContent]='item.displayValue' *ngIf='showAs != "html" && showAs != "trusted_html"'></span>
-        <span [innerHtml]="item.displayValue | htmlFilter | trustAsHtml: servoyApi.trustAsHtml()" *ngIf='showAs == "html" || showAs == "trusted_html"'></span>
+  [id]="servoyApi.getMarkupId()"
+  [svyTooltip]="toolTipText"
+  #element>
+  @for (item of valuelistID | notNullOrEmpty; track item; let i = $index) {
+    <button type="button"
+      class= "btn {{styleClass}}"
+      [sabloTabseq]="tabSeq"
+      [ngClass]="selectedValues[item.realValue] ? 'active' : ''"
+      (click)="onClick(item)">
+      @if (showAs != "html" && showAs != "trusted_html") {
+        <span [textContent]='item.displayValue'></span>
+      }
+      @if (showAs == "html" || showAs == "trusted_html") {
+        <span [innerHtml]="item.displayValue | htmlFilter | trustAsHtml: servoyApi.trustAsHtml()"></span>
+      }
     </button>
+  }
 </div>
