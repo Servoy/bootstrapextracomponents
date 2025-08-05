@@ -1,0 +1,26 @@
+.servoyExtraComponentsContainer .warningLabelTest.svy-label {
+	color: #ff0000 !important;
+}
+
+.my-button {
+	border-radius: 4px; 	/** Here's how to get rounded borders */
+	background-color: #0080c0;
+	color: #fff;
+	font-size: 14px;  
+	cursor:pointer;
+	text-align: center;
+	border: #ccc 1px solid;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.my-button:HOVER
+{
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+}
+
+.fontAwesomeExample {
+	color: green;
+}

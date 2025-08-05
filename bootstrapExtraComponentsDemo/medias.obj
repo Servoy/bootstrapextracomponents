@@ -1,23 +1,36 @@
 [
 {
-encapsulation:0,
-mimeType:"text/css",
-name:"bootstrap_extra_demo.css",
-typeid:37,
-uuid:"A7D8534D-9F80-4679-84AF-F943797ABE06"
+    "encapsulation":0,
+    "mimeType":"text/css",
+    "name":"bootstrap_extra_demo.css",
+    "typeid":37,
+    "uuid":"A7D8534D-9F80-4679-84AF-F943797ABE06"
 },
 {
-encapsulation:0,
-mimeType:"image/png",
-name:"servoy_logo.png",
-typeid:37,
-uuid:"BAF87A22-88C2-42EE-BD88-D10BAACA7D62"
+    "encapsulation":0,
+    "name":"custom_servoy_theme_properties.less",
+    "typeid":37,
+    "uuid":"50597FAC-1C0E-4229-A701-AEA7AF2D756C"
 },
 {
-encapsulation:0,
-mimeType:"image/png",
-name:"servoy_logo_next_gen.png",
-typeid:37,
-uuid:"881A887F-2DE9-4632-B53E-89314E3ACECC"
+    "encapsulation":0,
+    "mimeType":"image/png",
+    "name":"servoy_logo.png",
+    "typeid":37,
+    "uuid":"6097CE35-FED4-4576-997A-C307B4CB5B9E"
+},
+{
+    "encapsulation":0,
+    "mimeType":"image/png",
+    "name":"servoy_logo_next_gen.png",
+    "typeid":37,
+    "uuid":"881A887F-2DE9-4632-B53E-89314E3ACECC"
+},
+{
+    "encapsulation":0,
+    "mimeType":"application/json",
+    "name":"variants.json",
+    "typeid":37,
+    "uuid":"C4EA4845-FF92-4A4E-9EC4-69D9B5DBCD63"
 }
 ]

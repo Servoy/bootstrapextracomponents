@@ -1,0 +1,68 @@
+.webElementsContainer .svy-label {
+	color: #397098;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.webElementsContainer .svy-field, 	
+.webElementsContainer .svy-radiogroup,
+.webElementsContainer textarea.input-sm,
+.webElementsContainer .svy-htmlarea,
+.webElementsContainer .svy-htmlview,
+.webElementsContainer .svy-calendar,
+.webElementsContainer .svy-mediafield,
+.webElementsContainer .svy-typeahead, 
+.webElementsContainer .spinner-input, 
+.webElementsContainer select[multiple].input-sm,
+.webElementsContainer .svy-combobox .btn,
+.webElementsContainer .svy-portal  {
+	border: 1px solid #71ACD7 !important;
+	color: #3576A6;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.webElementsContainer .svy-check-radio {
+	color: #3576A6;
+}
+.webElementsContainer .svy-check-radio:HOVER {
+	color: #093C62;
+}
+
+.webElementsContainer .svy-check-radio .svy-check .input-sm{
+	border: 0px !important;
+}
+
+.webElementsContainer .svy-button {
+	background-color: #397098;
+	color: #fff;
+	border: 1px solid #397098 !important;
+	cursor: auto;
+}
+
+.webElementsContainer .svy-button:HOVER {
+	background-color: #71ACD7;
+}
+
+.webElementsContainer select:-internal-list-box:focus option:checked {
+	color: red !important;
+}
+
+.webElementsContainer .ui-grid-cell-contents {
+	color: #397098;
+}
+
+.webElementsContainer .svy-portal .svy-textfield, 
+.webElementsContainer .svy-portal .svy-calendar {
+	border: 1px solid #ededed !important;
+}
+
+.svy-listbox option:checked {
+	color: red;
+} 
+
+.labelValue {
+	text-align: left !important;
+}
+    

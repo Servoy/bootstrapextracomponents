@@ -4,9 +4,8 @@
 	<comment></comment>
 	<projects>
 		<project>resources</project>
-		<project>svyMicroSamples</project>
-		<project>exampleSharedWebPackages</project>
 		<project>bootstrapextracomponents</project>
+		<project>bootstrapcomponents</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

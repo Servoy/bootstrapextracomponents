@@ -1,0 +1,37 @@
+[
+{
+    "encapsulation":0,
+    "mimeType":"text/css",
+    "name":"samples.css",
+    "typeid":37,
+    "uuid":"A060BE9A-592F-49BF-A6FC-9F46ADFA6356"
+},
+{
+    "encapsulation":0,
+    "mimeType":"image/png",
+    "name":"Servoy.png",
+    "typeid":37,
+    "uuid":"9E7C2725-44BF-4BF0-9A33-505BB92EF72C"
+},
+{
+    "encapsulation":0,
+    "mimeType":"text/css",
+    "name":"servoyExtraComponents.css",
+    "typeid":37,
+    "uuid":"088A1ED3-834E-4CA4-8E89-7890DE84077C"
+},
+{
+    "encapsulation":0,
+    "mimeType":"text/css",
+    "name":"sideNav.css",
+    "typeid":37,
+    "uuid":"9CC59BD3-5E09-4F89-AAD8-AC28377F6F92"
+},
+{
+    "encapsulation":0,
+    "mimeType":"text/css",
+    "name":"webElements.css",
+    "typeid":37,
+    "uuid":"CEC58B17-83B3-44C8-99DA-EA3C1C18150C"
+}
+]
