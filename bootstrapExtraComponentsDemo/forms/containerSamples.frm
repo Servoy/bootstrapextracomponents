@@ -1,0 +1,9 @@
+{
+    "customProperties":{
+        "formComponent":false
+    },
+    "extendsID":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
+    "name":"containerSamples",
+    "typeid":3,
+    "uuid":"913C2011-7E8A-409F-8FD0-21ED68BCE8DB"
+}

@@ -19,7 +19,7 @@
         {
             "anchors":9,
             "formIndex":1,
-            "imageMediaID":"9E7C2725-44BF-4BF0-9A33-505BB92EF72C",
+            "imageMediaID":"381C2834-B5D5-41A4-9502-B636225680DF",
             "location":"14,19",
             "size":"151,61",
             "text":"",

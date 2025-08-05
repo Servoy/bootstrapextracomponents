@@ -1,0 +1,9 @@
+{
+    "customProperties":{
+        "formComponent":false
+    },
+    "extendsID":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
+    "name":"ngServiceSamples",
+    "typeid":3,
+    "uuid":"153A531B-5C51-4ADA-9818-5496A0F5538B"
+}

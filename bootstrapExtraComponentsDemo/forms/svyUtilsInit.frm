@@ -1,0 +1,15 @@
+{
+    "encapsulation":46,
+    "extendsID":"8DA2DF20-2C35-463B-B44A-54374150FD84",
+    "items":[
+        {
+            "height":100,
+            "partType":5,
+            "typeid":19,
+            "uuid":"A7E707A0-A646-4A45-AD3D-7BF411B132B3"
+        }
+    ],
+    "name":"svyUtilsInit",
+    "typeid":3,
+    "uuid":"FDCEC1A2-7B7B-4B7D-80D4-910445232814"
+}

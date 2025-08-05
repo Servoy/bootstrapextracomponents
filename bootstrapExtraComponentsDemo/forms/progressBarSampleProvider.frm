@@ -1,26 +1,30 @@
-customProperties:"formComponent:false",
-extendsID:"1046CC5D-E653-4F9C-B8B9-E3FCDA83A211",
-items:[
 {
-anchors:15,
-items:[
-{
-containsFormID:"576112B3-D036-4809-8729-03207B1CEBDA",
-location:"0,30",
-text:"demoProgressBar",
-typeid:15,
-uuid:"57637ADF-7B62-49F2-974B-7F8FACFFA39A"
+    "customProperties":{
+        "formComponent":false
+    },
+    "extendsID":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
+    "items":[
+        {
+            "anchors":15,
+            "items":[
+                {
+                    "containsFormID":"576112B3-D036-4809-8729-03207B1CEBDA",
+                    "location":"0,30",
+                    "text":"demoProgressBar",
+                    "typeid":15,
+                    "uuid":"57637ADF-7B62-49F2-974B-7F8FACFFA39A"
+                }
+            ],
+            "location":"0,0",
+            "name":"tabs",
+            "printable":false,
+            "size":"480,360",
+            "transparent":true,
+            "typeid":16,
+            "uuid":"13F48403-0AEC-41F3-B29D-079D0B710A8A"
+        }
+    ],
+    "name":"progressBarSampleProvider",
+    "typeid":3,
+    "uuid":"612F2433-AD65-4FEE-99AF-A63054947961"
 }
-],
-location:"0,0",
-name:"tabs",
-printable:false,
-size:"480,360",
-transparent:true,
-typeid:16,
-uuid:"13F48403-0AEC-41F3-B29D-079D0B710A8A"
-}
-],
-name:"progressBarSampleProvider",
-typeid:3,
-uuid:"612F2433-AD65-4FEE-99AF-A63054947961"

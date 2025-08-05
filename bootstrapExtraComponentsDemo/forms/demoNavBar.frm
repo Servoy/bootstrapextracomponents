@@ -93,7 +93,7 @@
             "anchors":11,
             "json":{
                 "anchors":11,
-                "brandLogo":"9E7C2725-44BF-4BF0-9A33-505BB92EF72C",
+                "brandLogo":"381C2834-B5D5-41A4-9502-B636225680DF",
                 "brandText":"Servoy Navbar",
                 "collapsing":false,
                 "inverse":false,

@@ -1,26 +1,30 @@
-customProperties:"formComponent:false",
-extendsID:"1046CC5D-E653-4F9C-B8B9-E3FCDA83A211",
-items:[
 {
-anchors:15,
-items:[
-{
-containsFormID:"F5FD53D2-AC93-416C-8F83-B0FD712B4DC3",
-location:"145,143",
-text:"demoBreadcrumbs",
-typeid:15,
-uuid:"CFD71DB2-E15C-4DC1-AF35-E4777F75A6FF"
+    "customProperties":{
+        "formComponent":false
+    },
+    "extendsID":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
+    "items":[
+        {
+            "anchors":15,
+            "items":[
+                {
+                    "containsFormID":"F5FD53D2-AC93-416C-8F83-B0FD712B4DC3",
+                    "location":"145,143",
+                    "text":"demoBreadcrumbs",
+                    "typeid":15,
+                    "uuid":"CFD71DB2-E15C-4DC1-AF35-E4777F75A6FF"
+                }
+            ],
+            "location":"0,0",
+            "name":"tabs",
+            "printable":false,
+            "size":"480,360",
+            "transparent":true,
+            "typeid":16,
+            "uuid":"EB5D2524-0E50-4C2F-B685-D8CDE676740D"
+        }
+    ],
+    "name":"breadcrumbsSampleProvider",
+    "typeid":3,
+    "uuid":"3CAD4044-167A-4886-8847-FD59AF59E4B7"
 }
-],
-location:"0,0",
-name:"tabs",
-printable:false,
-size:"480,360",
-transparent:true,
-typeid:16,
-uuid:"EB5D2524-0E50-4C2F-B685-D8CDE676740D"
-}
-],
-name:"breadcrumbsSampleProvider",
-typeid:3,
-uuid:"3CAD4044-167A-4886-8847-FD59AF59E4B7"
