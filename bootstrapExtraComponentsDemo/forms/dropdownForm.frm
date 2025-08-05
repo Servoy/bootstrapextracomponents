@@ -264,7 +264,7 @@
             "uuid":"EF5BF2BF-AD97-45A2-ABA0-51A3247BA25C"
         }
     ],
-    "name":"demoDropDown",
+    "name":"dropdownForm",
     "navigatorID":"-1",
     "showInMenu":true,
     "typeid":3,

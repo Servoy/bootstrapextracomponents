@@ -253,7 +253,7 @@
             "uuid":"F85E52CE-0214-4E8B-B59E-917B1B659017"
         }
     ],
-    "name":"demoNavBar",
+    "name":"navbarForm",
     "navigatorID":"-1",
     "showInMenu":true,
     "typeid":3,

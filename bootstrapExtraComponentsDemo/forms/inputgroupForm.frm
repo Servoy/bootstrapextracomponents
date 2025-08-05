@@ -487,7 +487,7 @@
             "uuid":"FE2EAEDB-27AA-45AC-B95E-7EA66CA85D70"
         }
     ],
-    "name":"demoInputGroup",
+    "name":"inputgroupForm",
     "navigatorID":"-1",
     "onElementDataChangeMethodID":"2504E01F-7743-42E3-A239-A221D26A0957",
     "onElementFocusGainedMethodID":"21EBECA9-C714-4633-A6ED-37E5A385C0DB",

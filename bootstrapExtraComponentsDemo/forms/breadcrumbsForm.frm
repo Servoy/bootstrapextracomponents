@@ -120,7 +120,7 @@
             "uuid":"E7BCB186-1A1C-4D33-9F64-389E0A52DC36"
         }
     ],
-    "name":"demoBreadcrumbs",
+    "name":"breadcrumbsForm",
     "navigatorID":"-1",
     "onShowMethodID":"60CF4AC0-5951-4CC3-9FF0-0F83B078834C",
     "showInMenu":true,
