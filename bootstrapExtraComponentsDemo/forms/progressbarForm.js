@@ -38,3 +38,23 @@ function onAction_btnPerformHeavyJob(event) {
 		application.sleep(10);
 	}
 }
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"8571FF03-4454-4CE7-8297-BFC785694609"}
+ */
+function onAction_updateProgress(event) {
+	for (var i = 1; i <= 200; i++) {
+		elements.progressbar_1.updateProgressBar(i);
+		elements.progressbar_2.updateProgressBar(i);
+		elements.progressbar_3.updateProgressBar(i);
+		elements.progressbar_4.updateProgressBar(i);
+		
+		elements.progressbar_5.updateProgressBar(i, i + ' steps done');
+		
+		application.sleep(10);
+	}
+}

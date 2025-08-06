@@ -6,7 +6,7 @@
     "encapsulation":108,
     "items":[
         {
-            "cssPosition":"96,-1,-1,16,159,30",
+            "cssPosition":"96,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -14,7 +14,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"96",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Group buttons",
@@ -26,7 +26,7 @@
             "uuid":"02E92B1F-B91F-4A18-BF4C-E9942C65243D"
         },
         {
-            "cssPosition":"55,-1,-1,16,159,30",
+            "cssPosition":"55,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -34,7 +34,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"55",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Breadcrumbs",
@@ -46,7 +46,7 @@
             "uuid":"1AF5518E-4A66-4E6F-B201-B87D6DBB1B68"
         },
         {
-            "cssPosition":"15,-1,-1,16,159,30",
+            "cssPosition":"15,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -54,7 +54,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"15",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Badge",
@@ -66,7 +66,7 @@
             "uuid":"1D7D0C49-2B5A-4395-97C1-71EFCC992D86"
         },
         {
-            "cssPosition":"383,-1,-1,16,159,30",
+            "cssPosition":"383,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -74,7 +74,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"383",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Rating",
@@ -86,7 +86,7 @@
             "uuid":"33320B74-3592-44FD-879F-5BCB9BC64197"
         },
         {
-            "cssPosition":"301,-1,-1,16,159,30",
+            "cssPosition":"301,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -94,7 +94,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"301",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"NavBar",
@@ -112,7 +112,7 @@
             "uuid":"3DB4DA5F-DB1A-47B9-84F9-FFF76AC65D3A"
         },
         {
-            "cssPosition":"178,-1,-1,16,159,30",
+            "cssPosition":"178,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -120,7 +120,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"178",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Carousel (foundset)",
@@ -132,7 +132,7 @@
             "uuid":"5B0E9EBA-D8AF-4604-B401-AFB0F949F0A5"
         },
         {
-            "cssPosition":"137,-1,-1,16,159,30",
+            "cssPosition":"137,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -140,7 +140,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"137",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Carousel (no foundset)",
@@ -152,7 +152,7 @@
             "uuid":"6709C966-F665-4C2C-AA8E-92CC833AFB27"
         },
         {
-            "cssPosition":"342,-1,-1,16,159,30",
+            "cssPosition":"342,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -160,7 +160,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"342",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Progress Bar",
@@ -172,7 +172,7 @@
             "uuid":"6EFE5953-67D6-4727-917D-BE2743D7BC64"
         },
         {
-            "cssPosition":"424,-1,-1,16,159,30",
+            "cssPosition":"424,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -180,7 +180,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"424",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Switch",
@@ -192,7 +192,7 @@
             "uuid":"C3281A01-E8AF-4403-AC34-E34E199FBABA"
         },
         {
-            "cssPosition":"219,-1,-1,16,159,30",
+            "cssPosition":"219,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -200,7 +200,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"219",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Drop Down",
@@ -212,7 +212,7 @@
             "uuid":"DFFAD6CA-847B-4E03-ACFF-F65D00E51FE8"
         },
         {
-            "cssPosition":"260,-1,-1,16,159,30",
+            "cssPosition":"260,-1,-1,16,184,30",
             "json":{
                 "cssPosition":{
                     "bottom":"-1",
@@ -220,7 +220,7 @@
                     "left":"16",
                     "right":"-1",
                     "top":"260",
-                    "width":"159"
+                    "width":"184"
                 },
                 "onActionMethodID":"5CD03CAB-5845-4F9B-8138-25FF61CC55A8",
                 "text":"Input group",
@@ -235,7 +235,7 @@
     "name":"selectorForm",
     "navigatorID":"-1",
     "showInMenu":true,
-    "size":"195,718",
+    "size":"214,475",
     "typeid":3,
     "uuid":"8A01E07D-5F07-4D7E-9A43-BE2271A54D48"
 }

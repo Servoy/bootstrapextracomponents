@@ -22,6 +22,7 @@ var numberVar;
  */
 function onAction_input(event) {
 	application.output('onAction called from ' + event.getElementName());
+	elements.label_action.text = 'onAction called from ' + event.getElementName();
 }
 
 /**
@@ -38,7 +39,8 @@ function onAction_input(event) {
  */
 function onDataChange_input(oldValue, newValue, event) {
 	application.output('onDataChange called from ' + event.getElementName());
-	return false;
+	elements.label_dataChange.text = 'onDataChange called from ' + event.getElementName() + ' From: ' + oldValue + ' to: ' + newValue;
+	return true;
 }
 
 /**
@@ -51,6 +53,7 @@ function onDataChange_input(oldValue, newValue, event) {
  */
 function onFocusGained_input(event) {
 	application.output('onFocusGained called from ' + event.getElementName());
+	elements.label_focus.text = 'onFocusGained called from ' + event.getElementName();
 }
 
 /**
@@ -63,6 +66,7 @@ function onFocusGained_input(event) {
  */
 function onFocusLost_input(event) {
 	application.output('onFocusLost called from ' + event.getElementName());
+	elements.label_focus.text = 'onFocusLost called from ' + event.getElementName();
 }
 
 /**
@@ -75,6 +79,7 @@ function onFocusLost_input(event) {
  */
 function onRightClick_input(event) {
 	application.output('onRightClick called from ' + event.getElementName());
+	elements.label_action.text = 'onRightClick called from ' + event.getElementName();
 }
 
 /**
@@ -90,6 +95,7 @@ function onRightClick_input(event) {
  */
 function onAction_button(event, btnName, btnText, btnIndex) {
 	application.output('onAction called from button "' + (btnText || btnName) + '" from ' + event.getElementName());
+	elements.label_buttonsAction.text = 'onAction called from button "' + (btnText || btnName) + '" from ' + event.getElementName();
 }
 
 /**
@@ -105,6 +111,7 @@ function onAction_button(event, btnName, btnText, btnIndex) {
  */
 function onDoubleClick_button(event, btnName, btnText, btnIndex) {
 	application.output('onDoubleClick called from button "' + (btnText || btnName) + '" from ' + event.getElementName());
+	elements.label_buttonsAction.text = 'onDoubleClick called from button "' + (btnText || btnName) + '" from ' + event.getElementName();
 }
 
 /**
@@ -120,6 +127,7 @@ function onDoubleClick_button(event, btnName, btnText, btnIndex) {
  */
 function onRightClick_button(event, btnName, btnText, btnIndex) {
 	application.output('onRightClick called from button "' + (btnText || btnName) + '" from ' + event.getElementName());
+	elements.label_buttonsAction.text = 'onRightClick called from button "' + (btnText || btnName) + '" from ' + event.getElementName();
 }
 
 /**
@@ -135,25 +143,22 @@ function onAction_api_create_group(event) {
 	elements.input_group_11.clearAddOns();
 	elements.input_group_11.clearAddOnButtons();
 	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOn>>} */
-	var addOns = [{text: '@'}]
+	var addOns = [{ text: '@' }]
 	elements.input_group_11.setAddOns(addOns);
-	
+
 	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} */
-	var addOnButtons = [
-		{
-			position: 'RIGHT', 
-			name: 'btnSearch', 
-			imageStyleClass: 'glyphicon glyphicon-search', 
+	var addOnButtons = [{
+			position: 'RIGHT',
+			name: 'btnSearch',
+			imageStyleClass: 'glyphicon glyphicon-search',
 			onAction: onAction_button
-		}, 
-		{
-			text: 'Search', 
-			position: 'RIGHT', 
-			styleClass: 'btn-primary', 
-			imageStyleClass: 'fa fa-wifi', 
+		}, {
+			text: 'Search',
+			position: 'RIGHT',
+			styleClass: 'btn-primary',
+			imageStyleClass: 'fa fa-wifi',
 			onAction: onAction_button
-		}
-	];
+		}];
 	elements.input_group_11.setAddOnButtons(addOnButtons);
 }
 
@@ -205,4 +210,110 @@ function onElementDataChange(oldValue, newValue, event) {
 function onElementFocusGained(event) {
 	application.output('onElementFocusGained called from ' + event.getElementName());
 	return true
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"62DAE07D-5F7D-4B9C-AFB7-D5AB8A146323"}
+ */
+function onAction_requestFocus(event) {
+	elements.input_group_11.requestFocus();
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"43D87248-9C2C-49BE-8DED-538B3DCAC879"}
+ */
+function onAction_addAddOn(event) {
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOn>>} */
+	var addOn = { text: 'Add on text' }
+	elements.input_group_11.addAddOn(addOn);
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"DA83FE8C-9531-47DE-B7B0-3C32A6529351"}
+ */
+function onAction_setAddOns(event) {
+	elements.input_group_11.clearAddOns();
+	elements.input_group_11.clearAddOnButtons();
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOn>>} */
+	var addOns = [{ text: '@' }]
+	elements.input_group_11.setAddOns(addOns);
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"E6050D9D-187F-4969-BC26-68073ADA62D5"}
+ */
+function onAction_clearAddOns(event) {
+	elements.input_group_11.clearAddOns();	
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"020A1D62-46EA-4FFE-9330-15E70AD5ED26"}
+ */
+function onAction_addAddOnButton(event) {
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} */
+	var addOnButton = {
+			position: 'RIGHT',
+			name: 'btnSearch',
+			imageStyleClass: 'glyphicon glyphicon-search',
+			onAction: onAction_button
+		};
+	elements.input_group_11.addAddOnButton(addOnButton);
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"159A93F0-2626-4AED-8AE4-384FA16F883F"}
+ */
+function onAction_setAddOnButtons(event) {
+	elements.input_group_11.clearAddOns();
+	elements.input_group_11.clearAddOnButtons();
+
+	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} */
+	var addOnButtons = [{
+			position: 'RIGHT',
+			name: 'btnSearch',
+			imageStyleClass: 'glyphicon glyphicon-search',
+			onAction: onAction_button
+		}, {
+			text: 'Search',
+			position: 'RIGHT',
+			styleClass: 'btn-primary',
+			imageStyleClass: 'fa fa-wifi',
+			onAction: onAction_button
+		}];
+	elements.input_group_11.setAddOnButtons(addOnButtons);
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"D0D76173-FE90-45FC-B754-3CD72162A19B"}
+ */
+function onAction_clearAddOnButtons(event) {
+	elements.input_group_11.clearAddOnButtons();	
 }

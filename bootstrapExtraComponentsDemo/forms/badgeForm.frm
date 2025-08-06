@@ -10,8 +10,8 @@
                 "displayType":"BUTTON",
                 "enabled":true,
                 "location":{
-                    "x":15,
-                    "y":160
+                    "x":21,
+                    "y":172
                 },
                 "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
                 "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
@@ -23,7 +23,7 @@
                 "styleClass":"btn-danger",
                 "text":"Messages"
             },
-            "location":"15,160",
+            "location":"21,172",
             "name":"badge_button2",
             "size":"150,40",
             "typeName":"bootstrapextracomponents-badge",
@@ -38,8 +38,8 @@
                 "displayType":"BUTTON",
                 "enabled":false,
                 "location":{
-                    "x":192,
-                    "y":105
+                    "x":198,
+                    "y":117
                 },
                 "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
                 "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
@@ -52,7 +52,7 @@
                 "text":"Messages",
                 "visible":true
             },
-            "location":"192,105",
+            "location":"198,117",
             "name":"badge_button_disabled",
             "size":"150,40",
             "typeName":"bootstrapextracomponents-badge",
@@ -67,8 +67,8 @@
                 "displayType":"LABEL",
                 "enabled":false,
                 "location":{
-                    "x":192,
-                    "y":55
+                    "x":198,
+                    "y":67
                 },
                 "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
                 "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
@@ -79,7 +79,7 @@
                 },
                 "text":"Inbox"
             },
-            "location":"192,55",
+            "location":"198,67",
             "name":"badge_label_disabled",
             "size":"150,40",
             "typeName":"bootstrapextracomponents-badge",
@@ -93,8 +93,8 @@
                 "displayType":"BUTTON",
                 "enabled":true,
                 "location":{
-                    "x":15,
-                    "y":105
+                    "x":21,
+                    "y":117
                 },
                 "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
                 "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
@@ -106,7 +106,7 @@
                 "styleClass":"btn-primary",
                 "text":"Messages"
             },
-            "location":"15,105",
+            "location":"21,117",
             "name":"badge_button",
             "size":"150,40",
             "typeName":"bootstrapextracomponents-badge",
@@ -114,7 +114,7 @@
             "uuid":"8DAEDF96-20C3-4F84-ABE7-5167A729F6B9"
         },
         {
-            "location":"192,15",
+            "location":"198,27",
             "size":"150,25",
             "text":"Disabled",
             "transparent":true,
@@ -122,7 +122,7 @@
             "uuid":"C54320A9-E1DB-42D7-8FB5-9FE42ED25AE3"
         },
         {
-            "location":"15,15",
+            "location":"21,27",
             "size":"150,25",
             "text":"Examples",
             "transparent":true,
@@ -136,8 +136,8 @@
                 "displayType":"LABEL",
                 "enabled":true,
                 "location":{
-                    "x":15,
-                    "y":55
+                    "x":21,
+                    "y":67
                 },
                 "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
                 "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
@@ -148,7 +148,7 @@
                 },
                 "text":"Inbox"
             },
-            "location":"15,55",
+            "location":"21,67",
             "name":"badge_label",
             "size":"150,40",
             "typeName":"bootstrapextracomponents-badge",
@@ -160,6 +160,26 @@
             "partType":5,
             "typeid":19,
             "uuid":"D9D4B154-3D44-46F3-82A3-BFD143EC88A0"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":22,
+                    "y":232
+                },
+                "size":{
+                    "height":30,
+                    "width":460
+                },
+                "text":"Label",
+                "variant":"LabelBackground"
+            },
+            "location":"22,232",
+            "name":"label_output",
+            "size":"460,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"E8D3041F-FC54-45BA-940D-1A6077EC8822"
         }
     ],
     "name":"badgeForm",

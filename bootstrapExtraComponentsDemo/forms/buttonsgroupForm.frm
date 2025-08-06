@@ -23,6 +23,7 @@
                 "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
             },
             "location":"306,168",
+            "name":"buttons_checkdefault",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
@@ -31,6 +32,7 @@
         {
             "displaysTags":true,
             "location":"15,15",
+            "name":"labelRadio",
             "size":"230,25",
             "text":"Radio : %%radioValue%%",
             "transparent":true,
@@ -60,10 +62,31 @@
                 "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
             },
             "location":"15,221",
+            "name":"buttons_radioprimarydisabled",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
             "uuid":"31C05B88-8105-4BA2-91B8-18D9FA36F40C"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":15,
+                    "y":301
+                },
+                "size":{
+                    "height":34,
+                    "width":590
+                },
+                "text":"Label",
+                "variant":"LabelBackground"
+            },
+            "location":"15,301",
+            "name":"label_6",
+            "size":"590,34",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"3D350E8D-DDB0-428D-8A7B-2507A0E671C5"
         },
         {
             "json":{
@@ -79,13 +102,13 @@
                     "width":180
                 },
                 "split":true,
-                "styleClass":"btn-primary",
                 "tabSeq":3,
                 "text":"empty value",
                 "toolTipText":"sample tooltip",
                 "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
             },
             "location":"15,168",
+            "name":"buttons_radiodefault",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
@@ -94,6 +117,7 @@
         {
             "displaysTags":true,
             "location":"306,13",
+            "name":"labelCheck",
             "size":"299,25",
             "text":"Checkbox: %%checkboxValue%%",
             "transparent":true,
@@ -115,7 +139,7 @@
                     "width":180
                 },
                 "split":true,
-                "styleClass":"btn-primary",
+                "styleClass":"btn-warning",
                 "tabSeq":3,
                 "text":"focus",
                 "toolTipText":"sample tooltip",
@@ -123,7 +147,9 @@
                 "visible":true
             },
             "location":"15,111",
+            "name":"buttons_radiowarning",
             "size":"180,34",
+            "styleClass":"btn-warning",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
             "uuid":"99B24BCA-FB54-44A8-8CAE-30183E06F791"
@@ -170,7 +196,7 @@
                 "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
             },
             "location":"306,59",
-            "name":"buttons_check",
+            "name":"buttons_checkprimary",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
@@ -199,6 +225,7 @@
                 "visible":true
             },
             "location":"306,111",
+            "name":"buttons_checkwarning",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,
@@ -226,6 +253,7 @@
                 "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
             },
             "location":"306,221",
+            "name":"buttons_checkdefaultdisabled",
             "size":"180,34",
             "typeName":"bootstrapextracomponents-buttons-group",
             "typeid":47,

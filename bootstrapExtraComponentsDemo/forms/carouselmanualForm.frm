@@ -14,7 +14,7 @@
             "uuid":"02EF3337-D608-4B1E-85E7-065FD38E8506"
         },
         {
-            "location":"21,274",
+            "location":"20,273",
             "onActionMethodID":"056341AA-EC1C-4086-AC32-4B7CB91338D6",
             "onDoubleClickMethodID":"-1",
             "onRightClickMethodID":"-1",
@@ -43,7 +43,7 @@
             "uuid":"664D8AED-9E07-442C-BAC5-3EAD93071ACD"
         },
         {
-            "location":"21,309",
+            "location":"20,307",
             "onActionMethodID":"8359B8F1-57DF-41F8-9051-40EA2EC13C61",
             "onDoubleClickMethodID":"-1",
             "onRightClickMethodID":"-1",
@@ -63,7 +63,7 @@
             "uuid":"A56055E7-8D9A-4B4E-AAE8-F8EDEBD6C025"
         },
         {
-            "height":474,
+            "height":800,
             "partType":5,
             "typeid":19,
             "uuid":"A715A33D-22A2-4D0D-8FF7-4B5CE68AC58F"
@@ -122,7 +122,7 @@
     "name":"carouselmanualForm",
     "scrollbars":36,
     "showInMenu":true,
-    "size":"893,474",
+    "size":"900,800",
     "typeid":3,
     "uuid":"F9000FE3-289A-4296-99B8-80BBE446B550"
 }

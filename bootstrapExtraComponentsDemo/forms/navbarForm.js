@@ -57,7 +57,7 @@ function onMenuItemClicked(event, menuItem) {
  * @properties={typeid:24,uuid:"D19F4982-AA64-4B3F-A77B-2D23AF2180AF"}
  */
 function onDataChange_inverted(oldValue, newValue, event) {
-	elements.navbar.inverse = newValue ? true : false;
+	elements.navbar.inverse = elements.navbar_servoyMenu.inverse = newValue ? true : false;
 	return true
 }
 
@@ -69,24 +69,24 @@ function onDataChange_inverted(oldValue, newValue, event) {
  * @properties={typeid:24,uuid:"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34"}
  * @AllowToRunInFind
  */
-function onAction_createMenu(event) {
+function onAction_setMenuItems(event) {
 	var menuItem,
 		menuItems = [];
-	
+
 	menuItem = elements.navbar.createMenuItem('Accounts', '1');
 	menuItem.tooltip = 'Accounts';
 	menuItems.push(menuItem);
-	
-	menuItems.push({itemId: '2', text: 'Invoices', tooltip: 'Invoices'});
-	menuItems.push({itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button'});
-	menuItems.push({text: 'Payables', tooltip: 'Payables'});
-	
+
+	menuItems.push({ itemId: '2', text: 'Invoices', tooltip: 'Invoices' });
+	menuItems.push({ itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button' });
+	menuItems.push({ text: 'Payables', tooltip: 'Payables' });
+
 	menuItem = elements.navbar.createMenuItem('Search account...', '5');
 	menuItem.displayType = 'INPUT';
 	menuItem.iconName = 'glyphicon glyphicon-search';
 	menuItem.tooltip = 'Search';
 	menuItems.push(menuItem);
-	
+
 	menuItem = elements.navbar.createMenuItem('Menu', '6', 'RIGHT');
 	menuItem.tooltip = 'A Submenu';
 	var submenuItems = [];
@@ -95,9 +95,9 @@ function onAction_createMenu(event) {
 	submenuItems.push(elements.navbar.createMenuItem('Last action', '6.3'));
 	menuItem.subMenuItems = submenuItems;
 	menuItems.push(menuItem);
-	
-	menuItems.push({itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT'});
-	
+
+	menuItems.push({ itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT' });
+
 	elements.navbar.brandText = 'Accounting';
 	elements.navbar.setMenuItems(menuItems);
 }
@@ -109,9 +109,9 @@ function onAction_createMenu(event) {
  *
  * @properties={typeid:24,uuid:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE"}
  */
-function onAction_addItem(event) {
+function onAction_addMenuItem(event) {
 	/** @type {CustomType<bootstrapextracomponents-navbar.menuItem>} */
-	var itemToAdd = {itemId: application.getUUID().toString(), text: 'Item added'}
+	var itemToAdd = { itemId: application.getUUID().toString(), text: 'Item added' }
 	elements.navbar.addMenuItem(itemToAdd);
 }
 
@@ -122,13 +122,13 @@ function onAction_addItem(event) {
  *
  * @properties={typeid:24,uuid:"B4E14E6F-6ED0-4130-B92E-24422C07CB3B"}
  */
-function onAction_removeItem(event) {
+function onAction_removeMenuItem(event) {
 	var items = elements.navbar.menuItems;
-	
+
 	var maxValue = items.length;
 	var randNumber = Math.floor(Math.random() * maxValue) + 1;
-	var randomItem = items[randNumber-1];
-	
+	var randomItem = items[randNumber - 1];
+
 	elements.navbar.removeMenuItem(randomItem.itemId);
 }
 
@@ -142,7 +142,7 @@ function onAction_removeItem(event) {
  * @properties={typeid:24,uuid:"EFD5D754-D9C0-4389-8EE9-D66737CB2A96"}
  */
 function onAction_setSelected(event) {
-	var items = elements.navbar.menuItems;	
+	var items = elements.navbar.menuItems;
 	//filter only regular menu items, since only those can be selected
 	function filterItems(item) {
 		return (!item.displayType || (item.displayType == 'MENU_ITEM' && !item.subMenuItems))
@@ -151,7 +151,7 @@ function onAction_setSelected(event) {
 	//pick random item
 	var maxValue = items.length;
 	var randNumber = Math.floor(Math.random() * maxValue) + 1;
-	var randomItem = items[randNumber-1];
+	var randomItem = items[randNumber - 1];
 	//set selected
 	elements.navbar.setMenuSelected(randomItem.itemId);
 }
@@ -169,7 +169,7 @@ function onAction_createIconMenu(event) {
 	var menuItems = [];
 	for (var i = 1; i <= 15; i++) {
 		var iconName = scopes.faIcons.getRandomIcon('fa-lg');
-		menuItems.push({itemId: i, iconName: iconName, tooltip: iconName});
+		menuItems.push({ itemId: i, iconName: iconName, tooltip: iconName });
 	}
 	elements.navbar.setMenuItems(menuItems);
 }
@@ -196,7 +196,7 @@ function onBrandClicked(event) {
  *
  * @properties={typeid:24,uuid:"DF0B5339-9EDD-4562-B335-A90A68C345EF"}
  */
-function onAction_enableDisable(event) {
+function onAction_enableDisableMenuItem(event) {
 	var items = elements.navbar.menuItems;
 	if (items && items.length > 0) {
 		elements.navbar.setMenuItemEnabled(items[0].itemId, !items[0].enabled);
@@ -215,4 +215,83 @@ function onActionSearch() {
  */
 function onActionSearchTypeahead() {
 	plugins.webnotificationsToastr.success("Search " + searchTypeahead)
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"DF440E86-6697-4ADF-B3BB-B9510095DD84"}
+ */
+function onAction_getMenuItem(event) {
+	elements.label_get.text = 'Get menu item: ' + elements.navbar.getMenuItem('2').text;
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"55D955E9-6555-4843-9367-1115F8E1B4A6"}
+ */
+function onAction_getSelectedMenu(event) {
+	elements.label_get.text = 'Get Selected Menu: ' + elements.navbar.getSelectedMenu().text;
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"5A117D25-37B7-42EB-9712-94D2ECFD6477"}
+ */
+function onAction_enableDisableSubMenuItem(event) {
+	elements.navbar.setSubMenuItemEnabled('3', '3.1', false);
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"2524366D-4815-4FC3-9A62-FC65CC2B400D"}
+ */
+function onAction_openSubMenu(event) {
+	elements.navbar.openSubMenu('3');
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"31232432-A9DB-41E1-8AC0-C5225DBD9D49"}
+ */
+function onAction_requestFocus(event) {
+	elements.navbar.requestFocus('1');
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"CB1CED5B-0ADD-4766-A18A-F6B657021332"}
+ */
+function onAction_getLocation(event) {
+	var location = elements.navbar.getLocation('4');
+	elements.label_3c.text = 'Get Location: x: ' + location.x + ' y: ' + location.y;
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"2F47A515-77BB-4FC5-A327-448BD8A73E0F"}
+ */
+function onAction_getSize(event) {
+	var size = elements.navbar.getSize('4');
+	elements.label_3c.text = 'Get size: height: ' + size.height + ' width: ' + size.width;
 }

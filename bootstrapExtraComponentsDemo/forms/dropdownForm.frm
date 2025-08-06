@@ -180,9 +180,29 @@
             "location":"20,130",
             "onActionMethodID":"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
             "size":"180,30",
-            "text":"Create DropDown",
+            "text":"Set menu items",
             "typeid":7,
             "uuid":"772F06CF-15AF-405A-9986-5D5B5F838AD8"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":20,
+                    "y":415
+                },
+                "size":{
+                    "height":30,
+                    "width":599
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"20,415",
+            "name":"lblLastAction",
+            "size":"599,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"9139468B-8815-4864-9EF1-A4D86B9D130E"
         },
         {
             "location":"20,175",
@@ -242,26 +262,6 @@
             "text":"Enable/disable",
             "typeid":7,
             "uuid":"D90B4A28-05E0-44A9-88C7-08E4179DD435"
-        },
-        {
-            "anchors":11,
-            "json":{
-                "anchors":11,
-                "location":{
-                    "x":20,
-                    "y":415
-                },
-                "size":{
-                    "height":30,
-                    "width":600
-                }
-            },
-            "location":"20,415",
-            "name":"lblLastAction",
-            "size":"600,30",
-            "typeName":"servoydefault-label",
-            "typeid":47,
-            "uuid":"EF5BF2BF-AD97-45A2-ABA0-51A3247BA25C"
         }
     ],
     "name":"dropdownForm",

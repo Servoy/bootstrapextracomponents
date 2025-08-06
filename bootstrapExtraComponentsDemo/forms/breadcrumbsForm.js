@@ -96,3 +96,10 @@ function onDataChange_autoRemove(oldValue, newValue, event) {
 function onShow(firstShow, event) {
 	elements.breadcrumbs.autoRemoveWhenClicked = autoRemove ? true : false;
 }
+
+/**
+ * @properties={typeid:24,uuid:"F979D410-FA98-40A6-856A-406EEC0F8495"}
+ */
+function onAction_removeCrumbsAfter() {
+	elements.breadcrumbs.removeCrumbsAfter(2);
+}

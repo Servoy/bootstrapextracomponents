@@ -11,7 +11,7 @@ function onFoundSetLoad(inMemName) {
 	for (var i = 0; i < 10; i++) {
 		ds.addRow([
 			application.getUUID().toString(),
-			plugins.http.getMediaData('http://lorempixel.com/800/600'),
+			plugins.http.getMediaData('https://picsum.photos/800/600'),
 			'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
 		]);
 	}

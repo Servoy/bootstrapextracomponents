@@ -8,6 +8,7 @@
  */
 function onAction_badge(event) {
 	application.output('onAction called from badge ' + event.getElementName());
+	elements.label_output.text = 'onAction called from badge ' + event.getElementName();
 }
 
 /**
@@ -20,6 +21,7 @@ function onAction_badge(event) {
  */
 function onDoubleClick_badge(event) {
 	application.output('onDoubleClick called from badge ' + event.getElementName());
+	elements.label_output.text = 'onDoubleClick called from badge ' + event.getElementName();
 }
 
 /**
@@ -32,4 +34,5 @@ function onDoubleClick_badge(event) {
  */
 function onRightClick_badge(event) {
 	application.output('onRightClick called from badge ' + event.getElementName());
+	elements.label_output.text = 'onRightClick called from badge ' + event.getElementName();
 }

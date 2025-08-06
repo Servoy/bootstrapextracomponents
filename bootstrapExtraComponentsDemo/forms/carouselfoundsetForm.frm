@@ -145,7 +145,7 @@
             "uuid":"E90B99EA-1A3D-4C37-99E5-62CC9C62327D"
         },
         {
-            "height":474,
+            "height":800,
             "partType":5,
             "typeid":19,
             "uuid":"EBB2E479-A59E-4138-8491-6CB087F73E5F"
@@ -172,7 +172,7 @@
     "name":"carouselfoundsetForm",
     "scrollbars":36,
     "showInMenu":true,
-    "size":"893,474",
+    "size":"900,800",
     "typeid":3,
     "uuid":"B91331A5-0F8B-4459-8E91-207834DB908B"
 }

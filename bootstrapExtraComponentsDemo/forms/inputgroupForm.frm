@@ -40,6 +40,47 @@
         },
         {
             "json":{
+                "location":{
+                    "x":15,
+                    "y":728
+                },
+                "size":{
+                    "height":30,
+                    "width":630
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"15,728",
+            "name":"label_dataChange",
+            "size":"630,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"387B3EE4-2788-4D92-87EB-804B5939E2C8"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":620,
+                    "y":394
+                },
+                "onActionMethodID":"D0D76173-FE90-45FC-B754-3CD72162A19B",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Clear Add On Buttons",
+                "variant":"BtnPrimary"
+            },
+            "location":"620,394",
+            "name":"button_clearAddOnButtons",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"3C73E832-5B3A-43A2-A8CA-164DE57E8D98"
+        },
+        {
+            "json":{
                 "addOns":[
                     {
                         "svyUUID":"A9DFB750-8531-4E45-B188-CCBC4C4FBC99",
@@ -75,14 +116,25 @@
             "uuid":"3EC5ED38-61FE-4B52-92A3-0FEC2A9CED3C"
         },
         {
-            "location":"440,105",
-            "onActionMethodID":"F9CB15B3-4687-40DA-B7EE-344CBF933B3A",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"115,30",
-            "text":"Create group",
-            "typeid":7,
-            "uuid":"5BBD179A-163F-4261-9CE5-64CAFF1E8CEB"
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":356
+                },
+                "onActionMethodID":"159A93F0-2626-4AED-8AE4-384FA16F883F",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Set Add On Buttons",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,356",
+            "name":"button_setAddOnButtons",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"52C6347C-AA6C-4F5C-B212-97E695FCC5D2"
         },
         {
             "json":{
@@ -90,6 +142,7 @@
                     "x":440,
                     "y":50
                 },
+                "onAction":"0F340ED4-6D6C-4E08-8986-038128EF43F0",
                 "onDataChangeMethodID":"5AC804EA-1EC1-4C05-8552-36420F87CCB5",
                 "onFocusGainedMethodID":"AF061EB1-6264-49FC-B010-A70C0396211B",
                 "onFocusLostMethodID":"065EC1DF-D22F-49A8-83B3-46509C6C2251",
@@ -198,15 +251,15 @@
             "json":{
                 "dataProviderID":"textVar",
                 "location":{
-                    "x":424,
-                    "y":168
+                    "x":440,
+                    "y":134
                 },
                 "size":{
                     "height":140,
                     "width":140
                 }
             },
-            "location":"424,168",
+            "location":"440,134",
             "name":"textarea_370",
             "size":"140,140",
             "typeName":"servoydefault-textarea",
@@ -260,6 +313,26 @@
         },
         {
             "json":{
+                "location":{
+                    "x":15,
+                    "y":767
+                },
+                "size":{
+                    "height":30,
+                    "width":630
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"15,767",
+            "name":"label_action",
+            "size":"630,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"6F6EAE08-380C-4FE4-A785-E6DAEE03A6C5"
+        },
+        {
+            "json":{
                 "addOns":[
                     {
                         "svyUUID":"D5D84451-3372-498B-9995-43D154A7E49E",
@@ -302,10 +375,52 @@
             "uuid":"7324CF1D-F5D8-41E6-85CA-38CE036699AB"
         },
         {
-            "height":764,
+            "height":1000,
             "partType":5,
             "typeid":19,
             "uuid":"8A297CE3-4E29-48EC-BEA8-4AD474BA0C75"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":171
+                },
+                "onActionMethodID":"62DAE07D-5F7D-4B9C-AFB7-D5AB8A146323",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Request focus",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,171",
+            "name":"button_requestFocusTrue",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"8F6084AC-0726-4589-B22D-8E9BE2E43310"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":245
+                },
+                "onActionMethodID":"DA83FE8C-9531-47DE-B7B0-3C32A6529351",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Set Add Ons",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,245",
+            "name":"button_setAddOns",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"950205E2-13BF-4BEA-B449-3A3B5D9DCD42"
         },
         {
             "location":"440,15",
@@ -314,6 +429,48 @@
             "transparent":true,
             "typeid":7,
             "uuid":"9797E97A-F4B1-4613-8A4B-F5BA6F9EE5DC"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":282
+                },
+                "onActionMethodID":"E6050D9D-187F-4969-BC26-68073ADA62D5",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Clear Add Ons",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,282",
+            "name":"button_clearAddOns",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"A8577C69-96FA-4922-A86B-AB75D0BE73F3"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":319
+                },
+                "onActionMethodID":"020A1D62-46EA-4FFE-9330-15E70AD5ED26",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Add Add On Button",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,319",
+            "name":"button_addAddOnButton",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"B1BFA05B-8347-49AE-A90B-9AC3BAF8AE06"
         },
         {
             "json":{
@@ -386,6 +543,27 @@
             "uuid":"B8226539-A331-49E9-9413-6FFFD4B8C0CB"
         },
         {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":208
+                },
+                "onActionMethodID":"43D87248-9C2C-49BE-8DED-538B3DCAC879",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Add Add On",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,208",
+            "name":"button_addAddOn",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"C2D54961-8747-4156-B724-12590C81C9F2"
+        },
+        {
             "location":"15,415",
             "size":"380,25",
             "text":"Button addons",
@@ -400,6 +578,47 @@
             "transparent":true,
             "typeid":7,
             "uuid":"CF4E6769-88A2-4DF4-98EB-F44AEF3D6928"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":15,
+                    "y":804
+                },
+                "size":{
+                    "height":30,
+                    "width":630
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"15,804",
+            "name":"label_buttonsAction",
+            "size":"630,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"CF92F30E-04E2-43B6-86D9-06CEF7B8DC59"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":619,
+                    "y":136
+                },
+                "onActionMethodID":"F9CB15B3-4687-40DA-B7EE-344CBF933B3A",
+                "size":{
+                    "height":30,
+                    "width":195
+                },
+                "text":"Create Group",
+                "variant":"BtnPrimary"
+            },
+            "location":"619,136",
+            "name":"button_createGroup",
+            "size":"195,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"D14F903B-67A7-474C-8902-8454E8F6C0D0"
         },
         {
             "json":{
@@ -437,6 +656,26 @@
             "typeName":"bootstrapextracomponents-input-group",
             "typeid":47,
             "uuid":"E8ACA99C-6A09-4E0F-8939-830C5DD27870"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":15,
+                    "y":691
+                },
+                "size":{
+                    "height":30,
+                    "width":630
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"15,691",
+            "name":"label_focus",
+            "size":"630,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"EB35513B-89B0-4C99-82B7-E06F9B318CDE"
         },
         {
             "location":"15,560",
@@ -493,7 +732,7 @@
     "onElementFocusGainedMethodID":"21EBECA9-C714-4633-A6ED-37E5A385C0DB",
     "onElementFocusLostMethodID":"B8C7D7DE-0A83-45F3-995B-43FC902287D9",
     "showInMenu":true,
-    "size":"901,764",
+    "size":"901,1000",
     "typeid":3,
     "uuid":"ECDFAA90-A638-4039-9046-93455568C884"
 }

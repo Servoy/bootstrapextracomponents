@@ -99,6 +99,28 @@
         {
             "json":{
                 "location":{
+                    "x":574,
+                    "y":30
+                },
+                "onActionMethodID":"F15BE098-6800-49EA-B7B4-17234FAB4FCE",
+                "size":{
+                    "height":30,
+                    "width":148
+                },
+                "text":"Randomize",
+                "variant":"BtnPrimary",
+                "visible":true
+            },
+            "location":"574,30",
+            "name":"button_randomize",
+            "size":"148,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"56CB8AD3-8526-4346-BBF6-FB187977545D"
+        },
+        {
+            "json":{
+                "location":{
                     "x":240,
                     "y":110
                 },
@@ -152,20 +174,54 @@
             "uuid":"9156AEBB-63BA-4D56-9BED-958033E9F1CB"
         },
         {
+            "json":{
+                "location":{
+                    "x":573,
+                    "y":109
+                },
+                "onActionMethodID":"8571FF03-4454-4CE7-8297-BFC785694609",
+                "size":{
+                    "height":30,
+                    "width":148
+                },
+                "text":"Update progress",
+                "variant":"BtnPrimary",
+                "visible":true
+            },
+            "location":"573,109",
+            "name":"button_updateProgress",
+            "size":"148,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"97423C47-4470-4EFB-A313-397BE6F3A57E"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":573,
+                    "y":70
+                },
+                "onActionMethodID":"B105D079-215A-4E1D-8DD1-88589F5BA07F",
+                "size":{
+                    "height":30,
+                    "width":148
+                },
+                "text":"Perform heavy job",
+                "variant":"BtnPrimary",
+                "visible":true
+            },
+            "location":"573,70",
+            "name":"button_heavyjob",
+            "size":"148,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"9DB19504-9913-42C3-9AE2-A28A79812B67"
+        },
+        {
             "height":480,
             "partType":5,
             "typeid":19,
             "uuid":"B046F270-09F8-44D8-9D14-29D6148427E9"
-        },
-        {
-            "location":"574,70",
-            "onActionMethodID":"B105D079-215A-4E1D-8DD1-88589F5BA07F",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"145,25",
-            "text":"Perform heavy job",
-            "typeid":7,
-            "uuid":"B0EAC4EA-BC03-4007-A426-91AE0DE2AA95"
         },
         {
             "location":"15,110",
@@ -173,16 +229,6 @@
             "text":"Not striped, value as %",
             "typeid":7,
             "uuid":"B1C841D1-1B61-4425-8882-3B2F6F1C6144"
-        },
-        {
-            "location":"574,30",
-            "onActionMethodID":"F15BE098-6800-49EA-B7B4-17234FAB4FCE",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"145,25",
-            "text":"Randomize",
-            "typeid":7,
-            "uuid":"D09ABAE4-874F-4773-BBBC-154DCD4E5D67"
         }
     ],
     "name":"progressbarForm",

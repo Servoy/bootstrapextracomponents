@@ -4,25 +4,7 @@
     },
     "items":[
         {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":220
-                },
-                "size":{
-                    "height":30,
-                    "width":600
-                }
-            },
-            "location":"20,220",
-            "name":"lblLastClick",
-            "size":"600,30",
-            "typeName":"servoydefault-label",
-            "typeid":47,
-            "uuid":"1468DFD4-E402-4B15-99DB-05EBDAD5C749"
-        },
-        {
-            "location":"20,130",
+            "location":"18,184",
             "onActionMethodID":"57AAF4B7-4F01-44C4-8B96-3E81F284B737",
             "size":"170,30",
             "text":"Create breadcrumbs",
@@ -30,7 +12,7 @@
             "uuid":"333F130D-D4CA-4973-9C8A-29519AA1B1BC"
         },
         {
-            "location":"200,130",
+            "location":"18,220",
             "onActionMethodID":"BF3ED412-4C88-4D02-8297-3A7B1C2847E5",
             "size":"170,30",
             "text":"Add breadcrumbs",
@@ -44,7 +26,8 @@
             "uuid":"4D793DDE-08B3-485D-8B76-B4C1BE64D6F4"
         },
         {
-            "location":"380,130",
+            "background":"#ffffff",
+            "location":"233,220",
             "onActionMethodID":"4E833762-E188-4F89-ABED-861E922E39BC",
             "size":"170,30",
             "text":"Remove last",
@@ -72,8 +55,8 @@
                 ],
                 "lastItemStyleClass":"breadcrumb-last",
                 "location":{
-                    "x":20,
-                    "y":75
+                    "x":18,
+                    "y":81
                 },
                 "onCrumbClicked":"DA5198D2-EA63-4970-8703-9966844DA056",
                 "size":{
@@ -82,12 +65,32 @@
                 },
                 "visible":true
             },
-            "location":"20,75",
+            "location":"18,81",
             "name":"breadcrumbs",
             "size":"600,40",
             "typeName":"bootstrapextracomponents-breadcrumbs",
             "typeid":47,
             "uuid":"9EB70A59-E699-45A5-BFFA-D678CF6D6DC5"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":18,
+                    "y":327
+                },
+                "size":{
+                    "height":30,
+                    "width":600
+                },
+                "text":"Label",
+                "variant":"LabelBackground"
+            },
+            "location":"18,327",
+            "name":"lblLastClick",
+            "size":"600,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"E2397282-4252-43FD-90C7-A7870CAEB08C"
         },
         {
             "dataProviderID":"autoRemove",
@@ -103,8 +106,8 @@
         {
             "json":{
                 "location":{
-                    "x":20,
-                    "y":180
+                    "x":18,
+                    "y":274
                 },
                 "size":{
                     "height":30,
@@ -112,12 +115,20 @@
                 },
                 "text":"Last click:"
             },
-            "location":"20,180",
+            "location":"18,274",
             "name":"label_855",
             "size":"170,30",
             "typeName":"servoydefault-label",
             "typeid":47,
             "uuid":"E7BCB186-1A1C-4D33-9F64-389E0A52DC36"
+        },
+        {
+            "location":"233,184",
+            "onActionMethodID":"F979D410-FA98-40A6-856A-406EEC0F8495",
+            "size":"170,30",
+            "text":"Remove crumbs after",
+            "typeid":7,
+            "uuid":"F9E14589-A4E7-48C0-9848-6C65A0B2DA4E"
         }
     ],
     "name":"breadcrumbsForm",
