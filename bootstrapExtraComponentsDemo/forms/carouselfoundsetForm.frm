@@ -5,14 +5,25 @@
     "dataSource":"mem:carousel_images",
     "items":[
         {
-            "location":"21,255",
-            "onActionMethodID":"A88BF858-3884-4E91-8B24-2B26DBD5B843",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"200,25",
-            "text":"Remove Slide",
-            "typeid":7,
-            "uuid":"038068E7-14B8-4146-B0BC-B09A066864FE"
+            "json":{
+                "location":{
+                    "x":20,
+                    "y":255
+                },
+                "onActionMethodID":"A88BF858-3884-4E91-8B24-2B26DBD5B843",
+                "size":{
+                    "height":30,
+                    "width":200
+                },
+                "text":"Remove slide",
+                "variant":"BtnPrimary"
+            },
+            "location":"20,255",
+            "name":"button_removeSlide",
+            "size":"200,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"0BF1E92B-36BF-4B92-9ED9-F151A0CD4CB6"
         },
         {
             "dataProviderID":"noPause",
@@ -92,6 +103,25 @@
             "uuid":"85C34311-F30E-4D0E-BB9E-1D5FDD163E78"
         },
         {
+            "json":{
+                "location":{
+                    "x":20,
+                    "y":700
+                },
+                "size":{
+                    "height":30,
+                    "width":667
+                },
+                "variant":"LabelBackground"
+            },
+            "location":"20,700",
+            "name":"label_output",
+            "size":"667,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"9380D480-A01F-4DBE-8C01-D022B5928B60"
+        },
+        {
             "dataProviderID":"noTransition",
             "displayType":4,
             "location":"20,145",
@@ -114,14 +144,25 @@
             "uuid":"9FB268D9-3640-49A8-8DBB-D532FFE92B2C"
         },
         {
-            "location":"21,220",
-            "onActionMethodID":"D02A91E6-0DC5-4121-B17D-6F234E69B3A4",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"200,25",
-            "text":"Add slide",
-            "typeid":7,
-            "uuid":"A8D5D163-5BC0-4A56-8D8F-DFFFCEA9DCCD"
+            "json":{
+                "location":{
+                    "x":20,
+                    "y":215
+                },
+                "onActionMethodID":"D02A91E6-0DC5-4121-B17D-6F234E69B3A4",
+                "size":{
+                    "height":30,
+                    "width":200
+                },
+                "text":"Add slide",
+                "variant":"BtnPrimary"
+            },
+            "location":"20,215",
+            "name":"button_addSlide",
+            "size":"200,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"AF20344F-4107-4362-9A3E-E7B8067E44AC"
         },
         {
             "location":"20,415",

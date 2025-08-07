@@ -38,7 +38,7 @@ var imageCounter = 1;
  */
 function onAction_btnAddImage(event) {
 	var record = foundset.getRecord(foundset.newRecord());
-	record.image = plugins.http.getMediaData('http://lorempixel.com/800/600/');
+	record.image = plugins.http.getMediaData('https://picsum.photos/800/600');
 	record.caption = 'Image added on ' + utils.dateFormat(new Date(), 'HH:mm:ss');
 	databaseManager.saveData(record);
 }
@@ -133,6 +133,7 @@ function onAction_btnRemoveSlide(event) {
  */
 function onSlideClicked(event, slide) {
 	application.output('Click on slide ' + slide.imageUrl);
+	elements.label_output.text = 'Click on slide ' + slide.imageUrl;
 }
 
 /**

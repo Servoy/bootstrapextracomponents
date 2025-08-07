@@ -42,7 +42,7 @@ function onAction_btnAddImage(event) {
 		imageUrl: "http://lorempixel.com/800/600/city/" + imageCounter,
 		caption: 'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
 	}
-	imageCounter ++;
+	imageCounter++;
 	if (imageCounter == 10) {
 		imageCounter = 1;
 	}
@@ -70,7 +70,7 @@ function onAction_btnSetSlides(event) {
 			caption: 'Random slide from ' + utils.dateFormat(new Date(), 'HH:mm:ss')
 		}
 		slides.push(slideToAdd);
-		imageCounter ++;
+		imageCounter++;
 	}
 	elements.carousel.setSlides(slides);
 }
@@ -165,4 +165,28 @@ function onAction_btnRemoveSlide(event) {
  */
 function onSlideClicked(event, slide) {
 	application.output('Click on slide ' + slide.imageUrl);
+	elements.label_output.text = 'Click on slide ' + slide.imageUrl;
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"39313A60-A6F7-4016-9E4E-20117DA43F36"}
+ */
+function onAction_btnGetSelectedIndex(event) {
+	elements.label_output.text = 'Get selected index : ' + elements.carousel.getSelectedIndex();
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"F65EB26B-E409-47A6-9282-073B7AF475A6"}
+ */
+function onAction_btnSetSelectedIndex(event) {
+	elements.label_output.text = 'Set selected index';
+	elements.carousel.setSelectedIndex(1);
 }

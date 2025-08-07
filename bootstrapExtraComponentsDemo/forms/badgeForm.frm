@@ -171,7 +171,7 @@
                     "height":30,
                     "width":460
                 },
-                "text":"Label",
+                "text":"",
                 "variant":"LabelBackground"
             },
             "location":"22,232",
