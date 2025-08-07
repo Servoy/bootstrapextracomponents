@@ -28,3 +28,20 @@ function onHover(event, value) {
 function onLeave(event, value) {
 	elements.events.text = 'onLeave called from \'' + event.getElementName() + '\' with value ' + value;
 }
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"A9F2E20E-C261-4483-9B86-F0102210B2E4"}
+ */
+function onDataChange(oldValue, newValue, event) {
+	elements.onDataChange.text = 'On data change: oldvalue - ' + oldValue + '  new value: - ' + newValue;
+	return true;
+}

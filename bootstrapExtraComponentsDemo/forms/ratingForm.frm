@@ -5,6 +5,27 @@
     "items":[
         {
             "json":{
+                "location":{
+                    "x":210,
+                    "y":265
+                },
+                "size":{
+                    "height":30,
+                    "width":400
+                },
+                "text":"",
+                "variant":"LabelBackground",
+                "visible":true
+            },
+            "location":"210,265",
+            "name":"events",
+            "size":"400,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"09BBC95C-F59A-42E7-8E83-4649750F66F9"
+        },
+        {
+            "json":{
                 "dataProvider":"rating",
                 "dataProviderID":"rating",
                 "enabled":true,
@@ -13,6 +34,7 @@
                     "y":105
                 },
                 "max":10,
+                "onDataChangeMethodID":"A9F2E20E-C261-4483-9B86-F0102210B2E4",
                 "onHover":"EBF93105-97B0-4C44-BF1F-460DDF886D77",
                 "onLeave":"E50275F8-D985-4305-AFCA-DFD0A646C311",
                 "readOnly":false,
@@ -44,6 +66,27 @@
             "uuid":"1952643D-0CF5-4875-9E5D-CF8A2CE7735C"
         },
         {
+            "json":{
+                "location":{
+                    "x":210,
+                    "y":301
+                },
+                "size":{
+                    "height":30,
+                    "width":400
+                },
+                "text":"",
+                "variant":"LabelBackground",
+                "visible":true
+            },
+            "location":"210,301",
+            "name":"onDataChange",
+            "size":"400,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"286AEE97-B668-44F1-9921-15B13BB15E9F"
+        },
+        {
             "labelFor":"rating",
             "location":"15,105",
             "name":"label_rating_2",
@@ -52,15 +95,6 @@
             "transparent":true,
             "typeid":7,
             "uuid":"42B1E083-1CF3-457E-9059-E5E6782BE9FE"
-        },
-        {
-            "labelFor":"rating",
-            "location":"210,260",
-            "name":"events",
-            "size":"400,35",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"4599514F-550C-4E91-8445-77FB7A5193DD"
         },
         {
             "labelFor":"rating",
@@ -83,6 +117,7 @@
                     "y":210
                 },
                 "max":10,
+                "onDataChangeMethodID":"A9F2E20E-C261-4483-9B86-F0102210B2E4",
                 "onHover":"EBF93105-97B0-4C44-BF1F-460DDF886D77",
                 "onLeave":"E50275F8-D985-4305-AFCA-DFD0A646C311",
                 "readOnly":false,
@@ -123,6 +158,7 @@
                     "y":55
                 },
                 "max":10,
+                "onDataChangeMethodID":"A9F2E20E-C261-4483-9B86-F0102210B2E4",
                 "onHover":"EBF93105-97B0-4C44-BF1F-460DDF886D77",
                 "onLeave":"E50275F8-D985-4305-AFCA-DFD0A646C311",
                 "readOnly":false,
@@ -189,6 +225,7 @@
                     "y":160
                 },
                 "max":10,
+                "onDataChangeMethodID":"A9F2E20E-C261-4483-9B86-F0102210B2E4",
                 "onHover":"EBF93105-97B0-4C44-BF1F-460DDF886D77",
                 "onLeave":"E50275F8-D985-4305-AFCA-DFD0A646C311",
                 "readOnly":false,

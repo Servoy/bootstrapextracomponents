@@ -295,3 +295,195 @@ function onAction_getSize(event) {
 	var size = elements.navbar.getSize('4');
 	elements.label_3c.text = 'Get size: height: ' + size.height + ' width: ' + size.width;
 }
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"D309C36B-8B9F-4B27-AC7A-0C8458D6CBA6"}
+ */
+function onAction_setMenuItems1(event) {
+	var menuItem,
+		menuItems = [];
+
+	menuItem = elements.navbar_servoyMenu.createMenuItem('Accounts', '1');
+	menuItem.tooltip = 'Accounts';
+	menuItems.push(menuItem);
+
+	menuItems.push({ itemId: '2', text: 'Invoices', tooltip: 'Invoices' });
+	menuItems.push({ itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button' });
+	menuItems.push({ text: 'Payables', tooltip: 'Payables' });
+
+	menuItem = elements.navbar_servoyMenu.createMenuItem('Search account...', '5');
+	menuItem.displayType = 'INPUT';
+	menuItem.iconName = 'glyphicon glyphicon-search';
+	menuItem.tooltip = 'Search';
+	menuItems.push(menuItem);
+
+	menuItem = elements.navbar_servoyMenu.createMenuItem('Menu', '6', 'RIGHT');
+	menuItem.tooltip = 'A Submenu';
+	var submenuItems = [];
+	submenuItems.push(elements.navbar_servoyMenu.createMenuItem('Action', '6.1'));
+	submenuItems.push(elements.navbar_servoyMenu.createMenuItem('More action', '6.2'));
+	submenuItems.push(elements.navbar_servoyMenu.createMenuItem('Last action', '6.3'));
+	menuItem.subMenuItems = submenuItems;
+	menuItems.push(menuItem);
+
+	menuItems.push({ itemId: '7', text: 'Logged in as John Doe', tooltip: 'just text', displayType: 'TEXT', position: 'RIGHT' });
+
+	elements.navbar_servoyMenu.brandText = 'Accounting';
+	elements.navbar_servoyMenu.setMenuItems(menuItems);
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"F64FD2D4-8269-418D-949D-725AA83D2491"}
+ */
+function onAction_addMenuItem1(event) {
+	/** @type {CustomType<bootstrapextracomponents-navbar.menuItem>} */
+	var itemToAdd = { itemId: application.getUUID().toString(), text: 'Item added' }
+	elements.navbar_servoyMenu.addMenuItem(itemToAdd);
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"E4A33195-A933-43CF-A7D7-25B827946978"}
+ */
+function onAction_removeMenuItem1(event) {
+	//TODO: Does this work with servoy menu?	
+	elements.navbar_servoyMenu.removeMenuItem('menuitem6');
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"4E419FDF-BEBC-4F93-8620-84A611EC256A"}
+ */
+function onAction_setSelected1(event) {
+	//TODO: Does this work with servoy menu?
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"0B9AD789-4B73-4CB1-9525-7E988FCFC0C3"}
+ */
+function onAction_createIconMenu1(event) {
+	var menuItems = [];
+	for (var i = 1; i <= 15; i++) {
+		var iconName = scopes.faIcons.getRandomIcon('fa-lg');
+		menuItems.push({ itemId: i, iconName: iconName, tooltip: iconName });
+	}
+	elements.navbar_servoyMenu.setMenuItems(menuItems);
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"B7ED4A04-F146-461C-BEA8-A2B134DB8C7D"}
+ */
+function onBrandClicked1(event) {
+	elements.lblLastClick1.text = 'Brand Logo/Text clicked';
+}
+
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"BF76A607-3D83-4F3B-8355-9A055F509207"}
+ */
+function onAction_enableDisableMenuItem1(event) {
+	var items = elements.navbar_servoyMenu.servoyMenu;
+	if (items) {
+		//TODO: Does this work with servoy menu?		
+		//elements.navbar_servoyMenu.setMenuItemEnabled(items[0].itemId, !items[0].enabled);
+	}
+}
+
+
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"D48F37DF-C0E2-48EA-83C5-F7E77397D768"}
+ */
+function onAction_getMenuItem1(event) {
+	elements.label_getc.text = 'Get menu item: ' + elements.navbar_servoyMenu.getMenuItem('menuitem12');
+}
+
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"8B5BAD58-F7DC-4F13-993B-329341086038"}
+ */
+function onAction_getSelectedMenu1(event) {
+	//TODO: Does this work with servoy menu?	
+	//elements.label_getc.text = 'Get Selected Menu: ' + elements.navbar_servoyMenu.getSelectedMenu().text;
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"8AE57AF2-C2F2-4F1C-8AA4-17C24451D47A"}
+ */
+function onAction_enableDisableSubMenuItem1(event) {
+	elements.navbar_servoyMenu.setSubMenuItemEnabled('menuitem1', 'menuitem12', false);
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"1F33FDCB-AEE8-4C89-A99E-EF3B02255BE9"}
+ */
+function onAction_openSubMenu1(event) {
+	elements.navbar_servoyMenu.openSubMenu('menuitem1');
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"42113012-37E2-428C-B2D5-BD28B79D991A"}
+ */
+function onAction_requestFocus1(event) {
+	elements.navbar_servoyMenu.requestFocus('menuitem5');
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"FBE0EC9A-9F28-4A49-A360-B22AC811035B"}
+ */
+function onAction_getLocation1(event) {
+	var location = elements.navbar_servoyMenu.getLocation('menuitem1');
+	elements.label_3c.text = 'Get Location: x: ' + location.x + ' y: ' + location.y;
+}
+
+/**
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"FFA65F7E-1DF5-4005-8608-89BAC35D7A75"}
+ */
+function onAction_getSize1(event) {
+	var size = elements.navbar_servoyMenu.getSize('menuitem1');
+	elements.label_3c.text = 'Get size: height: ' + size.height + ' width: ' + size.width;
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ * @param menuItem
+ *
+ * @properties={typeid:24,uuid:"09E9D676-591E-458B-AB54-1C2B49C9F4EC"}
+ */
+function onMenuItemClicked1(event, menuItem) {
+	if (menuItem.itemId == 4) {
+		plugins.webnotificationsToastr.info("Search " + searchField)
+	}
+	elements.lblLastClick1.text = 'Menu item "' + menuItem.text + '" with ID ' + menuItem.itemId;
+}

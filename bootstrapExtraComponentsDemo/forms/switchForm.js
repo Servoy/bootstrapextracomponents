@@ -50,11 +50,48 @@ function onAction$updateColor(event, color) {
 function onDataChangeMethodID(oldValue, newValue, event) {
 	for (var i = 0; i < elements.allnames.length; i++) {
 		var name = elements.allnames[i];
-		var elem = elements[name];		
-		if (elem['onColor'] && elem['offColor'] && name!='switch_enable') {
+		var elem = elements[name];
+		if (elem['onColor'] && elem['offColor'] && name != 'switch_enable') {
 			elem.enabled = enable == 1 ? true : false;
 		}
 	}
 
-	return false;
+	return true;
+}
+
+/**
+ * Fired when the button is clicked.
+ *
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"A19E08FD-FC7C-44FD-B696-7C6B02E7EE63"}
+ */
+function onAction_requestFocus(event) {
+	elements.switch_color.requestFocus();
+}
+
+/**
+ * @param {JSEvent} event
+ *
+ * @properties={typeid:24,uuid:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D"}
+ */
+function onAction(event) {
+	elements.label_action.text = 'On Action switch: ' + event.getElementName();
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope) - present since 2021.06 release
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"7CAED288-74BC-41E1-816E-41D4D13E44CC"}
+ */
+function onDataChange(oldValue, newValue, event) {
+	elements.label_action.text = 'On data change: ' + event.getElementName();	
+	return true
 }

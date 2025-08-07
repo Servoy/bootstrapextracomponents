@@ -21,9 +21,9 @@
                             }
                         }
                     },
-                    "name":"menuitem3",
-                    "text":"Menu Item 3",
-                    "toolTipText":"Tooltip Menu Item 3",
+                    "name":"menuitem12",
+                    "text":"Menu Item 12",
+                    "toolTipText":"Tooltip Menu Item 12",
                     "typeid":53,
                     "uuid":"E97D77E3-E011-4030-A024-8CA758FD9CB0"
                 }

@@ -38,9 +38,9 @@
                 },
                 "markClickedItemActive":true,
                 "menuItems":[],
-                "onBrandClicked":"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
+                "onBrandClicked":"B7ED4A04-F146-461C-BEA8-A2B134DB8C7D",
                 "onBrandLogoClicked":"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
-                "onMenuItemClicked":"1C2DE078-10A9-418B-BD65-D909FBEB82F1",
+                "onMenuItemClicked":"09E9D676-591E-458B-AB54-1C2B49C9F4EC",
                 "servoyMenu":"0390B612-0649-4868-A53C-937B8DAD7963",
                 "size":{
                     "height":55,
@@ -61,7 +61,7 @@
                     "x":26,
                     "y":1166
                 },
-                "onActionMethodID":"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE",
+                "onActionMethodID":"F64FD2D4-8269-418D-949D-725AA83D2491",
                 "size":{
                     "height":30,
                     "width":239
@@ -70,7 +70,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1166",
-            "name":"button_addMenuItemc",
+            "name":"button_addMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -174,7 +174,7 @@
                     "x":27,
                     "y":1444
                 },
-                "onActionMethodID":"2F47A515-77BB-4FC5-A327-448BD8A73E0F",
+                "onActionMethodID":"FFA65F7E-1DF5-4005-8608-89BAC35D7A75",
                 "size":{
                     "height":30,
                     "width":239
@@ -183,7 +183,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"27,1444",
-            "name":"button_getSizec",
+            "name":"button_getSize1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -216,7 +216,7 @@
                     "x":26,
                     "y":1028
                 },
-                "onActionMethodID":"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34",
+                "onActionMethodID":"D309C36B-8B9F-4B27-AC7A-0C8458D6CBA6",
                 "size":{
                     "height":30,
                     "width":239
@@ -225,7 +225,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1028",
-            "name":"button_setMenuItemsc",
+            "name":"button_setMenuItems1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -257,7 +257,7 @@
                     "x":26,
                     "y":1097
                 },
-                "onActionMethodID":"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4",
+                "onActionMethodID":"0B9AD789-4B73-4CB1-9525-7E988FCFC0C3",
                 "size":{
                     "height":30,
                     "width":239
@@ -266,7 +266,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1097",
-            "name":"button_createIconMenuc",
+            "name":"button_createIconMenu1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -319,7 +319,7 @@
                     "x":26,
                     "y":1063
                 },
-                "onActionMethodID":"EFD5D754-D9C0-4389-8EE9-D66737CB2A96",
+                "onActionMethodID":"4E419FDF-BEBC-4F93-8620-84A611EC256A",
                 "size":{
                     "height":30,
                     "width":239
@@ -328,7 +328,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1063",
-            "name":"button_createMenucc",
+            "name":"button_selectMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -340,7 +340,7 @@
                     "x":26,
                     "y":1234
                 },
-                "onActionMethodID":"55D955E9-6555-4843-9367-1115F8E1B4A6",
+                "onActionMethodID":"8B5BAD58-F7DC-4F13-993B-329341086038",
                 "size":{
                     "height":30,
                     "width":239
@@ -349,7 +349,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1234",
-            "name":"button_getSelectedMenuc",
+            "name":"button_getSelectedMenu1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -361,7 +361,7 @@
                     "x":26,
                     "y":1268
                 },
-                "onActionMethodID":"5A117D25-37B7-42EB-9712-94D2ECFD6477",
+                "onActionMethodID":"8AE57AF2-C2F2-4F1C-8AA4-17C24451D47A",
                 "size":{
                     "height":30,
                     "width":239
@@ -370,7 +370,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1268",
-            "name":"button_enableSubMenuItemc",
+            "name":"button_enableSubMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -403,7 +403,7 @@
                     "x":27,
                     "y":1409
                 },
-                "onActionMethodID":"CB1CED5B-0ADD-4766-A18A-F6B657021332",
+                "onActionMethodID":"FBE0EC9A-9F28-4A49-A360-B22AC811035B",
                 "size":{
                     "height":30,
                     "width":239
@@ -412,7 +412,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"27,1409",
-            "name":"button_getLocationc",
+            "name":"button_getLocation1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -443,7 +443,7 @@
                     "x":26,
                     "y":1337
                 },
-                "onActionMethodID":"2524366D-4815-4FC3-9A62-FC65CC2B400D",
+                "onActionMethodID":"1F33FDCB-AEE8-4C89-A99E-EF3B02255BE9",
                 "size":{
                     "height":30,
                     "width":239
@@ -452,7 +452,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1337",
-            "name":"button_openSubMenuc",
+            "name":"button_openSubMenu1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -551,7 +551,7 @@
                     "x":26,
                     "y":1302
                 },
-                "onActionMethodID":"DF440E86-6697-4ADF-B3BB-B9510095DD84",
+                "onActionMethodID":"D48F37DF-C0E2-48EA-83C5-F7E77397D768",
                 "size":{
                     "height":30,
                     "width":239
@@ -560,7 +560,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1302",
-            "name":"button_getMenuItemc",
+            "name":"button_getMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -612,7 +612,7 @@
                     "x":26,
                     "y":1131
                 },
-                "onActionMethodID":"DF0B5339-9EDD-4562-B335-A90A68C345EF",
+                "onActionMethodID":"BF76A607-3D83-4F3B-8355-9A055F509207",
                 "size":{
                     "height":30,
                     "width":239
@@ -621,7 +621,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1131",
-            "name":"button_enableMenuItemc",
+            "name":"button_enableMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -633,7 +633,7 @@
                     "x":26,
                     "y":1373
                 },
-                "onActionMethodID":"31232432-A9DB-41E1-8AC0-C5225DBD9D49",
+                "onActionMethodID":"42113012-37E2-428C-B2D5-BD28B79D991A",
                 "size":{
                     "height":30,
                     "width":239
@@ -642,7 +642,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1373",
-            "name":"button_requestFocusc",
+            "name":"button_requestFocus1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -654,7 +654,7 @@
                     "x":26,
                     "y":1200
                 },
-                "onActionMethodID":"B4E14E6F-6ED0-4130-B92E-24422C07CB3B",
+                "onActionMethodID":"E4A33195-A933-43CF-A7D7-25B827946978",
                 "size":{
                     "height":30,
                     "width":239
@@ -663,7 +663,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"26,1200",
-            "name":"button_removeMenuItemc",
+            "name":"button_removeMenuItem1",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -873,7 +873,7 @@
                 "variant":"BtnPrimary"
             },
             "location":"17,279",
-            "name":"button_createMenuc",
+            "name":"button_selectMenuItem",
             "size":"239,30",
             "typeName":"bootstrapcomponents-button",
             "typeid":47,
@@ -892,7 +892,7 @@
                 "variant":"LabelBackground"
             },
             "location":"29,946",
-            "name":"lblLastClickc",
+            "name":"lblLastClick1",
             "size":"619,30",
             "typeName":"bootstrapcomponents-label",
             "typeid":47,

@@ -57,6 +57,7 @@
                 }
             },
             "location":"5,316",
+            "name":"switchDisabled",
             "size":"257,55",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
@@ -76,18 +77,40 @@
                     "y":209
                 },
                 "offColor":"primary",
+                "onActionMethodID":"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
                 "onColor":"primary",
+                "onDataChangeMethodID":"7CAED288-74BC-41E1-816E-41D4D13E44CC",
                 "size":{
                     "height":43,
-                    "width":294
+                    "width":429
                 }
             },
             "location":"5,209",
             "name":"switch_color",
-            "size":"294,43",
+            "size":"429,43",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
             "uuid":"5C3432A3-26B5-4F92-A576-AFAAE6CB0992"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":5,
+                    "y":444
+                },
+                "size":{
+                    "height":30,
+                    "width":592
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"5,444",
+            "name":"label_action",
+            "size":"592,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"6D854A51-29FC-4688-B8FF-FF93ABD4BC0F"
         },
         {
             "customProperties":{
@@ -159,15 +182,17 @@
                     "y":145
                 },
                 "offColor":"primary",
+                "onActionMethodID":"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
                 "onColor":"primary",
+                "onDataChangeMethodID":"7CAED288-74BC-41E1-816E-41D4D13E44CC",
                 "size":{
                     "height":37,
-                    "width":257
+                    "width":421
                 }
             },
             "location":"5,145",
             "name":"switch_sizecc",
-            "size":"257,37",
+            "size":"421,37",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
             "uuid":"92D216D3-9EE8-48C8-9AEB-F00292B379A0"
@@ -192,15 +217,17 @@
                     "y":75
                 },
                 "offColor":"primary",
+                "onActionMethodID":"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
                 "onColor":"primary",
+                "onDataChangeMethodID":"7CAED288-74BC-41E1-816E-41D4D13E44CC",
                 "size":{
-                    "height":23,
-                    "width":187
+                    "height":30,
+                    "width":308
                 }
             },
             "location":"5,75",
             "name":"switch_size",
-            "size":"187,23",
+            "size":"308,30",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
             "uuid":"A365A0E4-CA57-41C0-A4D2-31218CF3853B"
@@ -219,15 +246,17 @@
                     "y":108
                 },
                 "offColor":"primary",
+                "onActionMethodID":"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
                 "onColor":"primary",
+                "onDataChangeMethodID":"7CAED288-74BC-41E1-816E-41D4D13E44CC",
                 "size":{
                     "height":33,
-                    "width":217
+                    "width":382
                 }
             },
             "location":"5,108",
             "name":"switch_sizec",
-            "size":"217,33",
+            "size":"382,33",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
             "uuid":"BED08D27-56D6-484C-A4A6-CCB2A0F46DC0"
@@ -301,18 +330,61 @@
                     "y":27
                 },
                 "offColor":"primary",
+                "onActionMethodID":"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
                 "onColor":"primary",
+                "onDataChangeMethodID":"7CAED288-74BC-41E1-816E-41D4D13E44CC",
                 "size":{
                     "height":23,
-                    "width":149
+                    "width":292
                 }
             },
             "location":"5,27",
             "name":"switch_a",
-            "size":"149,23",
+            "size":"292,23",
             "typeName":"bootstrapextracomponents-switch",
             "typeid":47,
             "uuid":"ED43ACF8-AAC7-4C8C-A489-3D0231FFEC10"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":5,
+                    "y":399
+                },
+                "onActionMethodID":"A19E08FD-FC7C-44FD-B696-7C6B02E7EE63",
+                "size":{
+                    "height":30,
+                    "width":219
+                },
+                "text":"Request focus",
+                "variant":"BtnPrimary"
+            },
+            "location":"5,399",
+            "name":"button_3",
+            "size":"219,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"F0F14036-ADD8-400A-92E7-2D5574419F9D"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":5,
+                    "y":481
+                },
+                "size":{
+                    "height":30,
+                    "width":592
+                },
+                "text":"",
+                "variant":"LabelBackground"
+            },
+            "location":"5,481",
+            "name":"label_dataChange",
+            "size":"592,30",
+            "typeName":"bootstrapcomponents-label",
+            "typeid":47,
+            "uuid":"F18F692E-CB13-48C8-8B2B-5D5B4878E3F2"
         },
         {
             "location":"5,53",

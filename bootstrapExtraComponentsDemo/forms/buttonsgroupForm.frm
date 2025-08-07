@@ -78,7 +78,7 @@
                     "height":34,
                     "width":590
                 },
-                "text":"Label",
+                "text":"",
                 "variant":"LabelBackground"
             },
             "location":"15,301",

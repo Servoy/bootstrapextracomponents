@@ -110,18 +110,31 @@
             "uuid":"38A11936-09EF-473E-9D86-3ED1290646D8"
         },
         {
-            "location":"20,220",
-            "onActionMethodID":"97E7AE30-2519-45EB-B002-804AA928CAFA",
-            "size":"180,30",
-            "text":"Remove menu item",
-            "typeid":7,
-            "uuid":"429E69EB-17B9-4FAA-9B04-A2ADFFA52CEF"
-        },
-        {
             "height":480,
             "partType":5,
             "typeid":19,
             "uuid":"5B707C21-0B87-4380-9274-DB100704FB5E"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":20,
+                    "y":142
+                },
+                "onActionMethodID":"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
+                "size":{
+                    "height":30,
+                    "width":189
+                },
+                "text":"Set menu items",
+                "variant":"BtnPrimary"
+            },
+            "location":"20,142",
+            "name":"button_setMenuItems",
+            "size":"189,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"5F467448-B882-40BC-BCE6-C30D28613540"
         },
         {
             "json":{
@@ -177,14 +190,6 @@
             "uuid":"67068611-57D9-4A57-BB01-B7AF1A8BA31A"
         },
         {
-            "location":"20,130",
-            "onActionMethodID":"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
-            "size":"180,30",
-            "text":"Set menu items",
-            "typeid":7,
-            "uuid":"772F06CF-15AF-405A-9986-5D5B5F838AD8"
-        },
-        {
             "json":{
                 "location":{
                     "x":20,
@@ -205,12 +210,46 @@
             "uuid":"9139468B-8815-4864-9EF1-A4D86B9D130E"
         },
         {
-            "location":"20,175",
-            "onActionMethodID":"FC2A8371-DDFE-4219-B6C9-32B08625E1E6",
-            "size":"180,30",
-            "text":"Add menu item",
-            "typeid":7,
-            "uuid":"BFB534DA-A136-49E9-9C1D-70E2331936BB"
+            "json":{
+                "location":{
+                    "x":19,
+                    "y":222
+                },
+                "onActionMethodID":"97E7AE30-2519-45EB-B002-804AA928CAFA",
+                "size":{
+                    "height":30,
+                    "width":189
+                },
+                "text":"Remove menu item",
+                "variant":"BtnPrimary"
+            },
+            "location":"19,222",
+            "name":"button_removeMenuItem",
+            "size":"189,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"9435F9B0-3786-4CF7-9D6D-FD69869747A4"
+        },
+        {
+            "json":{
+                "location":{
+                    "x":19,
+                    "y":263
+                },
+                "onActionMethodID":"AD63293F-8987-4401-863C-387F6A6A7DE6",
+                "size":{
+                    "height":30,
+                    "width":189
+                },
+                "text":"Enable/disable",
+                "variant":"BtnPrimary"
+            },
+            "location":"19,263",
+            "name":"button_toggleEnabled",
+            "size":"189,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"C102DF7D-80E1-4C83-8E4A-6CBF1E2703D5"
         },
         {
             "json":{
@@ -256,12 +295,25 @@
             "uuid":"D2BFEE9F-92CC-4278-A7AE-CF456EB94D51"
         },
         {
-            "location":"20,265",
-            "onActionMethodID":"AD63293F-8987-4401-863C-387F6A6A7DE6",
-            "size":"180,30",
-            "text":"Enable/disable",
-            "typeid":7,
-            "uuid":"D90B4A28-05E0-44A9-88C7-08E4179DD435"
+            "json":{
+                "location":{
+                    "x":19,
+                    "y":181
+                },
+                "onActionMethodID":"FC2A8371-DDFE-4219-B6C9-32B08625E1E6",
+                "size":{
+                    "height":30,
+                    "width":189
+                },
+                "text":"Add menu item",
+                "variant":"BtnPrimary"
+            },
+            "location":"19,181",
+            "name":"button_addMenuItems",
+            "size":"189,30",
+            "typeName":"bootstrapcomponents-button",
+            "typeid":47,
+            "uuid":"D68709A0-FA60-4959-B1EE-DE5148464243"
         }
     ],
     "name":"dropdownForm",
