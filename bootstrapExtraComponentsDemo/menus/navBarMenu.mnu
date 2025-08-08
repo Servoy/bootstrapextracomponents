@@ -1,100 +1,55 @@
+items:[
 {
-    "items":[
-        {
-            "customProperties":{
-                "extraProperties":{
-                    "Navbar":{
-                        "displayType":"MENU_ITEM",
-                        "inputButtonText":"BTN"
-                    }
-                }
-            },
-            "items":[
-                {
-                    "customProperties":{
-                        "extraProperties":{
-                            "Navbar":{
-                                "displayType":"MENU_ITEM"
-                            },
-                            "Sidenav":{
-                                "badgeText":"Badge"
-                            }
-                        }
-                    },
-                    "name":"menuitem12",
-                    "text":"Menu Item 12",
-                    "toolTipText":"Tooltip Menu Item 12",
-                    "typeid":53,
-                    "uuid":"E97D77E3-E011-4030-A024-8CA758FD9CB0"
-                }
-            ],
-            "name":"menuitem1",
-            "text":"Menu item 1",
-            "toolTipText":"Tooltip menuitem1",
-            "typeid":53,
-            "uuid":"7CC490E0-678F-4B8A-8076-F3BC0593C2BF"
-        },
-        {
-            "customProperties":{
-                "extraProperties":{
-                    "Navbar":{
-                        "dataProviderValue":"dpText",
-                        "displayType":"TEXT"
-                    }
-                }
-            },
-            "name":"menuitem2",
-            "text":"Menu item 2 text type",
-            "toolTipText":"Tooltip Menu Item 2",
-            "typeid":53,
-            "uuid":"66D9DF24-0714-4378-BEEE-6345B7866A7B"
-        },
-        {
-            "customProperties":{
-                "extraProperties":{
-                    "Navbar":{
-                        "displayType":"BUTTON"
-                    }
-                }
-            },
-            "name":"menuitem4",
-            "text":"Menu Item 4 Button type",
-            "toolTipText":"Tooltip for menu item 4",
-            "typeid":53,
-            "uuid":"637A0000-5D5A-4292-BB06-DAF222ED1098"
-        },
-        {
-            "customProperties":{
-                "extraProperties":{
-                    "Navbar":{
-                        "dataProviderValue":"dpInput",
-                        "displayType":"INPUT"
-                    }
-                }
-            },
-            "name":"menuitem5",
-            "text":"Menu Item 5 input type",
-            "toolTipText":"Tooltip Menu item 5 input",
-            "typeid":53,
-            "uuid":"4B33C7A9-22EF-4529-9417-0B5F8EDB2C08"
-        },
-        {
-            "customProperties":{
-                "extraProperties":{
-                    "Navbar":{
-                        "dataProviderValue":"dpInputGroup",
-                        "displayType":"INPUT_GROUP"
-                    }
-                }
-            },
-            "name":"menuitem6",
-            "text":"Menu item 6 input group type",
-            "toolTipText":"Tooltip menu item 6 input group",
-            "typeid":53,
-            "uuid":"7C2780D0-63FF-4199-9850-B24F2BDF5145"
-        }
-    ],
-    "name":"navBarMenu",
-    "typeid":52,
-    "uuid":"0390B612-0649-4868-A53C-937B8DAD7963"
+customProperties:"\"extraProperties\":{\"Navbar\":{\"displayType\":\"MENU_ITEM\",\"inputButtonText\":\"BTN\"}}",
+items:[
+{
+customProperties:"\"extraProperties\":{\"Navbar\":{\"displayType\":\"MENU_ITEM\"},\"Sidenav\":{\"badgeText\":\"Badge\"}}",
+name:"menuitem12",
+text:"Menu Item 12",
+toolTipText:"Tooltip Menu Item 12",
+typeid:53,
+uuid:"E97D77E3-E011-4030-A024-8CA758FD9CB0"
 }
+],
+name:"menuitem1",
+text:"Menu item 1",
+toolTipText:"Tooltip menuitem1",
+typeid:53,
+uuid:"7CC490E0-678F-4B8A-8076-F3BC0593C2BF"
+},
+{
+customProperties:"\"extraProperties\":{\"Navbar\":{\"dataProviderValue\":\"dpText\",\"displayType\":\"TEXT\"}}",
+name:"menuitem2",
+text:"Menu item 2 text type",
+toolTipText:"Tooltip Menu Item 2",
+typeid:53,
+uuid:"66D9DF24-0714-4378-BEEE-6345B7866A7B"
+},
+{
+customProperties:"\"extraProperties\":{\"Navbar\":{\"displayType\":\"BUTTON\"}}",
+name:"menuitem4",
+text:"Menu Item 4 Button type",
+toolTipText:"Tooltip for menu item 4",
+typeid:53,
+uuid:"637A0000-5D5A-4292-BB06-DAF222ED1098"
+},
+{
+customProperties:"\"extraProperties\":{\"Navbar\":{\"dataProviderValue\":\"dpInput\",\"displayType\":\"INPUT\"}}",
+name:"menuitem5",
+text:"Menu Item 5 input type",
+toolTipText:"Tooltip Menu item 5 input",
+typeid:53,
+uuid:"4B33C7A9-22EF-4529-9417-0B5F8EDB2C08"
+},
+{
+customProperties:"\"extraProperties\":{\"Navbar\":{\"dataProviderValue\":\"dpInputGroup\",\"displayType\":\"INPUT_GROUP\"}}",
+name:"menuitem6",
+text:"Menu item 6 input group type",
+toolTipText:"Tooltip menu item 6 input group",
+typeid:53,
+uuid:"7C2780D0-63FF-4199-9850-B24F2BDF5145"
+}
+],
+name:"navBarMenu",
+typeid:52,
+uuid:"0390B612-0649-4868-A53C-937B8DAD7963"

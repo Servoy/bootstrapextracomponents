@@ -1,275 +1,271 @@
+customProperties:"formComponent:false",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "items":[
-        {
-            "json":{
-                "dataProviderID":"checkboxValue",
-                "inputType":"checkbox",
-                "location":{
-                    "x":306,
-                    "y":168
-                },
-                "onMenuItemSelected":"D021B075-E969-48DC-9F38-FE682535DF73",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "tabSeq":3,
-                "text":"empty value",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"306,168",
-            "name":"buttons_checkdefault",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"16AAE7BC-63CB-4305-B3A3-1BA6C6D573B1"
-        },
-        {
-            "displaysTags":true,
-            "location":"15,15",
-            "name":"labelRadio",
-            "size":"230,25",
-            "text":"Radio : %%radioValue%%",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"17D24F72-4A5D-4CF6-86B2-A99377D361DD"
-        },
-        {
-            "enabled":false,
-            "json":{
-                "dataProviderID":"radioValue",
-                "enabled":false,
-                "inputType":"radio",
-                "location":{
-                    "x":15,
-                    "y":221
-                },
-                "onMenuItemSelected":"D021B075-E969-48DC-9F38-FE682535DF73",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "styleClass":"btn-primary",
-                "tabSeq":3,
-                "text":"empty value",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"15,221",
-            "name":"buttons_radioprimarydisabled",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"31C05B88-8105-4BA2-91B8-18D9FA36F40C"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":15,
-                    "y":301
-                },
-                "size":{
-                    "height":34,
-                    "width":590
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"15,301",
-            "name":"label_6",
-            "size":"590,34",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"3D350E8D-DDB0-428D-8A7B-2507A0E671C5"
-        },
-        {
-            "json":{
-                "dataProviderID":"radioValue",
-                "inputType":"radio",
-                "location":{
-                    "x":15,
-                    "y":168
-                },
-                "onMenuItemSelected":"D021B075-E969-48DC-9F38-FE682535DF73",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "tabSeq":3,
-                "text":"empty value",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"15,168",
-            "name":"buttons_radiodefault",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"78B1920B-9CFE-4F9D-A43E-E7DF5F4B505A"
-        },
-        {
-            "displaysTags":true,
-            "location":"306,13",
-            "name":"labelCheck",
-            "size":"299,25",
-            "text":"Checkbox: %%checkboxValue%%",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"8D267429-CDDD-4EDC-BE77-52E4B800C40E"
-        },
-        {
-            "json":{
-                "dataProviderID":"radioValue",
-                "inputType":"radio",
-                "location":{
-                    "x":15,
-                    "y":111
-                },
-                "onFocusGainedMethodID":"C3D6E65D-213E-4A33-B174-EC52BFAE85E0",
-                "onFocusLostMethodID":"997D7717-680C-474C-9B68-62F5693D059A",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "styleClass":"btn-warning",
-                "tabSeq":3,
-                "text":"focus",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC",
-                "visible":true
-            },
-            "location":"15,111",
-            "name":"buttons_radiowarning",
-            "size":"180,34",
-            "styleClass":"btn-warning",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"99B24BCA-FB54-44A8-8CAE-30183E06F791"
-        },
-        {
-            "json":{
-                "dataProviderID":"radioValue",
-                "inputType":"radio",
-                "location":{
-                    "x":15,
-                    "y":59
-                },
-                "onDataChangeMethodID":"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "styleClass":"btn-primary",
-                "toolTipText":"Sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"15,59",
-            "name":"buttons_radio",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"B6E584D4-0D9E-4990-B88C-E6E75BF53CA6"
-        },
-        {
-            "json":{
-                "dataProviderID":"checkboxValue",
-                "inputType":"checkbox",
-                "location":{
-                    "x":306,
-                    "y":59
-                },
-                "onDataChangeMethodID":"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "styleClass":"btn-primary",
-                "toolTipText":"Sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"306,59",
-            "name":"buttons_checkprimary",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"BB330C5E-60B6-4D2C-9E15-B6452A4FE496"
-        },
-        {
-            "json":{
-                "dataProviderID":"checkboxValue",
-                "inputType":"checkbox",
-                "location":{
-                    "x":306,
-                    "y":111
-                },
-                "onFocusGainedMethodID":"C3D6E65D-213E-4A33-B174-EC52BFAE85E0",
-                "onFocusLostMethodID":"997D7717-680C-474C-9B68-62F5693D059A",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "styleClass":"btn-warning",
-                "tabSeq":3,
-                "text":"focus",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC",
-                "visible":true
-            },
-            "location":"306,111",
-            "name":"buttons_checkwarning",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"C391B745-659D-4F07-96D8-7438DF76B444"
-        },
-        {
-            "enabled":false,
-            "json":{
-                "dataProviderID":"checkboxValue",
-                "enabled":false,
-                "inputType":"checkbox",
-                "location":{
-                    "x":306,
-                    "y":221
-                },
-                "onMenuItemSelected":"D021B075-E969-48DC-9F38-FE682535DF73",
-                "size":{
-                    "height":34,
-                    "width":180
-                },
-                "split":true,
-                "tabSeq":3,
-                "text":"empty value",
-                "toolTipText":"sample tooltip",
-                "valuelistID":"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
-            },
-            "location":"306,221",
-            "name":"buttons_checkdefaultdisabled",
-            "size":"180,34",
-            "typeName":"bootstrapextracomponents-buttons-group",
-            "typeid":47,
-            "uuid":"D948B368-E5AB-453C-986F-C6DA1EEF9C29"
-        },
-        {
-            "height":480,
-            "partType":5,
-            "typeid":19,
-            "uuid":"E2A37A57-6EFD-4893-B1C4-884C14B8B951"
-        }
-    ],
-    "name":"buttonsgroupForm",
-    "navigatorID":"-1",
-    "onElementDataChangeMethodID":"B10C888C-CC0F-4243-B7DF-6263990F255E",
-    "showInMenu":true,
-    "typeid":3,
-    "uuid":"C75B94DC-D8B9-482B-88E1-71F4658F265C"
+json:{
+dataProviderID:"checkboxValue",
+inputType:"checkbox",
+location:{
+x:306,
+y:168
+},
+onMenuItemSelected:"D021B075-E969-48DC-9F38-FE682535DF73",
+size:{
+height:34,
+width:180
+},
+split:true,
+tabSeq:3,
+text:"empty value",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"306,168",
+name:"buttons_checkdefault",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"16AAE7BC-63CB-4305-B3A3-1BA6C6D573B1"
+},
+{
+displaysTags:true,
+location:"15,15",
+name:"labelRadio",
+size:"230,25",
+text:"Radio : %%radioValue%%",
+transparent:true,
+typeid:7,
+uuid:"17D24F72-4A5D-4CF6-86B2-A99377D361DD"
+},
+{
+enabled:false,
+json:{
+dataProviderID:"radioValue",
+enabled:false,
+inputType:"radio",
+location:{
+x:15,
+y:221
+},
+onMenuItemSelected:"D021B075-E969-48DC-9F38-FE682535DF73",
+size:{
+height:34,
+width:180
+},
+split:true,
+styleClass:"btn-primary",
+tabSeq:3,
+text:"empty value",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"15,221",
+name:"buttons_radioprimarydisabled",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"31C05B88-8105-4BA2-91B8-18D9FA36F40C"
+},
+{
+json:{
+location:{
+x:15,
+y:301
+},
+size:{
+height:34,
+width:590
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"15,301",
+name:"label_6",
+size:"590,34",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"3D350E8D-DDB0-428D-8A7B-2507A0E671C5"
+},
+{
+json:{
+dataProviderID:"radioValue",
+inputType:"radio",
+location:{
+x:15,
+y:168
+},
+onMenuItemSelected:"D021B075-E969-48DC-9F38-FE682535DF73",
+size:{
+height:34,
+width:180
+},
+split:true,
+tabSeq:3,
+text:"empty value",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"15,168",
+name:"buttons_radiodefault",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"78B1920B-9CFE-4F9D-A43E-E7DF5F4B505A"
+},
+{
+displaysTags:true,
+location:"306,13",
+name:"labelCheck",
+size:"299,25",
+text:"Checkbox: %%checkboxValue%%",
+transparent:true,
+typeid:7,
+uuid:"8D267429-CDDD-4EDC-BE77-52E4B800C40E"
+},
+{
+json:{
+dataProviderID:"radioValue",
+inputType:"radio",
+location:{
+x:15,
+y:111
+},
+onFocusGainedMethodID:"C3D6E65D-213E-4A33-B174-EC52BFAE85E0",
+onFocusLostMethodID:"997D7717-680C-474C-9B68-62F5693D059A",
+size:{
+height:34,
+width:180
+},
+split:true,
+styleClass:"btn-warning",
+tabSeq:3,
+text:"focus",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC",
+visible:true
+},
+location:"15,111",
+name:"buttons_radiowarning",
+size:"180,34",
+styleClass:"btn-warning",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"99B24BCA-FB54-44A8-8CAE-30183E06F791"
+},
+{
+json:{
+dataProviderID:"radioValue",
+inputType:"radio",
+location:{
+x:15,
+y:59
+},
+onDataChangeMethodID:"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
+size:{
+height:34,
+width:180
+},
+styleClass:"btn-primary",
+toolTipText:"Sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"15,59",
+name:"buttons_radio",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"B6E584D4-0D9E-4990-B88C-E6E75BF53CA6"
+},
+{
+json:{
+dataProviderID:"checkboxValue",
+inputType:"checkbox",
+location:{
+x:306,
+y:59
+},
+onDataChangeMethodID:"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
+size:{
+height:34,
+width:180
+},
+styleClass:"btn-primary",
+toolTipText:"Sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"306,59",
+name:"buttons_checkprimary",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"BB330C5E-60B6-4D2C-9E15-B6452A4FE496"
+},
+{
+json:{
+dataProviderID:"checkboxValue",
+inputType:"checkbox",
+location:{
+x:306,
+y:111
+},
+onFocusGainedMethodID:"C3D6E65D-213E-4A33-B174-EC52BFAE85E0",
+onFocusLostMethodID:"997D7717-680C-474C-9B68-62F5693D059A",
+size:{
+height:34,
+width:180
+},
+split:true,
+styleClass:"btn-warning",
+tabSeq:3,
+text:"focus",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC",
+visible:true
+},
+location:"306,111",
+name:"buttons_checkwarning",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"C391B745-659D-4F07-96D8-7438DF76B444"
+},
+{
+enabled:false,
+json:{
+dataProviderID:"checkboxValue",
+enabled:false,
+inputType:"checkbox",
+location:{
+x:306,
+y:221
+},
+onMenuItemSelected:"D021B075-E969-48DC-9F38-FE682535DF73",
+size:{
+height:34,
+width:180
+},
+split:true,
+tabSeq:3,
+text:"empty value",
+toolTipText:"sample tooltip",
+valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
+},
+location:"306,221",
+name:"buttons_checkdefaultdisabled",
+size:"180,34",
+typeName:"bootstrapextracomponents-buttons-group",
+typeid:47,
+uuid:"D948B368-E5AB-453C-986F-C6DA1EEF9C29"
+},
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"E2A37A57-6EFD-4893-B1C4-884C14B8B951"
 }
+],
+name:"buttonsgroupForm",
+navigatorID:"-1",
+onElementDataChangeMethodID:"B10C888C-CC0F-4243-B7DF-6263990F255E",
+showInMenu:true,
+typeid:3,
+uuid:"C75B94DC-D8B9-482B-88E1-71F4658F265C"

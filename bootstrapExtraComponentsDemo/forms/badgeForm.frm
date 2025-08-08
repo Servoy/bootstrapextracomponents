@@ -1,190 +1,186 @@
+customProperties:"formComponent:false",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "items":[
-        {
-            "json":{
-                "badgeOffset":20,
-                "badgeText":"5",
-                "displayType":"BUTTON",
-                "enabled":true,
-                "location":{
-                    "x":21,
-                    "y":172
-                },
-                "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
-                "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
-                "onRightClick":"94D748B8-4288-46C1-9B33-5FD1214E86CB",
-                "size":{
-                    "height":40,
-                    "width":150
-                },
-                "styleClass":"btn-danger",
-                "text":"Messages"
-            },
-            "location":"21,172",
-            "name":"badge_button2",
-            "size":"150,40",
-            "typeName":"bootstrapextracomponents-badge",
-            "typeid":47,
-            "uuid":"0A74E1D9-6899-4CB3-BCD5-681933E820EC"
-        },
-        {
-            "enabled":false,
-            "json":{
-                "badgeOffset":20,
-                "badgeText":"4",
-                "displayType":"BUTTON",
-                "enabled":false,
-                "location":{
-                    "x":198,
-                    "y":117
-                },
-                "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
-                "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
-                "onRightClick":"94D748B8-4288-46C1-9B33-5FD1214E86CB",
-                "size":{
-                    "height":40,
-                    "width":150
-                },
-                "styleClass":"btn-primary",
-                "text":"Messages",
-                "visible":true
-            },
-            "location":"198,117",
-            "name":"badge_button_disabled",
-            "size":"150,40",
-            "typeName":"bootstrapextracomponents-badge",
-            "typeid":47,
-            "uuid":"1E277B11-035E-4236-BF6E-CBFF092354FC"
-        },
-        {
-            "enabled":false,
-            "json":{
-                "badgeOffset":20,
-                "badgeText":"12",
-                "displayType":"LABEL",
-                "enabled":false,
-                "location":{
-                    "x":198,
-                    "y":67
-                },
-                "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
-                "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
-                "onRightClick":"94D748B8-4288-46C1-9B33-5FD1214E86CB",
-                "size":{
-                    "height":40,
-                    "width":150
-                },
-                "text":"Inbox"
-            },
-            "location":"198,67",
-            "name":"badge_label_disabled",
-            "size":"150,40",
-            "typeName":"bootstrapextracomponents-badge",
-            "typeid":47,
-            "uuid":"23DA424E-5265-4E3C-950C-1846DCBD63B0"
-        },
-        {
-            "json":{
-                "badgeOffset":20,
-                "badgeText":"5",
-                "displayType":"BUTTON",
-                "enabled":true,
-                "location":{
-                    "x":21,
-                    "y":117
-                },
-                "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
-                "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
-                "onRightClick":"94D748B8-4288-46C1-9B33-5FD1214E86CB",
-                "size":{
-                    "height":40,
-                    "width":150
-                },
-                "styleClass":"btn-primary",
-                "text":"Messages"
-            },
-            "location":"21,117",
-            "name":"badge_button",
-            "size":"150,40",
-            "typeName":"bootstrapextracomponents-badge",
-            "typeid":47,
-            "uuid":"8DAEDF96-20C3-4F84-ABE7-5167A729F6B9"
-        },
-        {
-            "location":"198,27",
-            "size":"150,25",
-            "text":"Disabled",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"C54320A9-E1DB-42D7-8FB5-9FE42ED25AE3"
-        },
-        {
-            "location":"21,27",
-            "size":"150,25",
-            "text":"Examples",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"CCD82E69-6836-40DD-A3D3-005C1360BD43"
-        },
-        {
-            "json":{
-                "badgeOffset":20,
-                "badgeText":"12",
-                "displayType":"LABEL",
-                "enabled":true,
-                "location":{
-                    "x":21,
-                    "y":67
-                },
-                "onAction":"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
-                "onDoubleClick":"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
-                "onRightClick":"94D748B8-4288-46C1-9B33-5FD1214E86CB",
-                "size":{
-                    "height":40,
-                    "width":150
-                },
-                "text":"Inbox"
-            },
-            "location":"21,67",
-            "name":"badge_label",
-            "size":"150,40",
-            "typeName":"bootstrapextracomponents-badge",
-            "typeid":47,
-            "uuid":"D7AC6287-FDCD-46BB-ACB4-92D7095F44C6"
-        },
-        {
-            "height":617,
-            "partType":5,
-            "typeid":19,
-            "uuid":"D9D4B154-3D44-46F3-82A3-BFD143EC88A0"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":22,
-                    "y":232
-                },
-                "size":{
-                    "height":30,
-                    "width":460
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"22,232",
-            "name":"label_output",
-            "size":"460,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"E8D3041F-FC54-45BA-940D-1A6077EC8822"
-        }
-    ],
-    "name":"badgeForm",
-    "navigatorID":"-1",
-    "showInMenu":true,
-    "typeid":3,
-    "uuid":"FD9927A9-5C6B-4C4D-82F0-33B11AFC9E6E"
+json:{
+badgeOffset:20,
+badgeText:"5",
+displayType:"BUTTON",
+enabled:true,
+location:{
+x:21,
+y:172
+},
+onAction:"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
+onDoubleClick:"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
+onRightClick:"94D748B8-4288-46C1-9B33-5FD1214E86CB",
+size:{
+height:40,
+width:150
+},
+styleClass:"btn-danger",
+text:"Messages"
+},
+location:"21,172",
+name:"badge_button2",
+size:"150,40",
+typeName:"bootstrapextracomponents-badge",
+typeid:47,
+uuid:"0A74E1D9-6899-4CB3-BCD5-681933E820EC"
+},
+{
+enabled:false,
+json:{
+badgeOffset:20,
+badgeText:"4",
+displayType:"BUTTON",
+enabled:false,
+location:{
+x:198,
+y:117
+},
+onAction:"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
+onDoubleClick:"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
+onRightClick:"94D748B8-4288-46C1-9B33-5FD1214E86CB",
+size:{
+height:40,
+width:150
+},
+styleClass:"btn-primary",
+text:"Messages",
+visible:true
+},
+location:"198,117",
+name:"badge_button_disabled",
+size:"150,40",
+typeName:"bootstrapextracomponents-badge",
+typeid:47,
+uuid:"1E277B11-035E-4236-BF6E-CBFF092354FC"
+},
+{
+enabled:false,
+json:{
+badgeOffset:20,
+badgeText:"12",
+displayType:"LABEL",
+enabled:false,
+location:{
+x:198,
+y:67
+},
+onAction:"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
+onDoubleClick:"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
+onRightClick:"94D748B8-4288-46C1-9B33-5FD1214E86CB",
+size:{
+height:40,
+width:150
+},
+text:"Inbox"
+},
+location:"198,67",
+name:"badge_label_disabled",
+size:"150,40",
+typeName:"bootstrapextracomponents-badge",
+typeid:47,
+uuid:"23DA424E-5265-4E3C-950C-1846DCBD63B0"
+},
+{
+json:{
+badgeOffset:20,
+badgeText:"5",
+displayType:"BUTTON",
+enabled:true,
+location:{
+x:21,
+y:117
+},
+onAction:"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
+onDoubleClick:"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
+onRightClick:"94D748B8-4288-46C1-9B33-5FD1214E86CB",
+size:{
+height:40,
+width:150
+},
+styleClass:"btn-primary",
+text:"Messages"
+},
+location:"21,117",
+name:"badge_button",
+size:"150,40",
+typeName:"bootstrapextracomponents-badge",
+typeid:47,
+uuid:"8DAEDF96-20C3-4F84-ABE7-5167A729F6B9"
+},
+{
+location:"198,27",
+size:"150,25",
+text:"Disabled",
+transparent:true,
+typeid:7,
+uuid:"C54320A9-E1DB-42D7-8FB5-9FE42ED25AE3"
+},
+{
+location:"21,27",
+size:"150,25",
+text:"Examples",
+transparent:true,
+typeid:7,
+uuid:"CCD82E69-6836-40DD-A3D3-005C1360BD43"
+},
+{
+json:{
+badgeOffset:20,
+badgeText:"12",
+displayType:"LABEL",
+enabled:true,
+location:{
+x:21,
+y:67
+},
+onAction:"34B0984E-52D2-4FC1-B102-0FF531DBD7CC",
+onDoubleClick:"564A02E7-F9A5-4036-A219-2CC5A6D0E8C3",
+onRightClick:"94D748B8-4288-46C1-9B33-5FD1214E86CB",
+size:{
+height:40,
+width:150
+},
+text:"Inbox"
+},
+location:"21,67",
+name:"badge_label",
+size:"150,40",
+typeName:"bootstrapextracomponents-badge",
+typeid:47,
+uuid:"D7AC6287-FDCD-46BB-ACB4-92D7095F44C6"
+},
+{
+height:617,
+partType:5,
+typeid:19,
+uuid:"D9D4B154-3D44-46F3-82A3-BFD143EC88A0"
+},
+{
+json:{
+location:{
+x:22,
+y:232
+},
+size:{
+height:30,
+width:460
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"22,232",
+name:"label_output",
+size:"460,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"E8D3041F-FC54-45BA-940D-1A6077EC8822"
 }
+],
+name:"badgeForm",
+navigatorID:"-1",
+showInMenu:true,
+typeid:3,
+uuid:"FD9927A9-5C6B-4C4D-82F0-33B11AFC9E6E"

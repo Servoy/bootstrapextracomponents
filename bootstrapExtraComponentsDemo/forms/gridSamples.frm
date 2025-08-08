@@ -1,9 +1,5 @@
-{
-    "customProperties":{
-        "formComponent":false
-    },
-    "extendsID":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
-    "name":"gridSamples",
-    "typeid":3,
-    "uuid":"97375A9F-599C-4828-A49A-B4294A489679"
-}
+customProperties:"formComponent:false",
+extendsID:"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
+name:"gridSamples",
+typeid:3,
+uuid:"97375A9F-599C-4828-A49A-B4294A489679"

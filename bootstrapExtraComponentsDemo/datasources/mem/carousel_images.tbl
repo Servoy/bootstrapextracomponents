@@ -2,14 +2,14 @@ columns:{
 columns:[
 {
 allowNull:true,
-creationOrderIndex:2,
+creationOrderIndex:-1,
 dataType:12,
 length:50,
 name:"caption"
 },
 {
 allowNull:true,
-creationOrderIndex:1,
+creationOrderIndex:-1,
 dataType:-4,
 name:"image"
 },
@@ -17,7 +17,7 @@ name:"image"
 allowNull:true,
 autoEnterSubType:3,
 autoEnterType:2,
-creationOrderIndex:0,
+creationOrderIndex:-1,
 dataType:12,
 flags:4,
 length:36,

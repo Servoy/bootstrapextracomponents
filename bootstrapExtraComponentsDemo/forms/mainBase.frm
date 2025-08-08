@@ -1,52 +1,48 @@
+customProperties:"formComponent:false",
+encapsulation:60,
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "encapsulation":60,
-    "items":[
-        {
-            "anchors":11,
-            "imageMediaID":"381C2834-B5D5-41A4-9502-B636225680DF",
-            "location":"20,0",
-            "size":"600,120",
-            "styleClass":"banner-orange",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"100FFD2D-E3FC-4CA1-BC49-169183B1B181",
-            "verticalAlignment":3
-        },
-        {
-            "anchors":15,
-            "location":"20,120",
-            "name":"tabs",
-            "printable":false,
-            "size":"600,330",
-            "transparent":true,
-            "typeid":16,
-            "uuid":"46F4B9AC-A588-4AFE-82EA-639842F55F0D"
-        },
-        {
-            "anchors":3,
-            "formIndex":1,
-            "location":"330,40",
-            "size":"290,80",
-            "styleClass":"banner",
-            "text":"Example Solution",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"75043691-AE2E-4810-AC86-6A60FB1728FA"
-        },
-        {
-            "height":480,
-            "partType":5,
-            "styleClass":"body_main",
-            "typeid":19,
-            "uuid":"AEB8AC83-5DC8-4C71-B3A8-DFA4700F48D9"
-        }
-    ],
-    "name":"mainBase",
-    "navigatorID":"-1",
-    "showInMenu":true,
-    "typeid":3,
-    "uuid":"055AC074-2FB5-4595-ADB1-0657BD062029"
+anchors:11,
+imageMediaID:"381C2834-B5D5-41A4-9502-B636225680DF",
+location:"20,0",
+size:"600,120",
+styleClass:"banner-orange",
+transparent:true,
+typeid:7,
+uuid:"100FFD2D-E3FC-4CA1-BC49-169183B1B181",
+verticalAlignment:3
+},
+{
+anchors:15,
+location:"20,120",
+name:"tabs",
+printable:false,
+size:"600,330",
+transparent:true,
+typeid:16,
+uuid:"46F4B9AC-A588-4AFE-82EA-639842F55F0D"
+},
+{
+anchors:3,
+formIndex:1,
+location:"330,40",
+size:"290,80",
+styleClass:"banner",
+text:"Example Solution",
+transparent:true,
+typeid:7,
+uuid:"75043691-AE2E-4810-AC86-6A60FB1728FA"
+},
+{
+height:480,
+partType:5,
+styleClass:"body_main",
+typeid:19,
+uuid:"AEB8AC83-5DC8-4C71-B3A8-DFA4700F48D9"
 }
+],
+name:"mainBase",
+navigatorID:"-1",
+showInMenu:true,
+typeid:3,
+uuid:"055AC074-2FB5-4595-ADB1-0657BD062029"

@@ -1,324 +1,320 @@
+customProperties:"formComponent:false",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "items":[
-        {
-            "json":{
-                "enabled":true,
-                "isButton":false,
-                "isSplitButton":false,
-                "location":{
-                    "x":20,
-                    "y":30
-                },
-                "menuItems":[
-                    {
-                        "enabled":true,
-                        "svyUUID":"CCC8CC81-0E69-4B04-8919-A559989AB761",
-                        "text":"Action"
-                    },
-                    {
-                        "enabled":true,
-                        "svyUUID":"69933447-EDBE-4E21-B72D-D7501B3CC8DC",
-                        "text":"Another action"
-                    },
-                    {
-                        "enabled":false,
-                        "isDivider":true,
-                        "svyUUID":"1DF34EBA-B74A-419F-8175-07A1E1268E67"
-                    },
-                    {
-                        "enabled":false,
-                        "svyUUID":"41187D8B-A926-4DDA-8D32-4F401E5EB1B5",
-                        "text":"Disabled entry"
-                    },
-                    {
-                        "enabled":true,
-                        "iconName":"fa fa-car",
-                        "onAction":"5E091434-C4BC-4F14-826C-D39A2635E9C7",
-                        "svyUUID":"5A366812-C5AA-45CB-8F9E-0685A3E80CDC",
-                        "text":"Something else here"
-                    }
-                ],
-                "onMenuItemSelected":"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
-                "size":{
-                    "height":40,
-                    "width":130
-                },
-                "text":"Drop down link"
-            },
-            "location":"20,30",
-            "name":"dropdown_link",
-            "size":"130,40",
-            "typeName":"bootstrapextracomponents-dropdown",
-            "typeid":47,
-            "uuid":"1C61B43D-0657-4D22-82C1-9F4995307C2A"
-        },
-        {
-            "json":{
-                "buttonStyleClass":"btn-danger",
-                "enabled":true,
-                "isButton":true,
-                "isSplitButton":true,
-                "location":{
-                    "x":290,
-                    "y":30
-                },
-                "menuItems":[
-                    {
-                        "enabled":true,
-                        "svyUUID":"FF63FC2A-878B-4DB4-BA7D-F107E636E169",
-                        "text":"Action"
-                    },
-                    {
-                        "enabled":true,
-                        "svyUUID":"ADD4E712-E0A0-41CF-991C-324B963DE48B",
-                        "text":"Another action"
-                    },
-                    {
-                        "enabled":false,
-                        "isDivider":true,
-                        "svyUUID":"9E07DC01-413B-4ACB-8D5D-A86AFCD0EDC3"
-                    },
-                    {
-                        "enabled":false,
-                        "svyUUID":"41AA7DAB-F6F1-4DFF-85FB-ABE7C35104CF",
-                        "text":"Disabled entry"
-                    },
-                    {
-                        "enabled":true,
-                        "iconName":"fa fa-car",
-                        "onAction":"5E091434-C4BC-4F14-826C-D39A2635E9C7",
-                        "svyUUID":"7B7A860D-257C-4046-BC9E-7CAE84135FC3",
-                        "text":"Something else here"
-                    }
-                ],
-                "onAction":"A0C402B8-B346-4D80-95F9-33EE58B0C564",
-                "onMenuItemSelected":"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
-                "size":{
-                    "height":40,
-                    "width":180
-                },
-                "text":"Drop split button"
-            },
-            "location":"290,30",
-            "name":"dropdown_split_button",
-            "size":"180,40",
-            "typeName":"bootstrapextracomponents-dropdown",
-            "typeid":47,
-            "uuid":"38A11936-09EF-473E-9D86-3ED1290646D8"
-        },
-        {
-            "height":480,
-            "partType":5,
-            "typeid":19,
-            "uuid":"5B707C21-0B87-4380-9274-DB100704FB5E"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":142
-                },
-                "onActionMethodID":"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
-                "size":{
-                    "height":30,
-                    "width":189
-                },
-                "text":"Set menu items",
-                "variant":"BtnPrimary"
-            },
-            "location":"20,142",
-            "name":"button_setMenuItems",
-            "size":"189,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"5F467448-B882-40BC-BCE6-C30D28613540"
-        },
-        {
-            "json":{
-                "buttonStyleClass":"btn-primary",
-                "enabled":true,
-                "isButton":true,
-                "isSplitButton":false,
-                "location":{
-                    "x":150,
-                    "y":30
-                },
-                "menuItems":[
-                    {
-                        "enabled":true,
-                        "svyUUID":"B3306F8D-7E79-4ABD-84FE-352FF6862DEF",
-                        "text":"Action"
-                    },
-                    {
-                        "enabled":true,
-                        "svyUUID":"534DB9AC-F0E3-4A4E-A65B-5079FDB05914",
-                        "text":"Another action"
-                    },
-                    {
-                        "enabled":false,
-                        "isDivider":true,
-                        "svyUUID":"610C2AD7-E9FD-4FA8-AB01-EE901762B890"
-                    },
-                    {
-                        "enabled":false,
-                        "svyUUID":"2A4EC19F-9EA4-4030-B13C-ACCDE03B1756",
-                        "text":"Disabled entry"
-                    },
-                    {
-                        "enabled":true,
-                        "iconName":"fa fa-car",
-                        "onAction":"5E091434-C4BC-4F14-826C-D39A2635E9C7",
-                        "svyUUID":"BD1DC8D6-BB4F-4809-B570-0684664132F9",
-                        "text":"Something else here"
-                    }
-                ],
-                "onMenuItemSelected":"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
-                "size":{
-                    "height":40,
-                    "width":140
-                },
-                "text":"Drop button"
-            },
-            "location":"150,30",
-            "name":"dropdown_button",
-            "size":"140,40",
-            "typeName":"bootstrapextracomponents-dropdown",
-            "typeid":47,
-            "uuid":"67068611-57D9-4A57-BB01-B7AF1A8BA31A"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":415
-                },
-                "size":{
-                    "height":30,
-                    "width":599
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"20,415",
-            "name":"lblLastAction",
-            "size":"599,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"9139468B-8815-4864-9EF1-A4D86B9D130E"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":19,
-                    "y":222
-                },
-                "onActionMethodID":"97E7AE30-2519-45EB-B002-804AA928CAFA",
-                "size":{
-                    "height":30,
-                    "width":189
-                },
-                "text":"Remove menu item",
-                "variant":"BtnPrimary"
-            },
-            "location":"19,222",
-            "name":"button_removeMenuItem",
-            "size":"189,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"9435F9B0-3786-4CF7-9D6D-FD69869747A4"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":19,
-                    "y":263
-                },
-                "onActionMethodID":"AD63293F-8987-4401-863C-387F6A6A7DE6",
-                "size":{
-                    "height":30,
-                    "width":189
-                },
-                "text":"Enable/disable",
-                "variant":"BtnPrimary"
-            },
-            "location":"19,263",
-            "name":"button_toggleEnabled",
-            "size":"189,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"C102DF7D-80E1-4C83-8E4A-6CBF1E2703D5"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":385
-                },
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "styleClass":"label_header_4",
-                "text":"Last action:",
-                "visible":true
-            },
-            "location":"20,385",
-            "name":"label_855",
-            "size":"170,30",
-            "typeName":"servoydefault-label",
-            "typeid":47,
-            "uuid":"D08F682C-2E39-47F7-8E50-1ED02A351478"
-        },
-        {
-            "json":{
-                "buttonStyleClass":"btn-default",
-                "isSplitButton":true,
-                "location":{
-                    "x":20,
-                    "y":90
-                },
-                "onAction":"A0C402B8-B346-4D80-95F9-33EE58B0C564",
-                "onMenuItemSelected":"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
-                "size":{
-                    "height":30,
-                    "width":300
-                }
-            },
-            "location":"20,90",
-            "name":"dropdown_api",
-            "size":"300,30",
-            "typeName":"bootstrapextracomponents-dropdown",
-            "typeid":47,
-            "uuid":"D2BFEE9F-92CC-4278-A7AE-CF456EB94D51"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":19,
-                    "y":181
-                },
-                "onActionMethodID":"FC2A8371-DDFE-4219-B6C9-32B08625E1E6",
-                "size":{
-                    "height":30,
-                    "width":189
-                },
-                "text":"Add menu item",
-                "variant":"BtnPrimary"
-            },
-            "location":"19,181",
-            "name":"button_addMenuItems",
-            "size":"189,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"D68709A0-FA60-4959-B1EE-DE5148464243"
-        }
-    ],
-    "name":"dropdownForm",
-    "navigatorID":"-1",
-    "showInMenu":true,
-    "typeid":3,
-    "uuid":"369EEC79-C296-48F6-98B4-1D7252290E08"
+json:{
+enabled:true,
+isButton:false,
+isSplitButton:false,
+location:{
+x:20,
+y:30
+},
+menuItems:[
+{
+enabled:true,
+svyUUID:"CCC8CC81-0E69-4B04-8919-A559989AB761",
+text:"Action"
+},
+{
+enabled:true,
+svyUUID:"69933447-EDBE-4E21-B72D-D7501B3CC8DC",
+text:"Another action"
+},
+{
+enabled:false,
+isDivider:true,
+svyUUID:"1DF34EBA-B74A-419F-8175-07A1E1268E67"
+},
+{
+enabled:false,
+svyUUID:"41187D8B-A926-4DDA-8D32-4F401E5EB1B5",
+text:"Disabled entry"
+},
+{
+enabled:true,
+iconName:"fa fa-car",
+onAction:"5E091434-C4BC-4F14-826C-D39A2635E9C7",
+svyUUID:"5A366812-C5AA-45CB-8F9E-0685A3E80CDC",
+text:"Something else here"
 }
+],
+onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
+size:{
+height:40,
+width:130
+},
+text:"Drop down link"
+},
+location:"20,30",
+name:"dropdown_link",
+size:"130,40",
+typeName:"bootstrapextracomponents-dropdown",
+typeid:47,
+uuid:"1C61B43D-0657-4D22-82C1-9F4995307C2A"
+},
+{
+json:{
+buttonStyleClass:"btn-danger",
+enabled:true,
+isButton:true,
+isSplitButton:true,
+location:{
+x:290,
+y:30
+},
+menuItems:[
+{
+enabled:true,
+svyUUID:"FF63FC2A-878B-4DB4-BA7D-F107E636E169",
+text:"Action"
+},
+{
+enabled:true,
+svyUUID:"ADD4E712-E0A0-41CF-991C-324B963DE48B",
+text:"Another action"
+},
+{
+enabled:false,
+isDivider:true,
+svyUUID:"9E07DC01-413B-4ACB-8D5D-A86AFCD0EDC3"
+},
+{
+enabled:false,
+svyUUID:"41AA7DAB-F6F1-4DFF-85FB-ABE7C35104CF",
+text:"Disabled entry"
+},
+{
+enabled:true,
+iconName:"fa fa-car",
+onAction:"5E091434-C4BC-4F14-826C-D39A2635E9C7",
+svyUUID:"7B7A860D-257C-4046-BC9E-7CAE84135FC3",
+text:"Something else here"
+}
+],
+onAction:"A0C402B8-B346-4D80-95F9-33EE58B0C564",
+onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
+size:{
+height:40,
+width:180
+},
+text:"Drop split button"
+},
+location:"290,30",
+name:"dropdown_split_button",
+size:"180,40",
+typeName:"bootstrapextracomponents-dropdown",
+typeid:47,
+uuid:"38A11936-09EF-473E-9D86-3ED1290646D8"
+},
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"5B707C21-0B87-4380-9274-DB100704FB5E"
+},
+{
+json:{
+location:{
+x:20,
+y:142
+},
+onActionMethodID:"C0010BD5-9F61-4511-BADF-54D531CCEFAE",
+size:{
+height:30,
+width:189
+},
+text:"Set menu items",
+variant:"BtnPrimary"
+},
+location:"20,142",
+name:"button_setMenuItems",
+size:"189,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"5F467448-B882-40BC-BCE6-C30D28613540"
+},
+{
+json:{
+buttonStyleClass:"btn-primary",
+enabled:true,
+isButton:true,
+isSplitButton:false,
+location:{
+x:150,
+y:30
+},
+menuItems:[
+{
+enabled:true,
+svyUUID:"B3306F8D-7E79-4ABD-84FE-352FF6862DEF",
+text:"Action"
+},
+{
+enabled:true,
+svyUUID:"534DB9AC-F0E3-4A4E-A65B-5079FDB05914",
+text:"Another action"
+},
+{
+enabled:false,
+isDivider:true,
+svyUUID:"610C2AD7-E9FD-4FA8-AB01-EE901762B890"
+},
+{
+enabled:false,
+svyUUID:"2A4EC19F-9EA4-4030-B13C-ACCDE03B1756",
+text:"Disabled entry"
+},
+{
+enabled:true,
+iconName:"fa fa-car",
+onAction:"5E091434-C4BC-4F14-826C-D39A2635E9C7",
+svyUUID:"BD1DC8D6-BB4F-4809-B570-0684664132F9",
+text:"Something else here"
+}
+],
+onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
+size:{
+height:40,
+width:140
+},
+text:"Drop button"
+},
+location:"150,30",
+name:"dropdown_button",
+size:"140,40",
+typeName:"bootstrapextracomponents-dropdown",
+typeid:47,
+uuid:"67068611-57D9-4A57-BB01-B7AF1A8BA31A"
+},
+{
+json:{
+location:{
+x:20,
+y:415
+},
+size:{
+height:30,
+width:599
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"20,415",
+name:"lblLastAction",
+size:"599,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"9139468B-8815-4864-9EF1-A4D86B9D130E"
+},
+{
+json:{
+location:{
+x:19,
+y:222
+},
+onActionMethodID:"97E7AE30-2519-45EB-B002-804AA928CAFA",
+size:{
+height:30,
+width:189
+},
+text:"Remove menu item",
+variant:"BtnPrimary"
+},
+location:"19,222",
+name:"button_removeMenuItem",
+size:"189,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"9435F9B0-3786-4CF7-9D6D-FD69869747A4"
+},
+{
+json:{
+location:{
+x:19,
+y:263
+},
+onActionMethodID:"AD63293F-8987-4401-863C-387F6A6A7DE6",
+size:{
+height:30,
+width:189
+},
+text:"Enable/disable",
+variant:"BtnPrimary"
+},
+location:"19,263",
+name:"button_toggleEnabled",
+size:"189,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"C102DF7D-80E1-4C83-8E4A-6CBF1E2703D5"
+},
+{
+json:{
+location:{
+x:20,
+y:385
+},
+size:{
+height:30,
+width:170
+},
+styleClass:"label_header_4",
+text:"Last action:",
+visible:true
+},
+location:"20,385",
+name:"label_855",
+size:"170,30",
+typeName:"servoydefault-label",
+typeid:47,
+uuid:"D08F682C-2E39-47F7-8E50-1ED02A351478"
+},
+{
+json:{
+buttonStyleClass:"btn-default",
+isSplitButton:true,
+location:{
+x:20,
+y:90
+},
+onAction:"A0C402B8-B346-4D80-95F9-33EE58B0C564",
+onMenuItemSelected:"2E82BBE7-3AE3-4F8E-9612-B3C624F04233",
+size:{
+height:30,
+width:300
+}
+},
+location:"20,90",
+name:"dropdown_api",
+size:"300,30",
+typeName:"bootstrapextracomponents-dropdown",
+typeid:47,
+uuid:"D2BFEE9F-92CC-4278-A7AE-CF456EB94D51"
+},
+{
+json:{
+location:{
+x:19,
+y:181
+},
+onActionMethodID:"FC2A8371-DDFE-4219-B6C9-32B08625E1E6",
+size:{
+height:30,
+width:189
+},
+text:"Add menu item",
+variant:"BtnPrimary"
+},
+location:"19,181",
+name:"button_addMenuItems",
+size:"189,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"D68709A0-FA60-4959-B1EE-DE5148464243"
+}
+],
+name:"dropdownForm",
+navigatorID:"-1",
+showInMenu:true,
+typeid:3,
+uuid:"369EEC79-C296-48F6-98B4-1D7252290E08"

@@ -1,929 +1,925 @@
+customProperties:"formComponent:false",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "items":[
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":313
-                },
-                "onActionMethodID":"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Icon Menu",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,313",
-            "name":"button_createIconMenu",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"006A101E-3FDB-46F2-8C84-7232526DDD53"
-        },
-        {
-            "anchors":11,
-            "json":{
-                "anchors":11,
-                "brandLogo":"381C2834-B5D5-41A4-9502-B636225680DF",
-                "brandText":"Servoy Navbar",
-                "collapsing":false,
-                "inverse":false,
-                "location":{
-                    "x":20,
-                    "y":821
-                },
-                "markClickedItemActive":true,
-                "menuItems":[],
-                "onBrandClicked":"B7ED4A04-F146-461C-BEA8-A2B134DB8C7D",
-                "onBrandLogoClicked":"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
-                "onMenuItemClicked":"09E9D676-591E-458B-AB54-1C2B49C9F4EC",
-                "servoyMenu":"0390B612-0649-4868-A53C-937B8DAD7963",
-                "size":{
-                    "height":55,
-                    "width":735
-                },
-                "visible":true
-            },
-            "location":"20,821",
-            "name":"navbar_servoyMenu",
-            "size":"735,55",
-            "typeName":"bootstrapextracomponents-navbar",
-            "typeid":47,
-            "uuid":"0B1BA408-2C79-4187-A101-3C14B17CA14F"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1166
-                },
-                "onActionMethodID":"F64FD2D4-8269-418D-949D-725AA83D2491",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Add Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1166",
-            "name":"button_addMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"0DEA234B-A30A-42B3-9391-431EF754AFBE"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":518
-                },
-                "onActionMethodID":"DF440E86-6697-4ADF-B3BB-B9510095DD84",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,518",
-            "name":"button_getMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"102B4A1B-17E3-4A8B-8A75-FECEFABC7325"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":15
-                },
-                "size":{
-                    "height":30,
-                    "width":193
-                },
-                "text":"Navbar with custom menu:"
-            },
-            "location":"17,15",
-            "name":"label_description1",
-            "size":"193,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"1864223B-FBAC-47EB-B0BE-0AB0A7E31303"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":325,
-                    "y":1169
-                },
-                "size":{
-                    "height":30,
-                    "width":421
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"325,1169",
-            "name":"label_3cc",
-            "size":"421,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"1F58DBDE-B4F5-48FA-A3B1-DF5D02D7DD54"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":416
-                },
-                "onActionMethodID":"B4E14E6F-6ED0-4130-B92E-24422C07CB3B",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Remove Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,416",
-            "name":"button_removeMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"23E951F4-E251-4740-8FBA-642797775864"
-        },
-        {
-            "dataProviderID":"invertedNavbar",
-            "displayType":4,
-            "location":"18,720",
-            "name":"invertedNavbar",
-            "onDataChangeMethodID":"D19F4982-AA64-4B3F-A77B-2D23AF2180AF",
-            "size":"200,30",
-            "text":"Inverse",
-            "typeid":4,
-            "uuid":"2C7AE110-8DC0-40E5-9F36-39B252975C77"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":27,
-                    "y":1444
-                },
-                "onActionMethodID":"FFA65F7E-1DF5-4005-8608-89BAC35D7A75",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get size",
-                "variant":"BtnPrimary"
-            },
-            "location":"27,1444",
-            "name":"button_getSize1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"2E104723-563C-458E-B694-7204CF01DF41"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":660
-                },
-                "onActionMethodID":"2F47A515-77BB-4FC5-A327-448BD8A73E0F",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get size",
-                "variant":"BtnPrimary"
-            },
-            "location":"18,660",
-            "name":"button_getSize",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"32CC5941-48D2-4335-B1FD-D587CC516528"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1028
-                },
-                "onActionMethodID":"D309C36B-8B9F-4B27-AC7A-0C8458D6CBA6",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Set Menu Items",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1028",
-            "name":"button_setMenuItems1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"39DBCB5F-C182-4159-B55D-1A4F9EF00E5E"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":325,
-                    "y":1132
-                },
-                "size":{
-                    "height":30,
-                    "width":421
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"325,1132",
-            "name":"label_getc",
-            "size":"421,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"3A5B7995-F9D3-4535-AE1B-031964EE3A20"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1097
-                },
-                "onActionMethodID":"0B9AD789-4B73-4CB1-9525-7E988FCFC0C3",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Icon Menu",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1097",
-            "name":"button_createIconMenu1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"455F24D9-113C-4350-8390-C741F8E3E166"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":625
-                },
-                "onActionMethodID":"CB1CED5B-0ADD-4766-A18A-F6B657021332",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Location",
-                "variant":"BtnPrimary"
-            },
-            "location":"18,625",
-            "name":"button_getLocation",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"4F6963A9-BD87-40B8-9E54-29751C61CD04"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":318,
-                    "y":370
-                },
-                "size":{
-                    "height":30,
-                    "width":421
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"318,370",
-            "name":"label_3c",
-            "size":"421,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"5816EC5F-EC30-4C99-9ABE-9B4FE16420CE"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1063
-                },
-                "onActionMethodID":"4E419FDF-BEBC-4F93-8620-84A611EC256A",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Select Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1063",
-            "name":"button_selectMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"5AB46794-A70E-4F5E-BDDB-261F24393472"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1234
-                },
-                "onActionMethodID":"8B5BAD58-F7DC-4F13-993B-329341086038",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Selected Menu",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1234",
-            "name":"button_getSelectedMenu1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"6102A386-8D19-44A7-BA95-47A108B40717"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1268
-                },
-                "onActionMethodID":"8AE57AF2-C2F2-4F1C-8AA4-17C24451D47A",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Enable/Disable SubMenu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1268",
-            "name":"button_enableSubMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"63035778-53DF-4E7C-8503-6689F90ABC9C"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":589
-                },
-                "onActionMethodID":"31232432-A9DB-41E1-8AC0-C5225DBD9D49",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Request focus",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,589",
-            "name":"button_requestFocus",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"6584FC14-36C1-4AAD-BA9A-3A0D210701A3"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":27,
-                    "y":1409
-                },
-                "onActionMethodID":"FBE0EC9A-9F28-4A49-A360-B22AC811035B",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Location",
-                "variant":"BtnPrimary"
-            },
-            "location":"27,1409",
-            "name":"button_getLocation1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"6AB8A4E3-6BF5-4CB3-87E6-1C7371DA088E"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":16,
-                    "y":148
-                },
-                "size":{
-                    "height":30,
-                    "width":619
-                },
-                "variant":"LabelBackground"
-            },
-            "location":"16,148",
-            "name":"lblLastClick",
-            "size":"619,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"6D35C441-43FA-4F41-AA27-B9103D20FC9F"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1337
-                },
-                "onActionMethodID":"1F33FDCB-AEE8-4C89-A99E-EF3B02255BE9",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Open SubMenu",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1337",
-            "name":"button_openSubMenu1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"6E0D6C2A-13D1-4DD9-9CED-FB9916F4174D"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":318,
-                    "y":333
-                },
-                "size":{
-                    "height":30,
-                    "width":421
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"318,333",
-            "name":"label_get",
-            "size":"421,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"70096022-9FC3-403A-B565-7F87C1F725FA"
-        },
-        {
-            "height":1500,
-            "partType":5,
-            "typeid":19,
-            "uuid":"A5AEBECB-F9E7-48FE-A501-92FE2F5A2F90"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":244
-                },
-                "onActionMethodID":"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Set Menu Items",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,244",
-            "name":"button_setMenuItems",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"A6D21EAF-9339-47F9-ADF5-2C2653789A15"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":16,
-                    "y":111
-                },
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Last click:"
-            },
-            "location":"16,111",
-            "name":"label_855",
-            "size":"170,30",
-            "typeName":"servoydefault-label",
-            "typeid":47,
-            "uuid":"AB00E08E-D941-4110-89DF-214574453645"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":553
-                },
-                "onActionMethodID":"2524366D-4815-4FC3-9A62-FC65CC2B400D",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Open SubMenu",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,553",
-            "name":"button_openSubMenu",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"AC2D3209-5104-4DC0-A3CB-87DA399DBFF3"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1302
-                },
-                "onActionMethodID":"D48F37DF-C0E2-48EA-83C5-F7E77397D768",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1302",
-            "name":"button_getMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"BCC66A1D-5975-4F87-8FD0-1B44D0BBE74F"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":778
-                },
-                "size":{
-                    "height":30,
-                    "width":193
-                },
-                "text":"Navbar with servoy menu:"
-            },
-            "location":"20,778",
-            "name":"label_description2",
-            "size":"193,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"C721F2F0-DD69-4B08-840D-DEED28D9991F"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":347
-                },
-                "onActionMethodID":"DF0B5339-9EDD-4562-B335-A90A68C345EF",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Enable/Disable Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,347",
-            "name":"button_enableMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"CA458968-ED8B-42E9-89DC-2A6E396EB03D"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1131
-                },
-                "onActionMethodID":"BF76A607-3D83-4F3B-8355-9A055F509207",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Enable/Disable Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1131",
-            "name":"button_enableMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"CC3E3086-ADFD-4535-B8FE-4545F291ECF9"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1373
-                },
-                "onActionMethodID":"42113012-37E2-428C-B2D5-BD28B79D991A",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Request focus",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1373",
-            "name":"button_requestFocus1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"CCB156F4-5313-4AA7-9BB0-C307819E06B1"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":26,
-                    "y":1200
-                },
-                "onActionMethodID":"E4A33195-A933-43CF-A7D7-25B827946978",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Remove Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"26,1200",
-            "name":"button_removeMenuItem1",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"CEDAFBFA-EF0A-413B-BEB2-841E1733E5EF"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":450
-                },
-                "onActionMethodID":"55D955E9-6555-4843-9367-1115F8E1B4A6",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Get Selected Menu",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,450",
-            "name":"button_getSelectedMenu",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"D1C869E1-D6AC-4FEB-A6D8-644DDD457B05"
-        },
-        {
-            "anchors":11,
-            "json":{
-                "anchors":11,
-                "brandLogo":"381C2834-B5D5-41A4-9502-B636225680DF",
-                "brandText":"Servoy Navbar",
-                "collapsing":false,
-                "inverse":false,
-                "location":{
-                    "x":16,
-                    "y":52
-                },
-                "markClickedItemActive":true,
-                "menuItems":[
-                    {
-                        "displayType":"BUTTON",
-                        "itemId":"1",
-                        "itemText":"Link 1",
-                        "svyUUID":"A9888801-2C14-4363-8747-3F5BB0F715E6",
-                        "text":"Link 1"
-                    },
-                    {
-                        "displayType":"BUTTON",
-                        "iconName":"glyphicon glyphicon-camera",
-                        "itemId":"2",
-                        "itemText":"Link 2",
-                        "styleClass":"btn-primary",
-                        "svyUUID":"2B2CCD4B-61ED-48A5-B48E-22EAD7F4D781",
-                        "text":"Button 1"
-                    },
-                    {
-                        "enabled":true,
-                        "itemId":"3",
-                        "itemText":"Dropdown",
-                        "subMenuItems":[
-                            {
-                                "iconName":"glyphicon glyphicon-thumbs-up",
-                                "isDivider":false,
-                                "itemId":"3.1",
-                                "itemText":"Action",
-                                "svyUUID":"C9249CA7-FB02-45E9-9413-427D6084B8BE",
-                                "text":"Action"
-                            },
-                            {
-                                "itemId":"3.2",
-                                "itemText":"Another action",
-                                "svyUUID":"D487DE5E-0EB7-4736-9684-F37DC3DBCD33",
-                                "text":"More action"
-                            },
-                            {
-                                "enabled":false,
-                                "isDivider":false,
-                                "itemId":"3.3",
-                                "svyUUID":"01D55A10-E171-4B26-8A13-6420A7BA4763"
-                            },
-                            {
-                                "enabled":true,
-                                "iconName":"fa fa-futbol-o",
-                                "itemId":"3.4",
-                                "itemText":"Last action",
-                                "svyUUID":"8CB0B744-B476-42C7-B5D1-210AAD3200A4",
-                                "text":"Last action"
-                            }
-                        ],
-                        "svyUUID":"DDE7F4F1-81A3-44F2-A2D5-9515218F485D",
-                        "text":"Dropdown"
-                    },
-                    {
-                        "dataProvider":"searchField",
-                        "displayType":"INPUT_GROUP",
-                        "iconName":"glyphicon glyphicon-search",
-                        "inputButtonText":"Search",
-                        "itemId":"4",
-                        "itemText":"Enter search",
-                        "onAction":"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
-                        "svyUUID":"789BCD02-3017-4F83-8E7D-C14293246CC6",
-                        "text":"Enter search",
-                        "valuelist":null
-                    },
-                    {
-                        "dataProvider":"searchField",
-                        "displayType":"INPUT",
-                        "itemId":"42",
-                        "onAction":"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
-                        "svyUUID":"2F78EAFD-1B4B-4DE3-9D64-3393980AED75",
-                        "text":"Input Search"
-                    },
-                    {
-                        "dataProvider":"searchTypeahead",
-                        "displayType":"INPUT_GROUP",
-                        "iconName":"fa fa-search",
-                        "inputButtonText":"Search",
-                        "itemId":"41",
-                        "onAction":"17ED2B3A-B6F5-4B66-91EF-8BB9F7387FDB",
-                        "svyUUID":"057D9ECB-D702-424A-BE85-99A7C634EB9D",
-                        "text":"Enter product name",
-                        "valuelist":"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
-                    },
-                    {
-                        "displayType":"TEXT",
-                        "position":"RIGHT",
-                        "svyUUID":"36D7E0C2-EE29-4BA0-80B0-121F0A2A3F9B",
-                        "text":"Just some text"
-                    },
-                    {
-                        "iconName":"glyphicon glyphicon-user",
-                        "inputButtonStyleClass":"btn-danger",
-                        "itemId":"5",
-                        "itemText":"John Doe",
-                        "position":"RIGHT",
-                        "subMenuItems":[
-                            {
-                                "iconName":"glyphicon glyphicon-cog",
-                                "itemId":"5.1",
-                                "itemText":"Settings",
-                                "svyUUID":"8554F1AB-06A9-4B53-8487-42786D0577C9",
-                                "text":"Settings"
-                            },
-                            {
-                                "iconName":"fa fa-lock",
-                                "isDivider":false,
-                                "itemId":"5.2",
-                                "itemText":"Log out",
-                                "svyUUID":"86E615CE-0ED6-4BD9-8529-0203B3CBD11F",
-                                "text":"Log out"
-                            }
-                        ],
-                        "svyUUID":"6DC240CD-042A-4E0E-93B2-C0EF5A0ED74D",
-                        "text":"John Doe"
-                    }
-                ],
-                "onBrandClicked":"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
-                "onBrandLogoClicked":"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
-                "onMenuItemClicked":"1C2DE078-10A9-418B-BD65-D909FBEB82F1",
-                "size":{
-                    "height":55,
-                    "width":734
-                },
-                "visible":true
-            },
-            "location":"16,52",
-            "name":"navbar",
-            "size":"734,55",
-            "typeName":"bootstrapextracomponents-navbar",
-            "typeid":47,
-            "uuid":"D45C0DC3-07B1-4BCB-88F3-D793BBA90A38"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":484
-                },
-                "onActionMethodID":"5A117D25-37B7-42EB-9712-94D2ECFD6477",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Enable/Disable SubMenu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,484",
-            "name":"button_enableSubMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"D849CE6E-0AF6-4765-AEB3-E21050E93BB1"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":279
-                },
-                "onActionMethodID":"EFD5D754-D9C0-4389-8EE9-D66737CB2A96",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Select Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,279",
-            "name":"button_selectMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"F86C4697-9AFA-44E2-85CD-1304E7B8361B"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":29,
-                    "y":946
-                },
-                "size":{
-                    "height":30,
-                    "width":619
-                },
-                "variant":"LabelBackground"
-            },
-            "location":"29,946",
-            "name":"lblLastClick1",
-            "size":"619,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"F9E4093B-90B9-4FA1-8772-2F45FBF3655A"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":17,
-                    "y":382
-                },
-                "onActionMethodID":"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE",
-                "size":{
-                    "height":30,
-                    "width":239
-                },
-                "text":"Add Menu Item",
-                "variant":"BtnPrimary"
-            },
-            "location":"17,382",
-            "name":"button_addMenuItem",
-            "size":"239,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"FDFCA4A8-EB7E-4D3B-9EFC-7A3A919703E8"
-        }
-    ],
-    "name":"navbarForm",
-    "navigatorID":"-1",
-    "showInMenu":true,
-    "size":"800,1500",
-    "typeid":3,
-    "uuid":"CF6FFD6A-2ECA-4CB8-BE39-B00D206AC4B6"
+json:{
+location:{
+x:17,
+y:313
+},
+onActionMethodID:"45BEF13D-9EA4-4FF6-87A8-CD258E3644D4",
+size:{
+height:30,
+width:239
+},
+text:"Icon Menu",
+variant:"BtnPrimary"
+},
+location:"17,313",
+name:"button_createIconMenu",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"006A101E-3FDB-46F2-8C84-7232526DDD53"
+},
+{
+anchors:11,
+json:{
+anchors:11,
+brandLogo:"381C2834-B5D5-41A4-9502-B636225680DF",
+brandText:"Servoy Navbar",
+collapsing:false,
+inverse:false,
+location:{
+x:20,
+y:821
+},
+markClickedItemActive:true,
+menuItems:[],
+onBrandClicked:"B7ED4A04-F146-461C-BEA8-A2B134DB8C7D",
+onBrandLogoClicked:"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
+onMenuItemClicked:"09E9D676-591E-458B-AB54-1C2B49C9F4EC",
+servoyMenu:"0390B612-0649-4868-A53C-937B8DAD7963",
+size:{
+height:55,
+width:735
+},
+visible:true
+},
+location:"20,821",
+name:"navbar_servoyMenu",
+size:"735,55",
+typeName:"bootstrapextracomponents-navbar",
+typeid:47,
+uuid:"0B1BA408-2C79-4187-A101-3C14B17CA14F"
+},
+{
+json:{
+location:{
+x:26,
+y:1166
+},
+onActionMethodID:"F64FD2D4-8269-418D-949D-725AA83D2491",
+size:{
+height:30,
+width:239
+},
+text:"Add Menu Item",
+variant:"BtnPrimary"
+},
+location:"26,1166",
+name:"button_addMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"0DEA234B-A30A-42B3-9391-431EF754AFBE"
+},
+{
+json:{
+location:{
+x:17,
+y:518
+},
+onActionMethodID:"DF440E86-6697-4ADF-B3BB-B9510095DD84",
+size:{
+height:30,
+width:239
+},
+text:"Get Menu Item",
+variant:"BtnPrimary"
+},
+location:"17,518",
+name:"button_getMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"102B4A1B-17E3-4A8B-8A75-FECEFABC7325"
+},
+{
+json:{
+location:{
+x:17,
+y:15
+},
+size:{
+height:30,
+width:193
+},
+text:"Navbar with custom menu:"
+},
+location:"17,15",
+name:"label_description1",
+size:"193,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"1864223B-FBAC-47EB-B0BE-0AB0A7E31303"
+},
+{
+json:{
+location:{
+x:325,
+y:1169
+},
+size:{
+height:30,
+width:421
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"325,1169",
+name:"label_3cc",
+size:"421,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"1F58DBDE-B4F5-48FA-A3B1-DF5D02D7DD54"
+},
+{
+json:{
+location:{
+x:17,
+y:416
+},
+onActionMethodID:"B4E14E6F-6ED0-4130-B92E-24422C07CB3B",
+size:{
+height:30,
+width:239
+},
+text:"Remove Menu Item",
+variant:"BtnPrimary"
+},
+location:"17,416",
+name:"button_removeMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"23E951F4-E251-4740-8FBA-642797775864"
+},
+{
+dataProviderID:"invertedNavbar",
+displayType:4,
+location:"18,720",
+name:"invertedNavbar",
+onDataChangeMethodID:"D19F4982-AA64-4B3F-A77B-2D23AF2180AF",
+size:"200,30",
+text:"Inverse",
+typeid:4,
+uuid:"2C7AE110-8DC0-40E5-9F36-39B252975C77"
+},
+{
+json:{
+location:{
+x:27,
+y:1444
+},
+onActionMethodID:"FFA65F7E-1DF5-4005-8608-89BAC35D7A75",
+size:{
+height:30,
+width:239
+},
+text:"Get size",
+variant:"BtnPrimary"
+},
+location:"27,1444",
+name:"button_getSize1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"2E104723-563C-458E-B694-7204CF01DF41"
+},
+{
+json:{
+location:{
+x:18,
+y:660
+},
+onActionMethodID:"2F47A515-77BB-4FC5-A327-448BD8A73E0F",
+size:{
+height:30,
+width:239
+},
+text:"Get size",
+variant:"BtnPrimary"
+},
+location:"18,660",
+name:"button_getSize",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"32CC5941-48D2-4335-B1FD-D587CC516528"
+},
+{
+json:{
+location:{
+x:26,
+y:1028
+},
+onActionMethodID:"D309C36B-8B9F-4B27-AC7A-0C8458D6CBA6",
+size:{
+height:30,
+width:239
+},
+text:"Set Menu Items",
+variant:"BtnPrimary"
+},
+location:"26,1028",
+name:"button_setMenuItems1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"39DBCB5F-C182-4159-B55D-1A4F9EF00E5E"
+},
+{
+json:{
+location:{
+x:325,
+y:1132
+},
+size:{
+height:30,
+width:421
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"325,1132",
+name:"label_getc",
+size:"421,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"3A5B7995-F9D3-4535-AE1B-031964EE3A20"
+},
+{
+json:{
+location:{
+x:26,
+y:1097
+},
+onActionMethodID:"0B9AD789-4B73-4CB1-9525-7E988FCFC0C3",
+size:{
+height:30,
+width:239
+},
+text:"Icon Menu",
+variant:"BtnPrimary"
+},
+location:"26,1097",
+name:"button_createIconMenu1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"455F24D9-113C-4350-8390-C741F8E3E166"
+},
+{
+json:{
+location:{
+x:18,
+y:625
+},
+onActionMethodID:"CB1CED5B-0ADD-4766-A18A-F6B657021332",
+size:{
+height:30,
+width:239
+},
+text:"Get Location",
+variant:"BtnPrimary"
+},
+location:"18,625",
+name:"button_getLocation",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"4F6963A9-BD87-40B8-9E54-29751C61CD04"
+},
+{
+json:{
+location:{
+x:318,
+y:370
+},
+size:{
+height:30,
+width:421
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"318,370",
+name:"label_3c",
+size:"421,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"5816EC5F-EC30-4C99-9ABE-9B4FE16420CE"
+},
+{
+json:{
+location:{
+x:26,
+y:1063
+},
+onActionMethodID:"4E419FDF-BEBC-4F93-8620-84A611EC256A",
+size:{
+height:30,
+width:239
+},
+text:"Select Menu Item",
+variant:"BtnPrimary"
+},
+location:"26,1063",
+name:"button_selectMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"5AB46794-A70E-4F5E-BDDB-261F24393472"
+},
+{
+json:{
+location:{
+x:26,
+y:1234
+},
+onActionMethodID:"8B5BAD58-F7DC-4F13-993B-329341086038",
+size:{
+height:30,
+width:239
+},
+text:"Get Selected Menu",
+variant:"BtnPrimary"
+},
+location:"26,1234",
+name:"button_getSelectedMenu1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"6102A386-8D19-44A7-BA95-47A108B40717"
+},
+{
+json:{
+location:{
+x:26,
+y:1268
+},
+onActionMethodID:"8AE57AF2-C2F2-4F1C-8AA4-17C24451D47A",
+size:{
+height:30,
+width:239
+},
+text:"Enable/Disable SubMenu Item",
+variant:"BtnPrimary"
+},
+location:"26,1268",
+name:"button_enableSubMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"63035778-53DF-4E7C-8503-6689F90ABC9C"
+},
+{
+json:{
+location:{
+x:17,
+y:589
+},
+onActionMethodID:"31232432-A9DB-41E1-8AC0-C5225DBD9D49",
+size:{
+height:30,
+width:239
+},
+text:"Request focus",
+variant:"BtnPrimary"
+},
+location:"17,589",
+name:"button_requestFocus",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"6584FC14-36C1-4AAD-BA9A-3A0D210701A3"
+},
+{
+json:{
+location:{
+x:27,
+y:1409
+},
+onActionMethodID:"FBE0EC9A-9F28-4A49-A360-B22AC811035B",
+size:{
+height:30,
+width:239
+},
+text:"Get Location",
+variant:"BtnPrimary"
+},
+location:"27,1409",
+name:"button_getLocation1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"6AB8A4E3-6BF5-4CB3-87E6-1C7371DA088E"
+},
+{
+json:{
+location:{
+x:16,
+y:148
+},
+size:{
+height:30,
+width:619
+},
+variant:"LabelBackground"
+},
+location:"16,148",
+name:"lblLastClick",
+size:"619,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"6D35C441-43FA-4F41-AA27-B9103D20FC9F"
+},
+{
+json:{
+location:{
+x:26,
+y:1337
+},
+onActionMethodID:"1F33FDCB-AEE8-4C89-A99E-EF3B02255BE9",
+size:{
+height:30,
+width:239
+},
+text:"Open SubMenu",
+variant:"BtnPrimary"
+},
+location:"26,1337",
+name:"button_openSubMenu1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"6E0D6C2A-13D1-4DD9-9CED-FB9916F4174D"
+},
+{
+json:{
+location:{
+x:318,
+y:333
+},
+size:{
+height:30,
+width:421
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"318,333",
+name:"label_get",
+size:"421,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"70096022-9FC3-403A-B565-7F87C1F725FA"
+},
+{
+height:1500,
+partType:5,
+typeid:19,
+uuid:"A5AEBECB-F9E7-48FE-A501-92FE2F5A2F90"
+},
+{
+json:{
+location:{
+x:17,
+y:244
+},
+onActionMethodID:"6C2A9AC6-8498-46A2-AA71-BE3EDDB0DD34",
+size:{
+height:30,
+width:239
+},
+text:"Set Menu Items",
+variant:"BtnPrimary"
+},
+location:"17,244",
+name:"button_setMenuItems",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"A6D21EAF-9339-47F9-ADF5-2C2653789A15"
+},
+{
+json:{
+location:{
+x:16,
+y:111
+},
+size:{
+height:30,
+width:170
+},
+text:"Last click:"
+},
+location:"16,111",
+name:"label_855",
+size:"170,30",
+typeName:"servoydefault-label",
+typeid:47,
+uuid:"AB00E08E-D941-4110-89DF-214574453645"
+},
+{
+json:{
+location:{
+x:17,
+y:553
+},
+onActionMethodID:"2524366D-4815-4FC3-9A62-FC65CC2B400D",
+size:{
+height:30,
+width:239
+},
+text:"Open SubMenu",
+variant:"BtnPrimary"
+},
+location:"17,553",
+name:"button_openSubMenu",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"AC2D3209-5104-4DC0-A3CB-87DA399DBFF3"
+},
+{
+json:{
+location:{
+x:26,
+y:1302
+},
+onActionMethodID:"D48F37DF-C0E2-48EA-83C5-F7E77397D768",
+size:{
+height:30,
+width:239
+},
+text:"Get Menu Item",
+variant:"BtnPrimary"
+},
+location:"26,1302",
+name:"button_getMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"BCC66A1D-5975-4F87-8FD0-1B44D0BBE74F"
+},
+{
+json:{
+location:{
+x:20,
+y:778
+},
+size:{
+height:30,
+width:193
+},
+text:"Navbar with servoy menu:"
+},
+location:"20,778",
+name:"label_description2",
+size:"193,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"C721F2F0-DD69-4B08-840D-DEED28D9991F"
+},
+{
+json:{
+location:{
+x:17,
+y:347
+},
+onActionMethodID:"DF0B5339-9EDD-4562-B335-A90A68C345EF",
+size:{
+height:30,
+width:239
+},
+text:"Enable/Disable Menu Item",
+variant:"BtnPrimary"
+},
+location:"17,347",
+name:"button_enableMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"CA458968-ED8B-42E9-89DC-2A6E396EB03D"
+},
+{
+json:{
+location:{
+x:26,
+y:1131
+},
+onActionMethodID:"BF76A607-3D83-4F3B-8355-9A055F509207",
+size:{
+height:30,
+width:239
+},
+text:"Enable/Disable Menu Item",
+variant:"BtnPrimary"
+},
+location:"26,1131",
+name:"button_enableMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"CC3E3086-ADFD-4535-B8FE-4545F291ECF9"
+},
+{
+json:{
+location:{
+x:26,
+y:1373
+},
+onActionMethodID:"42113012-37E2-428C-B2D5-BD28B79D991A",
+size:{
+height:30,
+width:239
+},
+text:"Request focus",
+variant:"BtnPrimary"
+},
+location:"26,1373",
+name:"button_requestFocus1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"CCB156F4-5313-4AA7-9BB0-C307819E06B1"
+},
+{
+json:{
+location:{
+x:26,
+y:1200
+},
+onActionMethodID:"E4A33195-A933-43CF-A7D7-25B827946978",
+size:{
+height:30,
+width:239
+},
+text:"Remove Menu Item",
+variant:"BtnPrimary"
+},
+location:"26,1200",
+name:"button_removeMenuItem1",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"CEDAFBFA-EF0A-413B-BEB2-841E1733E5EF"
+},
+{
+json:{
+location:{
+x:17,
+y:450
+},
+onActionMethodID:"55D955E9-6555-4843-9367-1115F8E1B4A6",
+size:{
+height:30,
+width:239
+},
+text:"Get Selected Menu",
+variant:"BtnPrimary"
+},
+location:"17,450",
+name:"button_getSelectedMenu",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"D1C869E1-D6AC-4FEB-A6D8-644DDD457B05"
+},
+{
+anchors:11,
+json:{
+anchors:11,
+brandLogo:"381C2834-B5D5-41A4-9502-B636225680DF",
+brandText:"Servoy Navbar",
+collapsing:false,
+inverse:false,
+location:{
+x:16,
+y:52
+},
+markClickedItemActive:true,
+menuItems:[
+{
+displayType:"BUTTON",
+itemId:"1",
+itemText:"Link 1",
+svyUUID:"A9888801-2C14-4363-8747-3F5BB0F715E6",
+text:"Link 1"
+},
+{
+displayType:"BUTTON",
+iconName:"glyphicon glyphicon-camera",
+itemId:"2",
+itemText:"Link 2",
+styleClass:"btn-primary",
+svyUUID:"2B2CCD4B-61ED-48A5-B48E-22EAD7F4D781",
+text:"Button 1"
+},
+{
+enabled:true,
+itemId:"3",
+itemText:"Dropdown",
+subMenuItems:[
+{
+iconName:"glyphicon glyphicon-thumbs-up",
+isDivider:false,
+itemId:"3.1",
+itemText:"Action",
+svyUUID:"C9249CA7-FB02-45E9-9413-427D6084B8BE",
+text:"Action"
+},
+{
+itemId:"3.2",
+itemText:"Another action",
+svyUUID:"D487DE5E-0EB7-4736-9684-F37DC3DBCD33",
+text:"More action"
+},
+{
+enabled:false,
+isDivider:false,
+itemId:"3.3",
+svyUUID:"01D55A10-E171-4B26-8A13-6420A7BA4763"
+},
+{
+enabled:true,
+iconName:"fa fa-futbol-o",
+itemId:"3.4",
+itemText:"Last action",
+svyUUID:"8CB0B744-B476-42C7-B5D1-210AAD3200A4",
+text:"Last action"
 }
+],
+svyUUID:"DDE7F4F1-81A3-44F2-A2D5-9515218F485D",
+text:"Dropdown"
+},
+{
+dataProvider:"searchField",
+displayType:"INPUT_GROUP",
+iconName:"glyphicon glyphicon-search",
+inputButtonText:"Search",
+itemId:"4",
+itemText:"Enter search",
+onAction:"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
+svyUUID:"789BCD02-3017-4F83-8E7D-C14293246CC6",
+text:"Enter search",
+valuelist:null
+},
+{
+dataProvider:"searchField",
+displayType:"INPUT",
+itemId:"42",
+onAction:"972F73D6-F645-4BB2-B6A1-F52B7AB90CCC",
+svyUUID:"2F78EAFD-1B4B-4DE3-9D64-3393980AED75",
+text:"Input Search"
+},
+{
+dataProvider:"searchTypeahead",
+displayType:"INPUT_GROUP",
+iconName:"fa fa-search",
+inputButtonText:"Search",
+itemId:"41",
+onAction:"17ED2B3A-B6F5-4B66-91EF-8BB9F7387FDB",
+svyUUID:"057D9ECB-D702-424A-BE85-99A7C634EB9D",
+text:"Enter product name",
+valuelist:"4A1A4ADB-E138-4E47-B912-AC718E1FD795"
+},
+{
+displayType:"TEXT",
+position:"RIGHT",
+svyUUID:"36D7E0C2-EE29-4BA0-80B0-121F0A2A3F9B",
+text:"Just some text"
+},
+{
+iconName:"glyphicon glyphicon-user",
+inputButtonStyleClass:"btn-danger",
+itemId:"5",
+itemText:"John Doe",
+position:"RIGHT",
+subMenuItems:[
+{
+iconName:"glyphicon glyphicon-cog",
+itemId:"5.1",
+itemText:"Settings",
+svyUUID:"8554F1AB-06A9-4B53-8487-42786D0577C9",
+text:"Settings"
+},
+{
+iconName:"fa fa-lock",
+isDivider:false,
+itemId:"5.2",
+itemText:"Log out",
+svyUUID:"86E615CE-0ED6-4BD9-8529-0203B3CBD11F",
+text:"Log out"
+}
+],
+svyUUID:"6DC240CD-042A-4E0E-93B2-C0EF5A0ED74D",
+text:"John Doe"
+}
+],
+onBrandClicked:"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
+onBrandLogoClicked:"FC8A259F-8EE2-4292-8F30-21E46DE57F40",
+onMenuItemClicked:"1C2DE078-10A9-418B-BD65-D909FBEB82F1",
+size:{
+height:55,
+width:734
+},
+visible:true
+},
+location:"16,52",
+name:"navbar",
+size:"734,55",
+typeName:"bootstrapextracomponents-navbar",
+typeid:47,
+uuid:"D45C0DC3-07B1-4BCB-88F3-D793BBA90A38"
+},
+{
+json:{
+location:{
+x:17,
+y:484
+},
+onActionMethodID:"5A117D25-37B7-42EB-9712-94D2ECFD6477",
+size:{
+height:30,
+width:239
+},
+text:"Enable/Disable SubMenu Item",
+variant:"BtnPrimary"
+},
+location:"17,484",
+name:"button_enableSubMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"D849CE6E-0AF6-4765-AEB3-E21050E93BB1"
+},
+{
+json:{
+location:{
+x:17,
+y:279
+},
+onActionMethodID:"EFD5D754-D9C0-4389-8EE9-D66737CB2A96",
+size:{
+height:30,
+width:239
+},
+text:"Select Menu Item",
+variant:"BtnPrimary"
+},
+location:"17,279",
+name:"button_selectMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"F86C4697-9AFA-44E2-85CD-1304E7B8361B"
+},
+{
+json:{
+location:{
+x:29,
+y:946
+},
+size:{
+height:30,
+width:619
+},
+variant:"LabelBackground"
+},
+location:"29,946",
+name:"lblLastClick1",
+size:"619,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"F9E4093B-90B9-4FA1-8772-2F45FBF3655A"
+},
+{
+json:{
+location:{
+x:17,
+y:382
+},
+onActionMethodID:"AC5386BE-7204-4FB0-9D23-D38A16AE2FDE",
+size:{
+height:30,
+width:239
+},
+text:"Add Menu Item",
+variant:"BtnPrimary"
+},
+location:"17,382",
+name:"button_addMenuItem",
+size:"239,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"FDFCA4A8-EB7E-4D3B-9EFC-7A3A919703E8"
+}
+],
+name:"navbarForm",
+navigatorID:"-1",
+showInMenu:true,
+size:"800,1500",
+typeid:3,
+uuid:"CF6FFD6A-2ECA-4CB8-BE39-B00D206AC4B6"

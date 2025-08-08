@@ -1,77 +1,77 @@
 [
 {
-    "encapsulation":0,
-    "mimeType":"text/css",
-    "name":"bootstrap_extra_demo.css",
-    "typeid":37,
-    "uuid":"A7D8534D-9F80-4679-84AF-F943797ABE06"
+encapsulation:0,
+mimeType:"text/css",
+name:"bootstrap_extra_demo.css",
+typeid:37,
+uuid:"A7D8534D-9F80-4679-84AF-F943797ABE06"
 },
 {
-    "encapsulation":0,
-    "name":"bootstrapExtraComponentsDemo.less",
-    "typeid":37,
-    "uuid":"A2510AF6-C543-416D-BABE-2BC8C911BDB5"
+encapsulation:0,
+name:"bootstrapExtraComponentsDemo.less",
+typeid:37,
+uuid:"A2510AF6-C543-416D-BABE-2BC8C911BDB5"
 },
 {
-    "encapsulation":0,
-    "name":"custom_servoy_theme_properties.less",
-    "typeid":37,
-    "uuid":"50597FAC-1C0E-4229-A701-AEA7AF2D756C"
+encapsulation:0,
+name:"custom_servoy_theme_properties.less",
+typeid:37,
+uuid:"50597FAC-1C0E-4229-A701-AEA7AF2D756C"
 },
 {
-    "encapsulation":0,
-    "mimeType":"text/css",
-    "name":"samples.css",
-    "typeid":37,
-    "uuid":"36633D6F-52D0-4C65-AF26-78C210444DC5"
+encapsulation:0,
+mimeType:"text/css",
+name:"samples.css",
+typeid:37,
+uuid:"36633D6F-52D0-4C65-AF26-78C210444DC5"
 },
 {
-    "encapsulation":0,
-    "mimeType":"image/png",
-    "name":"Servoy.png",
-    "typeid":37,
-    "uuid":"381C2834-B5D5-41A4-9502-B636225680DF"
+encapsulation:0,
+mimeType:"image/png",
+name:"Servoy.png",
+typeid:37,
+uuid:"381C2834-B5D5-41A4-9502-B636225680DF"
 },
 {
-    "encapsulation":0,
-    "mimeType":"image/png",
-    "name":"servoy_logo.png",
-    "typeid":37,
-    "uuid":"6097CE35-FED4-4576-997A-C307B4CB5B9E"
+encapsulation:0,
+mimeType:"image/png",
+name:"servoy_logo.png",
+typeid:37,
+uuid:"6097CE35-FED4-4576-997A-C307B4CB5B9E"
 },
 {
-    "encapsulation":0,
-    "mimeType":"image/png",
-    "name":"servoy_logo_next_gen.png",
-    "typeid":37,
-    "uuid":"881A887F-2DE9-4632-B53E-89314E3ACECC"
+encapsulation:0,
+mimeType:"image/png",
+name:"servoy_logo_next_gen.png",
+typeid:37,
+uuid:"881A887F-2DE9-4632-B53E-89314E3ACECC"
 },
 {
-    "encapsulation":0,
-    "mimeType":"text/css",
-    "name":"servoyExtraComponents.css",
-    "typeid":37,
-    "uuid":"59705D71-0655-4CA2-8895-D4CD4F950D49"
+encapsulation:0,
+mimeType:"text/css",
+name:"servoyExtraComponents.css",
+typeid:37,
+uuid:"59705D71-0655-4CA2-8895-D4CD4F950D49"
 },
 {
-    "encapsulation":0,
-    "mimeType":"text/css",
-    "name":"sideNav.css",
-    "typeid":37,
-    "uuid":"4839F3CE-ED60-43C7-A567-A4E4F7DE8678"
+encapsulation:0,
+mimeType:"text/css",
+name:"sideNav.css",
+typeid:37,
+uuid:"4839F3CE-ED60-43C7-A567-A4E4F7DE8678"
 },
 {
-    "encapsulation":0,
-    "mimeType":"application/json",
-    "name":"variants.json",
-    "typeid":37,
-    "uuid":"C4EA4845-FF92-4A4E-9EC4-69D9B5DBCD63"
+encapsulation:0,
+mimeType:"application/json",
+name:"variants.json",
+typeid:37,
+uuid:"C4EA4845-FF92-4A4E-9EC4-69D9B5DBCD63"
 },
 {
-    "encapsulation":0,
-    "mimeType":"text/css",
-    "name":"webElements.css",
-    "typeid":37,
-    "uuid":"A71C61F3-D1B9-497A-A205-579C2A56D956"
+encapsulation:0,
+mimeType:"text/css",
+name:"webElements.css",
+typeid:37,
+uuid:"A71C61F3-D1B9-497A-A205-579C2A56D956"
 }
 ]

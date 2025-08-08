@@ -1,191 +1,187 @@
+customProperties:"formComponent:false",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "items":[
-        {
-            "height":480,
-            "partType":5,
-            "typeid":19,
-            "uuid":"4D793DDE-08B3-485D-8B76-B4C1BE64D6F4"
-        },
-        {
-            "anchors":11,
-            "json":{
-                "anchors":11,
-                "autoRemoveWhenClicked":false,
-                "breadcrumbs":[
-                    {
-                        "displayName":"Home",
-                        "svyUUID":"2648CC86-B638-41A1-AEEF-A6B5ECFF91AA"
-                    },
-                    {
-                        "displayName":"Library",
-                        "svyUUID":"7BD95855-E54B-4A60-8BDB-84B6B7787073"
-                    },
-                    {
-                        "displayName":"Data",
-                        "svyUUID":"24BC43ED-78F4-42C0-8756-E2EEF45F82AB"
-                    }
-                ],
-                "lastItemStyleClass":"breadcrumb-last",
-                "location":{
-                    "x":18,
-                    "y":81
-                },
-                "onCrumbClicked":"DA5198D2-EA63-4970-8703-9966844DA056",
-                "size":{
-                    "height":40,
-                    "width":600
-                },
-                "visible":true
-            },
-            "location":"18,81",
-            "name":"breadcrumbs",
-            "size":"600,40",
-            "typeName":"bootstrapextracomponents-breadcrumbs",
-            "typeid":47,
-            "uuid":"9EB70A59-E699-45A5-BFFA-D678CF6D6DC5"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":221,
-                    "y":221
-                },
-                "onActionMethodID":"4E833762-E188-4F89-ABED-861E922E39BC",
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Remove last",
-                "variant":"BtnPrimary"
-            },
-            "location":"221,221",
-            "name":"button_remove_last",
-            "size":"170,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"9EC5FBAD-D0E8-43D4-95BC-66CD064EAA24"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":221,
-                    "y":173
-                },
-                "onActionMethodID":"F979D410-FA98-40A6-856A-406EEC0F8495",
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Remove crumbs after",
-                "variant":"BtnPrimary"
-            },
-            "location":"221,173",
-            "name":"button_remove_crumbs_after",
-            "size":"170,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"A006A528-B24F-4E22-B7B2-88D7711E1524"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":173
-                },
-                "onActionMethodID":"57AAF4B7-4F01-44C4-8B96-3E81F284B737",
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Create breadcrumbs",
-                "variant":"BtnPrimary"
-            },
-            "location":"18,173",
-            "name":"button_create_breadcrumbs",
-            "size":"170,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"A908E93E-A07C-4525-92F0-835BB17F87B2"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":221
-                },
-                "onActionMethodID":"BF3ED412-4C88-4D02-8297-3A7B1C2847E5",
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Add breadcrumbs",
-                "variant":"BtnPrimary"
-            },
-            "location":"18,221",
-            "name":"button_add_breadcrumbs",
-            "size":"170,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"D835F817-7259-4C06-BDC2-ACDE5B6B55EC"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":327
-                },
-                "size":{
-                    "height":30,
-                    "width":600
-                },
-                "text":"",
-                "variant":"LabelBackground"
-            },
-            "location":"18,327",
-            "name":"lblLastClick",
-            "size":"600,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"E2397282-4252-43FD-90C7-A7870CAEB08C"
-        },
-        {
-            "dataProviderID":"autoRemove",
-            "displayType":4,
-            "location":"18,31",
-            "onDataChangeMethodID":"35AB0AE6-7373-4A81-97F3-F89ED7CC94B7",
-            "size":"284,30",
-            "text":"Auto remove crumbs when clicked",
-            "transparent":true,
-            "typeid":4,
-            "uuid":"E3F582BC-7DC6-4E7A-97CC-920A8ED3EB1A"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":18,
-                    "y":274
-                },
-                "size":{
-                    "height":30,
-                    "width":170
-                },
-                "text":"Last click:"
-            },
-            "location":"18,274",
-            "name":"label_855",
-            "size":"170,30",
-            "typeName":"servoydefault-label",
-            "typeid":47,
-            "uuid":"E7BCB186-1A1C-4D33-9F64-389E0A52DC36"
-        }
-    ],
-    "name":"breadcrumbsForm",
-    "navigatorID":"-1",
-    "onShowMethodID":"60CF4AC0-5951-4CC3-9FF0-0F83B078834C",
-    "showInMenu":true,
-    "typeid":3,
-    "uuid":"F5FD53D2-AC93-416C-8F83-B0FD712B4DC3"
+height:480,
+partType:5,
+typeid:19,
+uuid:"4D793DDE-08B3-485D-8B76-B4C1BE64D6F4"
+},
+{
+anchors:11,
+json:{
+anchors:11,
+autoRemoveWhenClicked:false,
+breadcrumbs:[
+{
+displayName:"Home",
+svyUUID:"2648CC86-B638-41A1-AEEF-A6B5ECFF91AA"
+},
+{
+displayName:"Library",
+svyUUID:"7BD95855-E54B-4A60-8BDB-84B6B7787073"
+},
+{
+displayName:"Data",
+svyUUID:"24BC43ED-78F4-42C0-8756-E2EEF45F82AB"
 }
+],
+lastItemStyleClass:"breadcrumb-last",
+location:{
+x:18,
+y:81
+},
+onCrumbClicked:"DA5198D2-EA63-4970-8703-9966844DA056",
+size:{
+height:40,
+width:600
+},
+visible:true
+},
+location:"18,81",
+name:"breadcrumbs",
+size:"600,40",
+typeName:"bootstrapextracomponents-breadcrumbs",
+typeid:47,
+uuid:"9EB70A59-E699-45A5-BFFA-D678CF6D6DC5"
+},
+{
+json:{
+location:{
+x:221,
+y:221
+},
+onActionMethodID:"4E833762-E188-4F89-ABED-861E922E39BC",
+size:{
+height:30,
+width:170
+},
+text:"Remove last",
+variant:"BtnPrimary"
+},
+location:"221,221",
+name:"button_remove_last",
+size:"170,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"9EC5FBAD-D0E8-43D4-95BC-66CD064EAA24"
+},
+{
+json:{
+location:{
+x:221,
+y:173
+},
+onActionMethodID:"F979D410-FA98-40A6-856A-406EEC0F8495",
+size:{
+height:30,
+width:170
+},
+text:"Remove crumbs after",
+variant:"BtnPrimary"
+},
+location:"221,173",
+name:"button_remove_crumbs_after",
+size:"170,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"A006A528-B24F-4E22-B7B2-88D7711E1524"
+},
+{
+json:{
+location:{
+x:18,
+y:173
+},
+onActionMethodID:"57AAF4B7-4F01-44C4-8B96-3E81F284B737",
+size:{
+height:30,
+width:170
+},
+text:"Create breadcrumbs",
+variant:"BtnPrimary"
+},
+location:"18,173",
+name:"button_create_breadcrumbs",
+size:"170,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"A908E93E-A07C-4525-92F0-835BB17F87B2"
+},
+{
+json:{
+location:{
+x:18,
+y:221
+},
+onActionMethodID:"BF3ED412-4C88-4D02-8297-3A7B1C2847E5",
+size:{
+height:30,
+width:170
+},
+text:"Add breadcrumbs",
+variant:"BtnPrimary"
+},
+location:"18,221",
+name:"button_add_breadcrumbs",
+size:"170,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"D835F817-7259-4C06-BDC2-ACDE5B6B55EC"
+},
+{
+json:{
+location:{
+x:18,
+y:327
+},
+size:{
+height:30,
+width:600
+},
+text:"",
+variant:"LabelBackground"
+},
+location:"18,327",
+name:"lblLastClick",
+size:"600,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"E2397282-4252-43FD-90C7-A7870CAEB08C"
+},
+{
+dataProviderID:"autoRemove",
+displayType:4,
+location:"18,31",
+onDataChangeMethodID:"35AB0AE6-7373-4A81-97F3-F89ED7CC94B7",
+size:"284,30",
+text:"Auto remove crumbs when clicked",
+transparent:true,
+typeid:4,
+uuid:"E3F582BC-7DC6-4E7A-97CC-920A8ED3EB1A"
+},
+{
+json:{
+location:{
+x:18,
+y:274
+},
+size:{
+height:30,
+width:170
+},
+text:"Last click:"
+},
+location:"18,274",
+name:"label_855",
+size:"170,30",
+typeName:"servoydefault-label",
+typeid:47,
+uuid:"E7BCB186-1A1C-4D33-9F64-389E0A52DC36"
+}
+],
+name:"breadcrumbsForm",
+navigatorID:"-1",
+onShowMethodID:"60CF4AC0-5951-4CC3-9FF0-0F83B078834C",
+showInMenu:true,
+typeid:3,
+uuid:"F5FD53D2-AC93-416C-8F83-B0FD712B4DC3"

@@ -1,219 +1,215 @@
+customProperties:"formComponent:false",
+dataSource:"mem:carousel_images",
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "dataSource":"mem:carousel_images",
-    "items":[
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":255
-                },
-                "onActionMethodID":"A88BF858-3884-4E91-8B24-2B26DBD5B843",
-                "size":{
-                    "height":30,
-                    "width":200
-                },
-                "text":"Remove slide",
-                "variant":"BtnPrimary"
-            },
-            "location":"20,255",
-            "name":"button_removeSlide",
-            "size":"200,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"0BF1E92B-36BF-4B92-9ED9-F151A0CD4CB6"
-        },
-        {
-            "dataProviderID":"noPause",
-            "displayType":4,
-            "location":"20,180",
-            "name":"noPause",
-            "onDataChangeMethodID":"4C82F098-9616-4655-A691-006C2181EF20",
-            "size":"200,25",
-            "text":"No pause",
-            "typeid":4,
-            "uuid":"129594E5-FE1D-4CA1-BE3F-F1E1E68F5116"
-        },
-        {
-            "location":"20,75",
-            "size":"200,25",
-            "text":"Cycle interval",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"1F70C4C4-C3CF-440E-8AE4-F5A9D891D318"
-        },
-        {
-            "displaysTags":true,
-            "horizontalAlignment":0,
-            "location":"70,45",
-            "size":"100,25",
-            "text":"%%selectedIndex%% / %%maxRecordIndex%%",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"3B453E51-09BE-4F32-9E8F-E0C97CE41BB1"
-        },
-        {
-            "location":"175,45",
-            "name":"btnNext",
-            "onActionMethodID":"E27FF9E1-7EBE-49D6-9800-363F57E1223C",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"45,25",
-            "text":">",
-            "typeid":7,
-            "uuid":"464CABC4-7D68-4F72-AA76-665D26C910C8"
-        },
-        {
-            "anchors":15,
-            "json":{
-                "anchors":15,
-                "autoScaleImages":true,
-                "cycleInterval":-1,
-                "fitImages":true,
-                "imageOptions":"Scale to fit",
-                "lazyLoading":false,
-                "location":{
-                    "x":255,
-                    "y":45
-                },
-                "noPause":false,
-                "noTransition":false,
-                "onSlideClicked":"D4D0A7C9-7A3C-4A5F-B538-C04E10C9260C",
-                "size":{
-                    "height":400,
-                    "width":533
-                },
-                "slidesFoundset":{
-                    "dataproviders":{
-                        "caption":"caption",
-                        "image":"image"
-                    },
-                    "foundsetSelector":""
-                },
-                "styleClass":"demo-carousel",
-                "visible":true
-            },
-            "location":"255,45",
-            "name":"carousel",
-            "size":"533,400",
-            "typeName":"bootstrapextracomponents-carousel",
-            "typeid":47,
-            "uuid":"85C34311-F30E-4D0E-BB9E-1D5FDD163E78"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":700
-                },
-                "size":{
-                    "height":30,
-                    "width":667
-                },
-                "variant":"LabelBackground"
-            },
-            "location":"20,700",
-            "name":"label_output",
-            "size":"667,30",
-            "typeName":"bootstrapcomponents-label",
-            "typeid":47,
-            "uuid":"9380D480-A01F-4DBE-8C01-D022B5928B60"
-        },
-        {
-            "dataProviderID":"noTransition",
-            "displayType":4,
-            "location":"20,145",
-            "name":"noTransition",
-            "onDataChangeMethodID":"76CFB4A6-61B2-407B-9D0C-9F945F3A6485",
-            "size":"200,25",
-            "text":"No transition",
-            "typeid":4,
-            "uuid":"983F7EEE-1FB4-4F5A-B275-BF052A10CB20"
-        },
-        {
-            "location":"20,45",
-            "name":"btnPrev",
-            "onActionMethodID":"A71BEC96-FB70-43F5-B7A4-575A63752FFE",
-            "onDoubleClickMethodID":"-1",
-            "onRightClickMethodID":"-1",
-            "size":"45,25",
-            "text":"<",
-            "typeid":7,
-            "uuid":"9FB268D9-3640-49A8-8DBB-D532FFE92B2C"
-        },
-        {
-            "json":{
-                "location":{
-                    "x":20,
-                    "y":215
-                },
-                "onActionMethodID":"D02A91E6-0DC5-4121-B17D-6F234E69B3A4",
-                "size":{
-                    "height":30,
-                    "width":200
-                },
-                "text":"Add slide",
-                "variant":"BtnPrimary"
-            },
-            "location":"20,215",
-            "name":"button_addSlide",
-            "size":"200,30",
-            "typeName":"bootstrapcomponents-button",
-            "typeid":47,
-            "uuid":"AF20344F-4107-4362-9A3E-E7B8067E44AC"
-        },
-        {
-            "location":"20,415",
-            "text":"Caption",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"B909560F-4221-4981-A407-C2DF86D35D57"
-        },
-        {
-            "location":"20,295",
-            "text":"Image",
-            "transparent":true,
-            "typeid":7,
-            "uuid":"C9DDDA50-610C-4D85-AAA3-F2D4BD2E3349"
-        },
-        {
-            "dataProviderID":"caption",
-            "location":"20,440",
-            "size":"200,25",
-            "typeid":4,
-            "uuid":"E90B99EA-1A3D-4C37-99E5-62CC9C62327D"
-        },
-        {
-            "height":800,
-            "partType":5,
-            "typeid":19,
-            "uuid":"EBB2E479-A59E-4138-8491-6CB087F73E5F"
-        },
-        {
-            "dataProviderID":"cycleInterval",
-            "location":"20,105",
-            "name":"cycleInterval",
-            "onDataChangeMethodID":"BE973CC4-646B-4293-B808-76A6C96B3FEB",
-            "size":"200,25",
-            "typeid":4,
-            "uuid":"EFFD185F-906E-42DE-AF83-C0BE50459735"
-        },
-        {
-            "dataProviderID":"image",
-            "horizontalAlignment":0,
-            "location":"20,320",
-            "size":"200,85",
-            "typeid":7,
-            "uuid":"F344DEB5-940E-4134-9A0A-3F28194F558A",
-            "verticalAlignment":0
-        }
-    ],
-    "name":"carouselfoundsetForm",
-    "scrollbars":36,
-    "showInMenu":true,
-    "size":"900,800",
-    "typeid":3,
-    "uuid":"B91331A5-0F8B-4459-8E91-207834DB908B"
+json:{
+location:{
+x:20,
+y:255
+},
+onActionMethodID:"A88BF858-3884-4E91-8B24-2B26DBD5B843",
+size:{
+height:30,
+width:200
+},
+text:"Remove slide",
+variant:"BtnPrimary"
+},
+location:"20,255",
+name:"button_removeSlide",
+size:"200,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"0BF1E92B-36BF-4B92-9ED9-F151A0CD4CB6"
+},
+{
+dataProviderID:"noPause",
+displayType:4,
+location:"20,180",
+name:"noPause",
+onDataChangeMethodID:"4C82F098-9616-4655-A691-006C2181EF20",
+size:"200,25",
+text:"No pause",
+typeid:4,
+uuid:"129594E5-FE1D-4CA1-BE3F-F1E1E68F5116"
+},
+{
+location:"20,75",
+size:"200,25",
+text:"Cycle interval",
+transparent:true,
+typeid:7,
+uuid:"1F70C4C4-C3CF-440E-8AE4-F5A9D891D318"
+},
+{
+displaysTags:true,
+horizontalAlignment:0,
+location:"70,45",
+size:"100,25",
+text:"%%selectedIndex%% / %%maxRecordIndex%%",
+transparent:true,
+typeid:7,
+uuid:"3B453E51-09BE-4F32-9E8F-E0C97CE41BB1"
+},
+{
+location:"175,45",
+name:"btnNext",
+onActionMethodID:"E27FF9E1-7EBE-49D6-9800-363F57E1223C",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"45,25",
+text:">",
+typeid:7,
+uuid:"464CABC4-7D68-4F72-AA76-665D26C910C8"
+},
+{
+anchors:15,
+json:{
+anchors:15,
+autoScaleImages:true,
+cycleInterval:-1,
+fitImages:true,
+imageOptions:"Scale to fit",
+lazyLoading:false,
+location:{
+x:255,
+y:45
+},
+noPause:false,
+noTransition:false,
+onSlideClicked:"D4D0A7C9-7A3C-4A5F-B538-C04E10C9260C",
+size:{
+height:400,
+width:533
+},
+slidesFoundset:{
+dataproviders:{
+caption:"caption",
+image:"image"
+},
+foundsetSelector:""
+},
+styleClass:"demo-carousel",
+visible:true
+},
+location:"255,45",
+name:"carousel",
+size:"533,400",
+typeName:"bootstrapextracomponents-carousel",
+typeid:47,
+uuid:"85C34311-F30E-4D0E-BB9E-1D5FDD163E78"
+},
+{
+json:{
+location:{
+x:20,
+y:700
+},
+size:{
+height:30,
+width:667
+},
+variant:"LabelBackground"
+},
+location:"20,700",
+name:"label_output",
+size:"667,30",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"9380D480-A01F-4DBE-8C01-D022B5928B60"
+},
+{
+dataProviderID:"noTransition",
+displayType:4,
+location:"20,145",
+name:"noTransition",
+onDataChangeMethodID:"76CFB4A6-61B2-407B-9D0C-9F945F3A6485",
+size:"200,25",
+text:"No transition",
+typeid:4,
+uuid:"983F7EEE-1FB4-4F5A-B275-BF052A10CB20"
+},
+{
+location:"20,45",
+name:"btnPrev",
+onActionMethodID:"A71BEC96-FB70-43F5-B7A4-575A63752FFE",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"45,25",
+text:"<",
+typeid:7,
+uuid:"9FB268D9-3640-49A8-8DBB-D532FFE92B2C"
+},
+{
+json:{
+location:{
+x:20,
+y:215
+},
+onActionMethodID:"D02A91E6-0DC5-4121-B17D-6F234E69B3A4",
+size:{
+height:30,
+width:200
+},
+text:"Add slide",
+variant:"BtnPrimary"
+},
+location:"20,215",
+name:"button_addSlide",
+size:"200,30",
+typeName:"bootstrapcomponents-button",
+typeid:47,
+uuid:"AF20344F-4107-4362-9A3E-E7B8067E44AC"
+},
+{
+location:"20,415",
+text:"Caption",
+transparent:true,
+typeid:7,
+uuid:"B909560F-4221-4981-A407-C2DF86D35D57"
+},
+{
+location:"20,295",
+text:"Image",
+transparent:true,
+typeid:7,
+uuid:"C9DDDA50-610C-4D85-AAA3-F2D4BD2E3349"
+},
+{
+dataProviderID:"caption",
+location:"20,440",
+size:"200,25",
+typeid:4,
+uuid:"E90B99EA-1A3D-4C37-99E5-62CC9C62327D"
+},
+{
+height:800,
+partType:5,
+typeid:19,
+uuid:"EBB2E479-A59E-4138-8491-6CB087F73E5F"
+},
+{
+dataProviderID:"cycleInterval",
+location:"20,105",
+name:"cycleInterval",
+onDataChangeMethodID:"BE973CC4-646B-4293-B808-76A6C96B3FEB",
+size:"200,25",
+typeid:4,
+uuid:"EFFD185F-906E-42DE-AF83-C0BE50459735"
+},
+{
+dataProviderID:"image",
+horizontalAlignment:0,
+location:"20,320",
+size:"200,85",
+typeid:7,
+uuid:"F344DEB5-940E-4134-9A0A-3F28194F558A",
+verticalAlignment:0
 }
+],
+name:"carouselfoundsetForm",
+scrollbars:36,
+showInMenu:true,
+size:"900,800",
+typeid:3,
+uuid:"B91331A5-0F8B-4459-8E91-207834DB908B"

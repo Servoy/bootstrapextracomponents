@@ -1,24 +1,20 @@
+customProperties:"formComponent:false",
+encapsulation:60,
+items:[
 {
-    "customProperties":{
-        "formComponent":false
-    },
-    "encapsulation":60,
-    "items":[
-        {
-            "partType":1,
-            "typeid":19,
-            "uuid":"652998E6-ECDC-4E20-AFC8-3B4D387DFB06"
-        },
-        {
-            "height":360,
-            "partType":5,
-            "typeid":19,
-            "uuid":"8718B75D-815D-4B8C-8D38-C31FD30CAF42"
-        }
-    ],
-    "name":"AbstractMicroSample",
-    "showInMenu":true,
-    "size":"480,100",
-    "typeid":3,
-    "uuid":"7EF5DA0E-6B64-46D6-9048-520F3CF6C925"
+partType:1,
+typeid:19,
+uuid:"652998E6-ECDC-4E20-AFC8-3B4D387DFB06"
+},
+{
+height:360,
+partType:5,
+typeid:19,
+uuid:"8718B75D-815D-4B8C-8D38-C31FD30CAF42"
 }
+],
+name:"AbstractMicroSample",
+showInMenu:true,
+size:"480,100",
+typeid:3,
+uuid:"7EF5DA0E-6B64-46D6-9048-520F3CF6C925"
