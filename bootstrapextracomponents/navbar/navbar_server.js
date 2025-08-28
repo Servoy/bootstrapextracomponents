@@ -4,8 +4,17 @@
  * @param {Array<CustomType<bootstrapextracomponents-navbar.menuItem>>} menuItems
  */
 $scope.api.setMenuItems = function(menuItems) {
+	if ($scope.model.servoyMenu) {
+		var servoyMenuItems = $scope.model.servoyMenu.getMenuItems();
+		for (var i = 0; i < servoyMenuItems.length; i++) {
+			$scope.model.servoyMenu.removeMenuItem(servoyMenuItems[i]);
+		}
+	}
 	for (var i = 0; i < menuItems.length; i++) {
 		setItemDefaults(menuItems[i]);
+		if ($scope.model.servoyMenu) {
+			addMenuItemToServoyMenu(menuItems[i]);
+		}
 	}
 	$scope.model.menuItems = menuItems;
 }
@@ -18,7 +27,9 @@ $scope.api.setMenuItems = function(menuItems) {
  */
 $scope.api.addMenuItem = function(menuItem, index) {
 	setItemDefaults(menuItem);
-	if ($scope.model.menuItems) {
+	if ($scope.model.servoyMenu) {
+		addMenuItemToServoyMenu(menuItem, index);
+	} else if ($scope.model.menuItems) {
 		if (index >= 0) {
 			$scope.model.menuItems.splice(index, 0, menuItem);
 		} else {
@@ -53,13 +64,14 @@ $scope.api.createMenuItem = function(text, itemId, position) {
  * @param {String} menuItemId
  */
 $scope.api.removeMenuItem = function(menuItemId) {
-	if (!$scope.model.menuItems || $scope.model.menuItems.length == 0) {
-		return;
-	}
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].itemId == menuItemId) {
-			$scope.model.menuItems.splice(i, 1);
-			break;
+	if ($scope.model.servoyMenu) {
+		$scope.model.servoyMenu.removeMenuItem(menuItemId);
+	} else if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].itemId == menuItemId) {
+				$scope.model.menuItems.splice(i, 1);
+				break;
+			}
 		}
 	}
 }
@@ -70,11 +82,20 @@ $scope.api.removeMenuItem = function(menuItemId) {
  * @param {String} menuItemId
  */
 $scope.api.setMenuSelected = function(menuItemId) {
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].itemId == menuItemId) {
-			$scope.model.menuItems[i].isActive = true;
-		} else if ($scope.model.menuItems[i].isActive) {
-			$scope.model.menuItems[i].isActive = false;
+	if ($scope.model.servoyMenu) {
+		var menuItem = $scope.model.servoyMenu.getSelectedItem();
+		if (menuItem && menuItem.getName() == menuItemId) {
+			$scope.model.servoyMenu.selectMenuItem(null);
+		} else {
+			$scope.model.servoyMenu.selectMenuItemById(menuItemId);
+		}
+	} else if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].itemId == menuItemId) {
+				$scope.model.menuItems[i].isActive = true;
+			} else if ($scope.model.menuItems[i].isActive) {
+				$scope.model.menuItems[i].isActive = false;
+			}
 		}
 	}
 }
@@ -86,10 +107,17 @@ $scope.api.setMenuSelected = function(menuItemId) {
  * @param {Boolean} enabled
  */
 $scope.api.setMenuItemEnabled = function(menuItemId, enabled) {
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].itemId == menuItemId) {
-			$scope.model.menuItems[i].enabled = enabled;
-			break;
+	if ($scope.model.servoyMenu) {
+		var menuItem = $scope.model.servoyMenu.getMenuItem(menuItemId);
+		if (menuItem) {
+			menuItem.enabled = enabled;
+		}
+	} else if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].itemId == menuItemId) {
+				$scope.model.menuItems[i].enabled = enabled;
+				break;
+			}
 		}
 	}
 }
@@ -102,13 +130,23 @@ $scope.api.setMenuItemEnabled = function(menuItemId, enabled) {
  * @param {Boolean} enabled
  */
 $scope.api.setSubMenuItemEnabled = function(menuItemId, subMenuItemId, enabled) {
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].itemId == menuItemId) {
-			if ($scope.model.menuItems[i].subMenuItems) {
-				for (var s = 0; s < $scope.model.menuItems[i].subMenuItems.length; s++) {
-					if ($scope.model.menuItems[i].subMenuItems[s].itemId == subMenuItemId) {
-						$scope.model.menuItems[i].subMenuItems[s].enabled = enabled;
-						break;
+	if ($scope.model.servoyMenu) {
+		var menuItem = $scope.model.servoyMenu.getMenuItem(menuItemId);
+		if (menuItem) {
+			var subMenuItem = menuItem.getMenuItem(subMenuItemId);
+			if (subMenuItem) {
+				subMenuItem.enabled = enabled;
+			}
+		}
+	} else if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].itemId == menuItemId) {
+				if ($scope.model.menuItems[i].subMenuItems) {
+					for (var s = 0; s < $scope.model.menuItems[i].subMenuItems.length; s++) {
+						if ($scope.model.menuItems[i].subMenuItems[s].itemId == subMenuItemId) {
+							$scope.model.menuItems[i].subMenuItems[s].enabled = enabled;
+							break;
+						}
 					}
 				}
 			}
@@ -122,9 +160,11 @@ $scope.api.setSubMenuItemEnabled = function(menuItemId, subMenuItemId, enabled) 
  * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.getMenuItem = function(itemId) {
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].itemId == itemId) {
-			return $scope.model.menuItems[i];
+	if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].itemId == itemId) {
+				return $scope.model.menuItems[i];
+			}
 		}
 	}
 	return null;
@@ -136,9 +176,11 @@ $scope.api.getMenuItem = function(itemId) {
  * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.getSelectedMenu = function() {
-	for (var i = 0; i < $scope.model.menuItems.length; i++) {
-		if ($scope.model.menuItems[i].isActive) {
-			return $scope.model.menuItems[i];
+	if ($scope.model.menuItems) {
+		for (var i = 0; i < $scope.model.menuItems.length; i++) {
+			if ($scope.model.menuItems[i].isActive) {
+				return $scope.model.menuItems[i];
+			}
 		}
 	}
 	return null;
@@ -157,4 +199,19 @@ function setItemDefaults(item) {
 		}
 	}
 	return item;
+}
+
+function addMenuItemToServoyMenu(item, id) {
+	if ($scope.model.servoyMenu) {
+		var menuItem;
+		if (id >= 0) {
+			menuItem = $scope.model.servoyMenu.addMenuItemAt(item.itemId, id);
+		}
+		else {
+			menuItem = $scope.model.servoyMenu.addMenuItem(item.itemId);
+		}
+		menuItem.menuText = item.text;
+		menuItem.enabled = item.enabled;
+		menuItem.tooltipText = item.tooltip;
+	}
 }

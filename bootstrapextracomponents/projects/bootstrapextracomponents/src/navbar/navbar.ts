@@ -26,6 +26,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	@Input() collapseOnClick: boolean;
 
 	@Input() menuItems: Array<MenuItem>;
+	@Output() menuItemsChange = new EventEmitter();
 	@Input() servoyMenu: IJSMenu;
 
 	@Input() onMenuItemClicked: (e: Event, menuItem: BaseMenuItem) => void;
@@ -579,6 +580,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				oldMenu.push(menuItem);
 			}
 			this.menuItems = oldMenu;
+			this.menuItemsChange.emit(this.menuItems);
 		}
 	}
 }
