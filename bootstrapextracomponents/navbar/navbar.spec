@@ -91,7 +91,9 @@
 		"requestFocus": {
 			"parameters": [
 				{ "name": "itemId", "type": "string" }
-			]
+			],
+			"delayUntilFormLoads": true,
+			"discardPreviouslyQueuedSimilarCalls": true
 		},
 		"getLocation": 
 		{

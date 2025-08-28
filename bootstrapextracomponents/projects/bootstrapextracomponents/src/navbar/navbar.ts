@@ -384,13 +384,13 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 
 	requestFocus(itemId: string) {
-		const inputEl = this.getNativeElement().querySelector('[data-menu-item-id=' + itemId + ']');
-		if (inputEl instanceof HTMLInputElement) inputEl.focus();
+		const inputEl = this.getNativeElement().querySelector('[data-menu-item-id="' + itemId + '"]');
+		if (inputEl instanceof HTMLElement) inputEl.focus();
 	}
 
 	getLocation(itemId: string) {
 		if (itemId) {
-			const el = this.getNativeElement().querySelector('[data-menu-item-id=' + itemId + ']');
+			const el = this.getNativeElement().querySelector('[data-menu-item-id="' + itemId + '"]');
 			if (el) {
 				const position = el.getBoundingClientRect();
 				return { x: position.left, y: position.top };
@@ -402,7 +402,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	getSize(itemId: string) {
 		if (itemId) {
-			const el = this.getNativeElement().querySelector('[data-menu-item-id=' + itemId + ']');
+			const el = this.getNativeElement().querySelector('[data-menu-item-id="' + itemId + '"]');
 			if (el) {
 				const position = el.getBoundingClientRect();
 				return { width: position.width, height: position.height };
