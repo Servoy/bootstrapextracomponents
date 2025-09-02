@@ -1,5 +1,6 @@
 @import "navbar/svy-navbar.css";
 @import "switch/bootstrap-switch.css";
+@import "carousel/bts-extra-carousel.css";
 
 .breadcrumb > li > a:hover {
     cursor: pointer;

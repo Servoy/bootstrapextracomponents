@@ -5,7 +5,6 @@ import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent, NgbSlide } from '@ng-boo
 @Component( {
     selector: 'bootstrapextracomponents-carousel',
     templateUrl: './carousel.html',
-    styleUrls: ['./bts-extra-carousel.css'],
     providers: [NgbCarouselConfig],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
