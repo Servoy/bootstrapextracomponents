@@ -15,7 +15,7 @@
 	"keywords": ["swap"],
 	"model":
 	{	
-		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 	        
+		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design", "basic": true }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 	        
 	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] }, 	        
 	        "styleClass" : { "type" :"styleclass", "tags": { "scope" :"design" }, "default":"switch"},
 	        "animate" : { "type" : "boolean" ,"default": true },
@@ -23,7 +23,7 @@
 	        "offText" : { "type" : "tagstring" ,"default": "Off" },
 	        "onColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},
 	        "offColor" : { "type" : "tagstring" ,"default": "primary" , "values":[{"Primary":"primary"},{"Info":"info"},{"Success":"success"},{"Warning":"warning"},{"Danger":"danger"}]},	          
-	        "label" : { "type" : "tagstring" ,"default": "Switch" },
+	        "label" : { "type" : "tagstring" ,"default": "Switch", "tags": { "basic": true } },
 	        "labelWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "handleWidth" : { "type" : "tagstring" ,"default": "150" },
 	        "componentSize" : { "type" : "tagstring" ,"default": "Normal", "values":[{"Mini":"mini"},{"Small":"small"},{"Normal":"normal"},{"Large":"large"}] },

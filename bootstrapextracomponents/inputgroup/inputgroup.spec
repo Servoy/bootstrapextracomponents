@@ -13,11 +13,11 @@
 	"keywords": [],
 	"model": 
 	{
-		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design" }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
+		"dataProvider"						: { "type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design", "basic": true }, "ondatachange": { "onchange": "onDataChangeMethodID" } },
 		"enabled"							: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProvider", "onAction", "onDataChange", "onFocusGained", "onFocusLost", "onRightClick" ] },
 		"editable" 							: { "type": "protected", "blockingOn": false, "default": true,"for": ["dataProvider","onDataChangeMethodID"] },
-		"format"							: { "type": "format", "for": [ "dataProvider" ] },
-		"inputType"							: { "type": "string", "tags": { "scope": "design" }, "values": [ "text", "password", "number" ], "default": "text" },
+		"format"							: { "type": "format", "for": [ "dataProvider" ], "tags": { "basic": true } },
+		"inputType"							: { "type": "string", "tags": { "scope": "design", "basic": true }, "values": [ "text", "password", "number" ], "default": "text" },
 		"readOnly"							: { "type": "protected", "blockingOn": true, "default": false, "for": [ "dataProvider", "onDataChangeMethodID" ], "tags": { "scope": "runtime" } },
 		"placeholderText"					: { "type": "tagstring" } ,
 		"styleClass"						: { "type": "styleclass", "tags": { "scope": "design" } },

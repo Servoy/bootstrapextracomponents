@@ -13,15 +13,15 @@
 	"keywords": ["loading"],
 	"model":
 	{
-		"dataProviderID"            : { "type":"dataprovider", "tags": { "wizard": true, "scope": "design" }, "displayTagsPropertyName" : "displaysTags"}, 
+		"dataProviderID"            : { "type":"dataprovider", "tags": { "wizard": true, "scope": "design", "basic": true }, "displayTagsPropertyName" : "displaysTags"}, 
         "styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
-		"value"						: "float",
+		"value"						: { "type" : "float" , "tags": { "basic": true }},
 		"type"						: { "type": "string", "default": "info", "values":["info", "success", "warning", "danger"]},
 		"animate"					: { "type": "boolean", "default": true},
 		"showValue" 				: { "type": "boolean", "default": true},
 		"showValueAsPercentage"		: { "type": "boolean", "default": true},
 		"valueText"					: { "type": "string" },
-		"max" 						: { "type": "int", "default": 100},
+		"max" 						: { "type": "int", "default": 100 , "tags": { "basic": true }},
 		"tabSeq" 					: { "type": "tabseq", "tags": { "scope" :"design" }},
     	"visible" 					: "visible",
     	"size"						: { "type": "dimension", "default": { "width": 300, "height": 25 } }

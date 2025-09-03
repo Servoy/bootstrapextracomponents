@@ -13,7 +13,7 @@
 	"keywords": ["navigation"],
 	"model":
 	{
-		"breadcrumbs" 					: {"type": "crumb[]", "pushToServer": "allow", "droppable" : true},
+		"breadcrumbs" 					: {"type": "crumb[]", "pushToServer": "allow", "droppable" : true, "tags": { "basic": true }},
 		"autoRemoveWhenClicked"			: {"type": "boolean", "default": true}, 
 		"styleClass"					: {"type": "styleclass"},
 		"crumbStyleClass"				: {"type": "styleclass"},

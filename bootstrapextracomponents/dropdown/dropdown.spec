@@ -15,8 +15,8 @@
 	{
 		"isButton" 						: { "type": "boolean", "default": true },
 		"isSplitButton" 				: { "type": "boolean", "default": false },
-		"menuItems"						: { "type": "MenuItem[]" },
-		"text"							: { "type": "tagstring" },
+		"menuItems"						: { "type": "MenuItem[]", "tags": { "basic": true } },
+		"text"							: { "type": "tagstring", "tags": { "basic": true } },
 		"styleClass"					: { "type": "styleclass" },
 		"buttonStyleClass"				: { "type": "styleclass" },
 		"imageStyleClass"				: { "type": "styleclass" },

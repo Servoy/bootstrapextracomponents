@@ -12,9 +12,9 @@
 	"keywords": ["valuation", "score", "assessment"],
 	"model":
 	{
-		"dataProviderID" 		: { "type": "dataprovider", "pushToServer": "allow","tags": { "wizard": true, "scope" :"design" }, "ondatachange": { "onchange":"onDataChangeMethodID"}},
+		"dataProviderID" 		: { "type": "dataprovider", "pushToServer": "allow","tags": { "wizard": true, "scope" :"design", "basic": true }, "ondatachange": { "onchange":"onDataChangeMethodID"}},
 	    "enabled" 				: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] },
-		"max"					: { "type": "int", "default": 5 },
+		"max"					: { "type": "int", "default": 5 , "tags": { "basic": true }},
 		"stateOn"				: { "type": "string" },
 		"stateOff"				: { "type": "string" },
 		"visible" 				: { "type": "boolean", "default": true}, 
