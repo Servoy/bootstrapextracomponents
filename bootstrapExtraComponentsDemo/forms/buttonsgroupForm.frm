@@ -160,6 +160,7 @@ x:15,
 y:59
 },
 onDataChangeMethodID:"1B61AED6-4D63-44F9-9B3D-AEABDD501612",
+showAs:null,
 size:{
 height:34,
 width:180

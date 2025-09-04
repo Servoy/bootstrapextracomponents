@@ -4,8 +4,10 @@
 	<comment></comment>
 	<projects>
 		<project>resources</project>
-		<project>bootstrapextracomponents</project>
 		<project>bootstrapcomponents</project>
+		<project>bootstrapextracomponents</project>
+		<project>aggrid</project>
+		<project>12grid</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
