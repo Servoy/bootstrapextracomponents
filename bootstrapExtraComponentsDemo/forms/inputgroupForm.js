@@ -1,6 +1,41 @@
 /**
  * @type {String}
  *
+ * @properties={typeid:35,uuid:"6E683B15-32B3-4D3F-8870-8D0A1F86967E"}
+ */
+var tooltipTextDP = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"A9E8FB63-4E60-4F46-98D5-2B208B14906B"}
+ */
+var placeholderTextDP = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"BB141CCB-0E03-4E65-9947-66DFB16F4560",variableType:-4}
+ */
+var visibleDP = true;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"A13AB505-9CCE-4C3D-B7F4-FA83CA970E66",variableType:-4}
+ */
+var enabledDP = true;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"E3FCEF00-A042-4B10-AB60-09BBFD0732C8",variableType:-4}
+ */
+var editableDP = true;
+
+/**
+ * @type {String}
+ *
  * @properties={typeid:35,uuid:"5E5733B1-A57B-48E2-A0A9-26D132735EDB"}
  */
 var textVar;
@@ -259,7 +294,7 @@ function onAction_setAddOns(event) {
  * @properties={typeid:24,uuid:"E6050D9D-187F-4969-BC26-68073ADA62D5"}
  */
 function onAction_clearAddOns(event) {
-	elements.input_group_11.clearAddOns();	
+	elements.input_group_11.clearAddOns();
 }
 
 /**
@@ -272,11 +307,11 @@ function onAction_clearAddOns(event) {
 function onAction_addAddOnButton(event) {
 	/** @type {Array<CustomType<bootstrapextracomponents-input-group.AddOnButton>>} */
 	var addOnButton = {
-			position: 'RIGHT',
-			name: 'btnSearch',
-			imageStyleClass: 'glyphicon glyphicon-search',
-			onAction: onAction_button
-		};
+		position: 'RIGHT',
+		name: 'btnSearch',
+		imageStyleClass: 'glyphicon glyphicon-search',
+		onAction: onAction_button
+	};
 	elements.input_group_11.addAddOnButton(addOnButton);
 }
 
@@ -315,5 +350,121 @@ function onAction_setAddOnButtons(event) {
  * @properties={typeid:24,uuid:"D0D76173-FE90-45FC-B754-3CD72162A19B"}
  */
 function onAction_clearAddOnButtons(event) {
-	elements.input_group_11.clearAddOnButtons();	
+	elements.input_group_11.clearAddOnButtons();
+}
+
+/**
+ * Click event. dataTarget parameter is used to identify inner html elements (by their data-target attribute).
+ *
+ * @param {JSEvent} event
+ * @param {String} dataTarget
+ *
+ * @properties={typeid:24,uuid:"E07F661B-7FDA-45BB-8605-4ACFC4B0F19A"}
+ */
+function onAction_editable(event, dataTarget) {
+	elements.input_group_1.editable = !elements.input_group_1.editable
+	elements.input_group_2.editable = !elements.input_group_2.editable
+	elements.input_group_3.editable = !elements.input_group_3.editable
+	elements.input_group_4.editable = !elements.input_group_4.editable
+	elements.input_group_5.editable = !elements.input_group_5.editable
+	elements.input_group_6.editable = !elements.input_group_6.editable
+	elements.input_group_7.editable = !elements.input_group_7.editable
+	elements.input_group_8.editable = !elements.input_group_8.editable
+	elements.input_group_9.editable = !elements.input_group_9.editable
+	elements.input_group_11.editable = !elements.input_group_11.editable
+
+}
+
+/**
+ * Click event. dataTarget parameter is used to identify inner html elements (by their data-target attribute).
+ *
+ * @param {JSEvent} event
+ * @param {String} dataTarget
+ *
+ * @properties={typeid:24,uuid:"9DAC5CB8-BEF9-4958-A134-2D03B17D981A"}
+ */
+function onAction_enabled(event, dataTarget) {
+	elements.input_group_1.enabled = !elements.input_group_1.enabled
+	elements.input_group_2.enabled = !elements.input_group_2.enabled
+	elements.input_group_3.enabled = !elements.input_group_3.enabled
+	elements.input_group_4.enabled = !elements.input_group_4.enabled
+	elements.input_group_5.enabled = !elements.input_group_5.enabled
+	elements.input_group_6.enabled = !elements.input_group_6.enabled
+	elements.input_group_7.enabled = !elements.input_group_7.enabled
+	elements.input_group_8.enabled = !elements.input_group_8.enabled
+	elements.input_group_9.enabled = !elements.input_group_9.enabled
+	elements.input_group_11.enabled = !elements.input_group_11.enabled
+}
+
+/**
+ * Click event. dataTarget parameter is used to identify inner html elements (by their data-target attribute).
+ *
+ * @param {JSEvent} event
+ * @param {String} dataTarget
+ *
+ * @properties={typeid:24,uuid:"FC793D11-2DDB-48E7-A4AF-C6B48EA3DDDF"}
+ */
+function onAction_visible(event, dataTarget) {
+	elements.input_group_1.visible = !elements.input_group_1.visible
+	elements.input_group_2.visible = !elements.input_group_2.visible
+	elements.input_group_3.visible = !elements.input_group_3.visible
+	elements.input_group_4.visible = !elements.input_group_4.visible
+	elements.input_group_5.visible = !elements.input_group_5.visible
+	elements.input_group_6.visible = !elements.input_group_6.visible
+	elements.input_group_7.visible = !elements.input_group_7.visible
+	elements.input_group_8.visible = !elements.input_group_8.visible
+	elements.input_group_9.visible = !elements.input_group_9.visible
+	elements.input_group_11.visible = !elements.input_group_11.visible
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"DDB4C3B7-392B-4261-AAD0-2029D5A2327B"}
+ */
+function onDataChange_placeholderText(oldValue, newValue, event) {
+	elements.input_group_1.placeholderText = placeholderTextDP
+	elements.input_group_2.placeholderText = placeholderTextDP
+	elements.input_group_3.placeholderText = placeholderTextDP
+	elements.input_group_4.placeholderText = placeholderTextDP
+	elements.input_group_5.placeholderText = placeholderTextDP
+	elements.input_group_6.placeholderText = placeholderTextDP
+	elements.input_group_7.placeholderText = placeholderTextDP
+	elements.input_group_8.placeholderText = placeholderTextDP
+	elements.input_group_9.placeholderText = placeholderTextDP
+	elements.input_group_11.placeholderText = placeholderTextDP
+	return true
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"AFF3DB79-5A88-4FB6-BE8F-B353DDCB85D3"}
+ */
+function onDataChange_tooltipText(oldValue, newValue, event) {
+	elements.input_group_1.toolTipText = tooltipTextDP
+	elements.input_group_2.toolTipText = tooltipTextDP
+	elements.input_group_3.toolTipText = tooltipTextDP
+	elements.input_group_4.toolTipText = tooltipTextDP
+	elements.input_group_5.toolTipText = tooltipTextDP
+	elements.input_group_6.toolTipText = tooltipTextDP
+	elements.input_group_7.toolTipText = tooltipTextDP
+	elements.input_group_8.toolTipText = tooltipTextDP
+	elements.input_group_9.toolTipText = tooltipTextDP
+	elements.input_group_11.toolTipText = tooltipTextDP
+	return true
 }

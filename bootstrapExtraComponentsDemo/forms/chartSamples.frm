@@ -1,5 +1,0 @@
-customProperties:"formComponent:false",
-extendsID:"7EF5DA0E-6B64-46D6-9048-520F3CF6C925",
-name:"chartSamples",
-typeid:3,
-uuid:"3694440A-9441-417F-A927-C6B22D01A8C7"
