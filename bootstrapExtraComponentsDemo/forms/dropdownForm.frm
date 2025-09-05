@@ -328,7 +328,7 @@ uuid:"67068611-57D9-4A57-BB01-B7AF1A8BA31A"
 json:{
 location:{
 x:387,
-y:12
+y:19
 },
 size:{
 height:30,
@@ -337,7 +337,7 @@ width:169
 styleClass:"label-blue-gradient",
 text:"Api Methods"
 },
-location:"387,12",
+location:"387,19",
 name:"label_1c",
 size:"169,30",
 styleClass:"label-blue-gradient",
@@ -408,8 +408,8 @@ uuid:"6FF14C20-3E74-4573-B1B0-29568E078333"
 {
 json:{
 location:{
-x:20,
-y:12
+x:19,
+y:19
 },
 size:{
 height:30,
@@ -418,7 +418,7 @@ width:169
 styleClass:"label-blue-gradient",
 text:"Dropdown Examples"
 },
-location:"20,12",
+location:"19,19",
 name:"label_1",
 size:"169,30",
 styleClass:"label-blue-gradient",
