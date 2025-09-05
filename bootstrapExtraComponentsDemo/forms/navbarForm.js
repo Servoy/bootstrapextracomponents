@@ -1,4 +1,28 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"03C70CC1-29E9-493B-862D-6436EB85D8BE",variableType:-4}
+ */
+var visibleDP = true;
+
+/**
+ * @properties={typeid:35,uuid:"45FAFEE1-BB8E-4344-8EFB-07385C1C6A00",variableType:-4}
+ */
+var markClickedItemActiveDP = true;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"91A35665-F6BD-4AFE-833D-A9DC1D06EA80"}
+ */
+var collapsingDP = null;
+
+/**
+ * @properties={typeid:35,uuid:"1705C228-57D2-4758-A233-A5A8AF3A8345",variableType:-4}
+ */
+var collapseOnClickDP = true;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"1364DFD3-F21C-43B2-B540-40D20F8E41CE",variableType:8}
@@ -355,7 +379,7 @@ function onAction_addMenuItem1(event) {
  * @properties={typeid:24,uuid:"E4A33195-A933-43CF-A7D7-25B827946978"}
  */
 function onAction_removeMenuItem1(event) {
-	//TODO: Does this work with servoy menu?	
+	//TODO: Does this work with servoy menu?
 	elements.navbar_servoyMenu.removeMenuItem('menuitem6');
 }
 
@@ -391,7 +415,6 @@ function onBrandClicked1(event) {
 	elements.lblLastClick1.text = 'Brand Logo/Text clicked';
 }
 
-
 /**
  * @param event
  *
@@ -400,12 +423,10 @@ function onBrandClicked1(event) {
 function onAction_enableDisableMenuItem1(event) {
 	var items = elements.navbar_servoyMenu.servoyMenu;
 	if (items) {
-		//TODO: Does this work with servoy menu?		
+		//TODO: Does this work with servoy menu?
 		//elements.navbar_servoyMenu.setMenuItemEnabled(items[0].itemId, !items[0].enabled);
 	}
 }
-
-
 
 /**
  * @param event
@@ -416,14 +437,13 @@ function onAction_getMenuItem1(event) {
 	elements.label_getc.text = 'Get menu item: ' + elements.navbar_servoyMenu.getMenuItem('menuitem12');
 }
 
-
 /**
  * @param event
  *
  * @properties={typeid:24,uuid:"8B5BAD58-F7DC-4F13-993B-329341086038"}
  */
 function onAction_getSelectedMenu1(event) {
-	//TODO: Does this work with servoy menu?	
+	//TODO: Does this work with servoy menu?
 	//elements.label_getc.text = 'Get Selected Menu: ' + elements.navbar_servoyMenu.getSelectedMenu().text;
 }
 
@@ -486,4 +506,78 @@ function onMenuItemClicked1(event, menuItem) {
 		plugins.webnotificationsToastr.info("Search " + searchField)
 	}
 	elements.lblLastClick1.text = 'Menu item "' + menuItem.text + '" with ID ' + menuItem.itemId;
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"4D28AC5D-5A04-4F49-848A-D227DA01AE85"}
+ */
+function onDataChange_collapseOnClick(oldValue, newValue, event) {
+	elements.navbar.collapseOnClick = !elements.navbar.collapseOnClick
+	elements.navbar_servoyMenu.collapseOnClick = !elements.navbar_servoyMenu.collapseOnClick
+	return true
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"72BC09CA-CD30-4C76-8E88-D9835E1ABB85"}
+ */
+function onDataChange_collapsing(oldValue, newValue, event) {
+
+	elements.navbar.collapsing = !elements.navbar.collapsing
+	elements.navbar_servoyMenu.collapsing = !elements.navbar_servoyMenu.collapsing
+	return true
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"871FB4E3-D883-4302-931C-3AA1F8109745"}
+ */
+function onDataChange_markClickedItemActive(oldValue, newValue, event) {
+	elements.navbar.markClickedItemActive = !elements.navbar.markClickedItemActive
+	elements.navbar_servoyMenu.markClickedItemActive = !elements.navbar_servoyMenu.markClickedItemActive
+	return true
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"BE53EDA6-E108-4F84-9EAC-6FF70098B868"}
+ */
+function onDataChange_visible(oldValue, newValue, event) {
+
+	elements.navbar.visible = !elements.navbar.visible
+	elements.navbar_servoyMenu.visible = !elements.navbar_servoyMenu.visible
+	return true
 }
