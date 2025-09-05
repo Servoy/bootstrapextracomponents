@@ -2,7 +2,7 @@ customProperties:"formComponent:false",
 items:[
 {
 customProperties:"\"methods\":{\"onActionMethodID\":{\"arguments\":[null,\"'info'\"],\"parameters\":[\"event\",\"color\"]}}",
-location:"97,255",
+location:"100,253",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -14,8 +14,8 @@ uuid:"0FB09F9A-84B7-460F-86D4-62BA345FA058"
 {
 json:{
 location:{
-x:274,
-y:529
+x:551,
+y:195
 },
 size:{
 height:30,
@@ -24,7 +24,7 @@ width:131
 styleClass:"label-blue-gradient",
 text:"Value Properties"
 },
-location:"274,529",
+location:"551,195",
 name:"label_1cccccc",
 size:"131,30",
 styleClass:"label-blue-gradient",
@@ -36,8 +36,8 @@ uuid:"1C98372D-6EFD-476F-9772-933BAFC0FAEF"
 json:{
 dataProviderID:"handleWidthDP",
 location:{
-x:366,
-y:565
+x:643,
+y:231
 },
 onDataChangeMethodID:"4056B20C-F883-493E-9A41-4BE6F7DCFEEA",
 size:{
@@ -45,7 +45,7 @@ height:30,
 width:151
 }
 },
-location:"366,565",
+location:"643,231",
 name:"textbox_handleWidth",
 size:"151,30",
 typeName:"bootstrapcomponents-textbox",
@@ -53,19 +53,11 @@ typeid:47,
 uuid:"21B30A5C-F61D-4111-9980-273AD6C2C0C8"
 },
 {
-location:"5,295",
-size:"160,20",
-text:"Enable/Disable Component",
-transparent:true,
-typeid:7,
-uuid:"2B92FCF9-96A2-4EA2-BB36-198C769BBF84"
-},
-{
 json:{
 dataProviderID:"onTextDP",
 location:{
-x:336,
-y:703
+x:613,
+y:369
 },
 onDataChangeMethodID:"89B98318-6E09-42D2-9536-881127157960",
 size:{
@@ -73,7 +65,7 @@ height:30,
 width:172
 }
 },
-location:"336,703",
+location:"613,369",
 name:"textbox_onText",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -84,8 +76,8 @@ uuid:"3028FBBC-6DB6-41D6-BF02-D40E2CEC0AAD"
 json:{
 dataProviderID:"animateDP",
 location:{
-x:76,
-y:571
+x:619,
+y:73
 },
 onActionMethodID:"5A5745E9-B817-4B28-A357-4A7ED76083F6",
 size:{
@@ -94,7 +86,7 @@ width:25
 },
 text:null
 },
-location:"76,571",
+location:"619,73",
 name:"checkbox_animate",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -112,7 +104,7 @@ label:"Component Enabled",
 labelWidth:"150",
 location:{
 x:5,
-y:316
+y:320
 },
 offText:"No",
 onDataChangeMethodID:"A80867E5-6DA4-439F-A91F-6C2EE61DD2E9",
@@ -122,7 +114,7 @@ height:55,
 width:257
 }
 },
-location:"5,316",
+location:"5,320",
 name:"switchDisabled",
 size:"257,55",
 typeName:"bootstrapextracomponents-switch",
@@ -133,8 +125,8 @@ uuid:"3E537ABA-A61D-49C5-BACD-5B6C9977DBE0"
 json:{
 dataProviderID:"labelDP",
 location:{
-x:325,
-y:599
+x:602,
+y:265
 },
 onDataChangeMethodID:"31C927F0-17B4-4869-9EDC-1E7A69EABDD5",
 size:{
@@ -142,7 +134,7 @@ height:30,
 width:152
 }
 },
-location:"325,599",
+location:"602,265",
 name:"textbox_label",
 size:"152,30",
 typeName:"bootstrapcomponents-textbox",
@@ -152,8 +144,8 @@ uuid:"47485583-731F-4437-8583-583E7EE3BD5F"
 {
 json:{
 location:{
-x:8,
-y:565
+x:551,
+y:67
 },
 size:{
 height:30,
@@ -161,7 +153,7 @@ width:60
 },
 text:"Animate"
 },
-location:"8,565",
+location:"551,67",
 name:"label_3ccccccc",
 size:"60,30",
 typeName:"bootstrapcomponents-label",
@@ -171,8 +163,8 @@ uuid:"4BFF6861-1CF9-4B39-9EAF-B57EE9E09A14"
 {
 json:{
 location:{
-x:274,
-y:565
+x:551,
+y:231
 },
 size:{
 height:30,
@@ -180,7 +172,7 @@ width:87
 },
 text:"Handle width"
 },
-location:"274,565",
+location:"551,231",
 name:"label_3cc",
 size:"87,30",
 typeName:"bootstrapcomponents-label",
@@ -191,8 +183,8 @@ uuid:"5419147A-458A-4C9D-9C5F-E174126F421C"
 json:{
 dataProviderID:"labelWidthDP",
 location:{
-x:356,
-y:633
+x:633,
+y:299
 },
 onDataChangeMethodID:"624B1DF5-3AD0-483F-AF71-5481EFC2B6CC",
 size:{
@@ -200,7 +192,7 @@ height:30,
 width:152
 }
 },
-location:"356,633",
+location:"633,299",
 name:"textbox_lableWidth",
 size:"152,30",
 typeName:"bootstrapcomponents-textbox",
@@ -218,7 +210,7 @@ label:"Switch Colors",
 labelWidth:"300",
 location:{
 x:5,
-y:209
+y:207
 },
 offColor:"primary",
 onActionMethodID:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
@@ -229,7 +221,7 @@ height:43,
 width:429
 }
 },
-location:"5,209",
+location:"5,207",
 name:"switch_color",
 size:"429,43",
 typeName:"bootstrapextracomponents-switch",
@@ -239,8 +231,8 @@ uuid:"5C3432A3-26B5-4F92-A576-AFAAE6CB0992"
 {
 json:{
 location:{
-x:274,
-y:667
+x:551,
+y:333
 },
 size:{
 height:30,
@@ -248,7 +240,7 @@ width:57
 },
 text:"Off Text"
 },
-location:"274,667",
+location:"551,333",
 name:"label_3cccccccc",
 size:"57,30",
 typeName:"bootstrapcomponents-label",
@@ -279,8 +271,8 @@ uuid:"6D854A51-29FC-4688-B8FF-FF93ABD4BC0F"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:62,
-y:639
+x:605,
+y:141
 },
 onActionMethodID:"003BDBAA-2976-460F-83DC-3F218F95F9BA",
 size:{
@@ -289,7 +281,7 @@ width:25
 },
 text:null
 },
-location:"62,639",
+location:"605,141",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -298,7 +290,7 @@ uuid:"711886A4-E13E-4944-91B2-6863E498359F"
 },
 {
 customProperties:"\"methods\":{\"onActionMethodID\":{\"arguments\":[null,\"'warning'\"],\"parameters\":[\"event\",\"color\"]}}",
-location:"251,255",
+location:"260,253",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -310,8 +302,8 @@ uuid:"72E1F920-A455-43BF-9AF5-92696C92E56A"
 {
 json:{
 location:{
-x:8,
-y:529
+x:551,
+y:31
 },
 size:{
 height:30,
@@ -320,7 +312,7 @@ width:143
 styleClass:"label-blue-gradient",
 text:"Check Properties"
 },
-location:"8,529",
+location:"551,31",
 name:"label_1ccccccc",
 size:"143,30",
 styleClass:"label-blue-gradient",
@@ -330,7 +322,7 @@ uuid:"767DAC48-A221-441A-AEDE-FC5A6CDE7073"
 },
 {
 customProperties:"\"methods\":{\"onActionMethodID\":{\"arguments\":[null,\"'success'\"],\"parameters\":[\"event\",\"color\"]}}",
-location:"159,255",
+location:"165,253",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -340,12 +332,25 @@ typeid:7,
 uuid:"85AA6A28-9080-4BC1-8EF8-305D4B0EF78D"
 },
 {
-location:"5,186",
-size:"150,20",
-text:"Colors & Text Properties",
-transparent:true,
-typeid:7,
-uuid:"918E0027-128B-47A0-B38B-E9863E154B1F"
+json:{
+location:{
+x:6,
+y:188
+},
+size:{
+height:23,
+width:221
+},
+styleClass:"label-blue-gradient",
+text:"Colors & Text Properties"
+},
+location:"6,188",
+name:"label_1ccccccccc",
+size:"221,23",
+styleClass:"label-blue-gradient",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"85C48410-9B22-4830-8F69-9317DE5D7261"
 },
 {
 json:{
@@ -358,7 +363,7 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:145
+y:134
 },
 offColor:"primary",
 onActionMethodID:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
@@ -369,7 +374,7 @@ height:37,
 width:421
 }
 },
-location:"5,145",
+location:"5,134",
 name:"switch_sizecc",
 size:"421,37",
 typeName:"bootstrapextracomponents-switch",
@@ -379,8 +384,8 @@ uuid:"92D216D3-9EE8-48C8-9AEB-F00292B379A0"
 {
 json:{
 location:{
-x:274,
-y:599
+x:551,
+y:265
 },
 size:{
 height:30,
@@ -388,7 +393,7 @@ width:46
 },
 text:"Label"
 },
-location:"274,599",
+location:"551,265",
 name:"label_3cccccccccc",
 size:"46,30",
 typeName:"bootstrapcomponents-label",
@@ -412,7 +417,7 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:75
+y:64
 },
 offColor:"primary",
 onActionMethodID:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
@@ -423,7 +428,7 @@ height:30,
 width:308
 }
 },
-location:"5,75",
+location:"5,64",
 name:"switch_size",
 size:"308,30",
 typeName:"bootstrapextracomponents-switch",
@@ -433,8 +438,8 @@ uuid:"A365A0E4-CA57-41C0-A4D2-31218CF3853B"
 {
 json:{
 location:{
-x:274,
-y:703
+x:551,
+y:369
 },
 size:{
 height:30,
@@ -442,7 +447,7 @@ width:57
 },
 text:"On Text"
 },
-location:"274,703",
+location:"551,369",
 name:"label_3ccccccccc",
 size:"57,30",
 typeName:"bootstrapcomponents-label",
@@ -460,7 +465,7 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:108
+y:97
 },
 offColor:"primary",
 onActionMethodID:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
@@ -471,7 +476,7 @@ height:33,
 width:382
 }
 },
-location:"5,108",
+location:"5,97",
 name:"switch_sizec",
 size:"382,33",
 typeName:"bootstrapextracomponents-switch",
@@ -480,7 +485,7 @@ uuid:"BED08D27-56D6-484C-A4A6-CCB2A0F46DC0"
 },
 {
 customProperties:"\"methods\":{\"onActionMethodID\":{\"arguments\":[null,\"'primary'\"],\"parameters\":[\"event\",\"color\"]}}",
-location:"5,255",
+location:"5,253",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -490,18 +495,11 @@ typeid:7,
 uuid:"C9B4BF25-0518-48D0-AB5B-AA46723BD7AE"
 },
 {
-location:"5,5",
-text:"Switches",
-transparent:true,
-typeid:7,
-uuid:"D0B4338B-404B-4E1F-81E8-A1453BCB7EE1"
-},
-{
 json:{
 dataProviderID:"enable",
 location:{
-x:73,
-y:605
+x:616,
+y:107
 },
 onActionMethodID:"50076898-92D0-478D-B78F-CA1F4CB0DBB7",
 size:{
@@ -510,7 +508,7 @@ width:25
 },
 text:null
 },
-location:"73,605",
+location:"616,107",
 name:"checkbox_enabled",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -520,8 +518,8 @@ uuid:"D1C4A989-88FF-4E56-A863-8CE7BA53A964"
 {
 json:{
 location:{
-x:8,
-y:633
+x:551,
+y:135
 },
 size:{
 height:30,
@@ -529,7 +527,7 @@ width:50
 },
 text:"Visible"
 },
-location:"8,633",
+location:"551,135",
 name:"label_3c",
 size:"50,30",
 typeName:"bootstrapcomponents-label",
@@ -537,8 +535,29 @@ typeid:47,
 uuid:"D4AE4890-A518-43DD-A8B4-E6B2621145E5"
 },
 {
+json:{
+location:{
+x:5,
+y:14
+},
+size:{
+height:23,
+width:221
+},
+styleClass:"label-blue-gradient",
+text:"Alternative Sizes"
+},
+location:"5,14",
+name:"label_1cccccccccc",
+size:"221,23",
+styleClass:"label-blue-gradient",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"D52EB008-2C7C-424C-A11E-A03B882A253B"
+},
+{
 customProperties:"\"methods\":{\"onActionMethodID\":{\"arguments\":[null,\"'danger'\"],\"parameters\":[\"event\",\"color\"]}}",
-location:"344,255",
+location:"356,266",
 onActionMethodID:"A5CF4388-99AF-497A-A460-9CAF58F46486",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -550,8 +569,8 @@ uuid:"D8C8571F-FE7C-4948-ABD1-7FB26365F124"
 {
 json:{
 location:{
-x:8,
-y:599
+x:551,
+y:101
 },
 size:{
 height:30,
@@ -559,7 +578,7 @@ width:59
 },
 text:"Enabled"
 },
-location:"8,599",
+location:"551,101",
 name:"label_3",
 size:"59,30",
 typeName:"bootstrapcomponents-label",
@@ -577,7 +596,7 @@ label:"Switch A",
 labelWidth:"150",
 location:{
 x:5,
-y:27
+y:38
 },
 offColor:"primary",
 onActionMethodID:"84A15FC4-7763-4CA5-B52E-E1B3D4EF332D",
@@ -588,7 +607,7 @@ height:23,
 width:292
 }
 },
-location:"5,27",
+location:"5,38",
 name:"switch_a",
 size:"292,23",
 typeName:"bootstrapextracomponents-switch",
@@ -599,8 +618,8 @@ uuid:"ED43ACF8-AAC7-4C8C-A489-3D0231FFEC10"
 json:{
 dataProviderID:"offTextDP",
 location:{
-x:336,
-y:667
+x:613,
+y:333
 },
 onDataChangeMethodID:"84489B4E-5A9D-4675-92FD-492F7AD402F3",
 size:{
@@ -608,7 +627,7 @@ height:30,
 width:172
 }
 },
-location:"336,667",
+location:"613,333",
 name:"textbox_offText",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -619,7 +638,7 @@ uuid:"EDE5D827-116D-4657-BC4A-6F68679F788A"
 json:{
 location:{
 x:5,
-y:399
+y:386
 },
 onActionMethodID:"A19E08FD-FC7C-44FD-B696-7C6B02E7EE63",
 size:{
@@ -629,7 +648,7 @@ width:219
 text:"Request focus",
 variant:"BtnPrimary"
 },
-location:"5,399",
+location:"5,386",
 name:"button_3",
 size:"219,30",
 typeName:"bootstrapcomponents-button",
@@ -659,8 +678,8 @@ uuid:"F18F692E-CB13-48C8-8B2B-5D5B4878E3F2"
 {
 json:{
 location:{
-x:274,
-y:633
+x:551,
+y:299
 },
 size:{
 height:30,
@@ -668,7 +687,7 @@ width:76
 },
 text:"Lable width"
 },
-location:"274,633",
+location:"551,299",
 name:"label_3cccccc",
 size:"76,30",
 typeName:"bootstrapcomponents-label",
@@ -676,17 +695,30 @@ typeid:47,
 uuid:"FCEAB11A-8698-4952-9D8C-1B072339F2DD"
 },
 {
-location:"5,53",
-size:"110,20",
-text:"Alternative Sizes",
-transparent:true,
-typeid:7,
-uuid:"FF165061-16A3-4002-92B8-337A4E1ED22E"
+json:{
+location:{
+x:6,
+y:296
+},
+size:{
+height:23,
+width:221
+},
+styleClass:"label-blue-gradient",
+text:"Enable/Disable Component"
+},
+location:"6,296",
+name:"label_1cccccccc",
+size:"221,23",
+styleClass:"label-blue-gradient",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"FFA5F030-8659-4840-B038-FC2171D10CA9"
 }
 ],
 name:"switchForm",
 navigatorID:"-1",
 showInMenu:true,
-size:"620,321",
+size:"1000,763",
 typeid:3,
 uuid:"782E21C8-0877-4BE9-B043-75F937DD3C2C"
