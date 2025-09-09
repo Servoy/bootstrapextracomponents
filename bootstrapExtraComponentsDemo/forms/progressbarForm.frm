@@ -29,7 +29,7 @@ uuid:"008C55F5-2F2B-46B9-AF90-C1AAFFB37D58"
 json:{
 dataProviderID:"valueTextDP",
 location:{
-x:436,
+x:434,
 y:353
 },
 onDataChangeMethodID:"E9D937CF-F670-49D8-9A73-1C5388A07DAB",
@@ -38,7 +38,7 @@ height:30,
 width:172
 }
 },
-location:"436,353",
+location:"434,353",
 name:"textbox_valueText",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -53,13 +53,13 @@ y:285
 },
 size:{
 height:30,
-width:60
+width:55
 },
 text:"Animate"
 },
 location:"19,285",
 name:"label_3ccccccc",
-size:"60,30",
+size:"55,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"0B60EFD8-2C0B-469A-B798-423528EC87F0"
@@ -87,8 +87,8 @@ uuid:"133528BD-F1A4-471D-BF3A-89F6B8C95DBD"
 {
 json:{
 location:{
-x:107,
-y:326
+x:101,
+y:324
 },
 onActionMethodID:"65D27FDD-8642-4B0D-A245-D204BFD3DD10",
 size:{
@@ -97,7 +97,7 @@ width:25
 },
 text:null
 },
-location:"107,326",
+location:"101,324",
 name:"checkbox_showValue",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -256,7 +256,7 @@ uuid:"5B541C5D-1565-4C72-94CA-817C888A2BE8"
 {
 json:{
 location:{
-x:204,
+x:193,
 y:361
 },
 onActionMethodID:"CCBD6B9F-DF19-45F8-9156-E14501C4E23B",
@@ -266,7 +266,7 @@ width:25
 },
 text:null
 },
-location:"204,361",
+location:"193,361",
 name:"checkbox_showValueAsPercentage",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -281,13 +281,13 @@ y:319
 },
 size:{
 height:30,
-width:81
+width:77
 },
 text:"Show Value"
 },
 location:"19,319",
 name:"label_3",
-size:"81,30",
+size:"77,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"5F1DFD97-4EDB-4425-88CD-3087479F4C33"
@@ -320,7 +320,7 @@ uuid:"68391D1D-017C-42BF-9685-AFD0318089FF"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:73,
+x:101,
 y:393
 },
 onActionMethodID:"D6D98E06-0D8A-4AFB-92E4-C20BEA3E8BCC",
@@ -330,7 +330,7 @@ width:25
 },
 text:null
 },
-location:"73,393",
+location:"101,393",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -392,8 +392,8 @@ uuid:"9156AEBB-63BA-4D56-9BED-958033E9F1CB"
 {
 json:{
 location:{
-x:87,
-y:291
+x:101,
+y:294
 },
 onActionMethodID:"01DBA56B-D214-45FE-A011-59F1BCBAEE26",
 size:{
@@ -402,7 +402,7 @@ width:25
 },
 text:null
 },
-location:"87,291",
+location:"101,294",
 name:"checkbox_animate",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -474,13 +474,13 @@ y:353
 },
 size:{
 height:30,
-width:178
+width:172
 },
 text:"Show Value As Percentage"
 },
 location:"19,353",
 name:"label_3ccc",
-size:"178,30",
+size:"172,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"D80A2371-CC7A-4509-8151-0C699B2AD5CD"
@@ -489,7 +489,7 @@ uuid:"D80A2371-CC7A-4509-8151-0C699B2AD5CD"
 json:{
 dataProviderID:"valueDP",
 location:{
-x:408,
+x:434,
 y:319
 },
 onDataChangeMethodID:"8538027F-BF79-45F0-8245-DDEEB0E0F77C",
@@ -498,7 +498,7 @@ height:30,
 width:172
 }
 },
-location:"408,319",
+location:"434,319",
 name:"textbox_value",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -532,13 +532,13 @@ y:387
 },
 size:{
 height:30,
-width:50
+width:46
 },
 text:"Visible"
 },
 location:"19,387",
 name:"label_3c",
-size:"50,30",
+size:"46,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"FB2600E0-A8F3-4EEF-A1BB-E49A22B429FA"

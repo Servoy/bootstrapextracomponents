@@ -1,6 +1,13 @@
 /**
  * @type {String}
  *
+ * @properties={typeid:35,uuid:"2E4F3577-315B-430D-B081-BA637FF6615B"}
+ */
+var styleClassDP = null;
+
+/**
+ * @type {String}
+ *
  * @properties={typeid:35,uuid:"6E683B15-32B3-4D3F-8870-8D0A1F86967E"}
  */
 var tooltipTextDP = null;
@@ -13,22 +20,16 @@ var tooltipTextDP = null;
 var placeholderTextDP = null;
 
 /**
- * @type {String}
- *
  * @properties={typeid:35,uuid:"BB141CCB-0E03-4E65-9947-66DFB16F4560",variableType:-4}
  */
 var visibleDP = true;
 
 /**
- * @type {String}
- *
  * @properties={typeid:35,uuid:"A13AB505-9CCE-4C3D-B7F4-FA83CA970E66",variableType:-4}
  */
 var enabledDP = true;
 
 /**
- * @type {String}
- *
  * @properties={typeid:35,uuid:"E3FCEF00-A042-4B10-AB60-09BBFD0732C8",variableType:-4}
  */
 var editableDP = true;

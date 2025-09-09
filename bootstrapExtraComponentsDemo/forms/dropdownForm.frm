@@ -131,7 +131,7 @@ uuid:"38A11936-09EF-473E-9D86-3ED1290646D8"
 json:{
 location:{
 x:218,
-y:563
+y:556
 },
 size:{
 height:30,
@@ -139,7 +139,7 @@ width:75
 },
 text:"Tooltip Text"
 },
-location:"218,563",
+location:"218,556",
 name:"label_3cccccc",
 size:"75,30",
 typeName:"bootstrapcomponents-label",
@@ -150,7 +150,7 @@ uuid:"432FC40C-EE88-44D9-AA88-E0E0B0F609AD"
 json:{
 location:{
 x:218,
-y:490
+y:487
 },
 size:{
 height:30,
@@ -158,7 +158,7 @@ width:36
 },
 text:"Text"
 },
-location:"218,490",
+location:"218,487",
 name:"label_3cccc",
 size:"36,30",
 typeName:"bootstrapcomponents-label",
@@ -234,8 +234,8 @@ uuid:"5B707C21-0B87-4380-9274-DB100704FB5E"
 json:{
 dataProviderID:"tooltipTextDP",
 location:{
-x:297,
-y:563
+x:340,
+y:557
 },
 onDataChangeMethodID:"28D9A366-C112-4C3F-ADC5-B5E31A241EB0",
 size:{
@@ -243,7 +243,7 @@ height:30,
 width:172
 }
 },
-location:"297,563",
+location:"340,557",
 name:"textbox_tooltipText",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -349,7 +349,7 @@ uuid:"6CBD878E-D323-4FC1-8DEB-84CCEDEE2EF4"
 json:{
 location:{
 x:218,
-y:527
+y:522
 },
 size:{
 height:30,
@@ -357,7 +357,7 @@ width:117
 },
 text:"Image Style Class"
 },
-location:"218,527",
+location:"218,522",
 name:"label_3ccccc",
 size:"117,30",
 typeName:"bootstrapcomponents-label",
@@ -368,7 +368,7 @@ uuid:"6DD27548-F29E-4884-B4E5-FEBB6249007A"
 json:{
 dataProviderID:"enabledDP",
 location:{
-x:84,
+x:79,
 y:424
 },
 onActionMethodID:"6C8C2593-F5C8-4EB8-9DA2-8D68B77CD1FA",
@@ -378,7 +378,7 @@ width:25
 },
 text:null
 },
-location:"84,424",
+location:"79,424",
 name:"checkbox_enabled",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -471,8 +471,8 @@ uuid:"9435F9B0-3786-4CF7-9D6D-FD69869747A4"
 json:{
 dataProviderID:"styleClassDP",
 location:{
-x:299,
-y:453
+x:340,
+y:452
 },
 onDataChangeMethodID:"33ACE7E1-BE1C-4FBB-BAEF-D31934CB3705",
 size:{
@@ -480,7 +480,7 @@ height:30,
 width:172
 }
 },
-location:"299,453",
+location:"340,452",
 name:"textbox_styleClass",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -491,7 +491,7 @@ uuid:"9848826E-B638-4B60-A22A-24A104D6D30F"
 json:{
 location:{
 x:218,
-y:453
+y:452
 },
 size:{
 height:30,
@@ -499,7 +499,7 @@ width:75
 },
 text:"Style Class"
 },
-location:"218,453",
+location:"218,452",
 name:"label_3ccc",
 size:"75,30",
 typeName:"bootstrapcomponents-label",
@@ -535,13 +535,13 @@ y:417
 },
 size:{
 height:30,
-width:60
+width:56
 },
 text:"Enabled"
 },
 location:"19,417",
 name:"label_3",
-size:"60,30",
+size:"56,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"C6595555-45CC-4762-9028-C8F04956E67D"
@@ -615,7 +615,7 @@ json:{
 dataProviderID:"imageStyleClassDP",
 location:{
 x:340,
-y:527
+y:522
 },
 onDataChangeMethodID:"BDBBB671-121E-4240-B991-1AAE0A4681D8",
 size:{
@@ -623,7 +623,7 @@ height:30,
 width:172
 }
 },
-location:"340,527",
+location:"340,522",
 name:"textbox_imageStyleClass",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -634,8 +634,8 @@ uuid:"D7A8399D-7204-404D-9F93-3417464A36F6"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:73,
-y:459
+x:79,
+y:457
 },
 onActionMethodID:"8C4EB77E-76F7-49D2-A9EC-D4EFE25B10CF",
 size:{
@@ -644,7 +644,7 @@ width:25
 },
 text:null
 },
-location:"73,459",
+location:"79,457",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -655,8 +655,8 @@ uuid:"E36FB251-50FC-4C00-B7B7-17A743ED9F33"
 json:{
 dataProviderID:"textDP",
 location:{
-x:260,
-y:490
+x:340,
+y:487
 },
 onDataChangeMethodID:"FF0C9D0C-BB7C-4588-8282-6E855A1F1ECA",
 size:{
@@ -664,7 +664,7 @@ height:30,
 width:172
 }
 },
-location:"260,490",
+location:"340,487",
 name:"textbox_text",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",

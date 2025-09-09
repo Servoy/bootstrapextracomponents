@@ -62,7 +62,7 @@ height:34,
 width:180
 },
 split:true,
-styleClass:"btn-primary",
+styleClass:"btn-success",
 tabSeq:3,
 text:"empty value",
 toolTipText:"%%tooltipTextDP%%",
@@ -71,6 +71,7 @@ valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
 location:"15,221",
 name:"buttons_radioprimarydisabled",
 size:"180,34",
+styleClass:"btn-success",
 typeName:"bootstrapextracomponents-buttons-group",
 typeid:47,
 uuid:"31C05B88-8105-4BA2-91B8-18D9FA36F40C"
@@ -83,13 +84,13 @@ y:408
 },
 size:{
 height:30,
-width:50
+width:44
 },
 text:"Visible"
 },
 location:"15,408",
 name:"label_3c",
-size:"50,30",
+size:"44,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"32D65403-33E0-4416-A638-C714261FDB7E"
@@ -98,7 +99,7 @@ uuid:"32D65403-33E0-4416-A638-C714261FDB7E"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:69,
+x:78,
 y:415
 },
 onActionMethodID:"116EF0FF-3AB0-4954-89E7-3E1503916424",
@@ -108,7 +109,7 @@ width:25
 },
 text:null
 },
-location:"69,415",
+location:"78,415",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -139,14 +140,19 @@ uuid:"3D350E8D-DDB0-428D-8A7B-2507A0E671C5"
 json:{
 dataProviderID:"showAsDP",
 location:{
-x:286,
-y:373
+x:295,
+y:374
 },
 onDataChangeMethodID:"0037F2C7-8604-48BC-89B4-F1D66B06E473",
+size:{
+height:30,
+width:172
+},
 valuelistID:"DA9603A4-C05A-42F4-8B19-65B15C987E61"
 },
-location:"286,373",
+location:"295,374",
 name:"combobox_showAs",
+size:"172,30",
 typeName:"bootstrapcomponents-combobox",
 typeid:47,
 uuid:"4274FE9C-D755-43F1-A370-080893C0EDAB"
@@ -223,8 +229,8 @@ uuid:"7AFEEB75-7A01-4969-8EC8-B0AE588BF3C8"
 json:{
 dataProviderID:"enabledDP",
 location:{
-x:80,
-y:380
+x:77,
+y:379
 },
 onActionMethodID:"07F07DDE-2C37-4D1A-A709-ED8C2406B537",
 size:{
@@ -233,7 +239,7 @@ width:25
 },
 text:null
 },
-location:"80,380",
+location:"77,379",
 name:"checkbox_enabled",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -408,6 +414,7 @@ x:295,
 y:409
 },
 onDataChangeMethodID:"94BAA837-8A88-4B8B-8D0A-C0EB7C8C8AD0",
+placeholderText:"btn-warning",
 size:{
 height:30,
 width:172
@@ -458,13 +465,13 @@ y:373
 },
 size:{
 height:30,
-width:60
+width:54
 },
 text:"Enabled"
 },
 location:"15,373",
 name:"label_3",
-size:"60,30",
+size:"54,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"C7A0AED0-F88C-477B-8505-79A6A61ADEE3"
@@ -473,7 +480,7 @@ uuid:"C7A0AED0-F88C-477B-8505-79A6A61ADEE3"
 json:{
 location:{
 x:214,
-y:373
+y:374
 },
 size:{
 height:30,
@@ -481,7 +488,7 @@ width:67
 },
 text:"Show As"
 },
-location:"214,373",
+location:"214,374",
 name:"label_3cc",
 size:"67,30",
 typeName:"bootstrapcomponents-label",
@@ -505,6 +512,7 @@ height:34,
 width:180
 },
 split:true,
+styleClass:"btn-outline-success",
 tabSeq:3,
 text:"empty value",
 toolTipText:"%%tooltipTextDP%%",
@@ -513,6 +521,7 @@ valuelistID:"CD7F83E2-A2DE-45CF-BA16-A9B8D11930BC"
 location:"306,221",
 name:"buttons_checkdefaultdisabled",
 size:"180,34",
+styleClass:"btn-outline-success",
 typeName:"bootstrapextracomponents-buttons-group",
 typeid:47,
 uuid:"D948B368-E5AB-453C-986F-C6DA1EEF9C29"

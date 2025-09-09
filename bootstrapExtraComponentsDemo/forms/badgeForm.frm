@@ -4,18 +4,18 @@ items:[
 json:{
 dataProviderID:"textDP",
 location:{
-x:263,
+x:343,
 y:381
 },
 onDataChangeMethodID:"E543EEBF-2B49-4D41-9D8E-7F72B48913D7",
 size:{
 height:30,
-width:172
+width:169
 }
 },
-location:"263,381",
+location:"343,381",
 name:"textbox_text",
-size:"172,30",
+size:"169,30",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"04529477-F35B-42E0-AAF2-ECD305576B9E"
@@ -24,18 +24,18 @@ uuid:"04529477-F35B-42E0-AAF2-ECD305576B9E"
 json:{
 dataProviderID:"badgeTextDP",
 location:{
-x:302,
+x:343,
 y:307
 },
 onDataChangeMethodID:"6C90B138-8F5B-43BA-A51D-49FED6960680",
 size:{
 height:30,
-width:172
+width:169
 }
 },
-location:"302,307",
+location:"343,307",
 name:"textbox_badgeText",
-size:"172,30",
+size:"169,30",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"0645976D-B847-4143-9488-DF212C6C9219"
@@ -76,14 +76,15 @@ x:343,
 y:418
 },
 onDataChangeMethodID:"DADD116E-8E04-4E43-8022-5A7877984E79",
+placeholderText:"fa fa-home",
 size:{
 height:30,
-width:172
+width:169
 }
 },
 location:"343,418",
 name:"textbox_imageStyleClass",
-size:"172,30",
+size:"169,30",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"0A98D2C5-BC31-494B-AF19-55246A91481F"
@@ -95,6 +96,7 @@ badgeOffset:20,
 badgeText:"%%badgeTextDP%%",
 displayType:"BUTTON",
 enabled:false,
+imageStyleClass:"fa fa-check-circle",
 location:{
 x:198,
 y:114
@@ -164,6 +166,7 @@ badgeOffset:20,
 badgeText:"%%badgeTextDP%%",
 displayType:"LABEL",
 enabled:false,
+imageStyleClass:"fa fa-envelope",
 location:{
 x:198,
 y:67
@@ -188,7 +191,7 @@ uuid:"23DA424E-5265-4E3C-950C-1846DCBD63B0"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:76,
+x:81,
 y:350
 },
 onActionMethodID:"87439089-C06D-4AB1-B022-72A35890DD58",
@@ -198,7 +201,7 @@ width:25
 },
 text:null
 },
-location:"76,350",
+location:"81,350",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -213,13 +216,13 @@ y:308
 },
 size:{
 height:30,
-width:60
+width:55
 },
 text:"Enabled"
 },
 location:"22,308",
 name:"label_3",
-size:"60,30",
+size:"55,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"35689DF6-93C9-4EDC-B415-054C409104C7"
@@ -228,18 +231,19 @@ uuid:"35689DF6-93C9-4EDC-B415-054C409104C7"
 json:{
 dataProviderID:"styleClassDP",
 location:{
-x:302,
+x:343,
 y:344
 },
 onDataChangeMethodID:"3FF9C084-7FC1-4AF7-BC5E-3C7B89ABFA56",
+placeholderText:"btn-primary btn-danger",
 size:{
 height:30,
-width:172
+width:169
 }
 },
-location:"302,344",
+location:"343,344",
 name:"textbox_styleClass",
-size:"172,30",
+size:"169,30",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"3707365B-63FA-4831-B028-3B5CF4286D6F"
@@ -326,6 +330,7 @@ badgeOffset:20,
 badgeText:"%%badgeTextDP%%",
 displayType:"BUTTON",
 enabled:true,
+imageStyleClass:"fa fa-home",
 location:{
 x:21,
 y:113
@@ -392,18 +397,18 @@ uuid:"9CFC9AE0-1DF6-4B93-A134-B261B7A6DDED"
 json:{
 dataProviderID:"tooltipTextDP",
 location:{
-x:302,
+x:343,
 y:454
 },
 onDataChangeMethodID:"28742A56-E893-44A4-91D7-49FDBB49F020",
 size:{
 height:30,
-width:172
+width:169
 }
 },
-location:"302,454",
+location:"343,454",
 name:"textbox_tooltipText",
-size:"172,30",
+size:"169,30",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"BFAE48EE-0B7C-4DEE-A1BC-CD00A8375BBE"
@@ -412,7 +417,7 @@ uuid:"BFAE48EE-0B7C-4DEE-A1BC-CD00A8375BBE"
 json:{
 dataProviderID:"enabledDP",
 location:{
-x:87,
+x:81,
 y:315
 },
 onActionMethodID:"D3131C71-246F-4A9F-BBA6-092AA32C9DA4",
@@ -422,7 +427,7 @@ width:25
 },
 text:null
 },
-location:"87,315",
+location:"81,315",
 name:"checkbox_enabled",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -456,6 +461,7 @@ badgeOffset:20,
 badgeText:"%%badgeTextDP%%",
 displayType:"LABEL",
 enabled:true,
+imageStyleClass:"fa fa-user",
 location:{
 x:21,
 y:67

@@ -157,7 +157,7 @@ uuid:"387B3EE4-2788-4D92-87EB-804B5939E2C8"
 json:{
 location:{
 x:631,
-y:395
+y:378
 },
 onActionMethodID:"D0D76173-FE90-45FC-B754-3CD72162A19B",
 size:{
@@ -167,7 +167,7 @@ width:195
 text:"Clear Add On Buttons",
 variant:"BtnPrimary"
 },
-location:"631,395",
+location:"631,378",
 name:"button_clearAddOnButtons",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -254,7 +254,7 @@ uuid:"50C441C9-9103-45A2-AD9E-9B4775637BC2"
 json:{
 location:{
 x:630,
-y:357
+y:340
 },
 onActionMethodID:"159A93F0-2626-4AED-8AE4-384FA16F883F",
 size:{
@@ -264,7 +264,7 @@ width:195
 text:"Set Add On Buttons",
 variant:"BtnPrimary"
 },
-location:"630,357",
+location:"630,340",
 name:"button_setAddOnButtons",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -392,16 +392,11 @@ json:{
 dataProviderID:"textVar",
 location:{
 x:440,
-y:134
-},
-size:{
-height:140,
-width:140
+y:120
 }
 },
-location:"440,134",
+location:"440,120",
 name:"textarea_370",
-size:"140,140",
 typeName:"servoydefault-textarea",
 typeid:47,
 uuid:"6C7D3136-563B-493A-9507-AEED11432C7C"
@@ -531,8 +526,8 @@ uuid:"72974715-BB90-4BBC-BE97-C3FCBBF65AF9"
 json:{
 dataProviderID:"visibleDP",
 location:{
-x:73,
-y:972
+x:84,
+y:971
 },
 onActionMethodID:"FC793D11-2DDB-48E7-A4AF-C6B48EA3DDDF",
 size:{
@@ -541,7 +536,7 @@ width:25
 },
 text:null
 },
-location:"73,972",
+location:"84,971",
 name:"checkbox_visible",
 size:"25,21",
 typeName:"bootstrapcomponents-checkbox",
@@ -577,7 +572,7 @@ uuid:"8A297CE3-4E29-48EC-BEA8-4AD474BA0C75"
 json:{
 location:{
 x:630,
-y:172
+y:155
 },
 onActionMethodID:"62DAE07D-5F7D-4B9C-AFB7-D5AB8A146323",
 size:{
@@ -587,7 +582,7 @@ width:195
 text:"Request focus",
 variant:"BtnPrimary"
 },
-location:"630,172",
+location:"630,155",
 name:"button_requestFocusTrue",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -598,7 +593,7 @@ uuid:"8F6084AC-0726-4589-B22D-8E9BE2E43310"
 json:{
 location:{
 x:630,
-y:246
+y:229
 },
 onActionMethodID:"DA83FE8C-9531-47DE-B7B0-3C32A6529351",
 size:{
@@ -608,7 +603,7 @@ width:195
 text:"Set Add Ons",
 variant:"BtnPrimary"
 },
-location:"630,246",
+location:"630,229",
 name:"button_setAddOns",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -661,7 +656,7 @@ uuid:"9DDE9F4C-7339-4D0C-AAE7-8CF894CBE3E8"
 json:{
 location:{
 x:630,
-y:283
+y:266
 },
 onActionMethodID:"E6050D9D-187F-4969-BC26-68073ADA62D5",
 size:{
@@ -671,7 +666,7 @@ width:195
 text:"Clear Add Ons",
 variant:"BtnPrimary"
 },
-location:"630,283",
+location:"630,266",
 name:"button_clearAddOns",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -703,7 +698,7 @@ uuid:"A8B0676A-BAC7-4CF9-81C3-09FB32D63FC2"
 json:{
 location:{
 x:630,
-y:320
+y:303
 },
 onActionMethodID:"020A1D62-46EA-4FFE-9330-15E70AD5ED26",
 size:{
@@ -713,7 +708,7 @@ width:195
 text:"Add Add On Button",
 variant:"BtnPrimary"
 },
-location:"630,320",
+location:"630,303",
 name:"button_addAddOnButton",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -815,7 +810,7 @@ uuid:"BA37CDF2-84BD-433F-8671-EC1CFB8588DA"
 json:{
 location:{
 x:630,
-y:209
+y:192
 },
 onActionMethodID:"43D87248-9C2C-49BE-8DED-538B3DCAC879",
 size:{
@@ -825,7 +820,7 @@ width:195
 text:"Add Add On",
 variant:"BtnPrimary"
 },
-location:"630,209",
+location:"630,192",
 name:"button_addAddOn",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
@@ -836,8 +831,8 @@ uuid:"C2D54961-8747-4156-B724-12590C81C9F2"
 json:{
 dataProviderID:"tooltipTextDP",
 location:{
-x:299,
-y:931
+x:340,
+y:932
 },
 onDataChangeMethodID:"AFF3DB79-5A88-4FB6-BE8F-B353DDCB85D3",
 size:{
@@ -845,7 +840,7 @@ height:30,
 width:172
 }
 },
-location:"299,931",
+location:"340,932",
 name:"textbox_tooltipText",
 size:"172,30",
 typeName:"bootstrapcomponents-textbox",
@@ -918,7 +913,7 @@ uuid:"CF92F30E-04E2-43B6-86D9-06CEF7B8DC59"
 json:{
 location:{
 x:630,
-y:137
+y:120
 },
 onActionMethodID:"F9CB15B3-4687-40DA-B7EE-344CBF933B3A",
 size:{
@@ -928,7 +923,7 @@ width:195
 text:"Create Group",
 variant:"BtnPrimary"
 },
-location:"630,137",
+location:"630,120",
 name:"button_createGroup",
 size:"195,30",
 typeName:"bootstrapcomponents-button",
