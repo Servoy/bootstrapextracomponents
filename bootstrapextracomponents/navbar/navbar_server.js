@@ -160,7 +160,12 @@ $scope.api.setSubMenuItemEnabled = function(menuItemId, subMenuItemId, enabled) 
  * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.getMenuItem = function(itemId) {
-	if ($scope.model.menuItems) {
+	if ($scope.model.servoyMenu) {
+		var menuItem = $scope.model.servoyMenu.getMenuItem(itemId);
+		if (menuItem) {
+			return getMenuItemFromServoyMenuItem(menuItem);
+		}
+	} else if ($scope.model.menuItems) {
 		for (var i = 0; i < $scope.model.menuItems.length; i++) {
 			if ($scope.model.menuItems[i].itemId == itemId) {
 				return $scope.model.menuItems[i];
@@ -176,7 +181,12 @@ $scope.api.getMenuItem = function(itemId) {
  * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
  */
 $scope.api.getSelectedMenu = function() {
-	if ($scope.model.menuItems) {
+	if ($scope.model.servoyMenu) {
+		var menuItem = $scope.model.servoyMenu.getSelectedItem();
+		if (menuItem) {
+			return getMenuItemFromServoyMenuItem(menuItem);
+		}
+	} else if ($scope.model.menuItems) {
 		for (var i = 0; i < $scope.model.menuItems.length; i++) {
 			if ($scope.model.menuItems[i].isActive) {
 				return $scope.model.menuItems[i];
@@ -214,4 +224,27 @@ function addMenuItemToServoyMenu(item, id) {
 		menuItem.enabled = item.enabled;
 		menuItem.tooltipText = item.tooltip;
 	}
+}
+
+function getMenuItemFromServoyMenuItem(jsMenuItem) {
+	var item = $scope.api.createMenuItem(jsMenuItem.menuText, jsMenuItem.getName());
+	setItemDefaults(item);
+	item.enabled = jsMenuItem.enabled;
+	item.tooltip = jsMenuItem.tooltipText;
+	item.isActive = $scope.model.servoyMenu.getSelectedItem() != null && $scope.model.servoyMenu.getSelectedItem().getName() == jsMenuItem.getName();
+	item.styleClass = jsMenuItem.styleClass;
+	item.iconName = jsMenuItem.iconStyleClass;
+	item.tabindex = jsMenuItem.getExtraProperty('Navbar', 'tabindex');
+	item.userData = jsMenuItem.getExtraProperty('Navbar', 'userData');
+	item.attributes = jsMenuItem.getExtraProperty('Navbar', 'attributes');
+	var position = jsMenuItem.getExtraProperty('Navbar', 'position');
+	if (position) {
+		item.position = position;
+	}
+	item.displayType = jsMenuItem.getExtraProperty('Navbar', 'displayType');
+	item.dataProvider = jsMenuItem.getExtraProperty('Navbar', 'dataProviderValue');
+	item.valuelist = jsMenuItem.getExtraProperty('Navbar', 'valuelist');
+	item.inputButtonText = jsMenuItem.getExtraProperty('Navbar', 'inputButtonText');
+	item.inputButtonStyleClass = jsMenuItem.getExtraProperty('Navbar', 'inputButtonStyleClass');
+	return item;
 }
