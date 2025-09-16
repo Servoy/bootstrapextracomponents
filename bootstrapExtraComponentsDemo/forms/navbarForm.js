@@ -103,7 +103,7 @@ function onAction_setMenuItems(event) {
 
 	menuItems.push({ itemId: '2', text: 'Invoices', tooltip: 'Invoices' });
 	menuItems.push({ itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button' });
-	menuItems.push({ text: 'Payables', tooltip: 'Payables' });
+	menuItems.push({ itemId: '4', text: 'Payables', tooltip: 'Payables' });
 
 	menuItem = elements.navbar.createMenuItem('Search account...', '5');
 	menuItem.displayType = 'INPUT';
@@ -337,7 +337,7 @@ function onAction_setMenuItems1(event) {
 
 	menuItems.push({ itemId: '2', text: 'Invoices', tooltip: 'Invoices' });
 	menuItems.push({ itemId: '3', text: 'Click me', displayType: 'BUTTON', tooltip: 'Button' });
-	menuItems.push({ text: 'Payables', tooltip: 'Payables' });
+	menuItems.push({ itemId: '4', text: 'Payables', tooltip: 'Payables' });
 
 	menuItem = elements.navbar_servoyMenu.createMenuItem('Search account...', '5');
 	menuItem.displayType = 'INPUT';
