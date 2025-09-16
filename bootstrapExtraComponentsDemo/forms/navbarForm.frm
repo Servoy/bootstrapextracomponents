@@ -489,7 +489,7 @@ uuid:"580391AE-0FBF-4069-8427-54A8026710E1"
 json:{
 location:{
 x:18,
-y:196
+y:202
 },
 size:{
 height:30,
@@ -498,7 +498,7 @@ width:620
 text:"",
 variant:"LabelBackground"
 },
-location:"18,196",
+location:"18,202",
 name:"label_3c",
 size:"620,30",
 typeName:"bootstrapcomponents-label",
@@ -635,7 +635,7 @@ uuid:"6AB8A4E3-6BF5-4CB3-87E6-1C7371DA088E"
 json:{
 location:{
 x:18,
-y:122
+y:128
 },
 size:{
 height:30,
@@ -643,7 +643,7 @@ width:619
 },
 variant:"LabelBackground"
 },
-location:"18,122",
+location:"18,128",
 name:"lblLastClick",
 size:"619,30",
 typeName:"bootstrapcomponents-label",
@@ -675,7 +675,7 @@ uuid:"6E0D6C2A-13D1-4DD9-9CED-FB9916F4174D"
 json:{
 location:{
 x:18,
-y:159
+y:165
 },
 size:{
 height:30,
@@ -684,7 +684,7 @@ width:620
 text:"",
 variant:"LabelBackground"
 },
-location:"18,159",
+location:"18,165",
 name:"label_get",
 size:"620,30",
 typeName:"bootstrapcomponents-label",
@@ -803,8 +803,8 @@ uuid:"A6D21EAF-9339-47F9-ADF5-2C2653789A15"
 {
 json:{
 location:{
-x:16,
-y:111
+x:18,
+y:102
 },
 size:{
 height:30,
@@ -812,7 +812,7 @@ width:170
 },
 text:"Last click:"
 },
-location:"16,111",
+location:"18,102",
 name:"label_855",
 size:"170,30",
 typeName:"servoydefault-label",
