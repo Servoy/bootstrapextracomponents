@@ -77,7 +77,7 @@ function onAction$updateColor(event, color) {
 	for (var i = 0; i < elements.allnames.length; i++) {
 		var name = elements.allnames[i];
 		var elem = elements[name];
-		if (elem['onColor'] && elem['offColor']) {
+		if (elem.getElementType() === 'bootstrapextracomponents-switch' && elem['onColor'] && elem['offColor']) {
 			elem['onColor'] = color;
 			elem['offColor'] = color;
 		}
