@@ -64,6 +64,7 @@ uuid:"E373711A-0F97-4084-AF48-CA39A12B6FD3"
 ],
 name:"baseForm",
 navigatorID:"-1",
+onLoadMethodID:"9EE6C0B9-3986-45C9-8344-65002B00F4EB",
 showInMenu:true,
 size:"735,598",
 typeid:3,

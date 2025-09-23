@@ -1,6 +1,4 @@
 /**
- * @type {String}
- *
  * @properties={typeid:35,uuid:"03C70CC1-29E9-493B-862D-6436EB85D8BE",variableType:-4}
  */
 var visibleDP = true;
