@@ -196,6 +196,10 @@ $scope.api.getSelectedMenu = function() {
 	return null;
 }
 
+$scope.setMenuSelectedInternal = function(menuItemId) {
+	$scope.api.setMenuSelected(menuItemId);
+}
+
 function setItemDefaults(item) {
 	item.displayType = item.displayType || 'MENU_ITEM';
 	item.position = item.position || 'LEFT';

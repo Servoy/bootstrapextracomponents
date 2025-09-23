@@ -380,6 +380,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				menuItem.isActive = false;
 			}
 		}
+		this.servoyApi.callServerSideApi('setMenuSelectedInternal', [item.itemId]);
 	}
 
 	requestFocus(itemId: string) {

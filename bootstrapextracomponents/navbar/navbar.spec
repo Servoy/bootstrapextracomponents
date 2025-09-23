@@ -112,6 +112,14 @@
 			"returns" : "dimension"
 		}
 	},
+	"internalApi": 
+	{
+		"setMenuSelectedInternal": {
+			"parameters": [
+				{ "name": "itemId", "type": "string" }
+			]
+		}
+    },
 	"handlers": 
 	{
 		"onMenuItemClicked": {
