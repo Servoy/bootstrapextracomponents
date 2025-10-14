@@ -132,6 +132,7 @@ function addMenuItem(menuItem, index) {
  * @param {String} text the item's text
  * @param {String} [itemId] optional ID to identify the item in scripting
  * @param {String} [position] alignment of the item in the navbar as either LEFT or RIGHT
+ * 
  * @return {CustomType<bootstrapextracomponents-navbar.menuItem>} A newly created menu item object with the specified text, optional ID, and position alignment.
  */
 function createMenuItem(text, itemId, position) {
@@ -237,6 +238,7 @@ function openSubMenu(itemId) {
  * var location = %%elementName%%.getLocation('itemID')
  * 
  * @param {string} itemId the node to retrieve location for.
+ * 
  * @return {point} the location of the item.
  */
 function getLocation(itemId) {
@@ -249,6 +251,7 @@ function getLocation(itemId) {
  * var size = %%elementName%%.getSize('itemID')
  * 
  * @param {string} itemId the node to retrieve size for.
+ * 
  * @return {dimension} the size of the item.
  */
 function getSize(itemId) {
