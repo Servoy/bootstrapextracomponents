@@ -1,6 +1,6 @@
-/**
+/*
  * Breadcrumb is a navigation component that displays a series of links representing the current navigation path.
- *  It is typically used to help users navigate hierarchical structures within an application.
+ * It is typically used to help users navigate hierarchical structures within an application.
  */
 
 /**

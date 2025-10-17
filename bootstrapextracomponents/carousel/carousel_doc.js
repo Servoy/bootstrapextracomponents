@@ -1,4 +1,4 @@
-/**
+/*
  * A component that displays a slideshow of images with optional captions.
  */
 

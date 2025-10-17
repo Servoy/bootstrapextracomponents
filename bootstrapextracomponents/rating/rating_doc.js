@@ -1,4 +1,4 @@
-/**
+/*
  * A component that provides a rating interface for displaying and collecting a numerical score.
  */
 

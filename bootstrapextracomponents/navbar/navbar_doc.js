@@ -1,4 +1,4 @@
-/**
+/*
  * A component that represents a navigation bar with branding and menu items.
  */
 

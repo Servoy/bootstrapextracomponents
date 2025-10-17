@@ -1,4 +1,4 @@
-/**
+/*
  * Displays a progress bar with dynamic progress value and text.
  */
 

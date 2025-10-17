@@ -1,4 +1,4 @@
-/**
+/*
  * Displays a list of menu items.
  * It can be rendered as a standard button or a split button and supports dynamic menu management.
  */

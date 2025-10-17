@@ -1,8 +1,8 @@
-/**
- * A A group of toggle buttons for single or multiple selection.
+/*
+ * A group of toggle buttons for single or multiple selection.
  */
 
-v/**
+/**
  * Bound data provider identifier for the button group component.
  */
 var dataProviderID;

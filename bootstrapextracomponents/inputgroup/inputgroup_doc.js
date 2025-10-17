@@ -1,4 +1,4 @@
-/**
+/*
  * A component that combines an input field with optional add-ons and add-on buttons.
  */
 

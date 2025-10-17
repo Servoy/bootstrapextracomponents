@@ -1,4 +1,4 @@
-/**
+/*
  * The Badge component displays a small tag-like element that can function as either an interactive button or a static label.
  * It shows dynamic text along with an optional secondary badge value (often used to indicate counts or status) and supports
  * customizable styles and event handling.

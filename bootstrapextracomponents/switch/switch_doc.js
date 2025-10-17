@@ -1,4 +1,4 @@
-/**
+/*
  * A component that represents a switch toggle.
  */
 
