@@ -5,7 +5,7 @@ NG2-Module: ServoyBootstrapExtraComponentsModule
 Entry-Point: dist/servoy/bootstrapextracomponents
 Bundle-SymbolicName: bootstrapextracomponents
 Bundle-Name: Bootstrap Extra Components
-Bundle-Version: 2025.12.1
+Bundle-Version: 2026.3.0
 Package-Type: Web-Component
 JS-ClientLibs: bootstrapextracomponents/lib/js/bootstrap.min.js;name=bootstrap;version=3.4.1
 
