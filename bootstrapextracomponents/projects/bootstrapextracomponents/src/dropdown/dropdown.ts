@@ -1,4 +1,4 @@
-import { Component, SimpleChanges, Input, Renderer2, ChangeDetectorRef } from '@angular/core';
+import { Component, SimpleChanges, Renderer2, ChangeDetectorRef, input } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
 
 @Component({
@@ -8,20 +8,20 @@ import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@ser
 })
 export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivElement> {
 
-    @Input() styleClass: string;
-    @Input() buttonStyleClass: string;
-    @Input() imageStyleClass: string;
-    @Input() isButton: boolean;
-    @Input() isSplitButton: string;
-    @Input() visible: boolean;
-    @Input() text: string;
-    @Input() enabled: boolean;
-    @Input() toolTipText: string;
+    readonly styleClass = input<string>(undefined);
+    readonly buttonStyleClass = input<string>(undefined);
+    readonly imageStyleClass = input<string>(undefined);
+    readonly isButton = input<boolean>(undefined);
+    readonly isSplitButton = input<string>(undefined);
+    readonly visible = input<boolean>(undefined);
+    readonly text = input<string>(undefined);
+    readonly enabled = input<boolean>(undefined);
+    readonly toolTipText = input<string>(undefined);
 
-    @Input() menuItems: Array<MenuItem>;
+    readonly menuItems = input<Array<MenuItem>>(undefined);
 
-    @Input() onMenuItemSelected: (e: Event, menuItem: BaseMenuItem) => void;
-    @Input() onAction: (e: Event) => void;
+    readonly onMenuItemSelected = input<(e: Event, menuItem: BaseMenuItem) => void>(undefined);
+    readonly onAction = input<(e: Event) => void>(undefined);
 
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService) {
@@ -37,17 +37,19 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     }
 
     buttonClicked(e: Event) {
-        if (this.onAction) {
-            this.onAction(e);
+        const onAction = this.onAction();
+        if (onAction) {
+            onAction(e);
         }
     }
 
     menuClicked(e: Event, menuItem: MenuItem) {
+        const onMenuItemSelected = this.onMenuItemSelected();
         if (menuItem.onAction) {
             const jsEvent = this.servoyService.createJSEvent(e, 'action');
             menuItem.onAction(jsEvent, this.createItemArg(menuItem));
-        } else if (this.onMenuItemSelected) {
-             this.onMenuItemSelected(event, this.createItemArg(menuItem));
+        } else if (onMenuItemSelected) {
+             onMenuItemSelected(event, this.createItemArg(menuItem));
         }
     }
 

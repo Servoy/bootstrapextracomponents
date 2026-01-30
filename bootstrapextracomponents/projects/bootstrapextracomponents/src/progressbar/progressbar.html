@@ -1,18 +1,18 @@
 <ngb-progressbar #element
-  class="bts-extra-progressbar {{styleClass}}"
+  class="bts-extra-progressbar {{styleClass()}}"
   [id]="servoyApi.getMarkupId()"
-  [value]="dataProviderID ? dataProviderID : value"
-  [type]="type"
-  [animated]="animate"
-  [max]="max"
-  [sabloTabseq]="tabSeq">
-  @if (!valueText && showValue && showValueAsPercentage) {
-    <b>{{(100*(dataProviderID ? dataProviderID : value)/max)}}%</b>
+  [value]="dataProviderID() ? dataProviderID() : _value()"
+  [type]="type()"
+  [animated]="animate()"
+  [max]="max()"
+  [sabloTabseq]="tabSeq()">
+  @if (!_valueText() && showValue() && showValueAsPercentage()) {
+    <b>{{(100*(dataProviderID() ? dataProviderID() : _value())/max())}}%</b>
   }
-  @if (!valueText && showValue && !showValueAsPercentage) {
-    <b>{{(dataProviderID ? dataProviderID : value) + ' / ' + max}}</b>
+  @if (!valueText() && showValue() && !showValueAsPercentage()) {
+    <b>{{(dataProviderID() ? dataProviderID() : _value()) + ' / ' + max()}}</b>
   }
-  @if (valueText) {
-    <b>{{valueText}}</b>
+  @if (valueText()) {
+    <b>{{_valueText()}}</b>
   }
 </ngb-progressbar>

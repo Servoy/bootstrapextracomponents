@@ -1,17 +1,17 @@
 <div class="bts-extra-rating" #element>
   <ngb-rating
     [id]="servoyApi.getMarkupId()"
-    [(rate)]="dataProviderID"
-    [max]="max"
-    [readonly]="!enabled"
+    [(rate)]="_dataProviderID"
+    [max]="max()"
+    [readonly]="!enabled()"
     (leave)="onLeaveEvent()"
     (hover)="onHoverEvent($event)"
     (rateChange)="onChange()">
     <ng-template let-fill="fill" let-index="index">
-      <i [ngClass]="fill == 100 ? (stateOn ? stateOn : 'fa-solid fa-star') : (stateOff ? stateOff : 'fa-regular fa-star')"></i>
+      <i [ngClass]="fill == 100 ? (stateOn() ? stateOn() : 'fa-solid fa-star') : (stateOff() ? stateOff() : 'fa-regular fa-star')"></i>
     </ng-template>
   </ngb-rating >
-  @if (enabled != false && showPercentageOnHover && overStar) {
+  @if (enabled() != false && showPercentageOnHover() && overStar) {
     <span class="label badge-info">{{percent}}%</span>
   }
 </div>

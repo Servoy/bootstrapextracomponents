@@ -2,33 +2,33 @@
   [id]="servoyApi.getMarkupId()"
   class="bts-extra-carousel"  >
   <ngb-carousel #ngCarousel
-    [ngClass]="styleClass"
+    [ngClass]="styleClass()"
     [ngStyle]="getStyle()"
     [showNavigationArrows]="true"
-    [interval] = "cycleInterval"
+    [interval] = "cycleInterval()"
     [showNavigationIndicators]="true"
     [keyboard]="true"
-    [pauseOnHover]="!noPause"
-    [animation]="!noTransition"
+    [pauseOnHover]="!noPause()"
+    [animation]="!noTransition()"
     [wrap]="true"
     (slid)="onSlid($event)">
     @for (slide of innerSlides; track slide; let i = $index) {
       <ng-template ngbSlide [id]="servoyApi.getMarkupId() + '-' + i">
         <div class="picsum-img-wrapper">
-          @if (lazyLoading) {
+          @if (lazyLoading()) {
             <img class="bts-extra-carousel-img"
               alt="i"
-              [ngStyle]="imageCssInternal"
+              [ngStyle]="_imageCssInternal()"
               (click)="slideClicked($event,slide)"
               loading="lazy"
               [src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
               >
           }
-          @if (!lazyLoading) {
+          @if (!lazyLoading()) {
             <img
               class="bts-extra-carousel-img"
               alt="i"
-              [ngStyle]="imageCssInternal"
+              [ngStyle]="_imageCssInternal()"
               (click)="slideClicked($event,slide)"
               [src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
               >

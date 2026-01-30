@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, signal } from '@angular/core';
 import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@servoy/public';
 
 @Component({
@@ -8,17 +8,19 @@ import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@s
     standalone: false
 })
 export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivElement> {
-    @Input() onLeave: (e: JSEvent, data?: any) => void;
-    @Input() onHover: (e: JSEvent, data?: any) => void;
-    @Input() onDataChangeMethodID: (oldValue: any, newValue: any, e: Event) => boolean;
+    readonly onLeave = input<(e: JSEvent, data?: any) => void>(undefined);
+    readonly onHover = input<(e: JSEvent, data?: any) => void>(undefined);
+    readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
 
-    @Input() enabled: boolean;
-    @Input() dataProviderID: number;
-    @Output() dataProviderIDChange = new EventEmitter();
-    @Input() max: number;
-    @Input() showPercentageOnHover: boolean;
-    @Input() stateOn: string;
-    @Input() stateOff: string;
+    readonly enabled = input<boolean>(undefined);
+    readonly dataProviderID = input<number>(undefined);
+    readonly dataProviderIDChange = output<number>();
+    readonly max = input<number>(undefined);
+    readonly showPercentageOnHover = input<boolean>(undefined);
+    readonly stateOn = input<string>(undefined);
+    readonly stateOff = input<string>(undefined);
+    
+    _dataProviderID = signal<number>(undefined);
 
     overStar = false;
     percent: number;
@@ -30,32 +32,35 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         super.svyOnInit();
-        this.percent = this.dataProviderID * 100 / this.max ;
+        this._dataProviderID.set(this.dataProviderID());
+        this.percent = this._dataProviderID() * 100 / this.max() ;
     }
 
     onLeaveEvent() {
         this.overStar = false;
-        if (this.onLeave) {
+        const onLeave = this.onLeave();
+        if (onLeave) {
             const jsEvent = this.servoyService.createJSEvent( {target : this.getNativeElement()} as EventLike, 'onLeave' );
 
-            this.onLeave(jsEvent, this.dataProviderID);
+            onLeave(jsEvent, this._dataProviderID());
         }
     }
 
     onHoverEvent(value: number) {
-        if (this.enabled !== false) {
-            this.percent = value / this.max * 100;
+        if (this.enabled() !== false) {
+            this.percent = value / this.max() * 100;
             this.overStar = true;
-            if (this.onHover) {
+            const onHover = this.onHover();
+            if (onHover) {
                 const jsEvent = this.servoyService.createJSEvent( {target : this.getNativeElement()}  as EventLike, 'onHover' );
 
-                this.onHover(jsEvent, this.dataProviderID);
+                onHover(jsEvent, this._dataProviderID());
             }
 
         }
     }
 
     onChange(){
-        this.dataProviderIDChange.emit(this.dataProviderID);
+        this.dataProviderIDChange.emit(this._dataProviderID());
     }
 }

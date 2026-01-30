@@ -1,22 +1,22 @@
 <div class="bts-extra-input-group input-group"
   [id]="servoyApi.getMarkupId()"
-  [ngClass]='styleClass'
-  [svyTooltip]="toolTipText"
+  [ngClass]='styleClass()'
+  [svyTooltip]="toolTipText()"
   #element>
 
   <!-- addOnButtons left -->
   @if (hasLeftButtons()) {
     <div class="input-group-btn addon-left input-group-prepend">
-      @for (button of addOnButtons; track button) {
+      @for (button of addOnButtons(); track button) {
         @if (button.position == 'LEFT' && (button.text || button.imageStyleClass)) {
           <button
-            [disabled]="!enabled"
+            [disabled]="!enabled()"
             class="btn {{button.styleClass ? button.styleClass : 'btn-outline-secondary'}}"
             type="button"
-            (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
-            (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
-            (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
-            [sabloTabseq]="tabSeq"
+            (click)='buttonClicked($event, button.text, addOnButtons().indexOf(button))'
+            (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons().indexOf(button))'
+            (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
+            [sabloTabseq]="tabSeq()"
             [svyAttributesInputGroup]="button.attributes">
             <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
           </button>
@@ -27,7 +27,7 @@
   <!-- end addOnButtons left -->
 
   <!-- addOns left -->
-  @for (addon of addOns; track addon) {
+  @for (addon of addOns(); track addon) {
     <ng-container class="input-group-prepend">
       @if (addon.position == 'LEFT') {
         <span
@@ -39,21 +39,21 @@
   }
   <!-- end addOns left -->
 
-  <input [type]="inputType" #input
+  <input [type]="inputType()" #input
     class='form-control bts-textbox'
-    [disabled]="!enabled"
-    [readonly]="readOnly || !editable"
+    [disabled]="!enabled()"
+    [readonly]="readOnly() || !editable()"
     (change)="pushUpdate()"
-    [(ngModel)]="dataProvider"
-    [svyFormat]="format"
+    [(ngModel)]="_dataProvider"
+    [svyFormat]="format()"
     [svyStartEdit]="'dataProvider'"
     [hostComponent]="this"
-    [sabloTabseq]="tabSeq"
-    [svyDecimalKeyConverter]="format"
+    [sabloTabseq]="tabSeq()"
+    [svyDecimalKeyConverter]="format()"
     />
 
     <!-- addOns right -->
-    @for (addon of addOns; track addon) {
+    @for (addon of addOns(); track addon) {
       <ng-container class="input-group-append">
         @if (addon.position == 'RIGHT') {
           <span
@@ -68,16 +68,16 @@
     <!-- addOnButtons right -->
     @if (hasRightButtons()) {
       <div class="input-group-btn addon-right input-group-append">
-        @for (button of addOnButtons; track button) {
+        @for (button of addOnButtons(); track button) {
           @if (button.position == 'RIGHT' && (button.text || button.imageStyleClass)) {
             <button
-              [disabled]="!enabled"
+              [disabled]="!enabled()"
               class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}"
               type="button"
-              (click)='buttonClicked($event, button.text, addOnButtons.indexOf(button))'
-              (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons.indexOf(button))'
-              (contextmenu)='buttonRightClicked($event, button.text, addOnButtons.indexOf(button))'
-              [sabloTabseq]="tabSeq"
+              (click)='buttonClicked($event, button.text, addOnButtons().indexOf(button))'
+              (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons().indexOf(button))'
+              (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
+              [sabloTabseq]="tabSeq()"
               [svyAttributesInputGroup]="button.attributes">
               <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
             </button>

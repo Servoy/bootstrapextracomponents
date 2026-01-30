@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, SimpleChanges, ViewChild, Directive, ElementRef, OnInit, EventEmitter, Output, Renderer2, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, signal } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
 
@@ -10,28 +10,30 @@ import { Format } from '@servoy/public';
 })
 export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivElement> {
 
-    @ViewChild('input', { static: false }) input: ElementRef<HTMLInputElement>;
+    readonly input = viewChild<ElementRef<HTMLInputElement>>('input');
 
-    @Input() onAction: (e: Event, data?: any) => void;
-    @Input() onRightClick: (e: Event, data?: any) => void;
-    @Input() onDataChangeMethodID: (e: Event) => void;
-    @Input() onFocusGainedMethodID: (e: Event) => void;
-    @Input() onFocusLostMethodID: (e: Event) => void;
+    readonly onAction = input<(e: Event, data?: any) => void>(undefined);
+    readonly onRightClick = input<(e: Event, data?: any) => void>(undefined);
+    readonly onDataChangeMethodID = input<(e: Event) => void>(undefined);
+    readonly onFocusGainedMethodID = input<(e: Event) => void>(undefined);
+    readonly onFocusLostMethodID = input<(e: Event) => void>(undefined);
 
-    @Output() dataProviderChange = new EventEmitter();
-    @Input() dataProvider: any;
-    @Input() enabled: boolean;
-    @Input() editable: boolean;
-    @Input() format: Format;
-    @Input() inputType: string;
-    @Input() placeholderText: string;
-    @Input() readOnly: boolean;
-    @Input() styleClass: string;
-    @Input() tabSeq: number;
-    @Input() visible: boolean;
-    @Input() addOns: AddOn[];
-    @Input() addOnButtons: AddOnButton[];
-    @Input() toolTipText: string;
+    readonly dataProviderChange = output();
+    readonly dataProvider = input<any>(undefined);
+    readonly enabled = input<boolean>(undefined);
+    readonly editable = input<boolean>(undefined);
+    readonly format = input<Format>(undefined);
+    readonly inputType = input<string>(undefined);
+    readonly placeholderText = input<string>(undefined);
+    readonly readOnly = input<boolean>(undefined);
+    readonly styleClass = input<string>(undefined);
+    readonly tabSeq = input<number>(undefined);
+    readonly visible = input<boolean>(undefined);
+    readonly addOns = input<AddOn[]>(undefined);
+    readonly addOnButtons = input<AddOnButton[]>(undefined);
+    readonly toolTipText = input<string>(undefined);
+    
+    _dataProvider = signal<any>(undefined);
 
     mustExecuteOnFocus = true;
     preventSimpleClick = false;
@@ -42,36 +44,40 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     public getFocusElement(): HTMLElement {
-        return this.input.nativeElement;
+        return this.input().nativeElement;
     }
 
     svyOnInit() {
         super.svyOnInit();
+        this._dataProvider.set(this.dataProvider());
         this.attachFocusListeners(this.getFocusElement());
-        if (this.dataProvider === undefined) {
-            this.dataProvider = null;
+        if (this.dataProvider() === undefined) {
+            this._dataProvider.set(null);
         }
-        if (this.onAction) {
+        if (this.onAction()) {
             this.renderer.listen(this.getFocusElement(), 'click', e => {
-                if (this.editable == false) { 
-                    this.onAction(e) 
+                if (this.editable() == false) { 
+                    this.onAction()(e) 
                 }
             });
             this.renderer.listen(this.getFocusElement(), 'keydown', e => {
                 if (e.keyCode === 13) {
-                    setTimeout(() => this.onAction(e), 100);
+                    setTimeout(() => this.onAction()(e), 100);
                 }
             });
         }
-        if (this.onRightClick) {
+        if (this.onRightClick()) {
             this.renderer.listen(this.getFocusElement(), 'contextmenu', e => {
-                this.onRightClick(e); return false;
+                this.onRightClick()(e); return false;
             });
         }
     }
 
     svyOnChanges(changes: SimpleChanges) {
         if (changes) {
+            if (changes['dataProvider']) {
+                this._dataProvider.set(this.dataProvider());
+            }
             for (const property of Object.keys(changes)) {
                 const change = changes[property];
                 switch (property) {
@@ -86,7 +92,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     pushUpdate() {
-        this.dataProviderChange.emit(this.dataProvider);
+        this.dataProviderChange.emit(this._dataProvider());
     }
 
     requestFocus(mustExecuteOnFocusGainedMethod: boolean) {
@@ -95,16 +101,16 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     attachFocusListeners(nativeElement: HTMLElement) {
-        if (this.onFocusGainedMethodID)
+        if (this.onFocusGainedMethodID())
             this.renderer.listen(nativeElement, 'focus', (e) => {
                 if (this.mustExecuteOnFocus !== false) {
-                    this.onFocusGainedMethodID(e);
+                    this.onFocusGainedMethodID()(e);
                 }
                 this.mustExecuteOnFocus = true;
             });
-        if (this.onFocusLostMethodID)
+        if (this.onFocusLostMethodID())
             this.renderer.listen(nativeElement, 'blur', (e) => {
-                this.onFocusLostMethodID(e);
+                this.onFocusLostMethodID()(e);
             });
     }
     hasLeftButtons() {
@@ -116,15 +122,16 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     filterButtons(position: string) {
-        if (!this.addOnButtons) {
+        const addOnButtons = this.addOnButtons();
+        if (!addOnButtons) {
             return [];
         }
-        return this.addOnButtons.filter((addOnBtn: any) => addOnBtn.position === position);
+        return addOnButtons.filter((addOnBtn: any) => addOnBtn.position === position);
     }
 
 
     buttonClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons[btnIndex];
+        const addOnButton = this.addOnButtons()[btnIndex];
         this.timer = 0;
         this.preventSimpleClick = false;
 
@@ -145,7 +152,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     buttonDoubleClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons[btnIndex];
+        const addOnButton = this.addOnButtons()[btnIndex];
 
         if (addOnButton && event.type === 'dblclick' && addOnButton.onDoubleClick) {
             this.preventSimpleClick = true;
@@ -158,7 +165,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     buttonRightClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons[btnIndex];
+        const addOnButton = this.addOnButtons()[btnIndex];
         if (addOnButton && event.type === 'contextmenu' && addOnButton.onRightClick) {
             event.preventDefault();
             const jsEvent = this.servoyService.createJSEvent(event, 'rightclick');
@@ -188,16 +195,20 @@ export class AddOnButton extends AddOn {
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class SvyAttributesInputGroup implements OnInit {
-    @Input('svyAttributesInputGroup') attributes: Array<{ key: string; value: string }>;
+    readonly attributes = input<Array<{
+    key: string;
+    value: string;
+}>>(undefined, { alias: "svyAttributesInputGroup" });
 
     constructor(private el: ElementRef, private renderer: Renderer2) {
 
     }
 
     ngOnInit(): void {
-        if (this.attributes) {
+        const attributes = this.attributes();
+        if (attributes) {
             const nativeElem = this.el.nativeElement;
-            Array.from(this.attributes).forEach(attribute => this.renderer.setAttribute(nativeElem, attribute.key, attribute.value));
+            Array.from(attributes).forEach(attribute => this.renderer.setAttribute(nativeElem, attribute.key, attribute.value));
         }
     }
 }

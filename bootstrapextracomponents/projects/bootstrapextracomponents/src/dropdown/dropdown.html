@@ -1,42 +1,42 @@
-<div class="bts-extra-drop-down {{styleClass}}"
+<div class="bts-extra-drop-down {{styleClass()}}"
   #element
   [id]="servoyApi.getMarkupId()"
-  [svyTooltip]="toolTipText"
+  [svyTooltip]="toolTipText()"
   ngbDropdown>
   <div
     class="btn-group">
-    @if (!isSplitButton) {
+    @if (!isSplitButton()) {
       <button
-        class="btn {{isButton ?  'btn-default dropdown-toggle' : 'btn-link'}} {{buttonStyleClass}}"
+        class="btn {{isButton() ?  'btn-default dropdown-toggle' : 'btn-link'}} {{buttonStyleClass()}}"
         type="button"
         ngbDropdownToggle
         id="button-{{servoyApi.getMarkupId()}}"
-        [disabled]="!enabled"
+        [disabled]="!enabled()"
         (click)="buttonClicked($event)">
-        <span class="{{imageStyleClass}}"></span> {{text ? text : 'Button'}}
+        <span class="{{imageStyleClass()}}"></span> {{text() ? text() : 'Button'}}
       </button>
     }
-    @if (isSplitButton) {
+    @if (isSplitButton()) {
       <button
-        class="btn btn-default{{buttonStyleClass}}"
+        class="btn btn-default{{buttonStyleClass()}}"
         type="button"
         id="button-{{servoyApi.getMarkupId()}}"
-        [disabled]="!enabled"
+        [disabled]="!enabled()"
         (click)="buttonClicked($event)">
-        <span class="{{imageStyleClass}}"></span> {{text ? text : 'Button'}}
+        <span class="{{imageStyleClass()}}"></span> {{text() ? text() : 'Button'}}
       </button>
     }
-    @if (isSplitButton) {
+    @if (isSplitButton()) {
       <button
-        class="btn btn-default dropdown-toggle dropdown-toggle-split {{buttonStyleClass}}"
+        class="btn btn-default dropdown-toggle dropdown-toggle-split {{buttonStyleClass()}}"
         type="button"
         ngbDropdownToggle
         id="button-dropdown-{{servoyApi.getMarkupId()}}"
-        [disabled]="!enabled">
+        [disabled]="!enabled()">
       </button>
     }
     <div ngbDropdownMenu [attr.aria-labelledby]="'button-' + servoyApi.getMarkupId()">
-      @for (menuItem of menuItems; track menuItem) {
+      @for (menuItem of menuItems(); track menuItem) {
         @if (menuItem.isDivider != true) {
           <button ngbDropdownItem class="{{menuItem.enabled == false ? 'disabled' : ''}}" (click)="menuClicked($event, menuItem)">
             @if (menuItem.iconName) {

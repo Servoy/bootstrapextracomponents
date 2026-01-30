@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, EventEmitter, Inject, Input, Output, Renderer2, SimpleChanges, DOCUMENT } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, input, output, signal } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -12,24 +12,27 @@ import { ServoyBaseComponent } from '@servoy/public';
  */
 export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivElement> {
 
-    @Input() styleClass: string;
-    @Input() tabSeq: number;
-    @Input() enabled: boolean;
-    @Input() componentSize: string;
-    @Input() animate: boolean;
-    @Input() label: string;
-    @Input() onText: string;
-    @Input() offText: string;
-    @Input() onColor: string;
-    @Input() offColor: string;
-    @Input() labelWidth: any;
-    @Input() handleWidth: any;
-    @Output() dataProviderIDChange = new EventEmitter();
-    @Input() dataProviderID: any;
-    @Input() state: boolean;
+    readonly styleClass = input<string>(undefined);
+    readonly tabSeq = input<number>(undefined);
+    readonly enabled = input<boolean>(undefined);
+    readonly componentSize = input<string>(undefined);
+    readonly animate = input<boolean>(undefined);
+    readonly label = input<string>(undefined);
+    readonly onText = input<string>(undefined);
+    readonly offText = input<string>(undefined);
+    readonly onColor = input<string>(undefined);
+    readonly offColor = input<string>(undefined);
+    readonly labelWidth = input<any>(undefined);
+    readonly handleWidth = input<any>(undefined);
+    readonly dataProviderIDChange = output<any>();
+    readonly dataProviderID = input<any>(undefined);
+    readonly state = input<boolean>(undefined);
 
-    @Input() onActionMethodID: (e: Event) => void;
-    @Input() onDataChangeMethodID: (oldValue: any, newValue: any, e: Event) => boolean;
+    readonly onActionMethodID = input<(e: Event) => void>(undefined);
+    readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
+    
+    _dataProviderID = signal<any>(undefined);
+    _state = signal<boolean>(undefined);
 
     inputEl: HTMLInputElement;
     runtimeTabIndex: number = -1;
@@ -39,6 +42,8 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     }
 
     svyOnInit() {
+        this._dataProviderID.set(this.dataProviderID());
+        this._state.set(this.state());
         this.inputEl = this.getNativeElement().querySelector('input');
         this.inputEl.tabIndex = this.runtimeTabIndex;
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
@@ -67,27 +72,30 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     }
     
     onChange(e: Event) {
-        if (typeof this.dataProviderID === 'string') {
-            this.dataProviderID = this.dataProviderID === '1' ? '0' : '1';
+        const dataProviderID = this._dataProviderID();
+        if (typeof dataProviderID === 'string') {
+            this._dataProviderID.set(dataProviderID === '1' ? '0' : '1');
         } else {
-            this.dataProviderID = this.dataProviderID > 0 ? 0 : 1;
+            this._dataProviderID.set(dataProviderID > 0 ? 0 : 1);
         }
-        this.dataProviderIDChange.emit(this.dataProviderID);
+        this.dataProviderIDChange.emit(dataProviderID);
         // need to create a js event as the argument of onChange is not a DOM event
-        if (this.onActionMethodID) this.onActionMethodID(this.createJSEvent());
+        const onActionMethodID = this.onActionMethodID();
+        if (onActionMethodID) onActionMethodID(this.createJSEvent());
     }
 
     setSelectionFromDataprovider() {
-        this.state = this.getSelectionFromDataprovider();
+        this._state.set(this.getSelectionFromDataprovider());
     }
 
     getSelectionFromDataprovider(): boolean {
-        if (!this.dataProviderID) {
+        const dataProviderID = this._dataProviderID();
+        if (!dataProviderID) {
             return false;
-        } else if (typeof this.dataProviderID === 'string') {
-            return this.dataProviderID === '1';
+        } else if (typeof dataProviderID === 'string') {
+            return dataProviderID === '1';
         } else {
-            return this.dataProviderID > 0;
+            return dataProviderID > 0;
         }
     }
 

@@ -1,19 +1,19 @@
 <nav #element [id]="servoyApi.getMarkupId()"
-  class="navbar navbar-expand-lg bts-extra-navbar {{inverse ? 'navbar-dark bg-dark' : 'bts-navbar-default'}} {{fixed ? 'fixed-' + fixed : ''}} {{styleClass}}">
+  class="navbar navbar-expand-lg bts-extra-navbar {{inverse() ? 'navbar-dark bg-dark' : 'bts-navbar-default'}} {{fixed() ? 'fixed-' + fixed() : ''}} {{styleClass()}}">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    @if (brandLogo != null) {
-      <a [tabindex]="brandLogoTabindex" (click)="clickBrand($event)" href="#"
-        class="navbar-brand {{onBrandClicked ? 'clickable' : ''}}"
+    @if (brandLogo() != null) {
+      <a [tabindex]="brandLogoTabindex()" (click)="clickBrand($event)" href="#"
+        class="navbar-brand {{onBrandClicked() ? 'clickable' : ''}}"
         style="padding-top: 0px;padding-bottom:0px;padding-right:5px">
-        <img draggable="false" [ngClass]="brandLogoStyleClass" alt="Logo" [src]="brandLogo">
+        <img draggable="false" [ngClass]="brandLogoStyleClass()" alt="Logo" [src]="brandLogo()">
       </a>
     }
-    @if (brandText) {
-      <a [tabindex]="brandTextTabindex" (click)="clickBrand($event)" href="#"
-      [innerHTML]="brandText | htmlFilter | trustAsHtml:isTrustedHTML()" class="navbar-brand"></a>
+    @if (brandText()) {
+      <a [tabindex]="brandTextTabindex()" (click)="clickBrand($event)" href="#"
+      [innerHTML]="brandText() | htmlFilter | trustAsHtml:isTrustedHTML()" class="navbar-brand"></a>
     }
-    @if (collapsing) {
+    @if (collapsing()) {
       <button (click)="toggleCollapse()" class="navbar-toggler" type="button"
         data-bs-toggle="collapse" [attr.data-target]="'#'+ servoyApi.getMarkupId() + '-navbar-collapse'"
         [attr.aria-controls]="servoyApi.getMarkupId()+'-navbar-collapse'" aria-expanded="false">
@@ -21,13 +21,13 @@
       </button>
     }
 
-    <ng-container [ngTemplateOutlet]="collapsing && !servoyApi.isInDesigner() ? collapse:nocollapse"></ng-container>
+    <ng-container [ngTemplateOutlet]="collapsing() && !servoyApi.isInDesigner() ? collapse:nocollapse"></ng-container>
   </div><!-- /.container-fluid -->
 </nav>
 
 <ng-template #nocollapse>
   <ul class="nav navbar-nav me-auto" (click)="navBarClicked($event)">
-    @for (menuItem of menuItems; track menuItem) {
+    @for (menuItem of _menuItems(); track menuItem) {
       @if (menuItem.position == 'LEFT') {
         <li
           class="nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
@@ -274,7 +274,7 @@
                           }
                         </ul><!-- /.navbar-nav -->
                         <ul class="nav navbar-nav ms-auto" (click)="navBarClicked($event)">
-                          @for (menuItem of menuItems; track menuItem) {
+                          @for (menuItem of _menuItems(); track menuItem) {
                             @if (menuItem.position == 'RIGHT') {
                               <li
                                 class="svy-navbar-button nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">

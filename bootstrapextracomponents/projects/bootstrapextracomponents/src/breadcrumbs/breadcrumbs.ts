@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, Renderer2, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectorRef, Renderer2, input, output, signal } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -8,14 +8,16 @@ import { ServoyBaseComponent } from '@servoy/public';
 })
 export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLElement> {
 
-    @Input() styleClass: string;
-    @Input() crumbStyleClass: string;
-    @Input() lastCrumbStyleClass: string;
-    @Input() breadcrumbs: Array<Crumb>;
-    @Output() breadcrumbsChange = new EventEmitter();
-    @Input() autoRemoveWhenClicked: boolean;
+    readonly styleClass = input<string>(undefined);
+    readonly crumbStyleClass = input<string>(undefined);
+    readonly lastCrumbStyleClass = input<string>(undefined);
+    readonly breadcrumbs = input<Array<Crumb>>(undefined);
+    readonly breadcrumbsChange = output<Array<Crumb>>();
+    readonly autoRemoveWhenClicked = input<boolean>(undefined);
 
-    @Input() onCrumbClicked: (event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>;
+    readonly onCrumbClicked = input<(event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>>(undefined);
+    
+    _breadcrumbs = signal<Array<Crumb>>(undefined);
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
         super(renderer, cdRef);
@@ -23,20 +25,23 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
 
     svyOnInit(){
         super.svyOnInit();
-        if (this.servoyApi.isInDesigner() && !this.breadcrumbs){
-            this.breadcrumbs = new Array({crumbId : 'Home', displayName : 'Home'}, {crumbId : 'Library', displayName : 'Library'}, {crumbId : 'Data', displayName : 'Data'});
+        this._breadcrumbs.set(this.breadcrumbs());
+        if (this.servoyApi.isInDesigner() && !this.breadcrumbs()){
+            this._breadcrumbs.set(new Array({crumbId : 'Home', displayName : 'Home'}, {crumbId : 'Library', displayName : 'Library'}, {crumbId : 'Data', displayName : 'Data'}));
         }
     }
 
     crumbClicked(event, crumb, index) {
-        if (this.autoRemoveWhenClicked == true) {
-            if (this.breadcrumbs) {
-                this.breadcrumbs.splice(index + 1, this.breadcrumbs.length - index - 1);
-                this.breadcrumbsChange.emit(this.breadcrumbs);
+        if (this.autoRemoveWhenClicked() == true) {
+            const breadcrumbs = this._breadcrumbs();
+            if (breadcrumbs) {
+                breadcrumbs.splice(index + 1, breadcrumbs.length - index - 1);
+                this.breadcrumbsChange.emit(breadcrumbs);
             }
         }
-        if (this.onCrumbClicked) {
-            this.onCrumbClicked(event, crumb, index);
+        const onCrumbClicked = this.onCrumbClicked();
+        if (onCrumbClicked) {
+            onCrumbClicked(event, crumb, index);
         }
     }
 

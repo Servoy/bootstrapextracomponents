@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, Renderer2, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, ChangeDetectorRef, Renderer2, SimpleChanges, input, output, signal } from '@angular/core';
 import { IValuelist, ServoyBaseComponent } from '@servoy/public';
 import { Format } from '@servoy/public';
 
@@ -9,18 +9,20 @@ import { Format } from '@servoy/public';
 })
 export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLElement> {
 
-    @Input() styleClass: string;
-    @Input() valuelistID: IValuelist;
-    @Input() showAs: string;
-    @Input() enabled: boolean;
-    @Input() tabSeq: number;
-    @Input() inputType: string;
-    @Input() toolTipText: string;
-    @Input() format: Format;
-    @Input() onDataChangeMethodID: (e: Event) => void;
+    readonly styleClass = input<string>(undefined);
+    readonly valuelistID = input<IValuelist>(undefined);
+    readonly showAs = input<string>(undefined);
+    readonly enabled = input<boolean>(undefined);
+    readonly tabSeq = input<number>(undefined);
+    readonly inputType = input<string>(undefined);
+    readonly toolTipText = input<string>(undefined);
+    readonly format = input<Format>(undefined);
+    readonly onDataChangeMethodID = input<(e: Event) => void>(undefined);
     
-    @Output() dataProviderIDChange = new EventEmitter();
-    @Input() dataProviderID: any;
+    readonly dataProviderIDChange = output();
+    readonly dataProviderID = input<any>(undefined);
+    
+    _dataProviderID = signal<any>(undefined);
 
     selectedValues = {};
     oldValue: any;
@@ -40,10 +42,11 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                     break;
 
                 case 'dataProviderID':
-                    this.updateSelectedValues(this.dataProviderID);
+                    this._dataProviderID.set(this.dataProviderID());
+                    this.updateSelectedValues(this.dataProviderID());
                     break;
                 case 'valuelistID':
-                    this.updateSelectedValues(this.dataProviderID);
+                    this.updateSelectedValues(this.dataProviderID());
                     break;
 
             }
@@ -69,9 +72,9 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
 
     onClick(item) {
         // prevent click if is disabled
-        if (this.enabled) {
+        if (this.enabled()) {
             // keep the old value. Old value will be restored if onDataChange returns false.
-            this.oldValue = this.dataProviderID;
+            this.oldValue = this.dataProviderID();
 
             // allow deselection
             let newValue;
@@ -91,7 +94,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                     if (this.selectedValues[selectedValue]) { // value is already selected;
                         // TODO remove it
                         delete this.selectedValues[selectedValue];
-                        let values = this.dataProviderID.toString().split("\n");    // dataProviderID should be filled since there is a selectedValue
+                        let values = this.dataProviderID().toString().split("\n");    // dataProviderID should be filled since there is a selectedValue
                         newValue = values.filter(function(value) {
                             return value != selectedValue
                         }).join("\n");
@@ -111,8 +114,8 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                 }
             }
 
-            this.dataProviderID = newValue;
-            this.dataProviderIDChange.emit(this.dataProviderID);
+            this._dataProviderID.set(newValue);
+            this.dataProviderIDChange.emit(this._dataProviderID());
         }
     }
 
@@ -120,26 +123,29 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
 
         if (returnval == false) { // restore the oldValue
             this.updateSelectedValues(this.oldValue);
-            this.dataProviderID = this.oldValue;
-            this.dataProviderIDChange.emit(this.dataProviderID);
+            this._dataProviderID.set(this.oldValue);
+            this.dataProviderIDChange.emit(this._dataProviderID());
         } else {
             this.oldValue = null;
         }
     }
 
     hasMultiSelection() {
-        return this.inputType === 'checkbox';
+        return this.inputType() === 'checkbox';
     }
 
     allowEmptyValuelistItem(item) {
-        if (this.valuelistID.length) {
-            let item = this.valuelistID[0];
+        const valuelistID = this.valuelistID();
+        if (valuelistID.length) {
+            let item = valuelistID[0];
             return (item.realValue == null || item.realValue == '') && item.displayValue == '';
         }
         return false;
     }
 
     isTypeString() {
-        return (!this.format && (this.dataProviderID === null || this.dataProviderID === undefined)) || (this.format && this.format.type === 'TEXT')
+        const dataProviderID = this.dataProviderID();
+        const format = this.format();
+        return (!format && (dataProviderID === null || dataProviderID === undefined)) || (format && format.type === 'TEXT')
     }
 }
