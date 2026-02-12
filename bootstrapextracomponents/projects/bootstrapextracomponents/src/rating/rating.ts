@@ -13,6 +13,7 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
     readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
 
     readonly enabled = input<boolean>(undefined);
+	readonly readOnly = input<boolean>(undefined);
     readonly dataProviderID = input<number>(undefined);
     readonly dataProviderIDChange = output<number>();
     readonly max = input<number>(undefined);

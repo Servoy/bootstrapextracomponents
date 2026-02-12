@@ -15,6 +15,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     readonly styleClass = input<string>(undefined);
     readonly tabSeq = input<number>(undefined);
     readonly enabled = input<boolean>(undefined);
+	readonly readOnly = input<boolean>(undefined);
     readonly componentSize = input<string>(undefined);
     readonly animate = input<boolean>(undefined);
     readonly label = input<string>(undefined);

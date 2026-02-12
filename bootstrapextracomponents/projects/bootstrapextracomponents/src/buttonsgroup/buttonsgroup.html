@@ -7,6 +7,7 @@
       class= "btn {{styleClass()}}"
       [sabloTabseq]="tabSeq()"
       [ngClass]="selectedValues[item.realValue] ? 'active' : ''"
+	  [disabled]="!enabled() || readOnly()"
       (click)="onClick(item)">
       @if (showAs() != "html" && showAs() != "trusted_html") {
         <span [textContent]='item.displayValue'></span>

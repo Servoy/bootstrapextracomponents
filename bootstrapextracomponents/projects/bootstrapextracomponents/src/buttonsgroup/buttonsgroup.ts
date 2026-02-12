@@ -13,6 +13,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
     readonly valuelistID = input<IValuelist>(undefined);
     readonly showAs = input<string>(undefined);
     readonly enabled = input<boolean>(undefined);
+	readonly readOnly = input<boolean>(undefined);
     readonly tabSeq = input<number>(undefined);
     readonly inputType = input<string>(undefined);
     readonly toolTipText = input<string>(undefined);
@@ -34,13 +35,6 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         for (const property of Object.keys(changes)) {
             const change = changes[property];
             switch (property) {
-                case 'enabled':
-                    if (change.currentValue)
-                        this.renderer.removeAttribute(this.getNativeElement(), 'disabled');
-                    else
-                        this.renderer.setAttribute(this.getNativeElement(), 'disabled', 'disabled');
-                    break;
-
                 case 'dataProviderID':
                     this._dataProviderID.set(this.dataProviderID());
                     this.updateSelectedValues(this.dataProviderID());

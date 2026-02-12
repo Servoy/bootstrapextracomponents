@@ -29,7 +29,8 @@
 	        "componentSize" : { "type" : "tagstring" ,"default": "Normal", "values":[{"Mini":"mini"},{"Small":"small"},{"Normal":"normal"},{"Large":"large"}] },
 			"tabSeq" : {"type" :"tabseq", "tags": { "scope" :"design" }},	
 			"size" : {"type" :"dimension",  "default" : {"width":300, "height":40}},				
-	        "visible" : "visible"
+	        "visible" : "visible",
+	        "readOnly" : { "type": "protected", "blockingOn": true, "default": false, "for": ["dataProviderID","onDataChangeMethodID"], "tags": {"scope":"private"} }
 	},
 	"handlers":
 	{

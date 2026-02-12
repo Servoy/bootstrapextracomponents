@@ -3,7 +3,7 @@
     [id]="servoyApi.getMarkupId()"
     [(rate)]="_dataProviderID"
     [max]="max()"
-    [readonly]="!enabled()"
+    [readonly]="!enabled() || readOnly()"
     (leave)="onLeaveEvent()"
     (hover)="onHoverEvent($event)"
     (rateChange)="onChange()">
