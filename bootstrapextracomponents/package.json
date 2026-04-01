@@ -7,7 +7,8 @@
     "build_debug": "ng build @servoy/bootstrapextracomponents --watch",
     "make_release": "ng build @servoy/bootstrapextracomponents --configuration production && node scripts/build.js",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --config video=false --component --browser chrome"
+    "cy:run": "cypress run --config video=false --component --browser chrome",
+    "cy:run_local_FF": "cypress run --config video=false --component --browser firefox --spec"
   },
   "private": true,
   "dependencies": {

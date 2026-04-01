@@ -11,7 +11,7 @@
         [switch-off-color]="offColor()"
         [switch-label-width]="labelWidth()"
         [switch-handle-width]="handleWidth()"
-        [(ngModel)]="_state"
+        [ngModel]="_state()"
         (changeState)="onChange($event)">
     </bSwitch>
 </div>

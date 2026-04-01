@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, input, output, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, input, output, linkedSignal, computed, effect } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -27,13 +27,16 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     readonly handleWidth = input<any>(undefined);
     readonly dataProviderIDChange = output<any>();
     readonly dataProviderID = input<any>(undefined);
-    readonly state = input<boolean>(undefined);
 
     readonly onActionMethodID = input<(e: Event) => void>(undefined);
     readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
     
-    _dataProviderID = signal<any>(undefined);
-    _state = signal<boolean>(undefined);
+    // as the input is read-only, this is basically the DP that can change client side
+    _dataProviderID = linkedSignal<any>(() => this.dataProviderID());
+    
+    // this is the boolean state representation of the data-provider that is needed by the switch component
+    // it is a read-only computed signal that automatically changes when _dataProviderID signal changes
+    _state = computed<boolean>(() => this.getSelectionFromDataprovider(this._dataProviderID()));
 
     inputEl: HTMLInputElement;
     runtimeTabIndex: number = -1;
@@ -43,26 +46,12 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     }
 
     svyOnInit() {
-        this._dataProviderID.set(this.dataProviderID());
-        this._state.set(this.state());
         this.inputEl = this.getNativeElement().querySelector('input');
         this.inputEl.tabIndex = this.runtimeTabIndex;
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
             this.requestFocus();
         });
         super.svyOnInit();
-    }
-
-    svyOnChanges(changes: SimpleChanges) {
-        if (changes) {
-            for (const property of Object.keys(changes)) {
-                switch (property) {
-                    case 'dataProviderID':
-                        this.setSelectionFromDataprovider();
-                        break;
-                }
-            }
-        }
     }
 
     setTabIndex(tabIndex: number) {
@@ -79,18 +68,13 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
         } else {
             this._dataProviderID.set(dataProviderID > 0 ? 0 : 1);
         }
-        this.dataProviderIDChange.emit(dataProviderID);
+        this.dataProviderIDChange.emit(this._dataProviderID());
         // need to create a js event as the argument of onChange is not a DOM event
         const onActionMethodID = this.onActionMethodID();
         if (onActionMethodID) onActionMethodID(this.createJSEvent());
     }
 
-    setSelectionFromDataprovider() {
-        this._state.set(this.getSelectionFromDataprovider());
-    }
-
-    getSelectionFromDataprovider(): boolean {
-        const dataProviderID = this._dataProviderID();
+    getSelectionFromDataprovider(dataProviderID: any): boolean {
         if (!dataProviderID) {
             return false;
         } else if (typeof dataProviderID === 'string') {

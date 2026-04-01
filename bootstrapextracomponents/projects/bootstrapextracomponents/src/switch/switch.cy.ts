@@ -2,7 +2,8 @@ import { ServoyApi, ServoyApiTesting, ServoyPublicTestingModule, IValuelist, For
 import { MountConfig } from 'cypress/angular';
 import { ServoyBootstrapExtraSwitch } from './switch';
 import { Component, ViewChild, signal, output } from '@angular/core';
-import { JwBootstrapSwitchNg2Module, JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
+import { FormsModule } from '@angular/forms';
+import { JwBootstrapSwitchNg2Module } from '@servoy/jw-bootstrap-switch-ng2';
 
 @Component({
     template: `
@@ -86,7 +87,7 @@ function applyDefaultProps(wrapper) {
 describe('ServoyBootstrapExtraSwitch Component', () => {
     const configWrapper: MountConfig<WrapperComponent> = {
         declarations: [ServoyBootstrapExtraSwitch],
-        imports: [ServoyPublicTestingModule, JwBootstrapSwitchNg2Module]
+        imports: [ServoyPublicTestingModule, JwBootstrapSwitchNg2Module, FormsModule]
     }
 
     it('when component is mounted and registered', () => {
@@ -143,19 +144,54 @@ describe('ServoyBootstrapExtraSwitch Component', () => {
         });
     });
 
-    it('should emit dataProviderIDChange event on button change', () => {
+    /**
+     * initial value is to make component know the DP is a string, number etc.
+     * then 4 values are what the expected DP is after each of 4 clicks
+     * then 4 values are what the DP is set to from server side that 1 - keeps the same checked state, 2, and 4 toggle the checked state
+     */
+    const checkDataProviderBothWaysWithValues = function(initialDPValueForType, click1ExpectedDPValue,
+            click2ExpectedDPValue, click3ExpectedDPValue, click4ExpectedDPValue,
+            serverSet1DPValue, serverSet2DPValue, serverSet3DPValue, serverSet4DPValue)  {
         const onActionMethodID = cy.stub();
         defaultValues.onActionMethodID = onActionMethodID;
         cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
             applyDefaultProps(wrapper);
+            cy.wrap(wrapper.component.dataProviderID).invoke("set", initialDPValueForType);
+
             const dataProviderIDChange = cy.spy();
             wrapper.component.dataProviderIDChange.subscribe(dataProviderIDChange);
             cy.get('input').should('not.be.checked').then(() => {
-                cy.get('.bootstrap-switch-label').click().then(() => {
-                    cy.wrap(dataProviderIDChange).should('have.been.called');
-                });
+                // simulate a few clicks to change the value from client
+                cy.get('.bootstrap-switch-label').click();
+                cy.wrap(dataProviderIDChange).should('have.been.calledOnceWithExactly', click1ExpectedDPValue).invoke('resetHistory');
+                cy.get('input').should('be.checked');
+                cy.get('.bootstrap-switch-label').click();
+                cy.wrap(dataProviderIDChange).should('have.been.calledOnceWithExactly', click2ExpectedDPValue).invoke('resetHistory');
+                cy.get('input').should('not.be.checked');
+                cy.get('.bootstrap-switch-label').click();
+                cy.wrap(dataProviderIDChange).should('have.been.calledOnceWithExactly', click3ExpectedDPValue).invoke('resetHistory');
+                cy.get('input').should('be.checked');
+                cy.get('.bootstrap-switch-label').click();
+                cy.wrap(dataProviderIDChange).should('have.been.calledOnceWithExactly', click4ExpectedDPValue);
+                cy.get('input').should('not.be.checked');
+                    
+                // now simulate a server side change of the dataprovider
+                cy.wrap(wrapper.component.dataProviderID).invoke("set", serverSet1DPValue); // nothing should happen
+                cy.get('input').should('not.be.checked');
+                cy.wrap(wrapper.component.dataProviderID).invoke("set", serverSet2DPValue);
+                cy.get('input').should('be.checked');
+                cy.wrap(wrapper.component.dataProviderID).invoke("set", serverSet3DPValue);
+                cy.get('input').should('not.be.checked');
+                cy.wrap(wrapper.component.dataProviderID).invoke("set", serverSet4DPValue);
+                cy.get('input').should('be.checked');
             });
         });
+    }
+    it('(based on int DP) should emit dataProviderIDChange event on button change, with the correct value, should update when server side dp changes', () => {
+        checkDataProviderBothWaysWithValues(0, 1, 0, 1, 0, 0, 1, -5, 4);
+    });
+    it('(based on string DP) should emit dataProviderIDChange event on button change, with the correct value, should update when server side dp changes', () => {
+        checkDataProviderBothWaysWithValues("0", "1", "0", "1", "0", "0", "1", "somethingWeirdThatWillBeSeenAsFalse", "1");
     });
 
     it('should not emit dataProviderIDChange event dataprovider change', () => {
@@ -170,7 +206,7 @@ describe('ServoyBootstrapExtraSwitch Component', () => {
         });
     });
 
-    it('should handle onaction  event', () => {
+    it('should handle onaction event', () => {
         const onActionMethodID = cy.stub();
         defaultValues.onActionMethodID = onActionMethodID;
         cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
