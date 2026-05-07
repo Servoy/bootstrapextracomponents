@@ -30,8 +30,8 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	readonly onMenuItemClicked = input<(e: Event, menuItem: BaseMenuItem) => void>(undefined);
 	readonly onBrandClicked = input<(e: Event) => void>(undefined);
-    
-    _menuItems = signal<Array<MenuItem>>(undefined);
+
+	_menuItems = signal<Array<MenuItem>>(undefined);
 
 	focusSubjects = new Array<Subject<string>>();
 	typeaheadInit = false;
@@ -60,15 +60,15 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	svyOnInit() {
 		super.svyOnInit();
-        this._menuItems.set(this.menuItems());
+		this._menuItems.set(this.menuItems());
 		this.copyServoyMenu();
 	}
 
 	svyOnChanges(changes: SimpleChanges) {
 		super.svyOnChanges(changes);
-        if (changes.menuItems) {
-            this._menuItems.set(changes.menuItems.currentValue);
-        }
+		if (changes.menuItems) {
+			this._menuItems.set(changes.menuItems.currentValue);
+		}
 		if (changes.menuItems && !this.servoyMenu()) {
 			this.initTypeaheads(changes.menuItems.currentValue);
 		}
@@ -104,7 +104,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	onInputChange(menuItem: MenuItem, index: number) {
 		const servoyMenu = this.servoyMenu();
-        if (servoyMenu) {
+		if (servoyMenu) {
 			servoyMenu.pushDataProviderValue('Navbar', 'dataProviderValue', index, menuItem.dataProvider);
 		} else {
 			this.servoyApi.apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
@@ -209,7 +209,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		const itemClicked = this.getItem(event);
 		this.makeItemActive(itemClicked);
 		const onMenuItemClicked = this.onMenuItemClicked();
-        if (itemClicked && itemClicked.onAction) {
+		if (itemClicked && itemClicked.onAction) {
 			const jsEvent = this.servoyService.createJSEvent(event, 'action');
 			itemClicked.onAction(jsEvent, this.createItemArg(itemClicked));
 		} else if (itemClicked && onMenuItemClicked) {
@@ -420,17 +420,17 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 
 	getFilterValues(index: number) {
-        const menuItems = this._menuItems();
-        this.initTypeaheads(menuItems);
-        const item = menuItems[index];
-        const focus$ = this.focusSubjects[index];
-        return (text$: Observable<string>) => {
-            const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
-            const inputFocus$ = focus$;
+		const menuItems = this._menuItems();
+		this.initTypeaheads(menuItems);
+		const item = menuItems[index];
+		const focus$ = this.focusSubjects[index];
+		return (text$: Observable<string>) => {
+			const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
+			const inputFocus$ = focus$;
 
-            return merge(debouncedText$, inputFocus$).pipe(switchMap(term => (term === '' ? of(item.valuelist)
-                : item.valuelist.filterList(term))));
-        };
+			return merge(debouncedText$, inputFocus$).pipe(switchMap(term => (term === '' ? of(item.valuelist)
+				: item.valuelist.filterList(term))));
+		};
 	}
 
 	initTypeaheads(items: Array<MenuItem>) {
@@ -454,7 +454,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	clickBrand(event: Event) {
 		event.preventDefault();
 		const onBrandClicked = this.onBrandClicked();
-        if (onBrandClicked) {
+		if (onBrandClicked) {
 			onBrandClicked(event);
 		}
 	}
@@ -549,48 +549,50 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 
 	private copyServoyMenu() {
-        const servoyMenu = this.servoyMenu();
-        if (servoyMenu) {
-            const oldMenu = new Array();
-            for (let i = 0;i < servoyMenu.items.length;i++) {
-                const source = servoyMenu.items[i];
-                const menuItem = {} as MenuItem;
-                menuItem.text = source.menuText;
-                menuItem.itemId = source.itemID;
-                menuItem.styleClass = source.styleClass;
-                menuItem.enabled = source.enabled;
-                menuItem.iconName = source.iconStyleClass;
-                menuItem.tabindex = source.extraProperties?.Navbar?.tabindex;
-                menuItem.userData = source.extraProperties?.Navbar?.userData;
-                menuItem.attributes = source.extraProperties?.Navbar?.attributes;
-                menuItem.position = source.extraProperties?.Navbar?.position;
-                menuItem.displayType = source.extraProperties?.Navbar?.displayType;
-                menuItem.dataProvider = source.extraProperties?.Navbar?.dataProviderValue;
-                menuItem.valuelist = source.extraProperties?.Navbar?.valuelist;
-                menuItem.tooltip = source.tooltipText;
-                menuItem.inputButtonText = source.extraProperties?.Navbar?.inputButtonText;
-                menuItem.inputButtonStyleClass = source.extraProperties?.Navbar?.inputButtonStyleClass;
-                menuItem.isActive = source.isSelected;
-                if (source.items && source.items.length > 0) {
-                    menuItem.subMenuItems = new Array();
-                    for (let i = 0;i < source.items.length;i++) {
-                        const subMenuItem = {} as SubMenuItem;
-                        const childSource = source.items[i];
-                        subMenuItem.text = childSource.menuText;
-                        subMenuItem.itemId = childSource.itemID;
-                        subMenuItem.styleClass = childSource.styleClass;
-                        subMenuItem.enabled = childSource.enabled;
-                        subMenuItem.iconName = childSource.iconStyleClass;
-                        subMenuItem.tabindex = childSource.extraProperties?.Navbar?.tabindex;
-                        subMenuItem.userData = childSource.extraProperties?.Navbar?.userData;
-                        subMenuItem.isDivider = childSource.extraProperties?.Navbar?.isDivider;
-                        menuItem.subMenuItems.push(subMenuItem);
-                    }
-                }
-                oldMenu.push(menuItem);
-            }
-            this._menuItems.set(oldMenu);
-        }
+		const servoyMenu = this.servoyMenu();
+		if (servoyMenu) {
+			const oldMenu = new Array();
+			if (servoyMenu.items && servoyMenu.items.length > 0) {
+				for (let i = 0; i < servoyMenu.items.length; i++) {
+					const source = servoyMenu.items[i];
+					const menuItem = {} as MenuItem;
+					menuItem.text = source.menuText;
+					menuItem.itemId = source.itemID;
+					menuItem.styleClass = source.styleClass;
+					menuItem.enabled = source.enabled;
+					menuItem.iconName = source.iconStyleClass;
+					menuItem.tabindex = source.extraProperties?.Navbar?.tabindex;
+					menuItem.userData = source.extraProperties?.Navbar?.userData;
+					menuItem.attributes = source.extraProperties?.Navbar?.attributes;
+					menuItem.position = source.extraProperties?.Navbar?.position;
+					menuItem.displayType = source.extraProperties?.Navbar?.displayType;
+					menuItem.dataProvider = source.extraProperties?.Navbar?.dataProviderValue;
+					menuItem.valuelist = source.extraProperties?.Navbar?.valuelist;
+					menuItem.tooltip = source.tooltipText;
+					menuItem.inputButtonText = source.extraProperties?.Navbar?.inputButtonText;
+					menuItem.inputButtonStyleClass = source.extraProperties?.Navbar?.inputButtonStyleClass;
+					menuItem.isActive = source.isSelected;
+					if (source.items && source.items.length > 0) {
+						menuItem.subMenuItems = new Array();
+						for (let i = 0; i < source.items.length; i++) {
+							const subMenuItem = {} as SubMenuItem;
+							const childSource = source.items[i];
+							subMenuItem.text = childSource.menuText;
+							subMenuItem.itemId = childSource.itemID;
+							subMenuItem.styleClass = childSource.styleClass;
+							subMenuItem.enabled = childSource.enabled;
+							subMenuItem.iconName = childSource.iconStyleClass;
+							subMenuItem.tabindex = childSource.extraProperties?.Navbar?.tabindex;
+							subMenuItem.userData = childSource.extraProperties?.Navbar?.userData;
+							subMenuItem.isDivider = childSource.extraProperties?.Navbar?.isDivider;
+							menuItem.subMenuItems.push(subMenuItem);
+						}
+					}
+					oldMenu.push(menuItem);
+				}
+			}
+			this._menuItems.set(oldMenu);
+		}
 	}
 }
 class BaseMenuItem extends BaseCustomObject {
@@ -633,9 +635,9 @@ class SubMenuItem extends BaseMenuItem {
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class SvyAttributes implements OnInit {
 	readonly attributes = input<Array<{
-    key: string;
-    value: string;
-}>>(undefined, { alias: "svyAttributes" });
+		key: string;
+		value: string;
+	}>>(undefined, { alias: "svyAttributes" });
 
 	constructor(private el: ElementRef, private renderer: Renderer2) {
 
@@ -643,7 +645,7 @@ export class SvyAttributes implements OnInit {
 
 	ngOnInit(): void {
 		const attributes = this.attributes();
-  if (attributes) {
+		if (attributes) {
 			attributes.forEach(attribute => this.renderer.setAttribute(this.el.nativeElement, attribute.key, attribute.value));
 		}
 	}
