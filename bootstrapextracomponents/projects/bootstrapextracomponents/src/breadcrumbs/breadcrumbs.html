@@ -6,7 +6,7 @@
     }
     @for (crumb of breadcrumbs(); track crumb) {
       <li
-        [ngClass]="$last ? ('breadcrumb-item active ' + lastCrumbStyleClass()) : ('breadcrumb-item '+crumbStyleClass()) ">
+        [class]="$last ? ('breadcrumb-item active ' + lastCrumbStyleClass()) : ('breadcrumb-item '+crumbStyleClass()) ">
         @if (!$last) {
           <a (click)="crumbClicked($event, crumb, $index)" class="svy-breadcrumb-item">{{crumb.displayName}}&nbsp;</a>
         }

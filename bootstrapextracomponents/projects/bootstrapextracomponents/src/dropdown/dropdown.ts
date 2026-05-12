@@ -1,9 +1,10 @@
-import { Component, SimpleChanges, Renderer2, ChangeDetectorRef, input } from '@angular/core';
+import { Component, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, input } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-dropdown',
     templateUrl: './dropdown.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivElement> {
@@ -32,10 +33,6 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
         super.svyOnInit();
     }
 
-    svyOnChanges(changes: SimpleChanges) {
-        super.svyOnChanges(changes);
-    }
-
     buttonClicked(e: Event) {
         const onAction = this.onAction();
         if (onAction) {
@@ -49,7 +46,7 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
             const jsEvent = this.servoyService.createJSEvent(e, 'action');
             menuItem.onAction(jsEvent, this.createItemArg(menuItem));
         } else if (onMenuItemSelected) {
-             onMenuItemSelected(event, this.createItemArg(menuItem));
+             onMenuItemSelected(e, this.createItemArg(menuItem));
         }
     }
 

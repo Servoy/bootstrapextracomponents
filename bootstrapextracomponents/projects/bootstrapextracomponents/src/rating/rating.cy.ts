@@ -92,10 +92,11 @@ describe('ServoyBootstrapExtraRating Component', () => {
         defaultValues.onActionMethodID = onActionMethodID;
         cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
             applyDefaultProps(wrapper);
+            wrapper.fixture.detectChanges();
             const dataProviderIDChange = cy.spy();
             wrapper.component.dataProviderIDChange.subscribe(dataProviderIDChange);
             cy.get('ngb-rating').should('exist').then(() => {
-                cy.get('.visually-hidden').last().click().then(() => {
+                cy.get('ngb-rating i').last().click({ force: true }).then(() => {
                     cy.wrap(dataProviderIDChange).should('have.been.called');
                 });
             });
@@ -112,6 +113,27 @@ describe('ServoyBootstrapExtraRating Component', () => {
                 wrapper.fixture.detectChanges();
                 expect(dataProviderIDChange).not.to.have.been.called;
             });
+        });
+    });
+
+    it('should render the correct number of stars based on max', () => {
+        defaultValues.max = 7;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('ngb-rating i').should('have.length', 7);
+        });
+    });
+
+    it('should apply stateOn class to filled stars and stateOff class to empty stars', () => {
+        defaultValues.dataProviderID = 3;
+        defaultValues.max = 5;
+        defaultValues.stateOn = 'fa-solid fa-heart';
+        defaultValues.stateOff = 'fa-regular fa-heart';
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            wrapper.fixture.detectChanges();
+            cy.get('ngb-rating i').eq(0).should('have.class', 'fa-solid').and('have.class', 'fa-heart');
+            cy.get('ngb-rating i').eq(4).should('have.class', 'fa-regular').and('have.class', 'fa-heart');
         });
     });
 })

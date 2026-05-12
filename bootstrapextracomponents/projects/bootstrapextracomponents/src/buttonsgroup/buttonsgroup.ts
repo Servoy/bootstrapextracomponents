@@ -1,10 +1,11 @@
-import { Component, ChangeDetectorRef, Renderer2, SimpleChanges, input, output, signal } from '@angular/core';
+import { Component, ChangeDetectorRef, Renderer2, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
 import { IValuelist, ServoyBaseComponent } from '@servoy/public';
 import { Format } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-buttons-group',
     templateUrl: './buttonsgroup.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLElement> {
@@ -23,45 +24,28 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
     readonly dataProviderIDChange = output();
     readonly dataProviderID = input<any>(undefined);
     
-    _dataProviderID = signal<any>(undefined);
+    _dataProviderID = linkedSignal<any>(() => this.dataProviderID());
 
-    selectedValues = {};
+    readonly selectedValues = computed(() => {
+        const value = this._dataProviderID();
+        const result: Record<string, boolean> = {};
+        if (value || value == 0) {
+            if (this.hasMultiSelection()) {
+                value.toString().split('\n').forEach(v => result[v] = true);
+            } else {
+                result[value] = true;
+            }
+        }
+        return result;
+    });
+
     oldValue: any;
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
         super(renderer, cdRef);
     }
 
-    svyOnChanges(changes: SimpleChanges) {
-        for (const property of Object.keys(changes)) {
-            const change = changes[property];
-            switch (property) {
-                case 'dataProviderID':
-                    this._dataProviderID.set(this.dataProviderID());
-                    this.updateSelectedValues(this.dataProviderID());
-                    break;
-                case 'valuelistID':
-                    this.updateSelectedValues(this.dataProviderID());
-                    break;
-
-            }
-        }
-        super.svyOnChanges(changes);
-    }
-
     updateSelectedValues(value: any) {
-        var selectedValues = {};
-        if (value || value == 0) {
-            // store clientside selected values
-            if (this.hasMultiSelection()) {
-                let values = value.toString().split("\n");
-                for (let i = 0; i < values.length; i++) {
-                    selectedValues[values[i]] = true;
-                }
-            } else {    // store the selectedValue
-                selectedValues[value] = true;
-            }
-        }
-        this.selectedValues = selectedValues;
+        this._dataProviderID.set(value);
     }
 
     onClick(item) {
@@ -77,7 +61,6 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
             if (this.oldValue == selectedValue) {    // deselect last value
                 if (this.allowEmptyValuelistItem(item) && this.oldValue == selectedValue) {   // deselect last option
                     newValue = null;
-                    this.selectedValues = {};
                 } else {    // cannot deselect last value
                     // Do nothing
                     newValue = this.oldValue;
@@ -85,15 +68,13 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                 }
             } else {    // select/deselect a value
                 if (this.hasMultiSelection() && this.isTypeString()) {
-                    if (this.selectedValues[selectedValue]) { // value is already selected;
+                    if (this.selectedValues()[selectedValue]) { // value is already selected;
                         // TODO remove it
-                        delete this.selectedValues[selectedValue];
                         let values = this.dataProviderID().toString().split("\n");    // dataProviderID should be filled since there is a selectedValue
                         newValue = values.filter(function(value) {
                             return value != selectedValue
                         }).join("\n");
                     } else { // value was not selected;
-                        this.selectedValues[selectedValue] = true;
                         if (this.oldValue !== null && this.oldValue !== undefined && this.oldValue !== "") {
                             newValue = this.oldValue + '\n' + selectedValue;
                         } else {
@@ -103,22 +84,19 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                 } else {
                     // update selection
                     newValue = selectedValue;
-                    delete this.selectedValues[this.oldValue];
-                    this.selectedValues[selectedValue] = true;
                 }
             }
 
             this._dataProviderID.set(newValue);
-            this.dataProviderIDChange.emit(this._dataProviderID());
+            this.dataProviderIDChange.emit(newValue);
         }
     }
 
     onDataChangeCallback(event, returnval) {
 
         if (returnval == false) { // restore the oldValue
-            this.updateSelectedValues(this.oldValue);
             this._dataProviderID.set(this.oldValue);
-            this.dataProviderIDChange.emit(this._dataProviderID());
+            this.dataProviderIDChange.emit(this.oldValue);
         } else {
             this.oldValue = null;
         }

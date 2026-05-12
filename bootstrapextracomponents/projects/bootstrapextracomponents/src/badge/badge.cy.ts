@@ -168,4 +168,22 @@ describe('ServoyBootstrapExtraBadge Component', () => {
             });
         });
     });
+
+    it('should render an <a> element when displayType is LABEL', () => {
+        defaultValues.displayType = 'LABEL';
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            cy.get('a').should('exist');
+            cy.get('button').should('not.exist');
+        });
+    });
+
+    it('should render text content in badge', () => {
+        defaultValues.displayType = 'BUTTON';
+        defaultValues.text = 'Hello Badge';
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            cy.get('button').should('contain.text', 'Hello Badge');
+        });
+    });
 });

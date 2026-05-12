@@ -1,10 +1,11 @@
 
-import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, input, output, linkedSignal, computed, effect } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-switch',
     templateUrl: './switch.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 /**

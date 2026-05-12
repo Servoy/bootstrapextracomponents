@@ -112,4 +112,16 @@ describe('ServoyBootstrapExtraBreadcrumbs Component', () => {
             });
         });
     });
+
+    it('should remove trailing breadcrumbs when autoRemoveWhenClicked is true', () => {
+        defaultValues.autoRemoveWhenClicked = true;
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            cy.get('li').should('have.length', 3).then(() => {
+                // click first crumb — should remove the 2 following crumbs
+                cy.get('li').first().find('a').click();
+                cy.get('li').should('have.length', 1);
+            });
+        });
+    });
 })

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@servoy/public';
 
 @Component({
@@ -21,7 +21,7 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
     readonly stateOn = input<string>(undefined);
     readonly stateOff = input<string>(undefined);
     
-    _dataProviderID = signal<number>(undefined);
+    _dataProviderID = linkedSignal<number>(() => this.dataProviderID());
 
     overStar = false;
     percent: number;
@@ -33,7 +33,6 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         super.svyOnInit();
-        this._dataProviderID.set(this.dataProviderID());
         this.percent = this._dataProviderID() * 100 / this.max() ;
     }
 
@@ -61,7 +60,8 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
         }
     }
 
-    onChange(){
-        this.dataProviderIDChange.emit(this._dataProviderID());
+    onChange(value: number){
+        this._dataProviderID.set(value);
+        this.dataProviderIDChange.emit(value);
     }
 }

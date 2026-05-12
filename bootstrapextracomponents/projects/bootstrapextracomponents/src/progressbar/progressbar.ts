@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -19,8 +19,8 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
     readonly tabSeq = input<number>(undefined);
     readonly dataProviderID = input<any>(undefined);
     
-    _value = signal<number>(this.value());
-    _valueText = signal<string>(this.valueText());
+    _value = linkedSignal<number>(() => this.value());
+    _valueText = linkedSignal<string>(() => this.valueText());
 
      constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
             super(renderer, cdRef);

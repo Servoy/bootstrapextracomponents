@@ -18,6 +18,7 @@ import { of } from 'rxjs';
             [dataProviderID]="dataProviderID()"
             (dataProviderIDChange)="dataProviderIDChange.emit($event)"
             [format]="format()"
+            [readOnly]="readOnly()"
             #element>
         </bootstrapextracomponents-buttons-group>
     `,
@@ -35,6 +36,7 @@ class WrapperComponent {
     format = signal<Format>(undefined);
     dataProviderID = signal<unknown>(undefined);
     dataProviderIDChange = output<unknown>();
+    readOnly = signal<boolean>(undefined);
 
     @ViewChild('element') element: ServoyBootstrapExtraButtonsGroup;
 }
@@ -49,7 +51,8 @@ const defaultValues = {
     toolTipText: undefined,
     valuelistID: undefined as IValuelist,
     format: undefined,
-    dataProviderID: 1
+    dataProviderID: 1,
+    readOnly: undefined as boolean
 };
 
 function createMockValuelist(): IValuelist {
@@ -114,9 +117,9 @@ describe('ServoyBootstrapExtraButtonsGroup Component', () => {
     it('when enabled state is changed through wrapper', () => {
         cy.mount(WrapperComponent, configWrapper).then(wrapper => {
             applyDefaultProps(wrapper);
-            cy.get('.btn-group').should('not.have.attr', 'disabled').then(() => {
+            cy.get('button').first().should('not.have.attr', 'disabled').then(() => {
                 wrapper.component.enabled.set(false);
-                cy.get('.btn-group').should('have.attr', 'disabled');
+                cy.get('button').first().should('have.attr', 'disabled');
             });
         });
     });
@@ -188,6 +191,63 @@ describe('ServoyBootstrapExtraButtonsGroup Component', () => {
             cy.wrap(onActionMethodID).should('be.not.called');
             cy.get('button').last().click().then(() => {
                 cy.wrap(onActionMethodID).should('be.called');
+            });
+        });
+    });
+
+    it('should disable buttons when readOnly is true', () => {
+        defaultValues['readOnly'] = true;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('button').first().should('have.attr', 'disabled');
+        });
+    });
+
+    it('should support checkbox multi-select mode', () => {
+        defaultValues.readOnly = undefined;
+        defaultValues.enabled = true;
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            wrapper.component.inputType.set('checkbox');
+            wrapper.component.dataProviderID.set(null);
+            const dataProviderIDChange = cy.spy();
+            wrapper.component.dataProviderIDChange.subscribe(dataProviderIDChange);
+            // click first button
+            cy.get('button').first().click().then(() => {
+                cy.wrap(dataProviderIDChange).should('have.been.calledWith', 1);
+            });
+        });
+    });
+
+    it('should deselect in checkbox mode when clicking an active item', () => {
+        defaultValues.readOnly = undefined;
+        defaultValues.enabled = true;
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            wrapper.component.inputType.set('checkbox');
+            // Use a text format so isTypeString() returns true, enabling multi-select deselect
+            wrapper.component.format.set({ type: 'TEXT' } as any);
+            // start with two values selected: '1\n2'
+            wrapper.component.dataProviderID.set('1\n2');
+            const dataProviderIDChange = cy.spy();
+            wrapper.component.dataProviderIDChange.subscribe(dataProviderIDChange);
+            // clicking button eq(1) (realValue=2) should deselect '2', leaving '1'
+            cy.get('button').eq(1).click().then(() => {
+                cy.wrap(dataProviderIDChange).should('have.been.called');
+                cy.wrap(dataProviderIDChange).its('args').its('0').its('0').should('equal', '1');
+            });
+        });
+    });
+
+    it('should not emit dataProviderIDChange when disabled and button is clicked', () => {
+        defaultValues.enabled = false;
+        defaultValues.readOnly = undefined;
+        cy.mount(WrapperComponent, configWrapper).then((wrapper) => {
+            applyDefaultProps(wrapper);
+            const dataProviderIDChange = cy.spy();
+            wrapper.component.dataProviderIDChange.subscribe(dataProviderIDChange);
+            cy.get('button').first().click({ force: true }).then(() => {
+                expect(dataProviderIDChange).not.to.have.been.called;
             });
         });
     });

@@ -1,4 +1,4 @@
-import { Component, SimpleChanges, Renderer2, ChangeDetectorRef, Directive, ElementRef, OnInit, Output, EventEmitter, Inject, HostListener, DOCUMENT, input, signal } from '@angular/core';
+import { Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, Directive, ElementRef, OnInit, Output, EventEmitter, Inject, DOCUMENT, input, linkedSignal } from '@angular/core';
 
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -7,6 +7,8 @@ import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustom
 @Component({
 	selector: 'bootstrapextracomponents-navbar',
 	templateUrl: './navbar.html',
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: { '(keydown)': 'onKeyDown($event)' },
 	standalone: false
 })
 export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivElement> {
@@ -31,7 +33,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	readonly onMenuItemClicked = input<(e: Event, menuItem: BaseMenuItem) => void>(undefined);
 	readonly onBrandClicked = input<(e: Event) => void>(undefined);
 
-	_menuItems = signal<Array<MenuItem>>(undefined);
+	_menuItems = linkedSignal<Array<MenuItem>>(() => this.menuItems());
 
 	focusSubjects = new Array<Subject<string>>();
 	typeaheadInit = false;
@@ -43,7 +45,6 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		super(renderer, cdRef);
 	}
 
-	@HostListener('keydown', ['$event'])
 	onKeyDown(event: KeyboardEvent) {
 		if (event.key === 'ArrowDown') {
 			event.preventDefault();
@@ -60,15 +61,11 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	svyOnInit() {
 		super.svyOnInit();
-		this._menuItems.set(this.menuItems());
 		this.copyServoyMenu();
 	}
 
 	svyOnChanges(changes: SimpleChanges) {
 		super.svyOnChanges(changes);
-		if (changes.menuItems) {
-			this._menuItems.set(changes.menuItems.currentValue);
-		}
 		if (changes.menuItems && !this.servoyMenu()) {
 			this.initTypeaheads(changes.menuItems.currentValue);
 		}

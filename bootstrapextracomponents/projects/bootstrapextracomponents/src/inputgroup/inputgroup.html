@@ -1,6 +1,6 @@
 <div class="bts-extra-input-group input-group"
   [id]="servoyApi.getMarkupId()"
-  [ngClass]='styleClass()'
+  [class]="styleClass()"
   [svyTooltip]="toolTipText()"
   #element>
 
@@ -18,7 +18,7 @@
             (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
             [sabloTabseq]="tabSeq()"
             [svyAttributesInputGroup]="button.attributes">
-            <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
+            <span [class]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
           </button>
         }
       }
@@ -43,6 +43,7 @@
     class='form-control bts-textbox'
     [disabled]="!enabled()"
     [readonly]="readOnly() || !editable()"
+    [attr.placeholder]="placeholderText() || null"
     (change)="pushUpdate()"
     [(ngModel)]="_dataProvider"
     [svyFormat]="format()"
@@ -79,7 +80,7 @@
               (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
               [sabloTabseq]="tabSeq()"
               [svyAttributesInputGroup]="button.attributes">
-              <span [ngClass]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
+              <span [class]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
             </button>
           }
         }

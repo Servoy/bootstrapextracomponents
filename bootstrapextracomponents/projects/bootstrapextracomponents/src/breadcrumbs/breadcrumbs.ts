@@ -1,9 +1,10 @@
-import { Component, ChangeDetectorRef, Renderer2, input, output, signal } from '@angular/core';
+import { Component, ChangeDetectorRef, Renderer2, ChangeDetectionStrategy, input, output, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-breadcrumbs',
     templateUrl: './breadcrumbs.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLElement> {
@@ -16,18 +17,17 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
     readonly autoRemoveWhenClicked = input<boolean>(undefined);
 
     readonly onCrumbClicked = input<(event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>>(undefined);
-    
-    _breadcrumbs = signal<Array<Crumb>>(undefined);
+
+    _breadcrumbs = linkedSignal<Array<Crumb>>(() => this.breadcrumbs());
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
         super(renderer, cdRef);
     }
 
-    svyOnInit(){
+    svyOnInit() {
         super.svyOnInit();
-        this._breadcrumbs.set(this.breadcrumbs());
-        if (this.servoyApi.isInDesigner() && !this.breadcrumbs()){
-            this._breadcrumbs.set(new Array({crumbId : 'Home', displayName : 'Home'}, {crumbId : 'Library', displayName : 'Library'}, {crumbId : 'Data', displayName : 'Data'}));
+        if (this.servoyApi.isInDesigner() && !this.breadcrumbs()) {
+            this._breadcrumbs.set(new Array({ crumbId: 'Home', displayName: 'Home' }, { crumbId: 'Library', displayName: 'Library' }, { crumbId: 'Data', displayName: 'Data' }));
         }
     }
 

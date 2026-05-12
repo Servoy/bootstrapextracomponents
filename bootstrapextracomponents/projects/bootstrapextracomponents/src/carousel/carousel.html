@@ -2,8 +2,8 @@
   [id]="servoyApi.getMarkupId()"
   class="bts-extra-carousel"  >
   <ngb-carousel #ngCarousel
-    [ngClass]="styleClass()"
-    [ngStyle]="getStyle()"
+    [class]="styleClass()"
+    [style.height]="getStyle().height"
     [showNavigationArrows]="true"
     [interval] = "cycleInterval()"
     [showNavigationIndicators]="true"

@@ -1,4 +1,4 @@
-<div class="bts-extra-switch" [ngClass]="styleClass()" [sabloTabseq]="tabSeq()" [sabloTabseqConfig]="{container: false, tabSeqSetter: this}" [id]="servoyApi.getMarkupId()" #element>
+<div class="bts-extra-switch" [class]="styleClass()" [sabloTabseq]="tabSeq()" [sabloTabseqConfig]="{container: false, tabSeqSetter: this}" [id]="servoyApi.getMarkupId()" #element>
     <bSwitch
         [disabled]="!enabled() || readOnly()"
         [switch-disabled]="!enabled() || readOnly()"

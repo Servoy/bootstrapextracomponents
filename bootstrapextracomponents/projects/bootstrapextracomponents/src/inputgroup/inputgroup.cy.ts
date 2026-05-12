@@ -265,4 +265,12 @@ describe('ServoyBootstrapExtraInputGroup Component', () => {
             });
         });
     });
+
+    it('should be read-only when editable is false', () => {
+        defaultValues.editable = false;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('input').should('have.attr', 'readonly');
+        });
+    });
 });

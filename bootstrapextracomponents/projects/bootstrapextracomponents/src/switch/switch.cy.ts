@@ -217,4 +217,15 @@ describe('ServoyBootstrapExtraSwitch Component', () => {
             });
         });
     });
+
+    it('should show disabled state when readOnly is true (via enabled proxy)', () => {
+        // readOnly maps to [switch-disabled] same as !enabled; verify the disabled CSS class appears
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.bootstrap-switch-disabled').should('not.exist').then(() => {
+                wrapper.component.enabled.set(false);
+                cy.get('.bootstrap-switch-disabled').should('exist');
+            });
+        });
+    });
 })

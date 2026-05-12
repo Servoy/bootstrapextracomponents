@@ -119,4 +119,29 @@ describe('ServoyBootstrapExtraProgressBar Component', () => {
             });
         });
     });
+
+    it('should show absolute value when showValueAsPercentage is false', () => {
+        defaultValues.showValueAsPercentage = false;
+        defaultValues.dataProviderID = 25;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.progress-bar b').should('have.text', '25 / 100');
+        });
+    });
+
+    it('should show custom valueText when set', () => {
+        defaultValues.valueText = 'Loading...';
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.progress-bar b').should('have.text', 'Loading...');
+        });
+    });
+
+    it('should add animated class when animate is true', () => {
+        defaultValues.animate = true;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.progress-bar').should('have.class', 'progress-bar-animated');
+        });
+    });
 })

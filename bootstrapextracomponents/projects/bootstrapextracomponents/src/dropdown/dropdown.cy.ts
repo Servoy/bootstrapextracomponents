@@ -195,4 +195,99 @@ describe('ServoyBootstrapExtraDropdown Component', () => {
             });
         });
     });
+
+    it('should render text in the button', () => {
+        defaultValues.text = 'My Button';
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('button').first().should('contain.text', 'My Button');
+        });
+    });
+
+    it('should render two buttons when isSplitButton is true', () => {
+        defaultValues.isSplitButton = true as unknown as string;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // split button shows a main button + a separate toggle button
+            cy.get('.btn-group button').should('have.length.gte', 2);
+        });
+    });
+
+    it('should call per-item onAction when menuItem has its own onAction', () => {
+        const itemAction = cy.stub();
+        defaultValues.isSplitButton = undefined;
+        defaultValues.menuItems = [{
+            enabled: true,
+            iconName: '',
+            isDivider: false,
+            text: 'one',
+            itemId: '1',
+            userData: { id: 1 },
+            onAction: itemAction
+        }, {
+            enabled: true,
+            iconName: '',
+            isDivider: false,
+            text: 'two',
+            itemId: '2',
+            userData: { id: 2 },
+            onAction: null
+        }];
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // click the second button (first dropdown item) using index
+            cy.get('button').eq(1).click({ force: true }).then(() => {
+                cy.wrap(itemAction).should('have.been.called');
+            });
+        });
+    });
+
+    it('should render a divider when menuItem isDivider is true', () => {
+        defaultValues.menuItems = [{
+            enabled: true,
+            iconName: '',
+            isDivider: false,
+            text: 'one',
+            itemId: '1',
+            userData: null,
+            onAction: null
+        }, {
+            enabled: true,
+            iconName: '',
+            isDivider: true,
+            text: '',
+            itemId: 'div',
+            userData: null,
+            onAction: null
+        }, {
+            enabled: true,
+            iconName: '',
+            isDivider: false,
+            text: 'two',
+            itemId: '2',
+            userData: null,
+            onAction: null
+        }];
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.dropdown-divider').should('exist');
+        });
+    });
+
+    it('should render iconName as a span inside the menu item button', () => {
+        defaultValues.menuItems = [{
+            enabled: true,
+            iconName: 'fa fa-star',
+            isDivider: false,
+            text: 'Star item',
+            itemId: '1',
+            userData: null,
+            onAction: null
+        }];
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // span with iconName class should exist in the dropdown item
+            cy.get('.bts-extra-drop-down span.fa-star').should('exist');
+        });
+    });
 })

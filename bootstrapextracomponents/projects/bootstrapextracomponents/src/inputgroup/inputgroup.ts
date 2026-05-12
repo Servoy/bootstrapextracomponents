@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, signal } from '@angular/core';
+import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
 
@@ -33,7 +33,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     readonly addOnButtons = input<AddOnButton[]>(undefined);
     readonly toolTipText = input<string>(undefined);
     
-    _dataProvider = signal<any>(undefined);
+    _dataProvider = linkedSignal<any>(() => this.dataProvider());
 
     mustExecuteOnFocus = true;
     preventSimpleClick = false;
@@ -49,11 +49,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 
     svyOnInit() {
         super.svyOnInit();
-        this._dataProvider.set(this.dataProvider());
         this.attachFocusListeners(this.getFocusElement());
-        if (this.dataProvider() === undefined) {
-            this._dataProvider.set(null);
-        }
         if (this.onAction()) {
             this.renderer.listen(this.getFocusElement(), 'click', e => {
                 if (this.editable() == false) { 
@@ -74,21 +70,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     svyOnChanges(changes: SimpleChanges) {
-        if (changes) {
-            if (changes['dataProvider']) {
-                this._dataProvider.set(this.dataProvider());
-            }
-            for (const property of Object.keys(changes)) {
-                const change = changes[property];
-                switch (property) {
-                    case 'placeholderText':
-                        if (change.currentValue) this.renderer.setAttribute(this.getFocusElement(), 'placeholder', change.currentValue);
-                        else this.renderer.removeAttribute(this.getFocusElement(), 'placeholder');
-                        break;
-                }
-            }
-            super.svyOnChanges(changes);
-        }
+        super.svyOnChanges(changes);
     }
 
     pushUpdate() {

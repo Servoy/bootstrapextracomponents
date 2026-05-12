@@ -6,7 +6,7 @@
     <button type="button"
       class= "btn {{styleClass()}}"
       [sabloTabseq]="tabSeq()"
-      [ngClass]="selectedValues[item.realValue] ? 'active' : ''"
+      [class.active]="selectedValues()[item.realValue]"
 	  [disabled]="!enabled() || readOnly()"
       (click)="onClick(item)">
       @if (showAs() != "html" && showAs() != "trusted_html") {

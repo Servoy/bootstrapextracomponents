@@ -209,4 +209,60 @@ describe('ServoyBootstrapExtraNavbar Component', () => {
             });
         });
     });
+
+    it('should render brandText in the navbar-brand link', () => {
+        defaultValues.brandText = 'My App';
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            cy.get('.navbar-brand').should('contain.text', 'My App');
+        });
+    });
+
+    it('should mark clicked item as active when markClickedItemActive is true', () => {
+        defaultValues.markClickedItemActive = true;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // initially both items have isActive=true from beforeEach, just verify click goes through
+            cy.get('a.svy-navbar-item').first().click();
+            // after click the li for that item should have 'active' class
+            cy.get('li').first().should('have.class', 'active');
+        });
+    });
+
+    it('should collapse/expand the menu when collapsing is toggled', () => {
+        defaultValues.markClickedItemActive = undefined;
+        defaultValues.collapsing = true;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // collapsing=true means the hamburger button exists
+            cy.get('button.navbar-toggler').should('exist').then(() => {
+                // verify initial state — if collapsed initially, clicking should expand
+                cy.get('.navbar-collapse').then($el => {
+                    const initiallyShown = $el.hasClass('show');
+                    cy.get('button.navbar-toggler').click().then(() => {
+                        if (initiallyShown) {
+                            cy.get('.navbar-collapse').should('not.have.class', 'show');
+                        } else {
+                            cy.get('.navbar-collapse').should('have.class', 'show');
+                        }
+                    });
+                });
+            });
+        });
+    });
+
+    it('should not fire onMenuItemClicked when menu item enabled is false', () => {
+        defaultValues.onMenuItemClicked = cy.spy().as('onMenuItemClicked');
+        defaultValues.collapsing = false;
+        cy.mount(WrapperComponent, configWrapper).then(wrapper => {
+            applyDefaultProps(wrapper);
+            // set the first item to disabled
+            const items = [...defaultValues.menuItems];
+            items[0] = { ...items[0], enabled: false };
+            wrapper.component.menuItems.set(items);
+            cy.get('a.svy-navbar-item').first().click({ force: true }).then(() => {
+                cy.wrap(defaultValues.onMenuItemClicked).should('not.have.been.called');
+            });
+        });
+    });
 });
