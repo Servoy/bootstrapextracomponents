@@ -6,20 +6,9 @@ feature described in a spec, based on the actual implementation.
 ## Project context
 
 This is an Angular 22 component library for the Servoy NGClient runtime.
-Tests currently use **Cypress** component testing (`.cy.ts` files). If Vitest has been
-set up (check for a `test` target in `angular.json`), use Vitest instead.
+Tests use **Vitest** via `@angular/build:unit-test` with jsdom environment.
 
-## Test framework (Cypress — current)
-
-| Aspect | Value |
-|--------|-------|
-| Framework | Cypress component testing |
-| Config | `cypress.config.ts` |
-| Test pattern | `**/*.cy.ts` |
-| Run all | `npm run cy:run` |
-| Run specific | `npx cypress run --config video=false --component --browser chrome --spec "projects/bootstrapextracomponents/src/<component>/<component>.cy.ts"` |
-
-## Test framework (Vitest — after migration)
+## Test framework
 
 | Aspect | Value |
 |--------|-------|
@@ -34,8 +23,7 @@ set up (check for a `test` target in `angular.json`), use Vitest instead.
 
 Test files live alongside the component implementation:
 ```
-projects/bootstrapextracomponents/src/<component>/<component>.cy.ts   (current)
-projects/bootstrapextracomponents/src/<component>/<component>.spec.ts (after migration)
+projects/bootstrapextracomponents/src/<component>/<component>.spec.ts
 ```
 
 ### Direct Component Testing pattern (for Vitest — NO WrapperComponent)
@@ -105,12 +93,12 @@ Read the component's Angular implementation:
 - The template (`<name>.html`) — understand rendered DOM structure
 - The Servoy spec file (`<name>.spec`) — understand the component contract
 
-Look at existing `.cy.ts` files in sibling components to understand the established
+Look at existing `.spec.ts` files in sibling components to understand the established
 test patterns in this project.
 
 ### 4. Check for existing tests
 
-Check if a test file already exists for the component. If so, **add** new test cases
+Check if a `.spec.ts` test file already exists for the component. If so, **add** new test cases
 for the feature rather than rewriting from scratch.
 
 ### 5. Write the tests
@@ -131,13 +119,17 @@ For each test:
 - Use descriptive `describe` and `it` blocks
 - One assertion concept per test
 - All `it` blocks should be `async`
+- Use `fixture.nativeElement.querySelector()` for DOM assertions
 - Test DOM output, not implementation details
+- Use `fixture.componentRef.setInput()` for signal inputs
 - After changes: `fixture.detectChanges(); await fixture.whenStable()`
 
 ### 6. Run the tests
 
-Run the test file to verify all tests pass. Use the appropriate runner based on
-whether Vitest or Cypress is configured.
+Run the test file to verify all tests pass:
+```
+npx ng test @servoy/bootstrapextracomponents --no-watch --include "projects/bootstrapextracomponents/src/<component>/<component>.spec.ts"
+```
 
 If tests fail, diagnose and fix. Do not leave failing tests.
 
@@ -146,7 +138,7 @@ If tests fail, diagnose and fix. Do not leave failing tests.
 List each test file created/modified and what acceptance criteria it covers:
 
 ```
-- projects/bootstrapextracomponents/src/navbar/navbar.cy.ts [Cypress component test]
+- projects/bootstrapextracomponents/src/navbar/navbar.spec.ts [Vitest component test]
   - AC1: should collapse nav items on small screens
   - AC2: should expand nav on toggle click
   - Edge: should handle empty menu items array

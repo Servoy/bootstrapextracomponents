@@ -11,8 +11,8 @@ ng-packagr and deployed as a Servoy web package.
 | Angular version | 22.1.0 |
 | TypeScript version | 6.0.3 |
 | Build system | Angular CLI 22.1.2 + ng-packagr 22.1.1 |
-| Test framework | Cypress 15.x (component testing) — **pending migration to Vitest** |
-| Linting | ESLint 10.x with angular-eslint 22.x + typescript-eslint 8.x (legacy `.eslintrc.json` format) |
+| Test framework | Vitest (via `@angular/build:unit-test`) |
+| Linting | ESLint 10.x with angular-eslint 22.x + typescript-eslint 8.x (flat config `eslint.config.js`) |
 | Module system | ES modules (moduleResolution: "bundler") |
 | Package name | @servoy/bootstrapextracomponents |
 | Version | 2026.9.0 |
@@ -39,7 +39,7 @@ The modern Angular implementations:
 |------|---------|
 | `<name>.ts` | Angular component class |
 | `<name>.html` | Angular template |
-| `<name>.cy.ts` | Cypress component test (to be migrated to `<name>.spec.ts`) |
+| `<name>.spec.ts` | Vitest component test |
 
 ## Angular Component Pattern
 
@@ -61,9 +61,8 @@ bootstrapextracomponents/
 │   ├── angular.json                     # Angular workspace config
 │   ├── package.json                     # Dependencies & scripts
 │   ├── tsconfig.json                    # Root TypeScript config
-│   ├── .eslintrc.json                   # ESLint config (legacy JSON format)
-│   ├── cypress.config.ts                # Cypress config (pending removal)
-│   ├── cypress/                         # Cypress support files (pending removal)
+│   ├── eslint.config.js                 # ESLint flat config
+│   ├── vitest-base.config.ts            # Vitest runner configuration
 │   ├── projects/
 │   │   ├── bootstrapextracomponents/    # Angular library project
 │   │   │   ├── ng-package.json
@@ -107,19 +106,19 @@ progressbar, rating, switch
 
 ## Testing
 
-- **Framework:** Cypress 15.x (component testing) — **pending migration to Vitest**
-- **Commands:** `npm run cy:open` (interactive) / `npm run cy:run` (headless)
-- **Pattern:** Each component has a `<name>.cy.ts` file alongside its implementation
-- **After Vitest migration:** `npm run test` (jsdom)
-- Tests currently use WrapperComponent pattern with signal-based inputs (Cypress)
-- After migration: direct `TestBed.createComponent(TheComponent)` pattern with `fixture.componentRef.setInput()`
+- **Framework:** Vitest (via `@angular/build:unit-test`)
+- **Commands:** `npm run test` (jsdom, headless) / `npm run test:watch` / `npm run test:ui`
+- **Config:** `angular.json` test target + `vitest-base.config.ts`
+- **Pattern:** Each component has a `<name>.spec.ts` file alongside its implementation
+- Tests use direct `TestBed.createComponent(TheComponent)` pattern with `fixture.componentRef.setInput()`
 - DO NOT import `ServoyBootstrapExtraComponentsModule` in tests
+- DO NOT use a WrapperComponent pattern
 - Use `NO_ERRORS_SCHEMA` to suppress unknown directive warnings
 - Import `ServoyPublicTestingModule` from `@servoy/public`
 
 ## Linting
 
-- ESLint legacy config (`.eslintrc.json`) with `angular-eslint`, `typescript-eslint`, `@stylistic/eslint-plugin`
+- ESLint flat config (`eslint.config.js`) with `angular-eslint`, `typescript-eslint`, `@stylistic/eslint-plugin`
 - All rules emit warnings (uses `eslint-plugin-only-warn`)
 - Single quotes, max 200 char lines, 1TBS brace style
 - Run: `npx ng lint` from the `bootstrapextracomponents/` directory

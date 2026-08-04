@@ -18,7 +18,7 @@ Angular library and deployed as a Servoy web package (`.zip`).
 | TypeScript | 6.0.3 |
 | Build system | Angular CLI 22.1.2 + ng-packagr 22.1.1 |
 | Test framework | Vitest (via `@angular/build:unit-test`) |
-| Linting | ESLint 10.x (@angular-eslint 22.x + @typescript-eslint 8.x) |
+| Linting | ESLint 10.x (@angular-eslint 22.x + @typescript-eslint 8.x, flat config) |
 | Node package manager | npm |
 | Servoy framework | @servoy/public 2026.9.0 |
 | CSS framework | Bootstrap (via @ng-bootstrap/ng-bootstrap 21.x) |
@@ -147,7 +147,7 @@ bootstrapextracomponents/
 │   ├── angular.json                     # Angular workspace config
 │   ├── package.json                     # npm dependencies & scripts
 │   ├── tsconfig.json                    # Root TypeScript config (strict)
-│   ├── .eslintrc.json                   # ESLint config (legacy JSON format)
+│   ├── eslint.config.js                 # ESLint flat config
 │   ├── vitest-base.config.ts             # Vitest runner configuration
 │   ├── scripts/build.js                 # Release packaging (creates .zip)
 │   ├── projects/
@@ -172,7 +172,7 @@ bootstrapextracomponents/
     ├── skills/sdd/                      # Spec-Driven Development pipeline
     ├── skills/migration/                # Angular modernization helper
     ├── skills/spec-sync/                # Spec sync checker
-    ├── skills/test-migration/           # Cypress → Vitest migration
+    ├── skills/test-migration/           # Cypress → Vitest migration (reference)
     └── plugins/commit-lint.ts           # Commit message validation
 ```
 
@@ -230,6 +230,6 @@ When changing component properties, handlers, or API:
 - **Angular 22.** This project is on Angular 22.1.x with TypeScript 6.0.
 - **No base class hierarchy.** Unlike `bootstrapcomponents`, all components here extend
   `ServoyBaseComponent<HTMLDivElement>` directly — there are no intermediate base classes.
-- **ESLint legacy config.** Uses `.eslintrc.json` (not flat `eslint.config.js`).
+- **ESLint flat config.** Uses `eslint.config.js` (flat config for ESLint 10).
 - **Selector prefix is `bootstrapextracomponents-`.** Not `bootstrapcomponents-`.
 - **Module name is `ServoyBootstrapExtraComponentsModule`.** Not `ServoyBootstrapComponentsModule`.

@@ -24,7 +24,7 @@ Read `AGENTS.md` for testing approach and conventions.
 
 ### 3. Find the tests
 
-Use `grep` and `glob` to locate test files (`.cy.ts` or `.spec.ts`) related to the
+Use `grep` and `glob` to locate Vitest test files (`.spec.ts`) related to the
 feature. Read each test file in full.
 
 ### 4. Spec coverage matrix
@@ -50,17 +50,12 @@ For each test file:
 - [ ] Each test can run in isolation and in any order
 - [ ] `beforeEach` / `afterEach` used correctly for setup/teardown
 
-**Direct component pattern (Vitest)**
+**Direct component pattern**
 - [ ] Uses direct `TestBed.createComponent(TheComponent)` — NOT WrapperComponent
 - [ ] `fixture.componentRef.setInput()` used for signal inputs
 - [ ] `fixture.detectChanges()` called after input changes
 - [ ] `NO_ERRORS_SCHEMA` used to suppress unknown directive warnings
 - [ ] `ServoyPublicTestingModule` imported for mock Servoy services
-
-**Cypress pattern (current)**
-- [ ] WrapperComponent pattern used correctly with signal-based inputs
-- [ ] Assertions use `cy.get()` with `.should()`
-- [ ] Stubs used for handler callbacks
 
 **Naming & readability**
 - [ ] `describe` and `it` descriptions are clear and specific

@@ -191,9 +191,9 @@ Ensure `ChangeDetectionStrategy` is imported from `@angular/core`.
 After migration:
 1. Run `npm run build` — must compile without errors
 2. Run `npx ng lint` — check for warnings
-3. If the component has a `.cy.ts` test file, run:
+3. Run the component's test:
    ```bash
-   npx cypress run --config video=false --component --browser chrome --spec "projects/bootstrapextracomponents/src/<name>/<name>.cy.ts"
+   npx ng test @servoy/bootstrapextracomponents --no-watch --include "projects/bootstrapextracomponents/src/<name>/<name>.spec.ts"
    ```
 
 ### Step 6 — Report results

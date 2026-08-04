@@ -33,7 +33,7 @@ Read these files first:
 Read the full spec. The **Implementation plan** section (§4) is your task list.
 Implement everything described there.
 
-**Do NOT create test files (*.cy.ts or *.spec.ts).** Test generation is handled
+**Do NOT create test files (*.spec.ts).** Test generation is handled
 separately. If the implementation plan lists a test file step, skip it —
 production code only.
 
