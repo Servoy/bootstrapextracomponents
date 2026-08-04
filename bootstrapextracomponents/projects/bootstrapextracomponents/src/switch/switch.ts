@@ -13,24 +13,24 @@ import { ServoyBaseComponent } from '@servoy/public';
  */
 export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivElement> {
 
-    readonly styleClass = input<string>(undefined);
-    readonly tabSeq = input<number>(undefined);
-    readonly enabled = input<boolean>(undefined);
-	readonly readOnly = input<boolean>(undefined);
-    readonly componentSize = input<string>(undefined);
-    readonly animate = input<boolean>(undefined);
-    readonly label = input<string>(undefined);
-    readonly onText = input<string>(undefined);
-    readonly offText = input<string>(undefined);
-    readonly onColor = input<string>(undefined);
-    readonly offColor = input<string>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly tabSeq = input<number | undefined>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+	readonly readOnly = input<boolean | undefined>(undefined);
+    readonly componentSize = input<string | undefined>(undefined);
+    readonly animate = input<boolean | undefined>(undefined);
+    readonly label = input<string | undefined>(undefined);
+    readonly onText = input<string | undefined>(undefined);
+    readonly offText = input<string | undefined>(undefined);
+    readonly onColor = input<string | undefined>(undefined);
+    readonly offColor = input<string | undefined>(undefined);
     readonly labelWidth = input<any>(undefined);
     readonly handleWidth = input<any>(undefined);
     readonly dataProviderIDChange = output<any>();
     readonly dataProviderID = input<any>(undefined);
 
-    readonly onActionMethodID = input<(e: Event) => void>(undefined);
-    readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
+    readonly onActionMethodID = input<((e: Event) => void) | undefined>(undefined);
+    readonly onDataChangeMethodID = input<((oldValue: any, newValue: any, e: Event) => boolean) | undefined>(undefined);
     
     // as the input is read-only, this is basically the DP that can change client side
     _dataProviderID = linkedSignal<any>(() => this.dataProviderID());
@@ -39,7 +39,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     // it is a read-only computed signal that automatically changes when _dataProviderID signal changes
     _state = computed<boolean>(() => this.getSelectionFromDataprovider(this._dataProviderID()));
 
-    inputEl: HTMLInputElement;
+    inputEl!: HTMLInputElement;
     runtimeTabIndex: number = -1;
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private doc: Document) {
@@ -47,7 +47,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     }
 
     svyOnInit() {
-        this.inputEl = this.getNativeElement().querySelector('input');
+        this.inputEl = this.getNativeElement().querySelector('input')!;
         this.inputEl.tabIndex = this.runtimeTabIndex;
         this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
             this.requestFocus();

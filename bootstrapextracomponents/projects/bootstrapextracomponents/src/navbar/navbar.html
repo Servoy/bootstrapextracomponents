@@ -11,7 +11,7 @@
     }
     @if (brandText()) {
       <a [tabindex]="brandTextTabindex()" (click)="clickBrand($event)" href="#"
-      [innerHTML]="brandText() | htmlFilter | trustAsHtml:isTrustedHTML()" class="navbar-brand"></a>
+      [innerHTML]="$any(brandText()) | htmlFilter | trustAsHtml:isTrustedHTML()" class="navbar-brand"></a>
     }
     @if (collapsing()) {
       <button (click)="toggleCollapse()" class="navbar-toggler" type="button"

@@ -13,27 +13,27 @@ import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustom
 })
 export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivElement> {
 
-	readonly brandText = input<string>(undefined);
-	readonly styleClass = input<string>(undefined);
-	readonly brandTextTabindex = input<string>(undefined);
-	readonly brandLogo = input<string>(undefined);
-	readonly brandLogoStyleClass = input<string>(undefined);
-	readonly brandLogoTabindex = input<string>(undefined);
-	readonly visible = input<boolean>(undefined);
-	readonly inverse = input<boolean>(undefined);
-	readonly fixed = input<string>(undefined);
-	readonly markClickedItemActive = input<boolean>(undefined);
-	readonly iconCollapseStyleClass = input<string>(undefined);
-	readonly collapsing = input<boolean>(undefined);
-	readonly collapseOnClick = input<boolean>(undefined);
+	readonly brandText = input<string | undefined>(undefined);
+	readonly styleClass = input<string | undefined>(undefined);
+	readonly brandTextTabindex = input<string | undefined>(undefined);
+	readonly brandLogo = input<string | undefined>(undefined);
+	readonly brandLogoStyleClass = input<string | undefined>(undefined);
+	readonly brandLogoTabindex = input<string | undefined>(undefined);
+	readonly visible = input<boolean | undefined>(undefined);
+	readonly inverse = input<boolean | undefined>(undefined);
+	readonly fixed = input<string | undefined>(undefined);
+	readonly markClickedItemActive = input<boolean | undefined>(undefined);
+	readonly iconCollapseStyleClass = input<string | undefined>(undefined);
+	readonly collapsing = input<boolean | undefined>(undefined);
+	readonly collapseOnClick = input<boolean | undefined>(undefined);
 
-	readonly menuItems = input<Array<MenuItem>>(undefined);
-	readonly servoyMenu = input<IJSMenu>(undefined);
+	readonly menuItems = input<Array<MenuItem> | undefined>(undefined);
+	readonly servoyMenu = input<IJSMenu | undefined>(undefined);
 
-	readonly onMenuItemClicked = input<(e: Event, menuItem: BaseMenuItem) => void>(undefined);
-	readonly onBrandClicked = input<(e: Event) => void>(undefined);
+	readonly onMenuItemClicked = input<((e: Event, menuItem: BaseMenuItem) => void) | undefined>(undefined);
+	readonly onBrandClicked = input<((e: Event) => void) | undefined>(undefined);
 
-	_menuItems = linkedSignal<Array<MenuItem>>(() => this.menuItems());
+	_menuItems = linkedSignal<Array<MenuItem>>(() => this.menuItems() ?? []);
 
 	focusSubjects = new Array<Subject<string>>();
 	typeaheadInit = false;
@@ -156,7 +156,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 			}
 			if (!hasMatchingDisplayValue) {
 				menuItem.dataProvider = null;
-				(event.target as HTMLInputElement).value = null;
+				(event.target as HTMLInputElement).value = '';
 			}
 		}
 		else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues()) {
@@ -197,17 +197,17 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		/** adjust fixed position of navbar dropdown when right aligned */
 
 		// if the user clicked on the icon contained in the navbar-dropdown 'anchor' set target to the parent (which contains svy-navar-dropdown)
-		if ($target.parentElement.classList.contains('svy-navbar-dropdown')) {
-			$target = $target.parentElement;
+		if ($target.parentElement!.classList.contains('svy-navbar-dropdown')) {
+			$target = $target.parentElement!;
 		}
 
 		this.positionMenu($target);
 
 		const itemClicked = this.getItem(event);
-		this.makeItemActive(itemClicked);
+		this.makeItemActive(itemClicked!);
 		const onMenuItemClicked = this.onMenuItemClicked();
 		if (itemClicked && itemClicked.onAction) {
-			const jsEvent = this.servoyService.createJSEvent(event, 'action');
+			const jsEvent = this.servoyService.createJSEvent(event as any, 'action');
 			itemClicked.onAction(jsEvent, this.createItemArg(itemClicked));
 		} else if (itemClicked && onMenuItemClicked) {
 			onMenuItemClicked(event, this.createItemArg(itemClicked));
@@ -220,9 +220,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 			this.indexToFocus = 0;
 			this.firstShow = true;
 
-			const parent = $target.parentElement;
-			const nav = $target.closest('.navbar-nav'); // closest navbar anchestor
-			const div = parent.querySelector('div'); // first child of type div
+		const parent = $target.parentElement!;
+		const nav = $target.closest('.navbar-nav');
+		const div = parent.querySelector('div');
 
 			// only if is right aligned
 			if (nav && div && (nav.classList.contains('ms-auto') || nav.classList.contains('me-auto'))) {
@@ -232,7 +232,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					RIGHT: 'right'
 				};
 
-				let alignPosition: string;
+				let alignPosition: string = '';
 				if (nav.classList.contains('ms-auto')) {
 					alignPosition = ITEM_POSITION.RIGHT;
 				} else if (nav.classList.contains('me-auto')) {
@@ -242,27 +242,25 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				const dialog = $target.closest('.svy-dialog');
 
 				// make sure the menu is not collapsed because min-width < 768
-				const viewPortWidth = this.document.defaultView.innerWidth;
+				const viewPortWidth = this.document.defaultView!.innerWidth;
 				//if (viewPortWidth >= 768) {
 				if (!this.isCollapseIn()) {
 					const position = dialog ? dialog.getBoundingClientRect() : null;
-					// location relative to viewport
 					const boundingRect = $target.getBoundingClientRect();
-					// calculate fixed top/right position from either viewport or dialog
 					let alignLocation = 0;
-					if (alignPosition === ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
-						let right: number;
-						if (dialog) {
-							right = position.left + position.width - (boundingRect.left + boundingRect.width);
-						} else {
-							right = viewPortWidth - (boundingRect.left + boundingRect.width);
-						}
-						alignLocation = right;
-					} else { // anchor the sub-menu to the left
-						let left: number;
-						if (dialog) {
-							left = boundingRect.left - position.left;
-						} else {
+				if (alignPosition === ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
+					let right: number;
+					if (dialog) {
+						right = position!.left + position!.width - (boundingRect.left + boundingRect.width);
+					} else {
+						right = viewPortWidth - (boundingRect.left + boundingRect.width);
+					}
+					alignLocation = right;
+				} else { // anchor the sub-menu to the left
+					let left: number;
+					if (dialog) {
+						left = boundingRect.left - position!.left;
+					} else {
 							left = boundingRect.left;
 						}
 						alignLocation = left;
@@ -271,7 +269,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					// TODO shall i manage if item if navbar is anchored to the bottom !?
 					let top: number;
 					if (dialog) {
-						top = boundingRect.top + boundingRect.height - position.top;
+						top = boundingRect.top + boundingRect.height - position!.top;
 					} else {
 						top = boundingRect.top + boundingRect.height;
 					}
@@ -304,7 +302,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				itemText = item.displayValue;
 			}
 			if (item.displayType === 'INPUT' || item.displayType === 'INPUT_GROUP') {
-				itemText = item.dataProvider != null ? item.dataProvider + '' : null;
+				itemText = item.dataProvider != null ? item.dataProvider + '' : '';
 			}
 		}
 		return { itemId: item.itemId ? item.itemId : null, text: itemText ? itemText : null, userData: item.userData ? item.userData : null } as MenuItem;
@@ -323,10 +321,10 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					if ($target && $target.nodeName === 'SPAN') {
 						const parentNode = $target.parentElement;
 						if (!parentNode || !parentNode.classList.contains('dropdown')) {
-							this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button').click();
-						}
-					} else {
-						this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button').click();
+						this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button')!.click();
+					}
+				} else {
+					this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button')!.click();
 					}
 				}
 			}
@@ -337,12 +335,12 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				return null;
 			}
 			const itemId = dataMenuItemElement.getAttribute('data-menu-item-id');
-			let itemClicked: BaseMenuItem;
+			let itemClicked: BaseMenuItem = null as any;
 			if (!itemId) {
 				return null;
 			} else {
 				for (const i of Object.keys(this._menuItems())) {
-					const menuItem = this._menuItems()[i];
+				const menuItem = (this._menuItems() as any)[i];
 					if (menuItem.itemId === itemId) {
 						itemClicked = menuItem;
 						break;
@@ -368,7 +366,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				return itemClicked;
 			}
 		} catch (e) {
-			console.log('Error when trying to figure out navbar itemId: ' + e.message);
+			console.log('Error when trying to figure out navbar itemId: ' + (e as any).message);
 		}
 		return null;
 	}
@@ -378,7 +376,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 			return;
 		}
 		for (const i of Object.keys(this._menuItems())) {
-			const menuItem = this._menuItems()[i];
+			const menuItem = (this._menuItems() as any)[i];
 			if (menuItem.itemId === item.itemId) {
 				menuItem.isActive = true;
 			} else if (menuItem.isActive === true) {
@@ -438,7 +436,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				if (menuItem.valuelist && (menuItem.displayType === 'INPUT' || menuItem.displayType === 'INPUT_GROUP')) {
 					this.focusSubjects[i] = new Subject<string>();
 				} else {
-					this.focusSubjects[i] = null;
+					this.focusSubjects[i] = null as any;
 				}
 			}
 		}
@@ -472,16 +470,16 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 
 	openSubMenu(itemId: string) {
-		this.showSubMenu(this.getNativeElement().querySelector("[data-menu-item-id='" + itemId + "']"));
+		this.showSubMenu(this.getNativeElement().querySelector("[data-menu-item-id='" + itemId + "']")!);
 
 	}
 
 	showSubMenu(element: Element) {
 		if (element) {
 			this.positionMenu(element);
-			element = element.closest('.dropdown');
+			element = element.closest('.dropdown')!;
 			if (element) {
-				element = element.querySelector('.dropdown-menu');
+				element = element.querySelector('.dropdown-menu')!;
 			}
 			if (element) {
 				this.renderer.addClass(element, 'show');
@@ -496,9 +494,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	closeSubMenu(element: Element) {
 		if (element) {
-			element = element.closest('.dropdown');
+			element = element.closest('.dropdown')!;
 			if (element) {
-				element = element.querySelector('.dropdown-menu');
+				element = element.querySelector('.dropdown-menu')!;
 				if (element) {
 					this.renderer.removeClass(element, 'show');
 				}
@@ -508,11 +506,11 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	closeOtherSubMenu(element: Element) {
 		if (element) {
-			element = element.closest('.dropdown');
+			element = element.closest('.dropdown')!;
 			if (element) {
-				element = element.querySelector('.dropdown-menu');
+				element = element.querySelector('.dropdown-menu')!;
 				if (element) {
-					const allSubMenus = element.closest('bootstrapextracomponents-navbar').querySelectorAll('.dropdown-menu');
+					const allSubMenus = element.closest('bootstrapextracomponents-navbar')!.querySelectorAll('.dropdown-menu');
 					allSubMenus.forEach((item) => item !== element && this.closeSubMenu(item));
 				}
 			}
@@ -521,9 +519,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	navigateSubMenu(element: Element, direction: String) {
 		if (element) {
-			element = element.closest('.dropdown');
+			element = element.closest('.dropdown')!;
 			if (element) {
-				element = element.querySelector('.dropdown-menu');
+				element = element.querySelector('.dropdown-menu')!;
 				if (element.classList.contains('show')) {
 					const elements = element.querySelectorAll('a');
 					if (!this.firstShow) {
@@ -593,28 +591,28 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 }
 class BaseMenuItem extends BaseCustomObject {
-	public text: string;
-	public itemId: string;
-	public tabindex: string;
-	public enabled: boolean;
-	public styleClass: string;
-	public userData: any;
-	public iconName: string;
-	public onAction: (...args: unknown[]) => void;
+	public text!: string;
+	public itemId!: string;
+	public tabindex!: string;
+	public enabled!: boolean;
+	public styleClass!: string;
+	public userData!: any;
+	public iconName!: string;
+	public onAction!: (...args: unknown[]) => void;
 }
 
 export class MenuItem extends BaseMenuItem {
-	public attributes: Array<{ key: string; value: string }>;
-	public subMenuItems: Array<SubMenuItem>;
-	public position: string;
-	public displayType: string;
-	public dataProvider: any;
-	public displayValue: string;
-	public inputButtonText: string;
-	public inputButtonStyleClass: string;
-	public isActive: boolean;
-	public tooltip: string;
-	public valuelist: IValuelist;
+	public attributes!: Array<{ key: string; value: string }>;
+	public subMenuItems!: Array<SubMenuItem>;
+	public position!: string;
+	public displayType!: string;
+	public dataProvider!: any;
+	public displayValue!: string;
+	public inputButtonText!: string;
+	public inputButtonStyleClass!: string;
+	public isActive!: boolean;
+	public tooltip!: string;
+	public valuelist!: IValuelist;
 
 	getWatchedProperties() {
 		return [];
@@ -622,7 +620,7 @@ export class MenuItem extends BaseMenuItem {
 }
 
 class SubMenuItem extends BaseMenuItem {
-	public isDivider: boolean;
+	public isDivider!: boolean;
 }
 
 @Directive({
@@ -634,7 +632,7 @@ export class SvyAttributes implements OnInit {
 	readonly attributes = input<Array<{
 		key: string;
 		value: string;
-	}>>(undefined, { alias: "svyAttributes" });
+	}> | undefined>(undefined, { alias: "svyAttributes" });
 
 	constructor(private el: ElementRef, private renderer: Renderer2) {
 

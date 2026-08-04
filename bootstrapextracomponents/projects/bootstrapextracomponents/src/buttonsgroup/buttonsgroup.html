@@ -2,7 +2,7 @@
   [id]="servoyApi.getMarkupId()"
   [svyTooltip]="toolTipText()"
   #element>
-  @for (item of valuelistID() | notNullOrEmpty; track item; let i = $index) {
+  @for (item of $any(valuelistID()) | notNullOrEmpty; track item; let i = $index) {
     <button type="button"
       class= "btn {{styleClass()}}"
       [sabloTabseq]="tabSeq()"

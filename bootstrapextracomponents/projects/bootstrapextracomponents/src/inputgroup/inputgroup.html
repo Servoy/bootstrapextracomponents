@@ -13,9 +13,9 @@
             [disabled]="!enabled()"
             class="btn {{button.styleClass ? button.styleClass : 'btn-outline-secondary'}}"
             type="button"
-            (click)='buttonClicked($event, button.text, addOnButtons().indexOf(button))'
-            (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons().indexOf(button))'
-            (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
+            (click)='buttonClicked($event, button.text, addOnButtons()!.indexOf(button))'
+            (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons()!.indexOf(button))'
+            (contextmenu)='buttonRightClicked($event, button.text, addOnButtons()!.indexOf(button))'
             [sabloTabseq]="tabSeq()"
             [svyAttributesInputGroup]="button.attributes">
             <span [class]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}
@@ -46,11 +46,11 @@
     [attr.placeholder]="placeholderText() || null"
     (change)="pushUpdate()"
     [(ngModel)]="_dataProvider"
-    [svyFormat]="format()"
+    [svyFormat]="$any(format())"
     [svyStartEdit]="'dataProvider'"
     [hostComponent]="this"
     [sabloTabseq]="tabSeq()"
-    [svyDecimalKeyConverter]="format()"
+    [svyDecimalKeyConverter]="$any(format())"
     />
 
     <!-- addOns right -->
@@ -75,9 +75,9 @@
               [disabled]="!enabled()"
               class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}"
               type="button"
-              (click)='buttonClicked($event, button.text, addOnButtons().indexOf(button))'
-              (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons().indexOf(button))'
-              (contextmenu)='buttonRightClicked($event, button.text, addOnButtons().indexOf(button))'
+              (click)='buttonClicked($event, button.text, addOnButtons()!.indexOf(button))'
+              (dblclick)='buttonDoubleClicked($event, button.text, addOnButtons()!.indexOf(button))'
+              (contextmenu)='buttonRightClicked($event, button.text, addOnButtons()!.indexOf(button))'
               [sabloTabseq]="tabSeq()"
               [svyAttributesInputGroup]="button.attributes">
               <span [class]="button.imageStyleClass" aria-hidden="true"></span> {{button.text}}

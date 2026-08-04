@@ -5,7 +5,7 @@
     [class]="styleClass()"
     [style.height]="getStyle().height"
     [showNavigationArrows]="true"
-    [interval] = "cycleInterval()"
+    [interval] = "$any(cycleInterval())"
     [showNavigationIndicators]="true"
     [keyboard]="true"
     [pauseOnHover]="!noPause()"

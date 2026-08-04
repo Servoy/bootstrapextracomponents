@@ -13,25 +13,25 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     readonly ngCarousel = viewChild<NgbCarousel>('ngCarousel');
 
-    readonly onSlideClicked = input<(e: Event, slide: Slide) => void>(undefined);
-    readonly cycleInterval = input<number>(undefined);
-    readonly noPause = input<boolean>(undefined);
-    readonly noTransition = input<boolean>(undefined);
-    readonly slides = input<Array<Slide>>(undefined);
-    readonly slidesFoundset = input<IFoundset>(undefined);
-    readonly lazyLoading = input<boolean>(undefined);
-    readonly imageOptions = input<string>(undefined);
-    readonly visible = input<boolean>(undefined);
-    readonly styleClass = input<string>(undefined);
+    readonly onSlideClicked = input<((e: Event, slide: Slide) => void) | undefined>(undefined);
+    readonly cycleInterval = input<number | undefined>(undefined);
+    readonly noPause = input<boolean | undefined>(undefined);
+    readonly noTransition = input<boolean | undefined>(undefined);
+    readonly slides = input<Array<Slide> | undefined>(undefined);
+    readonly slidesFoundset = input<IFoundset | undefined>(undefined);
+    readonly lazyLoading = input<boolean | undefined>(undefined);
+    readonly imageOptions = input<string | undefined>(undefined);
+    readonly visible = input<boolean | undefined>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
     readonly imageCssInternal = input<any>(undefined);
-    readonly imageCss = input<Array<CssProperty>>(undefined);
-    readonly responsiveHeight = input<number>(undefined);
-    readonly updateRecordSelection = input<boolean>(undefined);
+    readonly imageCss = input<Array<CssProperty> | undefined>(undefined);
+    readonly responsiveHeight = input<number | undefined>(undefined);
+    readonly updateRecordSelection = input<boolean | undefined>(undefined);
 
     _imageCssInternal = linkedSignal<any>(() => this.imageCssInternal())
 
-    innerSlides: Array<Slide>;
-    foundsetID: number;
+    innerSlides!: Array<Slide>;
+    foundsetID!: number;
 
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
     missingImage = 'bootstrapextracomponents/carousel/resources/missing.png';
@@ -56,7 +56,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
         if (changes) {
             const slidesFoundset = this.slidesFoundset();
             if (changes.slidesFoundset && changes.slidesFoundset.currentValue) {
-                if (!this.innerSlides || (this.innerSlides.length != slidesFoundset.serverSize) || (this.foundsetID != slidesFoundset.foundsetId) || this.imagesOrOrderChanged()) {
+                if (!this.innerSlides || (this.innerSlides.length != slidesFoundset!.serverSize) || (this.foundsetID != slidesFoundset!.foundsetId) || this.imagesOrOrderChanged()) {
                     this.createSlides();
                 } else {
                     const index = changes.slidesFoundset.currentValue.selectedRowIndexes[0];
@@ -104,7 +104,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
             }
             if (changes.imageCss) {
                 if (changes.imageCss.currentValue !== undefined) {
-                    for (const cssEntry of imageCssValue) {
+                    for (const cssEntry of imageCssValue!) {
                         this._imageCssInternal()[cssEntry.propertyName] = cssEntry.propertyValue;
                     }
                 }
@@ -114,14 +114,14 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     }
 
     getSelectedIndex() {
-        const activeId = this.ngCarousel().activeId;
+        const activeId = this.ngCarousel()!.activeId;
         return parseInt(activeId.substr(activeId.lastIndexOf('-') + 1), 10);
     }
 
     setSelectedIndex(index: number) {
-        this.ngCarousel().pause();
-        this.ngCarousel().select(this.servoyApi.getMarkupId() + '-' + index);
-        this.ngCarousel().cycle();
+        this.ngCarousel()!.pause();
+        this.ngCarousel()!.select(this.servoyApi.getMarkupId() + '-' + index);
+        this.ngCarousel()!.cycle();
     }
 
     getStyle(): any {
@@ -202,11 +202,11 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 }
 
 export class Slide extends BaseCustomObject {
-    public imageUrl: string;
-    public caption: string;
+    public imageUrl!: string;
+    public caption!: string;
 }
 
 class CssProperty extends BaseCustomObject {
-    public propertyName: string;
-    public propertyValue: string;
+    public propertyName!: string;
+    public propertyValue!: string;
 }

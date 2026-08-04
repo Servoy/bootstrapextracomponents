@@ -3,8 +3,8 @@
     [id]="servoyApi.getMarkupId()"
     [rate]="_dataProviderID()"
     (rateChange)="onChange($event)"
-    [max]="max()"
-    [readonly]="!enabled() || readOnly()"
+    [max]="$any(max())"
+    [readonly]="$any(!enabled() || readOnly())"
     (leave)="onLeaveEvent()"
     (hover)="onHoverEvent($event)">
     <ng-template let-fill="fill" let-index="index">

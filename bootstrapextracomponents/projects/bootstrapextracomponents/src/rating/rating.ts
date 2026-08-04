@@ -8,23 +8,23 @@ import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@s
     standalone: false
 })
 export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivElement> {
-    readonly onLeave = input<(e: JSEvent, data?: any) => void>(undefined);
-    readonly onHover = input<(e: JSEvent, data?: any) => void>(undefined);
-    readonly onDataChangeMethodID = input<(oldValue: any, newValue: any, e: Event) => boolean>(undefined);
+    readonly onLeave = input<((e: JSEvent, data?: any) => void) | undefined>(undefined);
+    readonly onHover = input<((e: JSEvent, data?: any) => void) | undefined>(undefined);
+    readonly onDataChangeMethodID = input<((oldValue: any, newValue: any, e: Event) => boolean) | undefined>(undefined);
 
-    readonly enabled = input<boolean>(undefined);
-	readonly readOnly = input<boolean>(undefined);
-    readonly dataProviderID = input<number>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+	readonly readOnly = input<boolean | undefined>(undefined);
+    readonly dataProviderID = input<number | undefined>(undefined);
     readonly dataProviderIDChange = output<number>();
-    readonly max = input<number>(undefined);
-    readonly showPercentageOnHover = input<boolean>(undefined);
-    readonly stateOn = input<string>(undefined);
-    readonly stateOff = input<string>(undefined);
+    readonly max = input<number | undefined>(undefined);
+    readonly showPercentageOnHover = input<boolean | undefined>(undefined);
+    readonly stateOn = input<string | undefined>(undefined);
+    readonly stateOff = input<string | undefined>(undefined);
     
-    _dataProviderID = linkedSignal<number>(() => this.dataProviderID());
+    _dataProviderID = linkedSignal<number>(() => this.dataProviderID() ?? 0);
 
     overStar = false;
-    percent: number;
+    percent!: number;
 
     constructor( renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService ) {
         super( renderer, cdRef );
@@ -33,7 +33,7 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
 
     svyOnInit() {
         super.svyOnInit();
-        this.percent = this._dataProviderID() * 100 / this.max() ;
+        this.percent = this._dataProviderID() * 100 / this.max()! ;
     }
 
     onLeaveEvent() {
@@ -48,7 +48,7 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
 
     onHoverEvent(value: number) {
         if (this.enabled() !== false) {
-            this.percent = value / this.max() * 100;
+            this.percent = value / this.max()! * 100;
             this.overStar = true;
             const onHover = this.onHover();
             if (onHover) {

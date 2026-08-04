@@ -9,20 +9,20 @@ import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@ser
 })
 export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivElement> {
 
-    readonly styleClass = input<string>(undefined);
-    readonly buttonStyleClass = input<string>(undefined);
-    readonly imageStyleClass = input<string>(undefined);
-    readonly isButton = input<boolean>(undefined);
-    readonly isSplitButton = input<string>(undefined);
-    readonly visible = input<boolean>(undefined);
-    readonly text = input<string>(undefined);
-    readonly enabled = input<boolean>(undefined);
-    readonly toolTipText = input<string>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly buttonStyleClass = input<string | undefined>(undefined);
+    readonly imageStyleClass = input<string | undefined>(undefined);
+    readonly isButton = input<boolean | undefined>(undefined);
+    readonly isSplitButton = input<string | undefined>(undefined);
+    readonly visible = input<boolean | undefined>(undefined);
+    readonly text = input<string | undefined>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+    readonly toolTipText = input<string | undefined>(undefined);
 
-    readonly menuItems = input<Array<MenuItem>>(undefined);
+    readonly menuItems = input<Array<MenuItem> | undefined>(undefined);
 
-    readonly onMenuItemSelected = input<(e: Event, menuItem: BaseMenuItem) => void>(undefined);
-    readonly onAction = input<(e: Event) => void>(undefined);
+    readonly onMenuItemSelected = input<((e: Event, menuItem: BaseMenuItem) => void) | undefined>(undefined);
+    readonly onAction = input<((e: Event) => void) | undefined>(undefined);
 
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService) {
@@ -43,7 +43,7 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     menuClicked(e: Event, menuItem: MenuItem) {
         const onMenuItemSelected = this.onMenuItemSelected();
         if (menuItem.onAction) {
-            const jsEvent = this.servoyService.createJSEvent(e, 'action');
+            const jsEvent = this.servoyService.createJSEvent(e as any, 'action');
             menuItem.onAction(jsEvent, this.createItemArg(menuItem));
         } else if (onMenuItemSelected) {
              onMenuItemSelected(e, this.createItemArg(menuItem));
@@ -55,15 +55,15 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     }
 }
 class BaseMenuItem extends BaseCustomObject {
-    public text: string;
-    public itemId: string;
-    public userData: any;
+    public text!: string;
+    public itemId!: string;
+    public userData!: any;
 }
 
 export class MenuItem extends BaseMenuItem {
-    public isDivider: boolean;
-    public enabled: boolean;
-    public iconName: string;
-    public onAction: (...args: unknown[]) => void;
+    public isDivider!: boolean;
+    public enabled!: boolean;
+    public iconName!: string;
+    public onAction!: (...args: unknown[]) => void;
 }
 

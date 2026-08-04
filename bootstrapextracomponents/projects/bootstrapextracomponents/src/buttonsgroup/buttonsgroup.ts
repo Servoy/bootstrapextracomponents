@@ -10,16 +10,16 @@ import { Format } from '@servoy/public';
 })
 export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLElement> {
 
-    readonly styleClass = input<string>(undefined);
-    readonly valuelistID = input<IValuelist>(undefined);
-    readonly showAs = input<string>(undefined);
-    readonly enabled = input<boolean>(undefined);
-	readonly readOnly = input<boolean>(undefined);
-    readonly tabSeq = input<number>(undefined);
-    readonly inputType = input<string>(undefined);
-    readonly toolTipText = input<string>(undefined);
-    readonly format = input<Format>(undefined);
-    readonly onDataChangeMethodID = input<(e: Event) => void>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly valuelistID = input<IValuelist | undefined>(undefined);
+    readonly showAs = input<string | undefined>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+	readonly readOnly = input<boolean | undefined>(undefined);
+    readonly tabSeq = input<number | undefined>(undefined);
+    readonly inputType = input<string | undefined>(undefined);
+    readonly toolTipText = input<string | undefined>(undefined);
+    readonly format = input<Format | undefined>(undefined);
+    readonly onDataChangeMethodID = input<((e: Event) => void) | undefined>(undefined);
     
     readonly dataProviderIDChange = output();
     readonly dataProviderID = input<any>(undefined);
@@ -31,7 +31,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         const result: Record<string, boolean> = {};
         if (value || value == 0) {
             if (this.hasMultiSelection()) {
-                value.toString().split('\n').forEach(v => result[v] = true);
+                value.toString().split('\n').forEach((v: any) => result[v] = true);
             } else {
                 result[value] = true;
             }
@@ -48,7 +48,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         this._dataProviderID.set(value);
     }
 
-    onClick(item) {
+    onClick(item: any) {
         // prevent click if is disabled
         if (this.enabled()) {
             // keep the old value. Old value will be restored if onDataChange returns false.
@@ -71,7 +71,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
                     if (this.selectedValues()[selectedValue]) { // value is already selected;
                         // TODO remove it
                         let values = this.dataProviderID().toString().split("\n");    // dataProviderID should be filled since there is a selectedValue
-                        newValue = values.filter(function(value) {
+                        newValue = values.filter(function(value: any) {
                             return value != selectedValue
                         }).join("\n");
                     } else { // value was not selected;
@@ -92,7 +92,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         }
     }
 
-    onDataChangeCallback(event, returnval) {
+    onDataChangeCallback(event: any, returnval: any) {
 
         if (returnval == false) { // restore the oldValue
             this._dataProviderID.set(this.oldValue);
@@ -106,8 +106,8 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         return this.inputType() === 'checkbox';
     }
 
-    allowEmptyValuelistItem(item) {
-        const valuelistID = this.valuelistID();
+    allowEmptyValuelistItem(item: any) {
+        const valuelistID = this.valuelistID()!;
         if (valuelistID.length) {
             let item = valuelistID[0];
             return (item.realValue == null || item.realValue == '') && item.displayValue == '';

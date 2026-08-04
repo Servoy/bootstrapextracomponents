@@ -8,20 +8,20 @@ import { ServoyBaseComponent } from '@servoy/public';
     standalone: false
 })
 export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElement> {
-    readonly onAction = input<(e: Event, data?: any) => void>(undefined);
-    readonly onRightClick = input<(e: Event, data?: any) => void>(undefined);
-    readonly onDoubleClick = input<(e: Event, data?: any) => void>(undefined);
+    readonly onAction = input<((e: Event, data?: any) => void) | undefined>(undefined);
+    readonly onRightClick = input<((e: Event, data?: any) => void) | undefined>(undefined);
+    readonly onDoubleClick = input<((e: Event, data?: any) => void) | undefined>(undefined);
 
-    readonly enabled = input<boolean>(undefined);
-    readonly displayType = input<string>(undefined);
-    readonly text = input<string>(undefined);
-    readonly badgeText = input<string>(undefined);
-    readonly imageStyleClass = input<string>(undefined);
-    readonly styleClass = input<string>(undefined);
-    readonly visible = input<boolean>(undefined);
-    readonly toolTipText = input<string>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+    readonly displayType = input<string | undefined>(undefined);
+    readonly text = input<string | undefined>(undefined);
+    readonly badgeText = input<string | undefined>(undefined);
+    readonly imageStyleClass = input<string | undefined>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly visible = input<boolean | undefined>(undefined);
+    readonly toolTipText = input<string | undefined>(undefined);
 
-    timeoutID: number;
+    timeoutID!: number;
 
     isTrustedHTML(): boolean {
         if (this.servoyApi.trustAsHtml()) {
@@ -36,33 +36,32 @@ export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElemen
 
     svyOnInit() {
         super.svyOnInit();
-        const onDoubleClick = this.onDoubleClick();
         if (this.onAction()) {
-            if (onDoubleClick) {
+            if (this.onDoubleClick()) {
                 this.renderer.listen(this.getFocusElement(), 'click', e => {
                     if (this.timeoutID) {
                         window.clearTimeout(this.timeoutID);
-                        this.timeoutID = null;
-                        // double click, do nothing will be done in sub classes
+                        this.timeoutID = null as any;
+                         // double click, do nothing will be done in sub classes
                     } else {
                         this.timeoutID = window.setTimeout(() => {
-                            this.timeoutID = null;
-                            this.onAction()(e);
+                        this.timeoutID = null as any;
+                            this.onAction()!(e);
                         }, 250);
                     }
                 });
             } else {
-                this.renderer.listen(this.getFocusElement(), 'click', e => this.onAction()(e));
+                this.renderer.listen(this.getFocusElement(), 'click', e => this.onAction()!(e));
             }
         }
         if (this.onRightClick()) {
             this.renderer.listen(this.getFocusElement(), 'contextmenu', e => {
-                this.onRightClick()(e); return false;
+                this.onRightClick()!(e); return false;
             });
         }
-        if (onDoubleClick) {
+        if (this.onDoubleClick()) {
             this.renderer.listen(this.elementRef.nativeElement, 'dblclick', (e) => {
-                this.onDoubleClick()(e);
+                this.onDoubleClick()!(e);
             });
         }
     }

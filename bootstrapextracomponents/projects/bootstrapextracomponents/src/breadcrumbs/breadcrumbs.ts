@@ -9,16 +9,16 @@ import { ServoyBaseComponent } from '@servoy/public';
 })
 export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLElement> {
 
-    readonly styleClass = input<string>(undefined);
-    readonly crumbStyleClass = input<string>(undefined);
-    readonly lastCrumbStyleClass = input<string>(undefined);
-    readonly breadcrumbs = input<Array<Crumb>>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly crumbStyleClass = input<string | undefined>(undefined);
+    readonly lastCrumbStyleClass = input<string | undefined>(undefined);
+    readonly breadcrumbs = input<Array<Crumb> | undefined>(undefined);
     readonly breadcrumbsChange = output<Array<Crumb>>();
-    readonly autoRemoveWhenClicked = input<boolean>(undefined);
+    readonly autoRemoveWhenClicked = input<boolean | undefined>(undefined);
 
-    readonly onCrumbClicked = input<(event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>>(undefined);
+    readonly onCrumbClicked = input<((event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>) | undefined>(undefined);
 
-    _breadcrumbs = linkedSignal<Array<Crumb>>(() => this.breadcrumbs());
+    _breadcrumbs = linkedSignal<Array<Crumb>>(() => this.breadcrumbs() ?? []);
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
         super(renderer, cdRef);
@@ -31,7 +31,7 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
         }
     }
 
-    crumbClicked(event, crumb, index) {
+    crumbClicked(event: any, crumb: any, index: any) {
         if (this.autoRemoveWhenClicked() == true) {
             const breadcrumbs = this._breadcrumbs();
             if (breadcrumbs) {
@@ -48,6 +48,6 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
 }
 
 class Crumb {
-    public crumbId: string;
-    public displayName: string;
+    public crumbId!: string;
+    public displayName!: string;
 }

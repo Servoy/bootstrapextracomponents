@@ -12,26 +12,26 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 
     readonly input = viewChild<ElementRef<HTMLInputElement>>('input');
 
-    readonly onAction = input<(e: Event, data?: any) => void>(undefined);
-    readonly onRightClick = input<(e: Event, data?: any) => void>(undefined);
-    readonly onDataChangeMethodID = input<(e: Event) => void>(undefined);
-    readonly onFocusGainedMethodID = input<(e: Event) => void>(undefined);
-    readonly onFocusLostMethodID = input<(e: Event) => void>(undefined);
+    readonly onAction = input<((e: Event, data?: any) => void) | undefined>(undefined);
+    readonly onRightClick = input<((e: Event, data?: any) => void) | undefined>(undefined);
+    readonly onDataChangeMethodID = input<((e: Event) => void) | undefined>(undefined);
+    readonly onFocusGainedMethodID = input<((e: Event) => void) | undefined>(undefined);
+    readonly onFocusLostMethodID = input<((e: Event) => void) | undefined>(undefined);
 
     readonly dataProviderChange = output();
     readonly dataProvider = input<any>(undefined);
-    readonly enabled = input<boolean>(undefined);
-    readonly editable = input<boolean>(undefined);
-    readonly format = input<Format>(undefined);
-    readonly inputType = input<string>(undefined);
-    readonly placeholderText = input<string>(undefined);
-    readonly readOnly = input<boolean>(undefined);
-    readonly styleClass = input<string>(undefined);
-    readonly tabSeq = input<number>(undefined);
-    readonly visible = input<boolean>(undefined);
-    readonly addOns = input<AddOn[]>(undefined);
-    readonly addOnButtons = input<AddOnButton[]>(undefined);
-    readonly toolTipText = input<string>(undefined);
+    readonly enabled = input<boolean | undefined>(undefined);
+    readonly editable = input<boolean | undefined>(undefined);
+    readonly format = input<Format | undefined>(undefined);
+    readonly inputType = input<string | undefined>(undefined);
+    readonly placeholderText = input<string | undefined>(undefined);
+    readonly readOnly = input<boolean | undefined>(undefined);
+    readonly styleClass = input<string | undefined>(undefined);
+    readonly tabSeq = input<number | undefined>(undefined);
+    readonly visible = input<boolean | undefined>(undefined);
+    readonly addOns = input<AddOn[] | undefined>(undefined);
+    readonly addOnButtons = input<AddOnButton[] | undefined>(undefined);
+    readonly toolTipText = input<string | undefined>(undefined);
     
     _dataProvider = linkedSignal<any>(() => this.dataProvider());
 
@@ -44,7 +44,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     public getFocusElement(): HTMLElement {
-        return this.input().nativeElement;
+        return this.input()!.nativeElement;
     }
 
     svyOnInit() {
@@ -53,18 +53,18 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
         if (this.onAction()) {
             this.renderer.listen(this.getFocusElement(), 'click', e => {
                 if (this.editable() == false) { 
-                    this.onAction()(e) 
+                    this.onAction()!(e) 
                 }
             });
             this.renderer.listen(this.getFocusElement(), 'keydown', e => {
                 if (e.keyCode === 13) {
-                    setTimeout(() => this.onAction()(e), 100);
+                    setTimeout(() => this.onAction()!(e), 100);
                 }
             });
         }
         if (this.onRightClick()) {
             this.renderer.listen(this.getFocusElement(), 'contextmenu', e => {
-                this.onRightClick()(e); return false;
+                this.onRightClick()!(e); return false;
             });
         }
     }
@@ -86,13 +86,13 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
         if (this.onFocusGainedMethodID())
             this.renderer.listen(nativeElement, 'focus', (e) => {
                 if (this.mustExecuteOnFocus !== false) {
-                    this.onFocusGainedMethodID()(e);
+                    this.onFocusGainedMethodID()!(e);
                 }
                 this.mustExecuteOnFocus = true;
             });
         if (this.onFocusLostMethodID())
             this.renderer.listen(nativeElement, 'blur', (e) => {
-                this.onFocusLostMethodID()(e);
+                this.onFocusLostMethodID()!(e);
             });
     }
     hasLeftButtons() {
@@ -113,7 +113,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 
 
     buttonClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons()[btnIndex];
+        const addOnButton = this.addOnButtons()![btnIndex];
         this.timer = 0;
         this.preventSimpleClick = false;
 
@@ -134,7 +134,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     buttonDoubleClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons()[btnIndex];
+        const addOnButton = this.addOnButtons()![btnIndex];
 
         if (addOnButton && event.type === 'dblclick' && addOnButton.onDoubleClick) {
             this.preventSimpleClick = true;
@@ -147,7 +147,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 
     buttonRightClicked(event: any, btnText: string, btnIndex: number) {
-        const addOnButton = this.addOnButtons()[btnIndex];
+        const addOnButton = this.addOnButtons()![btnIndex];
         if (addOnButton && event.type === 'contextmenu' && addOnButton.onRightClick) {
             event.preventDefault();
             const jsEvent = this.servoyService.createJSEvent(event, 'rightclick');
@@ -157,18 +157,18 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 }
 
 export class AddOn extends BaseCustomObject {
-    public attributes: Array<{ key: string; value: string }>;
-    public text: string;
-    public position: string;
+    public attributes!: Array<{ key: string; value: string }>;
+    public text!: string;
+    public position!: string;
 }
 
 export class AddOnButton extends AddOn {
-    public name: string;
-    public onAction: (...args: unknown[]) => void;
-    public onDoubleClick: (...args: unknown[]) => void;
-    public onRightClick: (...args: unknown[]) => void;
-    public styleClass: string;
-    public imageStyleClass: string;
+    public name!: string;
+    public onAction!: (...args: unknown[]) => void;
+    public onDoubleClick?: (...args: unknown[]) => void;
+    public onRightClick?: (...args: unknown[]) => void;
+    public styleClass!: string;
+    public imageStyleClass!: string;
 }
 
 @Directive({
@@ -180,7 +180,7 @@ export class SvyAttributesInputGroup implements OnInit {
     readonly attributes = input<Array<{
     key: string;
     value: string;
-}>>(undefined, { alias: "svyAttributesInputGroup" });
+}> | undefined>(undefined, { alias: "svyAttributesInputGroup" });
 
     constructor(private el: ElementRef, private renderer: Renderer2) {
 
