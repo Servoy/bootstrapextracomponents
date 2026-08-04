@@ -17,7 +17,7 @@ Angular library and deployed as a Servoy web package (`.zip`).
 | Angular | 22.1.0 |
 | TypeScript | 6.0.3 |
 | Build system | Angular CLI 22.1.2 + ng-packagr 22.1.1 |
-| Test framework | Cypress 15.x (component testing) — **pending migration to Vitest** |
+| Test framework | Vitest (via `@angular/build:unit-test`) |
 | Linting | ESLint 10.x (@angular-eslint 22.x + @typescript-eslint 8.x) |
 | Node package manager | npm |
 | Servoy framework | @servoy/public 2026.9.0 |
@@ -52,24 +52,19 @@ A successful build confirms type correctness.
 
 ## Testing
 
-**Current state:** Tests use **Cypress component testing** (`.cy.ts` files). Migration to
-Vitest is planned — use the `test-migration` skill when ready.
+**Framework:** Vitest (via `@angular/build:unit-test`)
 
 | Command | Purpose |
 |---------|---------|
-| `npm run cy:open` | Open Cypress interactive runner |
-| `npm run cy:run` | Run all Cypress component tests (headless Chrome) |
+| `npm run test` | Run all Vitest component tests (jsdom, headless) |
+| `npm run test:watch` | Run tests in watch mode |
+| `npm run test:ui` | Run tests with Vitest UI |
 
-### Test conventions (Cypress — current)
-- Framework: Cypress component testing with `@cypress/webpack-dev-server`
-- Config: `cypress.config.ts`
-- Pattern: `**/*.cy.ts`
-- Each component has a test file alongside its implementation
-- Tests use a WrapperComponent pattern with signal-based inputs
-
-### Test conventions (Vitest — after migration)
-- Framework: Vitest (via `@angular/build:unit-test`)
+### Test conventions
+- Framework: Vitest via `@angular/build:unit-test` builder
+- Config: `angular.json` test target + `vitest-base.config.ts`
 - Pattern: `**/*.spec.ts`
+- Each component has a test file alongside its implementation
 - Tests use direct `TestBed.createComponent(TheComponent)` pattern
 - Use `fixture.componentRef.setInput('name', value)` for signal inputs
 - Use `NO_ERRORS_SCHEMA` to suppress unknown directive warnings
@@ -91,7 +86,7 @@ Each component exists in **two layers** that must stay in sync:
 **Layer 2 — Angular Implementation** (`bootstrapextracomponents/projects/bootstrapextracomponents/src/<name>/`):
 - `<name>.ts` — Angular component class
 - `<name>.html` — Angular template
-- `<name>.cy.ts` — Cypress component test (to be migrated to `<name>.spec.ts`)
+- `<name>.spec.ts` — Vitest component test
 
 ### Components (10)
 
@@ -153,8 +148,7 @@ bootstrapextracomponents/
 │   ├── package.json                     # npm dependencies & scripts
 │   ├── tsconfig.json                    # Root TypeScript config (strict)
 │   ├── .eslintrc.json                   # ESLint config (legacy JSON format)
-│   ├── cypress.config.ts                # Cypress config (pending removal)
-│   ├── cypress/                         # Cypress support files (pending removal)
+│   ├── vitest-base.config.ts             # Vitest runner configuration
 │   ├── scripts/build.js                 # Release packaging (creates .zip)
 │   ├── projects/
 │   │   ├── bootstrapextracomponents/    # Angular library
@@ -189,7 +183,7 @@ bootstrapextracomponents/
 After making code changes, always verify:
 1. `npm run build` — must compile without errors
 2. `npx ng lint` — check for lint warnings
-3. Run relevant tests: `npm run cy:run` (or after Vitest migration: `npm run test`)
+3. `npm run test` — run Vitest component tests
 
 ### Commit message format
 
@@ -214,7 +208,7 @@ Example: `SVY-21080 add navbar responsive collapse support [ai]`
    - `<name>.html` (template)
 3. Register in `servoybootstrapextra.module.ts` (declarations + exports)
 4. Export in `public-api.ts`
-5. Create test file: `<name>.cy.ts` (or `<name>.spec.ts` after Vitest migration)
+5. Create test file: `<name>.spec.ts`
 6. Build and verify: `npm run build`
 
 ### Modifying a component
@@ -236,8 +230,6 @@ When changing component properties, handlers, or API:
 - **Angular 22.** This project is on Angular 22.1.x with TypeScript 6.0.
 - **No base class hierarchy.** Unlike `bootstrapcomponents`, all components here extend
   `ServoyBaseComponent<HTMLDivElement>` directly — there are no intermediate base classes.
-- **Cypress testing (pending migration).** Tests currently use Cypress component testing
-  (`.cy.ts` files). Vitest migration is planned but not yet done.
 - **ESLint legacy config.** Uses `.eslintrc.json` (not flat `eslint.config.js`).
 - **Selector prefix is `bootstrapextracomponents-`.** Not `bootstrapcomponents-`.
 - **Module name is `ServoyBootstrapExtraComponentsModule`.** Not `ServoyBootstrapComponentsModule`.

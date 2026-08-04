@@ -23,6 +23,23 @@
               "tsConfig": "projects/bootstrapextracomponents/tsconfig.lib.prod.json"
             }
           }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/bootstrapextracomponents/tsconfig.spec.json",
+            "buildTarget": "dummy:build",
+            "runnerConfig": "vitest-base.config.ts"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/bootstrapextracomponents/**/*.ts",
+              "projects/bootstrapextracomponents/**/*.html"
+            ]
+          }
         }
       }
     },

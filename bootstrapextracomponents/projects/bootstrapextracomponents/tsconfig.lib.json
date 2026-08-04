@@ -19,6 +19,6 @@
     "enableResourceInlining": true
   },
   "exclude": [
-    "**/*.cy.ts"
+    "**/*.spec.ts"
   ]
 }

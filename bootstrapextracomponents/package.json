@@ -6,9 +6,10 @@
     "build": "ng build @servoy/bootstrapextracomponents --configuration production",
     "build_debug": "ng build @servoy/bootstrapextracomponents --watch",
     "make_release": "ng build @servoy/bootstrapextracomponents --configuration production && node scripts/build.js",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run --config video=false --component --browser chrome",
-    "cy:run_local_FF": "cypress run --config video=false --component --browser firefox --spec"
+    "lint": "ng lint",
+    "test": "ng test @servoy/bootstrapextracomponents --no-watch",
+    "test:watch": "ng test @servoy/bootstrapextracomponents",
+    "test:ui": "ng test @servoy/bootstrapextracomponents --ui"
   },
   "private": true,
   "dependencies": {
@@ -26,10 +27,6 @@
   },
   "devDependencies": {
     "@angular-eslint/builder": "22.1.0",
-    "@angular-eslint/eslint-plugin": "22.1.0",
-    "@angular-eslint/eslint-plugin-template": "22.1.0",
-    "@angular-eslint/schematics": "22.1.0",
-    "@angular-eslint/template-parser": "22.1.0",
     "@angular/build": "^22.1.2",
     "@angular/cli": "22.1.2",
     "@angular/compiler": "22.1.0",
@@ -37,18 +34,18 @@
     "@angular/localize": "22.1.0",
     "@angular/platform-browser": "22.1.0",
     "@angular/platform-browser-dynamic": "22.1.0",
-    "@stylistic/eslint-plugin-ts": "4.4.1",
-    "@typescript-eslint/eslint-plugin": "^8.66.0",
-    "@typescript-eslint/parser": "^8.66.0",
-    "@typescript-eslint/types": "^8.66.0",
-    "@typescript-eslint/utils": "^8.66.0",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "4.4.1",
+    "@types/luxon": "^3.7.3",
     "adm-zip": "0.6.0",
-    "cypress": "15.19.0",
+    "angular-eslint": "22.1.0",
     "eslint": "^10.8.0",
     "eslint-plugin-only-warn": "1.2.1",
-    "eslint-plugin-prefer-arrow": "1.2.3",
+    "jsdom": "^30.0.1",
     "ng-packagr": "22.1.1",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^4.1.10"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
