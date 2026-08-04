@@ -73,7 +73,7 @@
                     class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
                     <img draggable="false"
                       class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}"
-                      [src]="menuItem.dataProvider?.url" />
+                      [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                   </a>
                   }<!-- /.svy-navbar-img -->
                   @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
@@ -84,7 +84,7 @@
                       [svyTooltip]="menuItem.tooltip">
                       <img draggable="false"
                         class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}"
-                        [src]="menuItem.dataProvider?.url" />
+                        [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                       <span class="caret"></span>
                     </a>
                   }
@@ -320,7 +320,7 @@
                                           class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
                                           <img draggable="false"
                                             class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}"
-                                            [src]="menuItem.dataProvider?.url" />
+                                            [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                                         </a>
                                         }<!-- /.svy-navbar-img -->
                                         @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
@@ -331,7 +331,7 @@
                                             [svyTooltip]="menuItem.tooltip">
                                             <img draggable="false"
                                               class="svy-navbar-item-img {{menuItem.styleClass ? menuItem.styleClass : ''}}"
-                                              [src]="menuItem.dataProvider?.url" />
+                                              [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                                             <span class="caret"></span>
                                           </a>
                                         }
