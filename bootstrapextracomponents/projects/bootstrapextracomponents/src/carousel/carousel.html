@@ -21,7 +21,7 @@
               [ngStyle]="_imageCssInternal()"
               (click)="slideClicked($event,slide)"
               loading="lazy"
-              [src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
+              [src]="slide.imageUrl !== null ? slide.imageUrl : missingImage"
               >
           }
           @if (!lazyLoading()) {
@@ -30,7 +30,7 @@
               alt="i"
               [ngStyle]="_imageCssInternal()"
               (click)="slideClicked($event,slide)"
-              [src]="slide.imageUrl != null ? slide.imageUrl : missingImage"
+              [src]="slide.imageUrl !== null ? slide.imageUrl : missingImage"
               >
           }
         </div>

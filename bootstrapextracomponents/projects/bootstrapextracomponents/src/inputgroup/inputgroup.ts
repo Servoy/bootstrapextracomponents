@@ -157,7 +157,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
 }
 
 export class AddOn extends BaseCustomObject {
-    public attributes!: Array<{ key: string; value: string }>;
+    public attributes!: { key: string; value: string }[];
     public text!: string;
     public position!: string;
 }
@@ -172,15 +172,16 @@ export class AddOnButton extends AddOn {
 }
 
 @Directive({
+    // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[svyAttributesInputGroup]',
     standalone: false
 })
-// eslint-disable-next-line @angular-eslint/directive-class-suffix
+ 
 export class SvyAttributesInputGroup implements OnInit {
-    readonly attributes = input<Array<{
+    readonly attributes = input<{
     key: string;
     value: string;
-}> | undefined>(undefined, { alias: "svyAttributesInputGroup" });
+}[] | undefined>(undefined, { alias: 'svyAttributesInputGroup' });
 
     constructor(private el: ElementRef, private renderer: Renderer2) {
 

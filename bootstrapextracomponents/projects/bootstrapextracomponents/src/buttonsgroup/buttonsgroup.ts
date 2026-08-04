@@ -56,26 +56,25 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
 
             // allow deselection
             let newValue;
-            let selectedValue = item.realValue;
+            const selectedValue = item.realValue;
 
             if (this.oldValue == selectedValue) {    // deselect last value
                 if (this.allowEmptyValuelistItem(item) && this.oldValue == selectedValue) {   // deselect last option
                     newValue = null;
                 } else {    // cannot deselect last value
                     // Do nothing
-                    newValue = this.oldValue;
                     return;
                 }
             } else {    // select/deselect a value
                 if (this.hasMultiSelection() && this.isTypeString()) {
                     if (this.selectedValues()[selectedValue]) { // value is already selected;
                         // TODO remove it
-                        let values = this.dataProviderID().toString().split("\n");    // dataProviderID should be filled since there is a selectedValue
+                        const values = this.dataProviderID().toString().split('\n');    // dataProviderID should be filled since there is a selectedValue
                         newValue = values.filter(function(value: any) {
                             return value != selectedValue
-                        }).join("\n");
+                        }).join('\n');
                     } else { // value was not selected;
-                        if (this.oldValue !== null && this.oldValue !== undefined && this.oldValue !== "") {
+                        if (this.oldValue !== null && this.oldValue !== undefined && this.oldValue !== '') {
                             newValue = this.oldValue + '\n' + selectedValue;
                         } else {
                             newValue = selectedValue;
@@ -92,7 +91,7 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         }
     }
 
-    onDataChangeCallback(event: any, returnval: any) {
+    onDataChangeCallback(_event: any, returnval: any) {
 
         if (returnval == false) { // restore the oldValue
             this._dataProviderID.set(this.oldValue);
@@ -106,10 +105,10 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
         return this.inputType() === 'checkbox';
     }
 
-    allowEmptyValuelistItem(item: any) {
+    allowEmptyValuelistItem(_item: any) {
         const valuelistID = this.valuelistID()!;
         if (valuelistID.length) {
-            let item = valuelistID[0];
+            const item = valuelistID[0];
             return (item.realValue == null || item.realValue == '') && item.displayValue == '';
         }
         return false;

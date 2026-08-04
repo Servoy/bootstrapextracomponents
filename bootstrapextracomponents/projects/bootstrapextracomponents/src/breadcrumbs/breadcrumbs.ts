@@ -12,13 +12,13 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
     readonly styleClass = input<string | undefined>(undefined);
     readonly crumbStyleClass = input<string | undefined>(undefined);
     readonly lastCrumbStyleClass = input<string | undefined>(undefined);
-    readonly breadcrumbs = input<Array<Crumb> | undefined>(undefined);
-    readonly breadcrumbsChange = output<Array<Crumb>>();
+    readonly breadcrumbs = input<Crumb[] | undefined>(undefined);
+    readonly breadcrumbsChange = output<Crumb[]>();
     readonly autoRemoveWhenClicked = input<boolean | undefined>(undefined);
 
     readonly onCrumbClicked = input<((event: MouseEvent, crumb: Crumb, index: number) => Promise<boolean>) | undefined>(undefined);
 
-    _breadcrumbs = linkedSignal<Array<Crumb>>(() => this.breadcrumbs() ?? []);
+    _breadcrumbs = linkedSignal<Crumb[]>(() => this.breadcrumbs() ?? []);
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
         super(renderer, cdRef);
@@ -27,7 +27,7 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
     svyOnInit() {
         super.svyOnInit();
         if (this.servoyApi.isInDesigner() && !this.breadcrumbs()) {
-            this._breadcrumbs.set(new Array({ crumbId: 'Home', displayName: 'Home' }, { crumbId: 'Library', displayName: 'Library' }, { crumbId: 'Data', displayName: 'Data' }));
+            this._breadcrumbs.set([{ crumbId: 'Home', displayName: 'Home' }, { crumbId: 'Library', displayName: 'Library' }, { crumbId: 'Data', displayName: 'Data' }]);
         }
     }
 

@@ -1,5 +1,5 @@
 <div class="bts-extra-badge" #element>
-  @if (displayType() == 'LABEL') {
+  @if (displayType() === 'LABEL') {
     <a
       [class]="styleClass()"
       [svyTooltip]="toolTipText()"
@@ -10,7 +10,7 @@
       </span>
       <span  [innerHTML]="$any(text()) | htmlFilter | trustAsHtml:isTrustedHTML()">
       </span>
-      @if (badgeText() != null) {
+      @if (badgeText() !== null) {
         <span
           class="badge rounded-pill bg-dark label-badge-class">
           {{badgeText()}}
@@ -18,7 +18,7 @@
       }
     </a>
   }
-  @if (!displayType() || displayType() == 'BUTTON') {
+  @if (!displayType() || displayType() === 'BUTTON') {
     <button
       type='button'
       [svyTooltip]="toolTipText()"
@@ -30,7 +30,7 @@
       </span>
       <span  [innerHTML]="$any(text()) | htmlFilter | trustAsHtml:isTrustedHTML()">
       </span>
-      @if (badgeText() != null) {
+      @if (badgeText() !== null) {
         <span
           class="badge rounded-pill bg-dark">
           {{badgeText()}}

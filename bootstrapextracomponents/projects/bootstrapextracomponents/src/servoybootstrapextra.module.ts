@@ -1,5 +1,5 @@
 
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { ServoyBootstrapExtraBreadcrumbs } from './breadcrumbs/breadcrumbs';
 import { ServoyBootstrapExtraButtonsGroup } from './buttonsgroup/buttonsgroup';
 import { ServoyBootstrapExtraBadge } from './badge/badge';
@@ -14,7 +14,7 @@ import { ServoyPublicModule, SpecTypesService } from '@servoy/public';
 import { NgbModule }  from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ServoyBootstrapExtraSwitch } from './switch/switch';
-import { JwBootstrapSwitchNg2Module } from '@servoy/jw-bootstrap-switch-ng2';
+import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
 
 @NgModule({
     declarations: [
@@ -37,7 +37,7 @@ import { JwBootstrapSwitchNg2Module } from '@servoy/jw-bootstrap-switch-ng2';
       ServoyPublicModule,
       NgbModule,
       FormsModule,
-      JwBootstrapSwitchNg2Module
+      JwBootstrapSwitchNg2Component
     ],
     exports: [
         ServoyBootstrapExtraBreadcrumbs,
@@ -55,11 +55,13 @@ import { JwBootstrapSwitchNg2Module } from '@servoy/jw-bootstrap-switch-ng2';
       ]
 })
 export class ServoyBootstrapExtraComponentsModule {
-      constructor( specTypesService: SpecTypesService ) {
-         specTypesService.registerType('bootstrapextracomponents-navbar.menuItem', MenuItem);
-         specTypesService.registerType('bootstrapextracomponents-dropdown.MenuItem', dropdown_MenuItem);
-         specTypesService.registerType('bootstrapextracomponents-carousel.slide', Slide);
-         specTypesService.registerType('bootstrapextracomponents-input-group.addOn', AddOn);
-         specTypesService.registerType('bootstrapextracomponents-input-group.addOnButton', AddOnButton);
+      private readonly specTypesService = inject(SpecTypesService);
+
+      constructor() {
+         this.specTypesService.registerType('bootstrapextracomponents-navbar.menuItem', MenuItem);
+         this.specTypesService.registerType('bootstrapextracomponents-dropdown.MenuItem', dropdown_MenuItem);
+         this.specTypesService.registerType('bootstrapextracomponents-carousel.slide', Slide);
+         this.specTypesService.registerType('bootstrapextracomponents-input-group.addOn', AddOn);
+         this.specTypesService.registerType('bootstrapextracomponents-input-group.addOnButton', AddOnButton);
       }
 }

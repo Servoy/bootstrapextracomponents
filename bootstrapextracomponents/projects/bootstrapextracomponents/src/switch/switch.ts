@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Inject, Renderer2, SimpleChanges, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Renderer2, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({
@@ -40,7 +40,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     _state = computed<boolean>(() => this.getSelectionFromDataprovider(this._dataProviderID()));
 
     inputEl!: HTMLInputElement;
-    runtimeTabIndex: number = -1;
+    runtimeTabIndex = -1;
 
     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private doc: Document) {
         super(renderer, cdRef);
@@ -49,7 +49,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     svyOnInit() {
         this.inputEl = this.getNativeElement().querySelector('input')!;
         this.inputEl.tabIndex = this.runtimeTabIndex;
-        this.renderer.listen(this.getNativeElement(), 'focus', (e) => {
+        this.renderer.listen(this.getNativeElement(), 'focus', (_e) => {
             this.requestFocus();
         });
         super.svyOnInit();
@@ -62,7 +62,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
         }
     }
     
-    onChange(e: Event) {
+    onChange(_e: Event) {
         const dataProviderID = this._dataProviderID();
         if (typeof dataProviderID === 'string') {
             this._dataProviderID.set(dataProviderID === '1' ? '0' : '1');

@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, SimpleChanges, Renderer2, ChangeDetectionStrategy, input, viewChild, linkedSignal } from '@angular/core';
 import { BaseCustomObject, IFoundset, ServoyBaseComponent } from '@servoy/public';
-import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'bootstrapextracomponents-carousel',
@@ -17,20 +17,20 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     readonly cycleInterval = input<number | undefined>(undefined);
     readonly noPause = input<boolean | undefined>(undefined);
     readonly noTransition = input<boolean | undefined>(undefined);
-    readonly slides = input<Array<Slide> | undefined>(undefined);
+    readonly slides = input<Slide[] | undefined>(undefined);
     readonly slidesFoundset = input<IFoundset | undefined>(undefined);
     readonly lazyLoading = input<boolean | undefined>(undefined);
     readonly imageOptions = input<string | undefined>(undefined);
     readonly visible = input<boolean | undefined>(undefined);
     readonly styleClass = input<string | undefined>(undefined);
     readonly imageCssInternal = input<any>(undefined);
-    readonly imageCss = input<Array<CssProperty> | undefined>(undefined);
+    readonly imageCss = input<CssProperty[] | undefined>(undefined);
     readonly responsiveHeight = input<number | undefined>(undefined);
     readonly updateRecordSelection = input<boolean | undefined>(undefined);
 
     _imageCssInternal = linkedSignal<any>(() => this.imageCssInternal())
 
-    innerSlides!: Array<Slide>;
+    innerSlides!: Slide[];
     foundsetID!: number;
 
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
@@ -132,14 +132,13 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
         return layoutStyle;
     }
 
-    onSlid(event: NgbSlideEvent) {
+    onSlid(_event: NgbSlideEvent) {
         const slidesFoundset = this.slidesFoundset();
         if (this.updateRecordSelection() && slidesFoundset) {
             const currentIndex = this.getSelectedIndex();
             if (currentIndex !== slidesFoundset.selectedRowIndexes[0]) {
                 //update selected record when the slide index has changed and is not the selected record on the foundset
-                slidesFoundset.requestSelectionUpdate([currentIndex]).then((serverRows) => {
-                }, (serverRows) => {
+                slidesFoundset.requestSelectionUpdate([currentIndex]).then((_serverRows) => undefined, (_serverRows) => {
                     //selection failed, what now
                 });
             }

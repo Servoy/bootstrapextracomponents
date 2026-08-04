@@ -2,7 +2,7 @@
   class="navbar navbar-expand-lg bts-extra-navbar {{inverse() ? 'navbar-dark bg-dark' : 'bts-navbar-default'}} {{fixed() ? 'fixed-' + fixed() : ''}} {{styleClass()}}">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    @if (brandLogo() != null) {
+    @if (brandLogo() !== null && brandLogo() !== undefined) {
       <a [tabindex]="brandLogoTabindex()" (click)="clickBrand($event)" href="#"
         class="navbar-brand {{onBrandClicked() ? 'clickable' : ''}}"
         style="padding-top: 0px;padding-bottom:0px;padding-right:5px">
@@ -28,14 +28,14 @@
 <ng-template #nocollapse>
   <ul class="nav navbar-nav me-auto" (click)="navBarClicked($event)">
     @for (menuItem of _menuItems(); track menuItem) {
-      @if (menuItem.position == 'LEFT') {
+      @if (menuItem.position === 'LEFT') {
         <li
-          class="nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
-          @if (menuItem.displayType == 'BUTTON') {
+          class="nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled === false ? 'disabled' : ''}}">
+          @if (menuItem.displayType === 'BUTTON') {
             <div class="svy-navbar-button">
               <a [tabindex]="menuItem.tabindex" [svyAttributes]="menuItem.attributes" href="#"
                 [attr.data-menu-item-id]="menuItem.itemId"
-                class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                 [svyTooltip]="menuItem.tooltip">
                 @if (menuItem.iconName) {
                   <span [tabindex]="menuItem.tabindex"
@@ -45,7 +45,7 @@
               </a>
             </div>
             }<!-- /.svy-navbar-button -->
-            @if (menuItem.displayType == 'TEXT') {
+            @if (menuItem.displayType === 'TEXT') {
               <div class="svy-navbar-text">
                 <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                   @if (menuItem.iconName) {
@@ -56,7 +56,7 @@
                 </p>
               </div>
               }<!-- /.svy-navbar-text -->
-              @if (menuItem.displayType == 'HTML_TEXT') {
+              @if (menuItem.displayType === 'HTML_TEXT') {
                 <div class="svy-navbar-text">
                   <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                     @if (menuItem.iconName) {
@@ -67,7 +67,7 @@
                   </p>
                 </div>
                 }<!-- /.svy-navbar-text -->
-                @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null) {
+                @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems === null) {
                   <a href="#"
                     [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                     class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
@@ -76,10 +76,10 @@
                       [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                   </a>
                   }<!-- /.svy-navbar-img -->
-                  @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
+                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
                     <a (click)="openMenu($event)" href="#"
                       [svyAttributes]='menuItem.attributes'
-                      class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}"
+                      class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled === false ? 'disabled' : ''}}"
                       data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                       [svyTooltip]="menuItem.tooltip">
                       <img draggable="false"
@@ -88,12 +88,12 @@
                       <span class="caret"></span>
                     </a>
                   }
-                  @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
+                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
                     <div class="dropdown-menu">
                       @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
-                        @if (subMenuItem.isDivider != true) {
+                        @if (subMenuItem.isDivider !== true) {
                           <a (mousedown)="navBarClicked($event)" href="#"
-                            class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}"
+                            class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled === false ? 'disabled' : ''}}"
                             tabindex="{{menuItem.tabindex}}" [attr.data-menu-item-id]="subMenuItem.itemId">
                             @if (subMenuItem.iconName) {
                               <span [tabindex]="menuItem.tabindex"
@@ -102,13 +102,13 @@
                             {{subMenuItem.text}}
                           </a>
                         }
-                        @if (subMenuItem.isDivider == true) {
+                        @if (subMenuItem.isDivider === true) {
                           <div class="dropdown-divider"></div>
                         }
                       }
                     </div>
                     }<!-- /.svy-navbar-dropdown -->
-                    @if (menuItem.displayType == 'INPUT' && !menuItem.valuelist) {
+                    @if (menuItem.displayType === 'INPUT' && !menuItem.valuelist) {
                       <div
                         class="svy-navbar-input d-flex">
                         <div class="form-group">
@@ -117,12 +117,12 @@
                             [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
                             (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                             [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
-                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
+                            [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled === false ? true : false" />
                         </div>
                         @if (menuItem.iconName || menuItem.inputButtonText) {
                           <button [tabindex]="menuItem.tabindex"
                             [svyAttributes]='menuItem.attributes'
-                            class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                            class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                             [attr.data-menu-item-id]="menuItem.itemId">
                             @if (menuItem.iconName) {
                               <span [tabindex]="menuItem.tabindex"
@@ -133,7 +133,7 @@
                         }
                       </div>
                       }<!-- /.svy-navbar-input -->
-                      @if (menuItem.displayType == 'INPUT_GROUP' && !menuItem.valuelist) {
+                      @if (menuItem.displayType === 'INPUT_GROUP' && !menuItem.valuelist) {
                         <div
                           class="svy-navbar-inputgroup d-flex">
                           <div class="input-group">
@@ -142,12 +142,12 @@
                               [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
                               (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                               [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
-                              [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
+                              [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled === false ? true : false" />
                             @if (menuItem.iconName || menuItem.inputButtonText) {
                               <span class="input-group-btn"
                                 [attr.data-menu-item-id]="menuItem.itemId">
                                 <button
-                                  class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                  class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                   type="button">
                                   @if (menuItem.iconName) {
                                     <span [tabindex]="menuItem.tabindex"
@@ -160,7 +160,7 @@
                           </div>
                         </div>
                         }<!-- /.svy-navbar-inputgroup -->
-                        @if (menuItem.displayType == 'INPUT' && menuItem.valuelist) {
+                        @if (menuItem.displayType === 'INPUT' && menuItem.valuelist) {
                           <div
                             class="svy-navbar-typeahead d-flex">
                             <div class="form-group">
@@ -171,13 +171,13 @@
                                 (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                                 (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
                                 [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
-                                [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
+                                [disabled]="menuItem.enabled === false ? true : false" [svyAttributes]='menuItem.attributes'
                                 #instance="ngbTypeahead" />
                             </div>
                             @if (menuItem.iconName || menuItem.inputButtonText) {
                               <button tabindex="{{menuItem.tabindex}}" svy-attributes='menuItem.attributes'
                                 ng-click="doBlur($event)"
-                                class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                 [attr.data-menu-item-id]="menuItem.itemId">
                                 @if (menuItem.iconName) {
                                   <span tabindex="{{menuItem.tabindex}}"
@@ -188,7 +188,7 @@
                             }
                           </div>
                           }<!-- /.svy-navbar-typeahead -->
-                          @if (menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist) {
+                          @if (menuItem.displayType === 'INPUT_GROUP' && menuItem.valuelist) {
                             <div
                               class="svy-navbar-typeahead-inputgroup d-flex">
                               <div class="input-group">
@@ -199,13 +199,13 @@
                                   (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                                   (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
                                   [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
-                                  [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
+                                  [disabled]="menuItem.enabled === false ? true : false" [svyAttributes]='menuItem.attributes'
                                   #instance="ngbTypeahead" />
                                 @if (menuItem.iconName || menuItem.inputButtonText) {
                                   <span [tabindex]="menuItem.tabindex"
                                     class="input-group-btn" [attr.data-menu-item-id]="menuItem.itemId">
                                     <button [tabindex]="menuItem.tabindex"
-                                      class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                      class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                       type="button" (click)="doBlur($event)" [attr.data-menu-item-id]="menuItem.itemId">
                                       @if (menuItem.iconName) {
                                         <span [tabindex]="menuItem.tabindex"
@@ -218,7 +218,7 @@
                               </div>
                             </div>
                             }<!-- /.svy-navbar-typeahead-inputgroup -->
-                            @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null) {
+                            @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems === null) {
                               <a tabindex="{{menuItem.tabindex}}" href="#"
                                 [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                 class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
@@ -232,11 +232,11 @@
                                 <span class="svy-navbar-item-text">{{menuItem.text}}</span>
                               </a>
                               }<!-- /.svy-navbar-item -->
-                              @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null) {
+                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
                                 <a href="#"
                                   (click)="openMenu($event)" [svyAttributes]='menuItem.attributes'
                                   [attr.data-menu-item-id]="menuItem.itemId"
-                                  class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                  class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                   data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                                   [svyTooltip]="menuItem.tooltip">
                                   @if (menuItem.iconName) {
@@ -249,12 +249,12 @@
                                   <span class="caret"></span>
                                 </a>
                               }
-                              @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null) {
+                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
                                 <div class="dropdown-menu">
                                   @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
-                                    @if (subMenuItem.isDivider != true) {
+                                    @if (subMenuItem.isDivider !== true) {
                                       <a (mousedown)="navBarClicked($event)" href="#"
-                                        class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}"
+                                        class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled === false ? 'disabled' : ''}}"
                                         tabindex="{{menuItem.tabindex}}" [attr.data-menu-item-id]="subMenuItem.itemId">
                                         @if (subMenuItem.iconName) {
                                           <span [tabindex]="menuItem.tabindex"
@@ -263,7 +263,7 @@
                                         {{subMenuItem.text}}
                                       </a>
                                     }
-                                    @if (subMenuItem.isDivider == true) {
+                                    @if (subMenuItem.isDivider === true) {
                                       <div class="dropdown-divider"></div>
                                     }
                                   }
@@ -275,14 +275,14 @@
                         </ul><!-- /.navbar-nav -->
                         <ul class="nav navbar-nav ms-auto" (click)="navBarClicked($event)">
                           @for (menuItem of _menuItems(); track menuItem) {
-                            @if (menuItem.position == 'RIGHT') {
+                            @if (menuItem.position === 'RIGHT') {
                               <li
-                                class="svy-navbar-button nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}">
-                                @if (menuItem.displayType == 'BUTTON') {
+                                class="svy-navbar-button nav-item {{menuItem.subMenuItems ? 'dropdown' : ''}} {{menuItem.isActive ? 'active' : ''}} {{menuItem.enabled === false ? 'disabled' : ''}}">
+                                @if (menuItem.displayType === 'BUTTON') {
                                   <div class="svy-navbar-button">
                                     <a [tabindex]="menuItem.tabindex" [svyAttributes]='menuItem.attributes' href="#"
                                       [attr.data-menu-item-id]="menuItem.itemId"
-                                      class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                      class="btn navbar-btn {{menuItem.styleClass ? menuItem.styleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                       [svyTooltip]="menuItem.tooltip">
                                       @if (menuItem.iconName) {
                                         <span [tabindex]="menuItem.tabindex"
@@ -292,7 +292,7 @@
                                     </a>
                                   </div>
                                   }<!-- /.svy-navbar-button -->
-                                  @if (menuItem.displayType == 'TEXT') {
+                                  @if (menuItem.displayType === 'TEXT') {
                                     <div class="svy-navbar-text">
                                       <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                                         @if (menuItem.iconName) {
@@ -303,7 +303,7 @@
                                       </p>
                                     </div>
                                     }<!-- /.svy-navbar-text -->
-                                    @if (menuItem.displayType == 'HTML_TEXT') {
+                                    @if (menuItem.displayType === 'HTML_TEXT') {
                                       <div class="svy-navbar-text">
                                         <p class="nav navbar-text {{menuItem.styleClass ? menuItem.styleClass : ''}}" [svyTooltip]="menuItem.tooltip">
                                           @if (menuItem.iconName) {
@@ -314,7 +314,7 @@
                                         </p>
                                       </div>
                                       }<!-- /.svy-navbar-text -->
-                                      @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems == null) {
+                                      @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems === null) {
                                         <a href="#"
                                           [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                           class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
@@ -323,10 +323,10 @@
                                             [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                                         </a>
                                         }<!-- /.svy-navbar-img -->
-                                        @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
+                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
                                           <a (click)="openMenu($event)" href="#"
                                             [svyAttributes]='menuItem.attributes'
-                                            class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                            class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled === false ? 'disabled' : ''}}"
                                             data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                                             [svyTooltip]="menuItem.tooltip">
                                             <img draggable="false"
@@ -335,12 +335,12 @@
                                             <span class="caret"></span>
                                           </a>
                                         }
-                                        @if (menuItem.displayType == 'IMAGE' && menuItem.subMenuItems != null) {
+                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
                                           <div class="dropdown-menu">
                                             @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
-                                              @if (subMenuItem.isDivider != true) {
+                                              @if (subMenuItem.isDivider !== true) {
                                                 <a (mousedown)="navBarClicked($event)" href="#"
-                                                  class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}"
+                                                  class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled === false ? 'disabled' : ''}}"
                                                   tabindex="{{menuItem.tabindex}}" [attr.data-menu-item-id]="subMenuItem.itemId">
                                                   @if (subMenuItem.iconName) {
                                                     <span [tabindex]="menuItem.tabindex"
@@ -349,13 +349,13 @@
                                                   {{subMenuItem.text}}
                                                 </a>
                                               }
-                                              @if (subMenuItem.isDivider == true) {
+                                              @if (subMenuItem.isDivider === true) {
                                                 <div class="dropdown-divider"></div>
                                               }
                                             }
                                           </div>
                                           }<!-- /.svy-navbar-dropdown -->
-                                          @if (menuItem.displayType == 'INPUT' && !menuItem.valuelist) {
+                                          @if (menuItem.displayType === 'INPUT' && !menuItem.valuelist) {
                                             <div
                                               class="svy-navbar-input d-flex">
                                               <div class="form-group">
@@ -364,12 +364,12 @@
                                                   [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem, $index)"
                                                   (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                                                   [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
-                                                  [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
+                                                  [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled === false ? true : false" />
                                               </div>
                                               @if (menuItem.iconName || menuItem.inputButtonText) {
                                                 <button [tabindex]="menuItem.tabindex"
                                                   [svyAttributes]='menuItem.attributes'
-                                                  class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                                  class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                                   [attr.data-menu-item-id]="menuItem.itemId">
                                                   @if (menuItem.iconName) {
                                                     <span [tabindex]="menuItem.tabindex"
@@ -380,7 +380,7 @@
                                               }
                                             </div>
                                             }<!-- /.svy-navbar-input -->
-                                            @if (menuItem.displayType == 'INPUT_GROUP' && !menuItem.valuelist) {
+                                            @if (menuItem.displayType === 'INPUT_GROUP' && !menuItem.valuelist) {
                                               <div
                                                 class="svy-navbar-inputgroup d-flex">
                                                 <div class="input-group">
@@ -389,12 +389,12 @@
                                                     [(ngModel)]="menuItem.dataProvider" (blur)="onInputChange(menuItem,$index)"
                                                     (keyup)="applyClickOnEnter($event,menuItem,$index)" [svyTooltip]="menuItem.tooltip"
                                                     [attr.data-menu-item-id]="menuItem.itemId" [svyAttributes]='menuItem.attributes'
-                                                    [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled == false ? true : false" />
+                                                    [placeholder]="menuItem.text ? menuItem.text : ''" [disabled]="menuItem.enabled === false ? true : false" />
                                                   @if (menuItem.iconName || menuItem.inputButtonText) {
                                                     <span class="input-group-btn"
                                                       [attr.data-menu-item-id]="menuItem.itemId">
                                                       <button
-                                                        class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                                        class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                                         type="button">
                                                         @if (menuItem.iconName) {
                                                           <span [tabindex]="menuItem.tabindex"
@@ -407,7 +407,7 @@
                                                 </div>
                                               </div>
                                               }<!-- /.svy-navbar-inputgroup -->
-                                              @if (menuItem.displayType == 'INPUT' && menuItem.valuelist) {
+                                              @if (menuItem.displayType === 'INPUT' && menuItem.valuelist) {
                                                 <div
                                                   class="svy-navbar-typeahead d-flex">
                                                   <div class="form-group">
@@ -418,13 +418,13 @@
                                                       (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                                                       (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
                                                       [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
-                                                      [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
+                                                      [disabled]="menuItem.enabled === false ? true : false" [svyAttributes]='menuItem.attributes'
                                                       #instance="ngbTypeahead" />
                                                   </div>
                                                   @if (menuItem.iconName || menuItem.inputButtonText) {
                                                     <button tabindex="{{menuItem.tabindex}}" svy-attributes='menuItem.attributes'
                                                       ng-click="doBlur($event)"
-                                                      class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                                      class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                                       [attr.data-menu-item-id]="menuItem.itemId">
                                                       @if (menuItem.iconName) {
                                                         <span tabindex="{{menuItem.tabindex}}"
@@ -435,7 +435,7 @@
                                                   }
                                                 </div>
                                                 }<!-- /.svy-navbar-typeahead -->
-                                                @if (menuItem.displayType == 'INPUT_GROUP' && menuItem.valuelist) {
+                                                @if (menuItem.displayType === 'INPUT_GROUP' && menuItem.valuelist) {
                                                   <div
                                                     class="svy-navbar-typeahead-inputgroup d-flex">
                                                     <div class="input-group">
@@ -446,13 +446,13 @@
                                                         (blur)="doSvyApply($event, $index)" (selectItem)="valueChanged($event.item, $index)"
                                                         (keyup)="applyBlurOnEnter($event)" (focus)="onFocus($index)" [svyTooltip]="menuItem.tooltip"
                                                         [attr.data-menu-item-id]="menuItem.itemId" [placeholder]="menuItem.text ? menuItem.text : ''"
-                                                        [disabled]="menuItem.enabled == false ? true : false" [svyAttributes]='menuItem.attributes'
+                                                        [disabled]="menuItem.enabled === false ? true : false" [svyAttributes]='menuItem.attributes'
                                                         #instance="ngbTypeahead" />
                                                       @if (menuItem.iconName || menuItem.inputButtonText) {
                                                         <span [tabindex]="menuItem.tabindex"
                                                           class="input-group-btn" [attr.data-menu-item-id]="menuItem.itemId">
                                                           <button [tabindex]="menuItem.tabindex"
-                                                            class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                                            class="btn {{menuItem.inputButtonStyleClass ? menuItem.inputButtonStyleClass : 'btn-default'}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                                             type="button" (click)="doBlur($event)" [attr.data-menu-item-id]="menuItem.itemId">
                                                             @if (menuItem.iconName) {
                                                               <span [tabindex]="menuItem.tabindex"
@@ -465,7 +465,7 @@
                                                     </div>
                                                   </div>
                                                   }<!-- /.svy-navbar-typeahead-inputgroup -->
-                                                  @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems == null) {
+                                                  @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems === null) {
                                                     <a tabindex="{{menuItem.tabindex}}" href="#"
                                                       [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                                       class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
@@ -479,11 +479,11 @@
                                                       <span class="svy-navbar-item-text">{{menuItem.text}}</span>
                                                     </a>
                                                     }<!-- /.svy-navbar-item -->
-                                                    @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null) {
+                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
                                                       <a href="#"
                                                         (click)="openMenu($event)" [svyAttributes]='menuItem.attributes'
                                                         [attr.data-menu-item-id]="menuItem.itemId"
-                                                        class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled == false ? 'disabled' : ''}}"
+                                                        class="svy-navbar-dropdown dropdown-toggle nav-link {{menuItem.styleClass ? menuItem.styleClass : ''}} {{menuItem.enabled === false ? 'disabled' : ''}}"
                                                         data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                                                         [svyTooltip]="menuItem.tooltip">
                                                         @if (menuItem.iconName) {
@@ -496,12 +496,12 @@
                                                         <span class="caret"></span>
                                                       </a>
                                                     }
-                                                    @if (menuItem.displayType == 'MENU_ITEM' && menuItem.subMenuItems != null) {
+                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
                                                       <div class="dropdown-menu">
                                                         @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
-                                                          @if (subMenuItem.isDivider != true) {
+                                                          @if (subMenuItem.isDivider !== true) {
                                                             <a (mousedown)="navBarClicked($event)" href="#"
-                                                              class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled == false ? 'disabled' : ''}}"
+                                                              class="dropdown-item {{subMenuItem.styleClass ? subMenuItem.styleClass : ''}} {{subMenuItem.enabled === false ? 'disabled' : ''}}"
                                                               tabindex="{{menuItem.tabindex}}" [attr.data-menu-item-id]="subMenuItem.itemId">
                                                               @if (subMenuItem.iconName) {
                                                                 <span [tabindex]="menuItem.tabindex"
@@ -510,7 +510,7 @@
                                                               {{subMenuItem.text}}
                                                             </a>
                                                           }
-                                                          @if (subMenuItem.isDivider == true) {
+                                                          @if (subMenuItem.isDivider === true) {
                                                             <div class="dropdown-divider"></div>
                                                           }
                                                         }

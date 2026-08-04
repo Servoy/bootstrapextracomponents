@@ -1,4 +1,7 @@
-import { Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, Directive, ElementRef, OnInit, Output, EventEmitter, Inject, DOCUMENT, input, linkedSignal } from '@angular/core';
+import {
+	Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy,
+	Directive, ElementRef, OnInit, Inject, DOCUMENT, input, linkedSignal
+} from '@angular/core';
 
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -27,13 +30,13 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	readonly collapsing = input<boolean | undefined>(undefined);
 	readonly collapseOnClick = input<boolean | undefined>(undefined);
 
-	readonly menuItems = input<Array<MenuItem> | undefined>(undefined);
+	readonly menuItems = input<MenuItem[] | undefined>(undefined);
 	readonly servoyMenu = input<IJSMenu | undefined>(undefined);
 
 	readonly onMenuItemClicked = input<((e: Event, menuItem: BaseMenuItem) => void) | undefined>(undefined);
 	readonly onBrandClicked = input<((e: Event) => void) | undefined>(undefined);
 
-	_menuItems = linkedSignal<Array<MenuItem>>(() => this.menuItems() ?? []);
+	_menuItems = linkedSignal<MenuItem[]>(() => this.menuItems() ?? []);
 
 	focusSubjects = new Array<Subject<string>>();
 	typeaheadInit = false;
@@ -122,7 +125,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 			else if (menuItem.valuelist?.hasRealValues()) {
 				// on purpose test with == so that "2" equals to 2
 				const value = menuItem.valuelist.find((item) => {
-					// eslint-disable-next-line eqeqeq
+					 
 					if (item.realValue == result) {
 						return true;
 					}
@@ -158,8 +161,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				menuItem.dataProvider = null;
 				(event.target as HTMLInputElement).value = '';
 			}
-		}
-		else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues()) {
+		} else if (menuItem.valuelist && !menuItem.valuelist.hasRealValues()) {
 			menuItem.dataProvider = (event.target as HTMLInputElement).value;
 		}
 		this.onInputChange(menuItem, index);
@@ -232,7 +234,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					RIGHT: 'right'
 				};
 
-				let alignPosition: string = '';
+				let alignPosition = '';
 				if (nav.classList.contains('ms-auto')) {
 					alignPosition = ITEM_POSITION.RIGHT;
 				} else if (nav.classList.contains('me-auto')) {
@@ -247,7 +249,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				if (!this.isCollapseIn()) {
 					const position = dialog ? dialog.getBoundingClientRect() : null;
 					const boundingRect = $target.getBoundingClientRect();
-					let alignLocation = 0;
+					let alignLocation: number;
 				if (alignPosition === ITEM_POSITION.RIGHT) {  // anchor the sub-menu to the right
 					let right: number;
 					if (dialog) {
@@ -428,7 +430,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		};
 	}
 
-	initTypeaheads(items: Array<MenuItem>) {
+	initTypeaheads(items: MenuItem[]) {
 		if (!this.typeaheadInit && items) {
 			this.typeaheadInit = true;
 			for (let i = 0; i < items.length; i++) {
@@ -546,10 +548,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	private copyServoyMenu() {
 		const servoyMenu = this.servoyMenu();
 		if (servoyMenu) {
-			const oldMenu = new Array();
+			const oldMenu = [];
 			if (servoyMenu.items && servoyMenu.items.length > 0) {
-				for (let i = 0; i < servoyMenu.items.length; i++) {
-					const source = servoyMenu.items[i];
+				for (const source of servoyMenu.items) {
 					const menuItem = {} as MenuItem;
 					menuItem.text = source.menuText;
 					menuItem.itemId = source.itemID;
@@ -568,10 +569,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					menuItem.inputButtonStyleClass = source.extraProperties?.Navbar?.inputButtonStyleClass;
 					menuItem.isActive = source.isSelected;
 					if (source.items && source.items.length > 0) {
-						menuItem.subMenuItems = new Array();
-						for (let i = 0; i < source.items.length; i++) {
+						menuItem.subMenuItems = [];
+						for (const childSource of source.items) {
 							const subMenuItem = {} as SubMenuItem;
-							const childSource = source.items[i];
 							subMenuItem.text = childSource.menuText;
 							subMenuItem.itemId = childSource.itemID;
 							subMenuItem.styleClass = childSource.styleClass;
@@ -602,8 +602,8 @@ class BaseMenuItem extends BaseCustomObject {
 }
 
 export class MenuItem extends BaseMenuItem {
-	public attributes!: Array<{ key: string; value: string }>;
-	public subMenuItems!: Array<SubMenuItem>;
+	public attributes!: { key: string; value: string }[];
+	public subMenuItems!: SubMenuItem[];
 	public position!: string;
 	public displayType!: string;
 	public dataProvider!: any;
@@ -624,15 +624,16 @@ class SubMenuItem extends BaseMenuItem {
 }
 
 @Directive({
+	// eslint-disable-next-line @angular-eslint/directive-selector
 	selector: '[svyAttributes]',
 	standalone: false
 })
-// eslint-disable-next-line @angular-eslint/directive-class-suffix
+ 
 export class SvyAttributes implements OnInit {
-	readonly attributes = input<Array<{
+	readonly attributes = input<{
 		key: string;
 		value: string;
-	}> | undefined>(undefined, { alias: "svyAttributes" });
+	}[] | undefined>(undefined, { alias: 'svyAttributes' });
 
 	constructor(private el: ElementRef, private renderer: Renderer2) {
 

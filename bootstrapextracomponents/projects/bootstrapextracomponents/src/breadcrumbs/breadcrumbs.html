@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb" #element>
   <ol class="breadcrumb bts-extra-breadcrumbs {{styleClass()}}"
     [id]="servoyApi.getMarkupId()" >
-    @if (!breadcrumbs() || breadcrumbs()?.length == 0) {
+    @if (!breadcrumbs() || breadcrumbs()?.length === 0) {
       <li class='breadcrumb-item active'>&nbsp;</li>
     }
     @for (crumb of breadcrumbs(); track crumb) {

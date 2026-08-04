@@ -8,7 +8,7 @@
   @if (hasLeftButtons()) {
     <div class="input-group-btn addon-left input-group-prepend">
       @for (button of addOnButtons(); track button) {
-        @if (button.position == 'LEFT' && (button.text || button.imageStyleClass)) {
+        @if (button.position === 'LEFT' && (button.text || button.imageStyleClass)) {
           <button
             [disabled]="!enabled()"
             class="btn {{button.styleClass ? button.styleClass : 'btn-outline-secondary'}}"
@@ -29,7 +29,7 @@
   <!-- addOns left -->
   @for (addon of addOns(); track addon) {
     <ng-container class="input-group-prepend">
-      @if (addon.position == 'LEFT') {
+      @if (addon.position === 'LEFT') {
         <span
           class="input-group-addon addon-left input-group-text"
           [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
@@ -56,7 +56,7 @@
     <!-- addOns right -->
     @for (addon of addOns(); track addon) {
       <ng-container class="input-group-append">
-        @if (addon.position == 'RIGHT') {
+        @if (addon.position === 'RIGHT') {
           <span
             class="input-group-addon input-group-text addon-right"
             [svyAttributesInputGroup]='addon.attributes'>{{addon.text}}
@@ -70,7 +70,7 @@
     @if (hasRightButtons()) {
       <div class="input-group-btn addon-right input-group-append">
         @for (button of addOnButtons(); track button) {
-          @if (button.position == 'RIGHT' && (button.text || button.imageStyleClass)) {
+          @if (button.position === 'RIGHT' && (button.text || button.imageStyleClass)) {
             <button
               [disabled]="!enabled()"
               class="btn {{button.styleClass ? button.styleClass : 'btn-default'}}"

@@ -19,7 +19,7 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     readonly enabled = input<boolean | undefined>(undefined);
     readonly toolTipText = input<string | undefined>(undefined);
 
-    readonly menuItems = input<Array<MenuItem> | undefined>(undefined);
+    readonly menuItems = input<MenuItem[] | undefined>(undefined);
 
     readonly onMenuItemSelected = input<((e: Event, menuItem: BaseMenuItem) => void) | undefined>(undefined);
     readonly onAction = input<((e: Event) => void) | undefined>(undefined);
