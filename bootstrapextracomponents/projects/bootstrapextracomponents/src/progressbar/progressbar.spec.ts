@@ -11,8 +11,7 @@ describe('ServoyBootstrapExtraProgressBar', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraProgressBar],
-            imports: [ServoyPublicTestingModule, NgbProgressbar],
+            imports: [ServoyBootstrapExtraProgressBar, ServoyPublicTestingModule, NgbProgressbar],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

@@ -9,15 +9,14 @@ import { ServoyBootstrapExtraProgressBar } from './progressbar/progressbar';
 import {ServoyBootstrapExtraDropdown, MenuItem as dropdown_MenuItem} from './dropdown/dropdown';
 import { ServoyBootstrapExtraCarousel, Slide } from './carousel/carousel';
 import { MenuItem, ServoyBootstrapExtraNavbar, SvyAttributes } from './navbar/navbar';
-import { CommonModule } from '@angular/common';
 import { ServoyPublicModule, SpecTypesService } from '@servoy/public';
-import { NgbModule }  from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
 import { ServoyBootstrapExtraSwitch } from './switch/switch';
-import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
 
 @NgModule({
-    declarations: [
+    declarations: [],
+    providers: [],
+    imports: [
+      ServoyPublicModule,
       ServoyBootstrapExtraBreadcrumbs,
       ServoyBootstrapExtraNavbar,
       ServoyBootstrapExtraCarousel,
@@ -30,14 +29,6 @@ import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
       ServoyBootstrapExtraDropdown,
       ServoyBootstrapExtraSwitch,
       SvyAttributes
-    ],
-    providers: [],
-    imports: [
-      CommonModule,
-      ServoyPublicModule,
-      NgbModule,
-      FormsModule,
-      JwBootstrapSwitchNg2Component
     ],
     exports: [
         ServoyBootstrapExtraBreadcrumbs,

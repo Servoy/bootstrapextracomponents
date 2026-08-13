@@ -1,11 +1,13 @@
 import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, linkedSignal } from '@angular/core';
-import { ServoyBaseComponent } from '@servoy/public';
+import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
+import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'bootstrapextracomponents-progressbar',
     templateUrl: './progressbar.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [ServoyPublicModule, NgbProgressbar]
 })
 export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDivElement> {
     readonly styleClass = input<string | undefined>(undefined);
@@ -35,6 +37,5 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
         if (text !== undefined) {
             this._valueText.set(text);
         }
-        this.cdRef.detectChanges();
     }
 }

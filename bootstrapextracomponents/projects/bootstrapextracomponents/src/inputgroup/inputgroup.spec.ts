@@ -11,8 +11,7 @@ describe('ServoyBootstrapExtraInputGroup', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraInputGroup, SvyAttributesInputGroup],
-            imports: [ServoyPublicTestingModule, FormsModule],
+            imports: [ServoyBootstrapExtraInputGroup, SvyAttributesInputGroup, ServoyPublicTestingModule, FormsModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

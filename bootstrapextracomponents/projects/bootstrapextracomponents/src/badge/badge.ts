@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
-import { ServoyBaseComponent } from '@servoy/public';
+import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-badge',
     templateUrl: './badge.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [ServoyPublicModule]
 })
 export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElement> {
     readonly onAction = input<((e: Event, data?: any) => void) | undefined>(undefined);

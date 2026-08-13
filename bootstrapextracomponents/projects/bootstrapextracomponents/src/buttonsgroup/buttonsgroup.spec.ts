@@ -34,8 +34,7 @@ describe('ServoyBootstrapExtraButtonsGroup', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraButtonsGroup],
-            imports: [ServoyPublicTestingModule],
+            imports: [ServoyBootstrapExtraButtonsGroup, ServoyPublicTestingModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

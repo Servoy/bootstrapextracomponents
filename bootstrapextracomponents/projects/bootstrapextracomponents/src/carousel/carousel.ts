@@ -1,13 +1,15 @@
 import { Component, ChangeDetectorRef, SimpleChanges, Renderer2, ChangeDetectionStrategy, input, viewChild, linkedSignal } from '@angular/core';
+import { NgStyle } from '@angular/common';
 import { BaseCustomObject, IFoundset, ServoyBaseComponent } from '@servoy/public';
-import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarousel, NgbSlide, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'bootstrapextracomponents-carousel',
     templateUrl: './carousel.html',
     providers: [NgbCarouselConfig],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [NgStyle, NgbCarousel, NgbSlide]
 })
 export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivElement> {
 

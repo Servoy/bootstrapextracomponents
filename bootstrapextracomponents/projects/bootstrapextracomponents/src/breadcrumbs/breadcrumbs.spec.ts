@@ -16,8 +16,7 @@ describe('ServoyBootstrapExtraBreadcrumbs', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraBreadcrumbs],
-            imports: [ServoyPublicTestingModule],
+            imports: [ServoyBootstrapExtraBreadcrumbs, ServoyPublicTestingModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

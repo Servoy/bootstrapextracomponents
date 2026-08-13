@@ -1,12 +1,13 @@
 import { Component, ChangeDetectorRef, Renderer2, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
-import { IValuelist, ServoyBaseComponent } from '@servoy/public';
+import { IValuelist, ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 import { Format } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-buttons-group',
     templateUrl: './buttonsgroup.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [ServoyPublicModule]
 })
 export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLElement> {
 

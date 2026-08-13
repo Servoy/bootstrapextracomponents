@@ -1,12 +1,15 @@
 
 import { ChangeDetectorRef, Component, Inject, Renderer2, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
-import { ServoyBaseComponent } from '@servoy/public';
+import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
+import { FormsModule } from '@angular/forms';
+import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
 
 @Component({
     selector: 'bootstrapextracomponents-switch',
     templateUrl: './switch.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [FormsModule, ServoyPublicModule, JwBootstrapSwitchNg2Component]
 })
 /**
  * Bootstrap switch component based on https://github.com/JulioWar/jw-bootstrap-switch-ng2

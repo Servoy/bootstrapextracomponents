@@ -1,18 +1,22 @@
 import {
 	Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy,
-	Directive, ElementRef, OnInit, Inject, DOCUMENT, input, linkedSignal
+	Directive, ElementRef, OnInit, Inject, DOCUMENT, input, linkedSignal, forwardRef
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgTemplateOutlet } from '@angular/common';
 
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ServoyBaseComponent, FormattingService, ServoyPublicService, BaseCustomObject, IJSMenu, IValuelist } from '@servoy/public';
+import { ServoyBaseComponent, FormattingService, ServoyPublicService, ServoyPublicModule, BaseCustomObject, IJSMenu, IValuelist } from '@servoy/public';
+import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
 	selector: 'bootstrapextracomponents-navbar',
 	templateUrl: './navbar.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: { '(keydown)': 'onKeyDown($event)' },
-	standalone: false
+	standalone: true,
+	imports: [FormsModule, NgTemplateOutlet, ServoyPublicModule, NgbTypeahead, forwardRef(() => SvyAttributes)]
 })
 export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivElement> {
 
@@ -626,7 +630,7 @@ class SubMenuItem extends BaseMenuItem {
 @Directive({
 	// eslint-disable-next-line @angular-eslint/directive-selector
 	selector: '[svyAttributes]',
-	standalone: false
+	standalone: true
 })
  
 export class SvyAttributes implements OnInit {

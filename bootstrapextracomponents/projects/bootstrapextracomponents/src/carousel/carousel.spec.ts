@@ -19,8 +19,7 @@ describe('ServoyBootstrapExtraCarousel', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraCarousel],
-            imports: [ServoyPublicTestingModule, NgbModule],
+            imports: [ServoyBootstrapExtraCarousel, ServoyPublicTestingModule, NgbModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

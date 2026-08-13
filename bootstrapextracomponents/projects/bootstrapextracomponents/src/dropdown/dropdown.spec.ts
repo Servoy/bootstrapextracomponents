@@ -28,8 +28,7 @@ describe('ServoyBootstrapExtraDropdown', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraDropdown],
-            imports: [ServoyPublicTestingModule],
+            imports: [ServoyBootstrapExtraDropdown, ServoyPublicTestingModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

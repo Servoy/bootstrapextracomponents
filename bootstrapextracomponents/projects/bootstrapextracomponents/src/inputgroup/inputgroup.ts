@@ -1,12 +1,14 @@
-import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal } from '@angular/core';
-import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
+import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
 
 @Component({
     selector: 'bootstrapextracomponents-input-group',
     templateUrl: './inputgroup.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [FormsModule, ServoyPublicModule, forwardRef(() => SvyAttributesInputGroup)]
 })
 export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivElement> {
 
@@ -174,7 +176,7 @@ export class AddOnButton extends AddOn {
 @Directive({
     // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[svyAttributesInputGroup]',
-    standalone: false
+    standalone: true
 })
  
 export class SvyAttributesInputGroup implements OnInit {

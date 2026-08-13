@@ -10,8 +10,7 @@ describe('ServoyBootstrapExtraBadge', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraBadge],
-            imports: [ServoyPublicTestingModule],
+            imports: [ServoyBootstrapExtraBadge, ServoyPublicTestingModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

@@ -69,6 +69,7 @@ A successful build confirms type correctness.
 - Use `fixture.componentRef.setInput('name', value)` for signal inputs
 - Use `NO_ERRORS_SCHEMA` to suppress unknown directive warnings
 - Import `ServoyPublicTestingModule` from `@servoy/public`
+- Components are standalone: put them in `imports`, NOT `declarations`
 - DO NOT import `ServoyBootstrapExtraComponentsModule` in tests
 
 ### Critical: Global Mocking Rules
@@ -126,7 +127,7 @@ progressbar, rating, switch
 - **Change detection:** `ChangeDetectionStrategy.OnPush` on every component
 - **Base class:** All components extend `ServoyBaseComponent<HTMLDivElement>` directly from `@servoy/public`
   (no intermediate base class hierarchy — unlike bootstrapcomponents)
-- **Standalone:** `false` — all components declared in `ServoyBootstrapExtraComponentsModule`
+- **Standalone:** `true` — all components are standalone with their own `imports` array
 - **Selector prefix:** `bootstrapextracomponents-` (kebab-case, enforced by ESLint)
 - **Directive selector prefix:** `bootstrapextracomponents` (camelCase)
 - **Handlers as inputs:** `readonly onAction = input<(e: Event) => void>(undefined)`
@@ -135,7 +136,7 @@ progressbar, rating, switch
 ### Module registration
 
 When adding a new component:
-1. Declare in `servoybootstrapextra.module.ts`
+1. Import and export in `servoybootstrapextra.module.ts`
 2. Export in `public-api.ts`
 3. Create Servoy `.spec` file in `bootstrapextracomponents/<name>/`
 
@@ -182,7 +183,7 @@ bootstrapextracomponents/
 │   │   │   ├── tsconfig.spec.json       # Test TS config
 │   │   │   └── src/
 │   │   │       ├── public-api.ts        # Library exports
-│   │   │       ├── servoybootstrapextra.module.ts # NgModule declarations
+│   │   │       ├── servoybootstrapextra.module.ts # NgModule re-exports (barrel)
 │   │   │       ├── testingutils.ts      # Test utilities
 │   │   │       └── <component>/         # Angular component implementation
 │   │   └── dummy/                       # Dummy app (dev/testing scaffold)
@@ -230,7 +231,7 @@ Example: `SVY-21080 add navbar responsive collapse support [ai]`
 2. Create Angular implementation: `bootstrapextracomponents/projects/bootstrapextracomponents/src/<name>/`
    - `<name>.ts` (component class)
    - `<name>.html` (template)
-3. Register in `servoybootstrapextra.module.ts` (declarations + exports)
+3. Register in `servoybootstrapextra.module.ts` (imports + exports)
 4. Export in `public-api.ts`
 5. Create test file: `<name>.spec.ts`
 6. Build and verify: `npm run build`
@@ -257,7 +258,8 @@ When changing component properties, handlers, or API:
 - **@servoy/public version coupling.** Must match the target Servoy runtime version.
 - **Legacy files still active.** The AngularJS files in top-level dirs are still used by
   older Servoy runtimes. Don't delete them.
-- **No standalone components.** All are `standalone: false`, declared in the shared module.
+- **Standalone components.** All are `standalone: true`, each with their own `imports`.
+  The shared NgModule (`ServoyBootstrapExtraComponentsModule`) re-exports them for backward compatibility.
 - **Angular 22.** This project is on Angular 22.1.x with TypeScript 6.0.
 - **No base class hierarchy.** Unlike `bootstrapcomponents`, all components here extend
   `ServoyBaseComponent<HTMLDivElement>` directly — there are no intermediate base classes.

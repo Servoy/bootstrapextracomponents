@@ -27,8 +27,7 @@ describe('ServoyBootstrapExtraNavbar', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraNavbar, SvyAttributes],
-            imports: [ServoyPublicTestingModule],
+            imports: [ServoyBootstrapExtraNavbar, SvyAttributes, ServoyPublicTestingModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

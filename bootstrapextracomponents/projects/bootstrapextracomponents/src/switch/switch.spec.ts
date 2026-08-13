@@ -12,8 +12,7 @@ describe('ServoyBootstrapExtraSwitch', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraSwitch],
-            imports: [ServoyPublicTestingModule, JwBootstrapSwitchNg2Component, FormsModule],
+            imports: [ServoyBootstrapExtraSwitch, ServoyPublicTestingModule, JwBootstrapSwitchNg2Component, FormsModule],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

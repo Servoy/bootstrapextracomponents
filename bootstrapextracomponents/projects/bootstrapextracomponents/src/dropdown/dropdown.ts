@@ -1,11 +1,13 @@
 import { Component, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, input } from '@angular/core';
-import { BaseCustomObject, ServoyBaseComponent, ServoyPublicService } from '@servoy/public';
+import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
+import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'bootstrapextracomponents-dropdown',
     templateUrl: './dropdown.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [ServoyPublicModule, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem]
 })
 export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivElement> {
 

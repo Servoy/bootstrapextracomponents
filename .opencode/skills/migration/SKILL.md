@@ -15,8 +15,9 @@ to help modernize Angular components to current best practices and patterns.
 | **Signals** | Convert `@Input()` / `@Output()` decorators to `input<T>()` / `output<T>()` signal-based APIs |
 | **Control flow** | Convert `*ngIf`, `*ngFor`, `*ngSwitch` to `@if`, `@for`, `@switch` template syntax |
 | **OnPush** | Add `ChangeDetectionStrategy.OnPush` to components missing it |
-| **Standalone prep** | Identify what's needed to make a component standalone (future) |
+| **Standalone** | Convert components to `standalone: true` with own `imports` array |
 | **Inject function** | Convert constructor injection to `inject()` function pattern |
+| **@servoy/public upgrade** | Update `@servoy/public` to latest compatible version |
 
 ## Input
 
@@ -216,7 +217,8 @@ If build or tests fail, diagnose and fix before reporting success.
 
 ## Important notes
 
-- **This project uses `standalone: false`** — do NOT convert components to standalone.
+- **All components are `standalone: true`** — each component has its own `imports` array.
+  The shared NgModule (`ServoyBootstrapExtraComponentsModule`) re-exports them for backward compatibility.
 - **Signal inputs use `undefined as any`** — this is intentional because Servoy framework
   always provides values at runtime, but TypeScript needs a default for the signal.
 - **Handlers are inputs, not outputs** — in Servoy components, event handlers like
@@ -232,3 +234,16 @@ If build or tests fail, diagnose and fix before reporting success.
 - **No base class hierarchy** — unlike `bootstrapcomponents`, all components here extend
   `ServoyBaseComponent<HTMLDivElement>` directly from `@servoy/public`. There are no
   intermediate base classes like `bts_basecomp.ts` or `bts_basefield.ts`.
+- **@servoy/public** — keep this dependency at the latest `^2026.x` version. Run
+  `npm update @servoy/public` to pull the latest patch. The version in `package.json`
+  uses a caret range (`^2026.9.2`).
+
+## Current migration status (as of 2026-08-13)
+
+All 10 components are fully migrated:
+- ✅ Signals (input/output/viewChild/linkedSignal/computed)
+- ✅ Control flow (@if, @for)
+- ✅ OnPush change detection
+- ✅ Standalone components
+- ✅ No direct ChangeDetectorRef calls (zoneless-ready)
+- ✅ @servoy/public 2026.9.2

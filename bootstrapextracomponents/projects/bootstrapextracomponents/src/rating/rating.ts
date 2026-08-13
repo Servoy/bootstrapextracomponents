@@ -1,11 +1,13 @@
 import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@servoy/public';
+import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'bootstrapextracomponents-rating',
     templateUrl: './rating.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [NgbRating]
 })
 export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivElement> {
     readonly onLeave = input<((e: JSEvent, data?: any) => void) | undefined>(undefined);

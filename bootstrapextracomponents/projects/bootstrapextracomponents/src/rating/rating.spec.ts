@@ -11,8 +11,7 @@ describe('ServoyBootstrapExtraRating', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ServoyBootstrapExtraRating],
-            imports: [ServoyPublicTestingModule, NgbRating],
+            imports: [ServoyBootstrapExtraRating, ServoyPublicTestingModule, NgbRating],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
 

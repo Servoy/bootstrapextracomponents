@@ -5,7 +5,7 @@ import { ServoyBaseComponent } from '@servoy/public';
     selector: 'bootstrapextracomponents-breadcrumbs',
     templateUrl: './breadcrumbs.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true
 })
 export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLElement> {
 
