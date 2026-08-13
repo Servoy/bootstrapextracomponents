@@ -44,11 +44,11 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     svyOnInit() {
         super.svyOnInit();
-        if (this.elementRef?.nativeElement?.getBoundingClientRect().width) {
-            this.size.width = this.elementRef.nativeElement.getBoundingClientRect().width;
+        if (this.elementRef()?.nativeElement?.getBoundingClientRect().width) {
+            this.size.width = this.elementRef()!.nativeElement.getBoundingClientRect().width;
         }
-        if (this.elementRef?.nativeElement?.getBoundingClientRect().height) {
-            this.size.height = this.elementRef.nativeElement.getBoundingClientRect().height;
+        if (this.elementRef()?.nativeElement?.getBoundingClientRect().height) {
+            this.size.height = this.elementRef()!.nativeElement.getBoundingClientRect().height;
         }
     }
 
@@ -95,8 +95,8 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                     this._imageCssInternal.set({
                         'max-width': '100%',
                         'max-height': '100%',
-                        width: this.size ? this.size.width + 'px' : (!this.servoyApi.isInAbsoluteLayout() ? '100%' : null),
-                        height: this.size ? this.size.height + 'px' : (!this.servoyApi.isInAbsoluteLayout() ? this.responsiveHeight() + 'px' : null),
+                        width: this.size ? this.size.width + 'px' : (!this.servoyApi().isInAbsoluteLayout() ? '100%' : null),
+                        height: this.size ? this.size.height + 'px' : (!this.servoyApi().isInAbsoluteLayout() ? this.responsiveHeight() + 'px' : null),
                         'object-fit': 'contain'
                     });
                 }
@@ -120,13 +120,13 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     setSelectedIndex(index: number) {
         this.ngCarousel()!.pause();
-        this.ngCarousel()!.select(this.servoyApi.getMarkupId() + '-' + index);
+        this.ngCarousel()!.select(this.servoyApi().getMarkupId() + '-' + index);
         this.ngCarousel()!.cycle();
     }
 
     getStyle(): any {
         const layoutStyle: any = {};
-        if (!this.servoyApi.isInAbsoluteLayout()) {
+        if (!this.servoyApi().isInAbsoluteLayout()) {
             layoutStyle.height = this.responsiveHeight() + 'px';
         }
         return layoutStyle;
@@ -187,15 +187,15 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                 this.innerSlides = slides;
             }
         }
-        if (this.servoyApi.isInDesigner()) {
+        if (this.servoyApi().isInDesigner()) {
             const slide = new Slide();
             slide.imageUrl = this.missingImage;
             this.innerSlides = [slide];
         }
         if (this.innerSlides.length === 0) {
-            this.elementRef.nativeElement.classList.add('bts-extra-carousel-hidden');
+            this.elementRef()!.nativeElement.classList.add('bts-extra-carousel-hidden');
         } else {
-            this.elementRef.nativeElement.classList.remove('bts-extra-carousel-hidden');
+            this.elementRef()!.nativeElement.classList.remove('bts-extra-carousel-hidden');
         }
     };
 }

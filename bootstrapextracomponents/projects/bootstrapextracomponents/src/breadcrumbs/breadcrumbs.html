@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb" #element>
   <ol class="breadcrumb bts-extra-breadcrumbs {{styleClass()}}"
-    [id]="servoyApi.getMarkupId()" >
+    [id]="servoyApi().getMarkupId()" >
     @if (!breadcrumbs() || breadcrumbs()?.length === 0) {
       <li class='breadcrumb-item active'>&nbsp;</li>
     }

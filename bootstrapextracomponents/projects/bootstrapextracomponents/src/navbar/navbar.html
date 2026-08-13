@@ -1,4 +1,4 @@
-<nav #element [id]="servoyApi.getMarkupId()"
+<nav #element [id]="servoyApi().getMarkupId()"
   class="navbar navbar-expand-lg bts-extra-navbar {{inverse() ? 'navbar-dark bg-dark' : 'bts-navbar-default'}} {{fixed() ? 'fixed-' + fixed() : ''}} {{styleClass()}}">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,13 +15,13 @@
     }
     @if (collapsing()) {
       <button (click)="toggleCollapse()" class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" [attr.data-target]="'#'+ servoyApi.getMarkupId() + '-navbar-collapse'"
-        [attr.aria-controls]="servoyApi.getMarkupId()+'-navbar-collapse'" aria-expanded="false">
+        data-bs-toggle="collapse" [attr.data-target]="'#'+ servoyApi().getMarkupId() + '-navbar-collapse'"
+        [attr.aria-controls]="servoyApi().getMarkupId()+'-navbar-collapse'" aria-expanded="false">
         <span class="navbar-toggler-icon"></span>
       </button>
     }
 
-    <ng-container [ngTemplateOutlet]="collapsing() && !servoyApi.isInDesigner() ? collapse:nocollapse"></ng-container>
+    <ng-container [ngTemplateOutlet]="collapsing() && !servoyApi().isInDesigner() ? collapse:nocollapse"></ng-container>
   </div><!-- /.container-fluid -->
 </nav>
 
@@ -524,7 +524,7 @@
 
                                             <ng-template #collapse>
                                               <!-- Collect the nav links, forms, and other content for toggling -->
-                                              <div class="collapse navbar-collapse" id="{{servoyApi.getMarkupId()}}-navbar-collapse">
+                                              <div class="collapse navbar-collapse" id="{{servoyApi().getMarkupId()}}-navbar-collapse">
                                                 <ng-container [ngTemplateOutlet]="nocollapse"></ng-container>
                                               </div><!-- /.navbar-collapse -->
                                             </ng-template>

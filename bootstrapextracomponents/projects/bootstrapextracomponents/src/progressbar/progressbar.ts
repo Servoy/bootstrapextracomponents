@@ -27,7 +27,7 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
     }
 
     getNativeElement(): HTMLDivElement {
-        return this.elementRef.nativeElement.firstChild as HTMLDivElement;
+        return this.elementRef()?.nativeElement?.firstChild as HTMLDivElement;
     }
 
     updateProgressBar(value: number, text: string) {

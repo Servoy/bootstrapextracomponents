@@ -1,6 +1,6 @@
 <div class="bts-extra-rating" #element>
   <ngb-rating
-    [id]="servoyApi.getMarkupId()"
+    [id]="servoyApi().getMarkupId()"
     [rate]="_dataProviderID()"
     (rateChange)="onChange($event)"
     [max]="$any(max())"

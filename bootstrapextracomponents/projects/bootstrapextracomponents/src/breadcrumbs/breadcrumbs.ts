@@ -26,7 +26,7 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
 
     svyOnInit() {
         super.svyOnInit();
-        if (this.servoyApi.isInDesigner() && !this.breadcrumbs()) {
+        if (this.servoyApi().isInDesigner() && !this.breadcrumbs()) {
             this._breadcrumbs.set([{ crumbId: 'Home', displayName: 'Home' }, { crumbId: 'Library', displayName: 'Library' }, { crumbId: 'Data', displayName: 'Data' }]);
         }
     }

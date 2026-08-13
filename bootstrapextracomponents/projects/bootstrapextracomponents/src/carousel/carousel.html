@@ -1,5 +1,5 @@
 <div #element
-  [id]="servoyApi.getMarkupId()"
+  [id]="servoyApi().getMarkupId()"
   class="bts-extra-carousel"  >
   <ngb-carousel #ngCarousel
     [class]="styleClass()"
@@ -13,7 +13,7 @@
     [wrap]="true"
     (slid)="onSlid($event)">
     @for (slide of innerSlides; track slide; let i = $index) {
-      <ng-template ngbSlide [id]="servoyApi.getMarkupId() + '-' + i">
+      <ng-template ngbSlide [id]="servoyApi().getMarkupId() + '-' + i">
         <div class="picsum-img-wrapper">
           @if (lazyLoading()) {
             <img class="bts-extra-carousel-img"

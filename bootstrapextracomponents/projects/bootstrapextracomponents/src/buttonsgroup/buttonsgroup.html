@@ -1,5 +1,5 @@
 <div class="bts-extra-btn-radio btn-group"
-  [id]="servoyApi.getMarkupId()"
+  [id]="servoyApi().getMarkupId()"
   [svyTooltip]="toolTipText()"
   #element>
   @for (item of $any(valuelistID()) | notNullOrEmpty; track item; let i = $index) {
@@ -13,7 +13,7 @@
         <span [textContent]='item.displayValue'></span>
       }
       @if (showAs() === "html" || showAs() === "trusted_html") {
-        <span [innerHtml]="item.displayValue | htmlFilter | trustAsHtml: servoyApi.trustAsHtml()"></span>
+        <span [innerHtml]="item.displayValue | htmlFilter | trustAsHtml: servoyApi().trustAsHtml()"></span>
       }
     </button>
   }

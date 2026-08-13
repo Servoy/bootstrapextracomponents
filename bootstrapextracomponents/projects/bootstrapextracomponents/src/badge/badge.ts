@@ -24,7 +24,7 @@ export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElemen
     timeoutID!: number;
 
     isTrustedHTML(): boolean {
-        if (this.servoyApi.trustAsHtml()) {
+        if (this.servoyApi().trustAsHtml()) {
             return true;
         }
         return false;
@@ -60,7 +60,7 @@ export class ServoyBootstrapExtraBadge extends ServoyBaseComponent<HTMLDivElemen
             });
         }
         if (this.onDoubleClick()) {
-            this.renderer.listen(this.elementRef.nativeElement, 'dblclick', (e) => {
+            this.renderer.listen(this.elementRef()!.nativeElement, 'dblclick', (e) => {
                 this.onDoubleClick()!(e);
             });
         }

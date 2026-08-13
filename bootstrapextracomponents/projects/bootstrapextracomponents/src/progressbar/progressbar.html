@@ -1,6 +1,6 @@
 <ngb-progressbar #element
   class="bts-extra-progressbar {{styleClass()}}"
-  [id]="servoyApi.getMarkupId()"
+  [id]="servoyApi().getMarkupId()"
   [value]="dataProviderID() ? dataProviderID() : _value()"
   [type]="$any(type())"
   [animated]="$any(animate())"

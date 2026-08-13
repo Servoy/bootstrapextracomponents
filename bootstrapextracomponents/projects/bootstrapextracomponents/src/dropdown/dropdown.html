@@ -1,6 +1,6 @@
 <div class="bts-extra-drop-down {{styleClass()}}"
   #element
-  [id]="servoyApi.getMarkupId()"
+  [id]="servoyApi().getMarkupId()"
   [svyTooltip]="toolTipText()"
   ngbDropdown>
   <div
@@ -10,7 +10,7 @@
         class="btn {{isButton() ?  'btn-default dropdown-toggle' : 'btn-link'}} {{buttonStyleClass()}}"
         type="button"
         ngbDropdownToggle
-        id="button-{{servoyApi.getMarkupId()}}"
+        id="button-{{servoyApi().getMarkupId()}}"
         [disabled]="!enabled()"
         (click)="buttonClicked($event)">
         <span class="{{imageStyleClass()}}"></span> {{text() ? text() : 'Button'}}
@@ -20,7 +20,7 @@
       <button
         class="btn btn-default{{buttonStyleClass()}}"
         type="button"
-        id="button-{{servoyApi.getMarkupId()}}"
+        id="button-{{servoyApi().getMarkupId()}}"
         [disabled]="!enabled()"
         (click)="buttonClicked($event)">
         <span class="{{imageStyleClass()}}"></span> {{text() ? text() : 'Button'}}
@@ -31,11 +31,11 @@
         class="btn btn-default dropdown-toggle dropdown-toggle-split {{buttonStyleClass()}}"
         type="button"
         ngbDropdownToggle
-        id="button-dropdown-{{servoyApi.getMarkupId()}}"
+        id="button-dropdown-{{servoyApi().getMarkupId()}}"
         [disabled]="!enabled()">
       </button>
     }
-    <div ngbDropdownMenu [attr.aria-labelledby]="'button-' + servoyApi.getMarkupId()">
+    <div ngbDropdownMenu [attr.aria-labelledby]="'button-' + servoyApi().getMarkupId()">
       @for (menuItem of menuItems(); track menuItem) {
         @if (menuItem.isDivider !== true) {
           <button ngbDropdownItem class="{{menuItem.enabled === false ? 'disabled' : ''}}" (click)="menuClicked($event, menuItem)">

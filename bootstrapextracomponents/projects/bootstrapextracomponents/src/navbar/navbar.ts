@@ -79,7 +79,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	}
 
 	isTrustedHTML(): boolean {
-		if (this.servoyApi.trustAsHtml()) {
+		if (this.servoyApi().trustAsHtml()) {
 			return true;
 		}
 		return false;
@@ -107,7 +107,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		if (servoyMenu) {
 			servoyMenu.pushDataProviderValue('Navbar', 'dataProviderValue', index, menuItem.dataProvider);
 		} else {
-			this.servoyApi.apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
+			this.servoyApi().apply('menuItems[' + index + '].dataProvider', menuItem.dataProvider);
 		}
 	}
 
@@ -323,10 +323,10 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 					if ($target && $target.nodeName === 'SPAN') {
 						const parentNode = $target.parentElement;
 						if (!parentNode || !parentNode.classList.contains('dropdown')) {
-						this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button')!.click();
+						this.document.getElementById('#' + this.servoyApi().getMarkupId() + '-toggle-button')!.click();
 					}
 				} else {
-					this.document.getElementById('#' + this.servoyApi.getMarkupId() + '-toggle-button')!.click();
+					this.document.getElementById('#' + this.servoyApi().getMarkupId() + '-toggle-button')!.click();
 					}
 				}
 			}
@@ -385,7 +385,7 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 				menuItem.isActive = false;
 			}
 		}
-		this.servoyApi.callServerSideApi('setMenuSelectedInternal', [item.itemId]);
+		this.servoyApi().callServerSideApi('setMenuSelectedInternal', [item.itemId]);
 	}
 
 	requestFocus(itemId: string) {
