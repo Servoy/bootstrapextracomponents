@@ -16,8 +16,6 @@
 		"displayType" 					: {"type": "string", "default":"BUTTON", "values": ["BUTTON", "LABEL"], "tags": { "basic": true }},
 		"text"							: {"type": "tagstring", "initialValue": "Badge", "tags": { "directEdit" : "true","basic": true  }},
 		"badgeText"						: {"type": "tagstring", "initialValue": "0", "tags": { "basic": true }},
-		"size" 							: {"type": "dimension",  "default" : {"width":100, "height":40}}, 
-    	"location" 						: {"type": "point"},
     	"imageStyleClass" 				: {"type": "styleclass"},
     	"styleClass"					: {"type": "styleclass"},
     	"visible"						: {"type": "visible" },

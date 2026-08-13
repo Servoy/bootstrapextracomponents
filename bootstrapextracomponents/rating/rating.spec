@@ -18,9 +18,7 @@
 		"stateOn"				: { "type": "string" },
 		"stateOff"				: { "type": "string" },
 		"visible" 				: { "type": "boolean", "default": true}, 
-		"location" 				: { "type": "point", "pushToServer": "deep"}, 
 		"showPercentageOnHover"	: { "type": "boolean" }, 
-	    "size" 					: { "type": "dimension", "default" : {"width":200, "height":32}, "pushToServer": "deep"},
 	    "readOnly"				: { "type": "protected", "blockingOn": true, "default": false, "for": ["dataProviderID","onDataChangeMethodID"], "tags": {"scope":"private"} }
 	},
 	"handlers": 

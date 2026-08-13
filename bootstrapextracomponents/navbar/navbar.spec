@@ -25,8 +25,6 @@
 		"inverse"								: {"type": "boolean","tags": { "doc" : "Inverts the color scheme of the navbar for dark backgrounds."}},
 		"fixed"									: {"type": "string", "default": null, "values": ["top", "bottom"], "tags": { "doc" : "Controls whether the toolbar is fixed to either top or bottom of the screen."}},
 		"markClickedItemActive"					: {"type": "boolean","tags": { "doc" : "When 'true', items of displayType MENU_ITEM will be shown as 'active' when clicked."}},
-		"size" 									: {"type" :"dimension",  "default" : {"width":600, "height":50}}, 
-    	"location" 								: {"type": "point"},
     	"collapsing"							: {"type": "boolean", "default": false,"tags": { "doc" : "Indicates if the navbar should have a collapsing behavior."}},
     	"collapseOnClick"						: {"type": "boolean", "default": true,"tags": { "doc" : "Controls whether the navbar collapses when a menu item is clicked (typically for mobile views)."}}
 	},

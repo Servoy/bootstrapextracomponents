@@ -23,8 +23,7 @@
 		"valueText"					: { "type": "string" },
 		"max" 						: { "type": "int", "default": 100 , "tags": { "basic": true }},
 		"tabSeq" 					: { "type": "tabseq", "tags": { "scope" :"design" }},
-    	"visible" 					: "visible",
-    	"size"						: { "type": "dimension", "default": { "width": 300, "height": 25 } }
+    	"visible" 					: "visible"
 	},
 	"api": 
 	{

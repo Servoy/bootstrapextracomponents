@@ -21,8 +21,6 @@
 		"lazyLoading" 						: { "type": "boolean", "default": true },
 		"imageOptions" 						: { "type": "string", "default": "Reduce", "values" : ["Reduce", "Reduce/Enlarge", "Scale to fit", "Crop"] },
 		"visible"							: { "type": "visible" },
-		"size" 								: { "type" :"dimension",  "default" : {"width": 400, "height": 300}}, 
-		"location" 							: { "type": "point" },
 		"styleClass" 						: { "type": "styleclass"},
 		"imageCssInternal"					: { "type": "object", "tags" : { "scope": "private" } },
 		"imageCss"							: { "type": "cssProperty[]" },

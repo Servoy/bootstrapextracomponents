@@ -21,7 +21,6 @@
 		"buttonStyleClass"				: { "type": "styleclass" },
 		"imageStyleClass"				: { "type": "styleclass" },
 		"enabled"						: { "type": "enabled", "blockingOn": false, "default": true, "for": ["onAction"] },
-		"size"							: { "type": "dimension", "default": { "width": 300, "height": 40 } },
 		"visible"						: { "type": "visible" },
 		"toolTipText"					: { "type": "tagstring" }
 	},
