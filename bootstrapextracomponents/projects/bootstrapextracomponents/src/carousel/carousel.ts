@@ -40,10 +40,6 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     private size: { width: string | number; height: string | number } = { width: '100%', height: '100%' };
 
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, _config: NgbCarouselConfig) {
-        super(renderer, cdRef);
-    }
-
     svyOnInit() {
         super.svyOnInit();
         if (this.elementRef()?.nativeElement?.getBoundingClientRect().width) {

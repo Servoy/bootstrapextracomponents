@@ -1,4 +1,4 @@
-import { Component, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, input } from '@angular/core';
+import { Component, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, input , inject } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,9 +27,7 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
     readonly onAction = input<((e: Event) => void) | undefined>(undefined);
 
 
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService) {
-        super(renderer, cdRef);
-    }
+    private readonly servoyService = inject(ServoyPublicService);
 
     svyOnInit() {
         super.svyOnInit();

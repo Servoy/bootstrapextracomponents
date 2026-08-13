@@ -24,10 +24,6 @@ export class ServoyBootstrapExtraProgressBar extends ServoyBaseComponent<HTMLDiv
     _value = linkedSignal<number>(() => this.value() ?? 0);
     _valueText = linkedSignal<string>(() => this.valueText() ?? '');
 
-     constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
-            super(renderer, cdRef);
-    }
-
     getNativeElement(): HTMLDivElement {
         return this.elementRef()?.nativeElement?.firstChild as HTMLDivElement;
     }

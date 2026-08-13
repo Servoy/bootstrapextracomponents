@@ -20,10 +20,6 @@ export class ServoyBootstrapExtraBreadcrumbs extends ServoyBaseComponent<HTMLEle
 
     _breadcrumbs = linkedSignal<Crumb[]>(() => this.breadcrumbs() ?? []);
 
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
-        super(renderer, cdRef);
-    }
-
     svyOnInit() {
         super.svyOnInit();
         if (this.servoyApi().isInDesigner() && !this.breadcrumbs()) {

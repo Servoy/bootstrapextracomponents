@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, linkedSignal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, linkedSignal , inject } from '@angular/core';
 import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@servoy/public';
 import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,9 +28,7 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
     overStar = false;
     percent!: number;
 
-    constructor( renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService ) {
-        super( renderer, cdRef );
-    }
+    private readonly servoyService = inject(ServoyPublicService);
 
 
     svyOnInit() {

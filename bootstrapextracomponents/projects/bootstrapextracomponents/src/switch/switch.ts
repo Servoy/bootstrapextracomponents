@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Inject, Renderer2, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Renderer2, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed, inject } from '@angular/core';
 import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 import { FormsModule } from '@angular/forms';
 import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';
@@ -45,9 +45,7 @@ export class ServoyBootstrapExtraSwitch extends ServoyBaseComponent<HTMLDivEleme
     inputEl!: HTMLInputElement;
     runtimeTabIndex = -1;
 
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, @Inject(DOCUMENT) private doc: Document) {
-        super(renderer, cdRef);
-    }
+    private readonly doc = inject(DOCUMENT);
 
     svyOnInit() {
         this.inputEl = this.getNativeElement().querySelector('input')!;

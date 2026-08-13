@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef } from '@angular/core';
+import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef , inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
@@ -41,9 +41,7 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     preventSimpleClick = false;
     timer: any;
 
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, private servoyService: ServoyPublicService) {
-        super(renderer, cdRef);
-    }
+    private readonly servoyService = inject(ServoyPublicService);
 
     public getFocusElement(): HTMLElement {
         return this.input()!.nativeElement;

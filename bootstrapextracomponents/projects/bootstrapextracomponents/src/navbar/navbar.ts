@@ -1,7 +1,7 @@
 import {
 	Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy,
 	Directive, ElementRef, OnInit, Inject, DOCUMENT, input, linkedSignal, forwardRef
-} from '@angular/core';
+, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -47,10 +47,9 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 	indexToFocus = 0;
 	firstShow = true;
 
-	constructor(renderer: Renderer2, cdRef: ChangeDetectorRef, public formattingService: FormattingService,
-		@Inject(DOCUMENT) private document: Document, private servoyService: ServoyPublicService) {
-		super(renderer, cdRef);
-	}
+	public readonly formattingService = inject(FormattingService);
+	private readonly document = inject(DOCUMENT);
+	private readonly servoyService = inject(ServoyPublicService);
 
 	onKeyDown(event: KeyboardEvent) {
 		if (event.key === 'ArrowDown') {

@@ -41,9 +41,6 @@ export class ServoyBootstrapExtraButtonsGroup extends ServoyBaseComponent<HTMLEl
     });
 
     oldValue: any;
-    constructor(renderer: Renderer2, cdRef: ChangeDetectorRef) {
-        super(renderer, cdRef);
-    }
 
     updateSelectedValues(value: any) {
         this._dataProviderID.set(value);
