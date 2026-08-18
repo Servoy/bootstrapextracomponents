@@ -13,7 +13,7 @@
 	"keywords": ["navigation"],
 	"model":
 	{
-		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":600, "height":50}},
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true, "scope": "private"}, "default" : {"width":600, "height":50}},
 		"styleClass" 							: {"type": "styleclass","tags": { "doc" :"The CSS class(es) to be added to navbar element."}},
 		"brandText"								: {"type": "tagstring", "default": "","tags": { "doc" :"An optional branding text shown in the upper left corner (after the optional brandLogo)."}},
 		"brandTextTabindex"						: {"type": "string","tags": { "doc" :"Tab order for the brandText in the tab navigation sequence."}},

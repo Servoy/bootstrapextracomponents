@@ -15,7 +15,7 @@
 	"keywords": ["swap"],
 	"model":
 	{
-		 	"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":300, "height":40}},
+		 	"designsize" : {"type" :"dimension", "tags": {"serveronly": true, "scope": "private"}, "default" : {"width":300, "height":40}},
 		 	"dataProviderID" : { "type":"dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope": "design", "basic": true }, "ondatachange": { "onchange":"onDataChangeMethodID"}}, 	        
 	        "enabled" : { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] }, 	        
 	        "styleClass" : { "type" :"styleclass", "tags": { "scope" :"design" }, "default":"switch"},

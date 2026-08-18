@@ -12,7 +12,7 @@
 	"keywords": ["tag"],
 	"model":
 	{
-		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":100, "height":40}},
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true, "scope": "private"}, "default" : {"width":100, "height":40}},
 		"enabled" 						: {"type": "enabled", "blockingOn": false, "default": true, "for": ["onAction", "onDoubleClick", "onRightClick"] },
 		"displayType" 					: {"type": "string", "default":"BUTTON", "values": ["BUTTON", "LABEL"], "tags": { "basic": true }},
 		"text"							: {"type": "tagstring", "initialValue": "Badge", "tags": { "directEdit" : "true","basic": true  }},
