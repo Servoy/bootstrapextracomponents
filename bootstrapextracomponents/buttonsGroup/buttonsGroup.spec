@@ -9,6 +9,7 @@
 "version": 1,
 	"model":
 	{
+	   "designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":180, "height":32}},
 	   "dataProviderID": 			{ "type": "dataprovider", "pushToServer": "allow", "tags": { "wizard": true, "scope" :"design", "basic": true }, "ondatachange": { "onchange":"onDataChangeMethodID", "callback":"onDataChangeCallback"}},
 	   "styleClass": 				{ "type": "styleclass", "tags": { "scope" :"design" }, "values" :["btn-default", "btn-primary"], "default" : "btn-default"}, 
 	   "valuelistID": 				{ "type": "valuelist",  "for": "dataProviderID", "tags": { "basic": true }},

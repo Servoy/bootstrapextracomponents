@@ -13,6 +13,7 @@
 	"keywords": ["loading"],
 	"model":
 	{
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":300, "height":25}},
 		"dataProviderID"            : { "type":"dataprovider", "tags": { "wizard": true, "scope": "design", "basic": true }, "displayTagsPropertyName" : "displaysTags"}, 
         "styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
 		"value"						: { "type" : "float" , "tags": { "basic": true }},

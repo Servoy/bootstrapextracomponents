@@ -12,6 +12,7 @@
 	"keywords": ["valuation", "score", "assessment"],
 	"model":
 	{
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":200, "height":32}},
 		"dataProviderID" 		: { "type": "dataprovider", "pushToServer": "allow","tags": { "wizard": true, "scope" :"design", "basic": true }, "ondatachange": { "onchange":"onDataChangeMethodID"}},
 	    "enabled" 				: { "type": "enabled", "blockingOn": false, "default": true, "for": ["dataProviderID","onActionMethodID","onDataChangeMethodID"] },
 		"max"					: { "type": "int", "default": 5 , "tags": { "basic": true }},

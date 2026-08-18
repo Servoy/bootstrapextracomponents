@@ -13,6 +13,7 @@
 	"keywords": [],
 	"model":
 	{
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":300, "height":40}},
 		"isButton" 						: { "type": "boolean", "default": true },
 		"isSplitButton" 				: { "type": "boolean", "default": false },
 		"menuItems"						: { "type": "MenuItem[]", "tags": { "basic": true } },

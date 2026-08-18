@@ -13,6 +13,7 @@
 	"keywords": ["slideshow"],
 	"model":
 	{
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":400, "height":300}},
 		"cycleInterval" 					: { "type": "int", "default": 5000 },
 		"noPause"							: { "type": "boolean", "default": false },
 		"noTransition"						: { "type": "boolean", "default": false },

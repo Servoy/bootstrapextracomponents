@@ -13,6 +13,7 @@
 	"keywords": ["navigation"],
 	"model":
 	{
+		"designsize" : {"type" :"dimension", "tags": {"serveronly": true}, "default" : {"width":600, "height":40}},
 		"breadcrumbs" 					: {"type": "crumb[]", "pushToServer": "allow", "droppable" : true, "tags": { "basic": true }},
 		"autoRemoveWhenClicked"			: {"type": "boolean", "default": true}, 
 		"styleClass"					: {"type": "styleclass"},
