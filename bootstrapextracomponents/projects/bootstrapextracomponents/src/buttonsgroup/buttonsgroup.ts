@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, Renderer2, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output, linkedSignal, computed } from '@angular/core';
 import { IValuelist, ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 import { Format } from '@servoy/public';
 

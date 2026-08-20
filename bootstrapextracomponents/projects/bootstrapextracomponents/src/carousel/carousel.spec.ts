@@ -69,4 +69,32 @@ describe('ServoyBootstrapExtraCarousel', () => {
         await fixture.whenStable();
         expect(component.onSlideClicked()).toBe(onSlideClicked);
     });
+
+    it('should render slides from input', async () => {
+        const slides = fixture.nativeElement.querySelectorAll('.carousel-item');
+        expect(slides.length).toBe(3);
+    });
+
+    it('should update innerSlides signal when slides input changes', async () => {
+        const newSlides: Slide[] = [
+            { imageUrl: 'http://example.com/a.png', caption: 'A' } as Slide,
+            { imageUrl: 'http://example.com/b.png', caption: 'B' } as Slide
+        ];
+        fixture.componentRef.setInput('slides', newSlides);
+        fixture.detectChanges();
+        await fixture.whenStable();
+        expect(component.innerSlides().length).toBe(2);
+    });
+
+    it('should apply imageCss properties via signal', async () => {
+        fixture.componentRef.setInput('imageCss', [
+            { propertyName: 'max-width', propertyValue: '50%' }
+        ]);
+        fixture.detectChanges();
+        await fixture.whenStable();
+        const img = fixture.nativeElement.querySelector('.bts-extra-carousel-img');
+        if (img) {
+            expect(img.style.maxWidth).toBe('50%');
+        }
+    });
 });

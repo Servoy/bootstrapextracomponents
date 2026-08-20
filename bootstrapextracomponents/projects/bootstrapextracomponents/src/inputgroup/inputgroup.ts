@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef , inject } from '@angular/core';
+import { Component, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';

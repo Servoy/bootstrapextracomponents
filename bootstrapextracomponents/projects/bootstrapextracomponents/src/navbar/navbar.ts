@@ -1,7 +1,7 @@
 import {
-	Component, SimpleChanges, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy,
-	Directive, ElementRef, OnInit, Inject, DOCUMENT, input, linkedSignal, forwardRef
-, inject } from '@angular/core';
+	Component, SimpleChanges, ChangeDetectionStrategy,
+	Directive, ElementRef, OnInit, Renderer2, input, linkedSignal, forwardRef, inject, DOCUMENT
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgTemplateOutlet } from '@angular/common';
 

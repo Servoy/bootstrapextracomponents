@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, Renderer2, ChangeDetectionStrategy, input, output, linkedSignal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent } from '@servoy/public';
 
 @Component({

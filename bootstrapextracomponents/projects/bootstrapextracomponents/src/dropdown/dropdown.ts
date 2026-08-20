@@ -1,4 +1,4 @@
-import { Component, Renderer2, ChangeDetectorRef, ChangeDetectionStrategy, input , inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
 import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem } from '@ng-bootstrap/ng-bootstrap';
 

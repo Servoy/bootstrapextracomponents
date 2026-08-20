@@ -12,7 +12,7 @@
     [animation]="!noTransition()"
     [wrap]="true"
     (slid)="onSlid($event)">
-    @for (slide of innerSlides; track slide; let i = $index) {
+    @for (slide of innerSlides(); track slide; let i = $index) {
       <ng-template ngbSlide [id]="servoyApi().getMarkupId() + '-' + i">
         <div class="picsum-img-wrapper">
           @if (lazyLoading()) {

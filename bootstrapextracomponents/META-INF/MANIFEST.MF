@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 NG2-CSS-ClientLibs: ~@servoy/bootstrapextracomponents/assets/svy_bootstrapextracomponents.css
 NPM-PackageName: @servoy/bootstrapextracomponents
-NG2-Module: ServoyBootstrapExtraComponentsModule
 NG2-Components: ServoyBootstrapExtraBadge,ServoyBootstrapExtraBreadcrumbs,ServoyBootstrapExtraButtonsGroup,ServoyBootstrapExtraCarousel,ServoyBootstrapExtraDropdown,ServoyBootstrapExtraInputGroup,ServoyBootstrapExtraNavbar,ServoyBootstrapExtraProgressBar,ServoyBootstrapExtraRating,ServoyBootstrapExtraSwitch
 Entry-Point: dist/servoy/bootstrapextracomponents
 Bundle-SymbolicName: bootstrapextracomponents

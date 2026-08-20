@@ -11,7 +11,7 @@
       <i [class]="fill === 100 ? (stateOn() ? stateOn() : 'fa-solid fa-star') : (stateOff() ? stateOff() : 'fa-regular fa-star')"></i>
     </ng-template>
   </ngb-rating >
-  @if (enabled() !== false && showPercentageOnHover() && overStar) {
-    <span class="label badge-info">{{percent}}%</span>
+  @if (enabled() !== false && showPercentageOnHover() && overStar()) {
+    <span class="label badge-info">{{percent()}}%</span>
   }
 </div>

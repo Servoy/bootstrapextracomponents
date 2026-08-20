@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, SimpleChanges, Renderer2, ChangeDetectionStrategy, input, viewChild, linkedSignal } from '@angular/core';
+import { Component, SimpleChanges, ChangeDetectionStrategy, input, viewChild, linkedSignal, signal } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { BaseCustomObject, IFoundset, ServoyBaseComponent } from '@servoy/public';
 import { NgbCarouselConfig, NgbCarousel, NgbSlide, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
@@ -32,7 +32,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
 
     _imageCssInternal = linkedSignal<any>(() => this.imageCssInternal())
 
-    innerSlides!: Slide[];
+    innerSlides = signal<Slide[]>([]);
     foundsetID!: number;
 
     loadingImage = 'bootstrapextracomponents/carousel/resources/loading.gif';
@@ -54,7 +54,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
         if (changes) {
             const slidesFoundset = this.slidesFoundset();
             if (changes.slidesFoundset && changes.slidesFoundset.currentValue) {
-                if (!this.innerSlides || (this.innerSlides.length != slidesFoundset!.serverSize) || (this.foundsetID != slidesFoundset!.foundsetId) || this.imagesOrOrderChanged()) {
+                if (this.innerSlides().length === 0 || (this.innerSlides().length != slidesFoundset!.serverSize) || (this.foundsetID != slidesFoundset!.foundsetId) || this.imagesOrOrderChanged()) {
                     this.createSlides();
                 } else {
                     const index = changes.slidesFoundset.currentValue.selectedRowIndexes[0];
@@ -102,9 +102,11 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
             }
             if (changes.imageCss) {
                 if (changes.imageCss.currentValue !== undefined) {
+                    const current = { ...this._imageCssInternal() };
                     for (const cssEntry of imageCssValue!) {
-                        this._imageCssInternal()[cssEntry.propertyName] = cssEntry.propertyValue;
+                        current[cssEntry.propertyName] = cssEntry.propertyValue;
                     }
+                    this._imageCssInternal.set(current);
                 }
             }
         }
@@ -154,7 +156,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
                 newSlides.push(slide);
             }
 
-            if (JSON.stringify(this.innerSlides) !== JSON.stringify(newSlides)) {
+            if (JSON.stringify(this.innerSlides()) !== JSON.stringify(newSlides)) {
                 return true;
             }
         }
@@ -169,28 +171,30 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     }
 
     private createSlides = () => {
-        this.innerSlides = [];
+        const newSlides: Slide[] = [];
         const slidesFoundset = this.slidesFoundset();
         if (slidesFoundset !== null && slidesFoundset !== undefined) {
             for (const row of slidesFoundset.viewPort.rows) {
                 const slide = new Slide();
                 slide.imageUrl = row.image && row.image.url ? row.image.url : null;
                 slide.caption = row.caption ? row.caption : null;
-                this.innerSlides.push(slide);
+                newSlides.push(slide);
             }
             this.foundsetID = slidesFoundset.foundsetId
         } else {
             const slides = this.slides();
             if (slides !== null && slides !== undefined) {
-                this.innerSlides = slides;
+                newSlides.push(...slides);
             }
         }
         if (this.servoyApi().isInDesigner()) {
             const slide = new Slide();
             slide.imageUrl = this.missingImage;
-            this.innerSlides = [slide];
+            this.innerSlides.set([slide]);
+        } else {
+            this.innerSlides.set(newSlides);
         }
-        if (this.innerSlides.length === 0) {
+        if (this.innerSlides().length === 0) {
             this.elementRef()!.nativeElement.classList.add('bts-extra-carousel-hidden');
         } else {
             this.elementRef()!.nativeElement.classList.remove('bts-extra-carousel-hidden');

@@ -83,4 +83,33 @@ describe('ServoyBootstrapExtraRating', () => {
         expect(stars[4].classList.contains('fa-regular')).toBe(true);
         expect(stars[4].classList.contains('fa-heart')).toBe(true);
     });
+
+    it('should show percentage on hover', async () => {
+        fixture.componentRef.setInput('showPercentageOnHover', true);
+        fixture.detectChanges();
+        await fixture.whenStable();
+
+        component.onHoverEvent(3);
+        fixture.detectChanges();
+        await fixture.whenStable();
+
+        const percentEl = fixture.nativeElement.querySelector('.label');
+        expect(percentEl).not.toBeNull();
+        expect(percentEl.textContent).toContain('60%');
+    });
+
+    it('should hide percentage after leave', async () => {
+        fixture.componentRef.setInput('showPercentageOnHover', true);
+        fixture.detectChanges();
+
+        component.onHoverEvent(4);
+        fixture.detectChanges();
+
+        component.onLeaveEvent();
+        fixture.detectChanges();
+        await fixture.whenStable();
+
+        const percentEl = fixture.nativeElement.querySelector('.label');
+        expect(percentEl).toBeNull();
+    });
 });

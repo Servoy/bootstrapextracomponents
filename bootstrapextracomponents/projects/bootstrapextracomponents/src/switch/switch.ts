@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, Inject, Renderer2, DOCUMENT, ChangeDetectionStrategy, input, output, linkedSignal, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, linkedSignal, computed, inject, DOCUMENT } from '@angular/core';
 import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 import { FormsModule } from '@angular/forms';
 import { JwBootstrapSwitchNg2Component } from '@servoy/jw-bootstrap-switch-ng2';

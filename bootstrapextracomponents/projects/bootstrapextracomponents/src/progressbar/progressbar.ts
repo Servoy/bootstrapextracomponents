@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, linkedSignal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, linkedSignal } from '@angular/core';
 import { ServoyBaseComponent, ServoyPublicModule } from '@servoy/public';
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
 

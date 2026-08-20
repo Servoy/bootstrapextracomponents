@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer2, ChangeDetectorRef, input, output, linkedSignal , inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output, linkedSignal, signal, inject } from '@angular/core';
 import { ServoyBaseComponent, JSEvent, EventLike, ServoyPublicService } from '@servoy/public';
 import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,19 +25,19 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
     
     _dataProviderID = linkedSignal<number>(() => this.dataProviderID() ?? 0);
 
-    overStar = false;
-    percent!: number;
+    overStar = signal(false);
+    percent = signal(0);
 
     private readonly servoyService = inject(ServoyPublicService);
 
 
     svyOnInit() {
         super.svyOnInit();
-        this.percent = this._dataProviderID() * 100 / this.max()! ;
+        this.percent.set(this._dataProviderID() * 100 / this.max()!);
     }
 
     onLeaveEvent() {
-        this.overStar = false;
+        this.overStar.set(false);
         const onLeave = this.onLeave();
         if (onLeave) {
             const jsEvent = this.servoyService.createJSEvent( {target : this.getNativeElement()} as EventLike, 'onLeave' );
@@ -48,8 +48,8 @@ export class ServoyBootstrapExtraRating extends ServoyBaseComponent<HTMLDivEleme
 
     onHoverEvent(value: number) {
         if (this.enabled() !== false) {
-            this.percent = value / this.max()! * 100;
-            this.overStar = true;
+            this.percent.set(value / this.max()! * 100);
+            this.overStar.set(true);
             const onHover = this.onHover();
             if (onHover) {
                 const jsEvent = this.servoyService.createJSEvent( {target : this.getNativeElement()}  as EventLike, 'onHover' );
