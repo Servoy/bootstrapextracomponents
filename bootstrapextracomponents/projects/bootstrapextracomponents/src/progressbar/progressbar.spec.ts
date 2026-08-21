@@ -34,6 +34,11 @@ describe('ServoyBootstrapExtraProgressBar', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render the progressbar', async () => {
         const el = fixture.nativeElement.querySelector('.bts-extra-progressbar');
         expect(el).not.toBeNull();
@@ -89,5 +94,28 @@ describe('ServoyBootstrapExtraProgressBar', () => {
     it('should add animated class when animate is true', async () => {
         const bar = fixture.nativeElement.querySelector('.progress-bar');
         expect(bar.classList.contains('progress-bar-animated')).toBe(true);
+    });
+
+    it('should apply servoyAttributes on the native element', async () => {
+        // Create a fresh component with servoyAttributes set before first detectChanges
+        const localFixture = TestBed.createComponent(ServoyBootstrapExtraProgressBar);
+        const localComponent = localFixture.componentInstance;
+
+        localFixture.componentRef.setInput('servoyApi', new ServoyApiTesting());
+        localFixture.componentRef.setInput('type', 'info');
+        localFixture.componentRef.setInput('max', 100);
+        localFixture.componentRef.setInput('dataProviderID', 50);
+        localFixture.componentRef.setInput('servoyAttributes', {
+            'data-testid': 'my-progressbar',
+            'aria-label': 'Upload progress'
+        });
+
+        localFixture.detectChanges();
+        await localFixture.whenStable();
+
+        const nativeEl = localComponent.getNativeElement();
+        expect(nativeEl).not.toBeNull();
+        expect(nativeEl.getAttribute('data-testid')).toBe('my-progressbar');
+        expect(nativeEl.getAttribute('aria-label')).toBe('Upload progress');
     });
 });

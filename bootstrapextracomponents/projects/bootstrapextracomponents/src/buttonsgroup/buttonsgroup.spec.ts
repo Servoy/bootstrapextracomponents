@@ -56,6 +56,11 @@ describe('ServoyBootstrapExtraButtonsGroup', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should mark the selected item as active', async () => {
         const buttons = fixture.nativeElement.querySelectorAll('button');
         expect(buttons[0].classList.contains('active')).toBe(true);

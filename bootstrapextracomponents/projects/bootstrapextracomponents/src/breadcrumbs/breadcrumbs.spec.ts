@@ -34,6 +34,11 @@ describe('ServoyBootstrapExtraBreadcrumbs', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render breadcrumb items', async () => {
         const items = fixture.nativeElement.querySelectorAll('li');
         expect(items.length).toBe(3);

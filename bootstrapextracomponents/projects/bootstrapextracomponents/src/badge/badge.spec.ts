@@ -31,6 +31,11 @@ describe('ServoyBootstrapExtraBadge', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render badge text', async () => {
         const el = fixture.nativeElement.querySelector('button span:last-child');
         expect(el.textContent).toContain('badgeText');

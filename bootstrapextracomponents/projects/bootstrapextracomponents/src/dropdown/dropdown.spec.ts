@@ -48,6 +48,11 @@ describe('ServoyBootstrapExtraDropdown', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render a button', async () => {
         const button = fixture.nativeElement.querySelector('button');
         expect(button).not.toBeNull();

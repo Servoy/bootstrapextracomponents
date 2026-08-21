@@ -34,6 +34,11 @@ describe('ServoyBootstrapExtraInputGroup', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render an input element', async () => {
         const input = fixture.nativeElement.querySelector('input');
         expect(input).not.toBeNull();

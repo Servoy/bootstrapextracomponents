@@ -40,6 +40,11 @@ describe('ServoyBootstrapExtraCarousel', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should return a valid native element from getNativeElement()', () => {
+        expect(component.getNativeElement()).not.toBeNull();
+        expect(component.getNativeElement()).toBeInstanceOf(HTMLElement);
+    });
+
     it('should render the carousel', async () => {
         const el = fixture.nativeElement.querySelector('.carousel-inner');
         expect(el).not.toBeNull();
