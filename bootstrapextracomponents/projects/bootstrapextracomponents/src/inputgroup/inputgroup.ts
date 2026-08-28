@@ -1,6 +1,6 @@
 import { Component, SimpleChanges, Directive, ElementRef, OnInit, Renderer2, ChangeDetectionStrategy, input, output, viewChild, linkedSignal, forwardRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
+import { ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { Format } from '@servoy/public';
 
 @Component({
@@ -156,19 +156,19 @@ export class ServoyBootstrapExtraInputGroup extends ServoyBaseComponent<HTMLDivE
     }
 }
 
-export class AddOn extends BaseCustomObject {
-    public attributes!: { key: string; value: string }[];
-    public text!: string;
-    public position!: string;
+export interface AddOn {
+    attributes: { key: string; value: string }[];
+    text: string;
+    position: string;
 }
 
-export class AddOnButton extends AddOn {
-    public name!: string;
-    public onAction!: (...args: unknown[]) => void;
-    public onDoubleClick?: (...args: unknown[]) => void;
-    public onRightClick?: (...args: unknown[]) => void;
-    public styleClass!: string;
-    public imageStyleClass!: string;
+export interface AddOnButton extends AddOn {
+    name: string;
+    onAction: (...args: unknown[]) => void;
+    onDoubleClick?: (...args: unknown[]) => void;
+    onRightClick?: (...args: unknown[]) => void;
+    styleClass: string;
+    imageStyleClass: string;
 }
 
 @Directive({

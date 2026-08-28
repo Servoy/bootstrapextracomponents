@@ -1,6 +1,6 @@
 import { Component, SimpleChanges, ChangeDetectionStrategy, input, viewChild, linkedSignal, signal } from '@angular/core';
 import { NgStyle } from '@angular/common';
-import { BaseCustomObject, IFoundset, ServoyBaseComponent } from '@servoy/public';
+import { IFoundset, ServoyBaseComponent } from '@servoy/public';
 import { NgbCarouselConfig, NgbCarousel, NgbSlide, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -150,9 +150,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
         const slidesFoundset = this.slidesFoundset();
         if (slidesFoundset !== null && slidesFoundset !== undefined) {
             for (const row of slidesFoundset.viewPort.rows) {
-                const slide = new Slide();
-                slide.imageUrl = row.image && row.image.url ? row.image.url : null;
-                slide.caption = row.caption ? row.caption : null;
+                const slide = { imageUrl: row.image && row.image.url ? row.image.url : null, caption: row.caption ? row.caption : null } as unknown as Slide;
                 newSlides.push(slide);
             }
 
@@ -175,9 +173,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
         const slidesFoundset = this.slidesFoundset();
         if (slidesFoundset !== null && slidesFoundset !== undefined) {
             for (const row of slidesFoundset.viewPort.rows) {
-                const slide = new Slide();
-                slide.imageUrl = row.image && row.image.url ? row.image.url : null;
-                slide.caption = row.caption ? row.caption : null;
+                const slide = { imageUrl: row.image && row.image.url ? row.image.url : null, caption: row.caption ? row.caption : null } as unknown as Slide;
                 newSlides.push(slide);
             }
             this.foundsetID = slidesFoundset.foundsetId
@@ -188,8 +184,7 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
             }
         }
         if (this.servoyApi().isInDesigner()) {
-            const slide = new Slide();
-            slide.imageUrl = this.missingImage;
+            const slide = { imageUrl: this.missingImage } as Slide;
             this.innerSlides.set([slide]);
         } else {
             this.innerSlides.set(newSlides);
@@ -202,12 +197,12 @@ export class ServoyBootstrapExtraCarousel extends ServoyBaseComponent<HTMLDivEle
     };
 }
 
-export class Slide extends BaseCustomObject {
-    public imageUrl!: string;
-    public caption!: string;
+export interface Slide {
+    imageUrl: string;
+    caption: string;
 }
 
-class CssProperty extends BaseCustomObject {
-    public propertyName!: string;
-    public propertyValue!: string;
+interface CssProperty {
+    propertyName: string;
+    propertyValue: string;
 }

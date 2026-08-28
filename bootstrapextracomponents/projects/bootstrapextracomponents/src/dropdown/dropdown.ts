@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
-import { BaseCustomObject, ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
+import { ServoyBaseComponent, ServoyPublicModule, ServoyPublicService } from '@servoy/public';
 import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -54,16 +54,16 @@ export class ServoyBootstrapExtraDropdown extends ServoyBaseComponent<HTMLDivEle
         return {itemId : menuItem.itemId , text: menuItem.text, userData : menuItem.userData} as BaseMenuItem;
     }
 }
-class BaseMenuItem extends BaseCustomObject {
-    public text!: string;
-    public itemId!: string;
-    public userData!: any;
+interface BaseMenuItem {
+    text: string;
+    itemId: string;
+    userData: any;
 }
 
-export class MenuItem extends BaseMenuItem {
-    public isDivider!: boolean;
-    public enabled!: boolean;
-    public iconName!: string;
-    public onAction!: (...args: unknown[]) => void;
+export interface MenuItem extends BaseMenuItem {
+    isDivider: boolean;
+    enabled: boolean;
+    iconName: string;
+    onAction: (...args: unknown[]) => void;
 }
 

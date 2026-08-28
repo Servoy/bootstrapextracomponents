@@ -11,4 +11,4 @@ export * from './navbar/navbar';
 export * from './progressbar/progressbar';
 export * from './rating/rating';
 export * from './switch/switch';
-export * from './servoybootstrapextra.module';
+

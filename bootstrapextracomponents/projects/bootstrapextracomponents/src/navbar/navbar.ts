@@ -7,7 +7,7 @@ import { NgTemplateOutlet } from '@angular/common';
 
 import { merge, Observable, of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ServoyBaseComponent, FormattingService, ServoyPublicService, ServoyPublicModule, BaseCustomObject, IJSMenu, IValuelist } from '@servoy/public';
+import { ServoyBaseComponent, FormattingService, ServoyPublicService, ServoyPublicModule, IJSMenu, IValuelist } from '@servoy/public';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -302,12 +302,12 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 
 	createItemArg(item: BaseMenuItem): BaseMenuItem {
 		let itemText = item.text;
-		if (item instanceof MenuItem) {
-			if (item.displayValue) {
-				itemText = item.displayValue;
+		if ('displayType' in item) {
+			if ((item as MenuItem).displayValue) {
+				itemText = (item as MenuItem).displayValue;
 			}
-			if (item.displayType === 'INPUT' || item.displayType === 'INPUT_GROUP') {
-				itemText = item.dataProvider != null ? item.dataProvider + '' : '';
+			if ((item as MenuItem).displayType === 'INPUT' || (item as MenuItem).displayType === 'INPUT_GROUP') {
+				itemText = (item as MenuItem).dataProvider != null ? (item as MenuItem).dataProvider + '' : '';
 			}
 		}
 		return { itemId: item.itemId ? item.itemId : null, text: itemText ? itemText : null, userData: item.userData ? item.userData : null } as MenuItem;
@@ -363,11 +363,11 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 						}
 					}
 				}
-				if (itemClicked instanceof MenuItem) {
-					if (itemClicked && (itemClicked.displayType === 'INPUT' || itemClicked.displayType === 'INPUT_GROUP')) {
-						itemClicked.displayValue = (event.target as HTMLInputElement).value;
-					}
+			if ('displayType' in itemClicked) {
+				if (itemClicked && ((itemClicked as MenuItem).displayType === 'INPUT' || (itemClicked as MenuItem).displayType === 'INPUT_GROUP')) {
+					(itemClicked as MenuItem).displayValue = (event.target as HTMLInputElement).value;
 				}
+			}
 				return itemClicked;
 			}
 		} catch (e) {
@@ -593,37 +593,33 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 		}
 	}
 }
-class BaseMenuItem extends BaseCustomObject {
-	public text!: string;
-	public itemId!: string;
-	public tabindex!: string;
-	public enabled!: boolean;
-	public styleClass!: string;
-	public userData!: any;
-	public iconName!: string;
-	public onAction!: (...args: unknown[]) => void;
+interface BaseMenuItem {
+	text: string;
+	itemId: string;
+	tabindex: string;
+	enabled: boolean;
+	styleClass: string;
+	userData: any;
+	iconName: string;
+	onAction: (...args: unknown[]) => void;
 }
 
-export class MenuItem extends BaseMenuItem {
-	public attributes!: { key: string; value: string }[];
-	public subMenuItems!: SubMenuItem[];
-	public position!: string;
-	public displayType!: string;
-	public dataProvider!: any;
-	public displayValue!: string;
-	public inputButtonText!: string;
-	public inputButtonStyleClass!: string;
-	public isActive!: boolean;
-	public tooltip!: string;
-	public valuelist!: IValuelist;
-
-	getWatchedProperties() {
-		return [];
-	}
+export interface MenuItem extends BaseMenuItem {
+	attributes: { key: string; value: string }[];
+	subMenuItems: SubMenuItem[];
+	position: string;
+	displayType: string;
+	dataProvider: any;
+	displayValue: string;
+	inputButtonText: string;
+	inputButtonStyleClass: string;
+	isActive: boolean;
+	tooltip: string;
+	valuelist: IValuelist;
 }
 
-class SubMenuItem extends BaseMenuItem {
-	public isDivider!: boolean;
+interface SubMenuItem extends BaseMenuItem {
+	isDivider: boolean;
 }
 
 @Directive({
