@@ -1,6 +1,6 @@
 {
   "name": "@servoy/bootstrapextracomponents",
-  "version": "2026.9.0",
+  "version": "2026.9.1",
   "dependencies": {
    "@servoy/jw-bootstrap-switch-ng2": "^22",
     "@ng-bootstrap/ng-bootstrap": "^21",
