@@ -67,7 +67,7 @@
                   </p>
                 </div>
                 }<!-- /.svy-navbar-text -->
-                @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems === null) {
+                @if (menuItem.displayType === 'IMAGE' && !menuItem.subMenuItems?.length) {
                   <a href="#"
                     [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                     class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
@@ -76,7 +76,7 @@
                       [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                   </a>
                   }<!-- /.svy-navbar-img -->
-                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
+                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems?.length) {
                     <a (click)="openMenu($event)" href="#"
                       [svyAttributes]='menuItem.attributes'
                       class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled === false ? 'disabled' : ''}}"
@@ -88,7 +88,7 @@
                       <span class="caret"></span>
                     </a>
                   }
-                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
+                  @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems?.length) {
                     <div class="dropdown-menu">
                       @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
                         @if (subMenuItem.isDivider !== true) {
@@ -218,7 +218,7 @@
                               </div>
                             </div>
                             }<!-- /.svy-navbar-typeahead-inputgroup -->
-                            @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems === null) {
+                            @if (menuItem.displayType === 'MENU_ITEM' && !menuItem.subMenuItems?.length) {
                               <a tabindex="{{menuItem.tabindex}}" href="#"
                                 [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                 class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
@@ -232,7 +232,7 @@
                                 <span class="svy-navbar-item-text">{{menuItem.text}}</span>
                               </a>
                               }<!-- /.svy-navbar-item -->
-                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
+                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems?.length) {
                                 <a href="#"
                                   (click)="openMenu($event)" [svyAttributes]='menuItem.attributes'
                                   [attr.data-menu-item-id]="menuItem.itemId"
@@ -249,7 +249,7 @@
                                   <span class="caret"></span>
                                 </a>
                               }
-                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
+                              @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems?.length) {
                                 <div class="dropdown-menu">
                                   @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
                                     @if (subMenuItem.isDivider !== true) {
@@ -314,7 +314,7 @@
                                         </p>
                                       </div>
                                       }<!-- /.svy-navbar-text -->
-                                      @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems === null) {
+                                      @if (menuItem.displayType === 'IMAGE' && !menuItem.subMenuItems?.length) {
                                         <a href="#"
                                           [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                           class="svy-navbar-img" [svyTooltip]="menuItem.tooltip">
@@ -323,7 +323,7 @@
                                             [src]="$safeNavigationMigration(menuItem.dataProvider?.url)" />
                                         </a>
                                         }<!-- /.svy-navbar-img -->
-                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
+                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems?.length) {
                                           <a (click)="openMenu($event)" href="#"
                                             [svyAttributes]='menuItem.attributes'
                                             class="svy-navbar-img svy-navbar-dropdown dropdown-toggle {{menuItem.enabled === false ? 'disabled' : ''}}"
@@ -335,7 +335,7 @@
                                             <span class="caret"></span>
                                           </a>
                                         }
-                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems !== null) {
+                                        @if (menuItem.displayType === 'IMAGE' && menuItem.subMenuItems?.length) {
                                           <div class="dropdown-menu">
                                             @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
                                               @if (subMenuItem.isDivider !== true) {
@@ -465,7 +465,7 @@
                                                     </div>
                                                   </div>
                                                   }<!-- /.svy-navbar-typeahead-inputgroup -->
-                                                  @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems === null) {
+                                                  @if (menuItem.displayType === 'MENU_ITEM' && !menuItem.subMenuItems?.length) {
                                                     <a tabindex="{{menuItem.tabindex}}" href="#"
                                                       [svyAttributes]='menuItem.attributes' [attr.data-menu-item-id]="menuItem.itemId"
                                                       class="svy-navbar-item nav-link {{menuItem.styleClass}}" [svyTooltip]="menuItem.tooltip">
@@ -479,7 +479,7 @@
                                                       <span class="svy-navbar-item-text">{{menuItem.text}}</span>
                                                     </a>
                                                     }<!-- /.svy-navbar-item -->
-                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
+                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems?.length) {
                                                       <a href="#"
                                                         (click)="openMenu($event)" [svyAttributes]='menuItem.attributes'
                                                         [attr.data-menu-item-id]="menuItem.itemId"
@@ -496,7 +496,7 @@
                                                         <span class="caret"></span>
                                                       </a>
                                                     }
-                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems !== null) {
+                                                    @if (menuItem.displayType === 'MENU_ITEM' && menuItem.subMenuItems?.length) {
                                                       <div class="dropdown-menu">
                                                         @for (subMenuItem of menuItem.subMenuItems; track subMenuItem) {
                                                           @if (subMenuItem.isDivider !== true) {

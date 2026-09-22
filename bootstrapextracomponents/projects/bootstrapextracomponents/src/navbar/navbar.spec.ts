@@ -143,4 +143,58 @@ describe('ServoyBootstrapExtraNavbar', () => {
         await fixture.whenStable();
         expect(onMenuItemClicked).not.toHaveBeenCalled();
     });
+
+    describe('SVY-21423: subMenuItems null vs empty array', () => {
+        const buildMenuItem = (itemId: string, subMenuItems: unknown) => ({
+            attributes: null, itemId, tabindex: '0', text: 'Item-' + itemId, enabled: true,
+            userData: null, iconName: null, position: 'LEFT', subMenuItems,
+            onAction: null, displayType: 'MENU_ITEM', dataProvider: null,
+            inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+            styleClass: '', tooltip: '', valuelist: null
+        });
+
+        it('should render a plain link (no caret, no dropdown) when subMenuItems is null', async () => {
+            fixture.componentRef.setInput('menuItems', [buildMenuItem('null-item', null)]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+
+            const li = fixture.nativeElement.querySelector('[data-menu-item-id="null-item"]')!.closest('li');
+            expect(li.querySelector('.dropdown-toggle')).toBeNull();
+            expect(li.querySelector('.caret')).toBeNull();
+            expect(li.querySelector('.dropdown-menu')).toBeNull();
+        });
+
+        it('should render a plain link (no caret, no dropdown) when subMenuItems is an empty array', async () => {
+            // Regression guard for SVY-21423: an unset subMenuItems property must not be
+            // treated as "has a dropdown" just because it happens to arrive as [] instead of null.
+            fixture.componentRef.setInput('menuItems', [buildMenuItem('empty-item', [])]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+
+            const li = fixture.nativeElement.querySelector('[data-menu-item-id="empty-item"]')!.closest('li');
+            expect(li.querySelector('.dropdown-toggle')).toBeNull();
+            expect(li.querySelector('.caret')).toBeNull();
+            expect(li.querySelector('.dropdown-menu')).toBeNull();
+        });
+
+        it('should render the dropdown-toggle, caret and populated dropdown-menu when subMenuItems has items', async () => {
+            const subMenuItems = [
+                { text: 'Sub A', itemId: 'sub-a', tabindex: '0', enabled: true, styleClass: '', userData: null, iconName: null, onAction: null, isDivider: false },
+                { text: 'Sub B', itemId: 'sub-b', tabindex: '0', enabled: true, styleClass: '', userData: null, iconName: null, onAction: null, isDivider: false }
+            ];
+            fixture.componentRef.setInput('menuItems', [buildMenuItem('parent-item', subMenuItems)]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+
+            const li = fixture.nativeElement.querySelector('[data-menu-item-id="parent-item"]')!.closest('li');
+            expect(li.querySelector('.dropdown-toggle')).not.toBeNull();
+            expect(li.querySelector('.caret')).not.toBeNull();
+            const dropdownMenu = li.querySelector('.dropdown-menu');
+            expect(dropdownMenu).not.toBeNull();
+            const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
+            expect(dropdownItems.length).toBe(2);
+            expect(dropdownItems[0].textContent).toContain('Sub A');
+            expect(dropdownItems[1].textContent).toContain('Sub B');
+        });
+    });
 });
