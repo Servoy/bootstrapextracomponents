@@ -15,7 +15,6 @@ ng-packagr and deployed as a Servoy web package.
 | Linting | ESLint 10.x with angular-eslint 22.x + typescript-eslint 8.x (flat config `eslint.config.js`) |
 | Module system | ES modules (moduleResolution: "bundler") |
 | Package name | @servoy/bootstrapextracomponents |
-| Version | 2026.9.0 |
 | CSS framework | Bootstrap (via @ng-bootstrap/ng-bootstrap 21.x) |
 
 ## Architecture: Dual-Layer Component Structure
