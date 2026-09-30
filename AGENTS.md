@@ -165,7 +165,6 @@ When adding a new component:
 bootstrapextracomponents/
 ├── AGENTS.md                            # This file
 ├── README.md                            # Basic setup instructions
-├── JIRA.md                              # Jira API instructions
 ├── opencode.json                        # opencode configuration
 ├── webpackage.json                      # Servoy package manifest & release history
 ├── bootstrapextracomponents/            # Main working directory
@@ -200,6 +199,14 @@ bootstrapextracomponents/
     ├── skills/test-migration/           # Cypress → Vitest migration (reference)
     └── plugins/commit-lint.ts           # Commit message validation
 ```
+
+## Jira API
+
+For anything Jira — reading, creating, updating, commenting on, linking, searching (JQL),
+assigning or transitioning issues — load the **`servoy-jira`** skill (global opencode skill)
+and follow its instructions. It holds the connection details (base URL, `ATLASSIAN_AUTH_BASIC`
+auth), the per-OS command recipes and the ADF templates. Always load the skill first rather
+than hand-rolling the REST calls.
 
 ## Workflow
 
