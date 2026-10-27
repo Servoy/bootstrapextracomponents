@@ -18,7 +18,7 @@
         "styleClass" 				: { "type": "styleclass", "values": ["progress-striped", "progress-striped active"]},
 		"value"						: { "type" : "float" , "tags": { "basic": true }},
 		"type"						: { "type": "string", "default": "info", "values":["info", "success", "warning", "danger"]},
-		"tone"						: { "type": "string", "values":["success", "info", "warning", "danger", "neutral"], "tags": { "basic": true }},
+		"tone"						: { "type": "string", "values":["success", "info", "warning", "danger", "neutral"], "tags": { "basic": true, "valuesFieldType": "typeahead" }},
 		"animate"					: { "type": "boolean", "default": true},
 		"showValue" 				: { "type": "boolean", "default": true},
 		"showValueAsPercentage"		: { "type": "boolean", "default": true},

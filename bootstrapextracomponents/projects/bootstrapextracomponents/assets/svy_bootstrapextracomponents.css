@@ -29,21 +29,25 @@
     display: block;
 }
 
-/* The link look applies only to an untoned badge: a tone owns the text colour, and
-   excluding it here is what lets a tone rule win without !important. */
-.svy-wrapper>*>.bts-extra-badge a:not([class*="bts-extra-badge--tone-"]) {
+/* The link look of a LABEL badge. The scoping and the tone exclusion sit inside
+   :where(), which adds NO specificity: these rules weigh one element (and one
+   pseudo-class on hover/focus) instead of three classes plus two elements, so a
+   solution's own single class overrides them with no !important and no need to
+   restate the ancestor chain. The selectors match exactly what they matched
+   before, so no badge changes appearance. */
+:where(.svy-wrapper > * > .bts-extra-badge) a:where(:not([class*="bts-extra-badge--tone-"])) {
 	color: var(--svy-badge-link-color, #337ab7);
 	text-decoration: none;
 }
 
-.svy-wrapper > * > .bts-extra-badge a:not([class*="bts-extra-badge--tone-"]):hover,
-.svy-wrapper > * > .bts-extra-badge a:not([class*="bts-extra-badge--tone-"]):focus {
+:where(.svy-wrapper > * > .bts-extra-badge) a:where(:not([class*="bts-extra-badge--tone-"])):hover,
+:where(.svy-wrapper > * > .bts-extra-badge) a:where(:not([class*="bts-extra-badge--tone-"])):focus {
     color: var(--svy-badge-link-hover-color, #23527c);
     text-decoration: underline;
 }
 
-.svy-wrapper > * > .bts-extra-badge a:hover,
-.svy-wrapper > * > .bts-extra-badge a:focus {
+:where(.svy-wrapper > * > .bts-extra-badge) a:hover,
+:where(.svy-wrapper > * > .bts-extra-badge) a:focus {
     cursor: pointer;
 }
 
