@@ -20,3 +20,63 @@
     padding-top: initial;
     padding-bottom: initial;
 }
+
+/* The secondary bubble. Both display types carry label-badge-class, so the BUTTON and
+   LABEL bubbles are the same grey. */
+.bts-extra-badge .label-badge-class {
+    background-color: var(--svy-badge-bubble-bg, #777777);
+    color: var(--svy-badge-bubble-color, #FFFFFF);
+}
+
+/* Status tones. Defined against the semantic status roles (SVY-21639) with the
+   Bootstrap-era values as fallbacks, so a solution sets a variable instead of
+   fighting the cascade with !important. */
+.bts-extra-badge--tone-success.bts-extra-badge--soft {
+    background: var(--svy-success-soft-bg, #E6EFE6);
+    color: var(--svy-success-soft-fg, #264F35);
+}
+
+.bts-extra-badge--tone-success.bts-extra-badge--solid {
+    background: var(--svy-success-solid, #2E7D32);
+    color: var(--svy-success-on-solid, #FFFFFF);
+}
+
+.bts-extra-badge--tone-info.bts-extra-badge--soft {
+    background: var(--svy-info-soft-bg, #E1EDF4);
+    color: var(--svy-info-soft-fg, #124667);
+}
+
+.bts-extra-badge--tone-info.bts-extra-badge--solid {
+    background: var(--svy-info-solid, #0369A1);
+    color: var(--svy-info-on-solid, #FFFFFF);
+}
+
+.bts-extra-badge--tone-warning.bts-extra-badge--soft {
+    background: var(--svy-warning-soft-bg, #F6EAE1);
+    color: var(--svy-warning-soft-fg, #623C22);
+}
+
+.bts-extra-badge--tone-warning.bts-extra-badge--solid {
+    background: var(--svy-warning-solid, #B45309);
+    color: var(--svy-warning-on-solid, #FFFFFF);
+}
+
+.bts-extra-badge--tone-danger.bts-extra-badge--soft {
+    background: var(--svy-danger-soft-bg, #F8E5E5);
+    color: var(--svy-danger-soft-fg, #6A2930);
+}
+
+.bts-extra-badge--tone-danger.bts-extra-badge--solid {
+    background: var(--svy-danger-solid, #C62828);
+    color: var(--svy-danger-on-solid, #FFFFFF);
+}
+
+.bts-extra-badge--tone-neutral.bts-extra-badge--soft {
+    background: var(--svy-neutral-soft-bg, #F6F6F7);
+    color: var(--svy-neutral-soft-fg, #1F2937);
+}
+
+.bts-extra-badge--tone-neutral.bts-extra-badge--solid {
+    background: var(--svy-neutral-solid, #5E656F);
+    color: var(--svy-neutral-on-solid, #FFFFFF);
+}

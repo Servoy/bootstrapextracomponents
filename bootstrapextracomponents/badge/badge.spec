@@ -17,6 +17,8 @@
 		"displayType" 					: {"type": "string", "default":"BUTTON", "values": ["BUTTON", "LABEL"], "tags": { "basic": true }},
 		"text"							: {"type": "tagstring", "initialValue": "Badge", "tags": { "directEdit" : "true","basic": true  }},
 		"badgeText"						: {"type": "tagstring", "initialValue": "0", "tags": { "basic": true }},
+		"tone"							: {"type": "string", "values": ["success", "info", "warning", "danger", "neutral"], "tags": { "basic": true }},
+		"toneStyle"						: {"type": "string", "default": "soft", "values": ["soft", "solid"]},
     	"imageStyleClass" 				: {"type": "styleclass"},
     	"styleClass"					: {"type": "styleclass"},
     	"visible"						: {"type": "visible" },

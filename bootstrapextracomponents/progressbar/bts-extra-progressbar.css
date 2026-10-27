@@ -10,3 +10,51 @@
 .bts-extra-progressbar > .progress-bar {
 	line-height: 20px;
 }
+
+/* Status tones. The track is the soft background, the fill the solid colour; defined
+   against the semantic status roles (SVY-21639) with fallbacks, so a solution sets a
+   variable instead of fighting the cascade with !important. */
+.bts-extra-progressbar--tone-success {
+    background: var(--svy-success-soft-bg, #E6EFE6);
+}
+
+.bts-extra-progressbar--tone-success > .progress-bar {
+    background: var(--svy-success-solid, #2E7D32);
+    color: var(--svy-success-on-solid, #FFFFFF);
+}
+
+.bts-extra-progressbar--tone-info {
+    background: var(--svy-info-soft-bg, #E1EDF4);
+}
+
+.bts-extra-progressbar--tone-info > .progress-bar {
+    background: var(--svy-info-solid, #0369A1);
+    color: var(--svy-info-on-solid, #FFFFFF);
+}
+
+.bts-extra-progressbar--tone-warning {
+    background: var(--svy-warning-soft-bg, #F6EAE1);
+}
+
+.bts-extra-progressbar--tone-warning > .progress-bar {
+    background: var(--svy-warning-solid, #B45309);
+    color: var(--svy-warning-on-solid, #FFFFFF);
+}
+
+.bts-extra-progressbar--tone-danger {
+    background: var(--svy-danger-soft-bg, #F8E5E5);
+}
+
+.bts-extra-progressbar--tone-danger > .progress-bar {
+    background: var(--svy-danger-solid, #C62828);
+    color: var(--svy-danger-on-solid, #FFFFFF);
+}
+
+.bts-extra-progressbar--tone-neutral {
+    background: var(--svy-neutral-soft-bg, #F6F6F7);
+}
+
+.bts-extra-progressbar--tone-neutral > .progress-bar {
+    background: var(--svy-neutral-solid, #5E656F);
+    color: var(--svy-neutral-on-solid, #FFFFFF);
+}

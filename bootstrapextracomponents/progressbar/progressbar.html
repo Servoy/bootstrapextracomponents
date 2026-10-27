@@ -1,8 +1,8 @@
 <uib-progressbar
 	ng-if='model.visible'
-	class="bts-extra-progressbar {{model.styleClass}}"
+	class="bts-extra-progressbar {{model.styleClass}} {{model.tone ? 'bts-extra-progressbar--tone-' + model.tone : ''}}"
 	value="model.dataProviderID ? model.dataProviderID : model.value"
-	type={{model.type}}
+	type={{model.tone ? '' : model.type}}
 	animate="model.animate"
 	max="model.max"
 	sablo-tabseq='model.tabSeq'

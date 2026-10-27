@@ -1,8 +1,8 @@
 <ngb-progressbar #element
-  class="bts-extra-progressbar {{styleClass()}}"
+  class="bts-extra-progressbar {{styleClass()}} {{toneClass()}}"
   [id]="servoyApi().getMarkupId()"
   [value]="dataProviderID() ? dataProviderID() : _value()"
-  [type]="$any(type())"
+  [type]="$any(effectiveType())"
   [animated]="$any(animate())"
   [max]="$any(max())"
   [sabloTabseq]="tabSeq()">

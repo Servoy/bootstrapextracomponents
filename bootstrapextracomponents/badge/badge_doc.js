@@ -23,8 +23,23 @@ var text;
 
 /**
  * The secondary badge text, often used to display a count or additional information.
+ * Leave it empty to render the badge without the secondary bubble.
  */
 var badgeText;
+
+/**
+ * The status tone of the badge: "success", "info", "warning", "danger" or "neutral".
+ * A tone colours the badge from the theme's status colours instead of a fixed Bootstrap
+ * class, so it can be restyled by setting CSS variables (for example --svy-success-soft-bg)
+ * without !important. Leave it empty to keep the default look driven by styleClass.
+ */
+var tone;
+
+/**
+ * How the tone is applied: "soft" (a tinted background with darker text, the default) or
+ * "solid" (a filled background with contrasting text). Only has effect when tone is set.
+ */
+var toneStyle;
 
 /**
  * Dimensions of the badge component (width and height).

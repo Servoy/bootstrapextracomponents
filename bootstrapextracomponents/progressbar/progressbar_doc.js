@@ -19,8 +19,17 @@ var value;
 
 /**
  * The visual type of the progress bar (e.g. info, success, warning, danger).
+ * Ignored when tone is set.
  */
 var type;
+
+/**
+ * The status tone of the progress bar: "success", "info", "warning", "danger" or "neutral".
+ * A tone colours the track and the fill from the theme's status colours instead of a fixed
+ * Bootstrap class, so it can be restyled by setting CSS variables (for example
+ * --svy-success-solid) without !important. When set it takes precedence over type.
+ */
+var tone;
 
 /**
  * Flag indicating whether progress transitions are animated.
