@@ -344,31 +344,31 @@ export class ServoyBootstrapExtraNavbar extends ServoyBaseComponent<HTMLDivEleme
 			if (!itemId) {
 				return null;
 			} else {
-				for (const i of Object.keys(this._menuItems())) {
-				const menuItem = (this._menuItems() as any)[i];
-					if (menuItem.itemId === itemId) {
-						itemClicked = menuItem;
-						break;
-					}
-					if (menuItem.subMenuItems) {
-						//dropdown
-						for (const s of Object.keys(menuItem.subMenuItems)) {
-							if (menuItem.subMenuItems[s].itemId === itemId) {
-								itemClicked = menuItem.subMenuItems[s];
-								break;
-							}
-						}
-						if (itemClicked) {
-							break;
-						}
-					}
-				}
-			if ('displayType' in itemClicked) {
-				if (itemClicked && ((itemClicked as MenuItem).displayType === 'INPUT' || (itemClicked as MenuItem).displayType === 'INPUT_GROUP')) {
-					(itemClicked as MenuItem).displayValue = (event.target as HTMLInputElement).value;
-				}
-			}
-				return itemClicked;
+                for (const i of Object.keys(this._menuItems())) {
+                    const menuItem = (this._menuItems() as any)[i];
+                    if (menuItem.itemId === itemId) {
+                        itemClicked = menuItem;
+                        break;
+                    }
+                    if (menuItem.subMenuItems) {
+                        //dropdown
+                        for (const s of Object.keys(menuItem.subMenuItems)) {
+                            if (menuItem.subMenuItems[s].itemId === itemId) {
+                                itemClicked = menuItem.subMenuItems[s];
+                                break;
+                            }
+                        }
+                        if (itemClicked) {
+                            break;
+                        }
+                    }
+                }
+                if (itemClicked && ('displayType' in itemClicked)) {
+                    if ((itemClicked as MenuItem).displayType === 'INPUT' || (itemClicked as MenuItem).displayType === 'INPUT_GROUP') {
+                        (itemClicked as MenuItem).displayValue = (event.target as HTMLInputElement).value;
+                    }
+                }
+                return itemClicked;
 			}
 		} catch (e) {
 			console.log('Error when trying to figure out navbar itemId: ' + (e as any).message);
