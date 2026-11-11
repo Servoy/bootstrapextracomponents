@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { ServoyApiTesting, ServoyPublicTestingModule, Format } from '@servoy/public';
 import { ServoyBootstrapExtraInputGroup, SvyAttributesInputGroup } from './inputgroup';
 
@@ -120,5 +120,69 @@ describe('ServoyBootstrapExtraInputGroup', () => {
         await fixture.whenStable();
         const input = fixture.nativeElement.querySelector('input') as HTMLInputElement;
         expect(input.value).toBe('new value');
+    });
+
+    it('hasLeftButtons / hasRightButtons reflect addOnButtons positions', async () => {
+        fixture.componentRef.setInput('addOnButtons', [
+            { attributes: '', name: 'l', position: 'LEFT', text: 'L', styleClass: '', imageStyleClass: '', onAction: () => {} },
+            { attributes: '', name: 'r', position: 'RIGHT', text: 'R', styleClass: '', imageStyleClass: '', onAction: () => {} }
+        ]);
+        fixture.detectChanges();
+        await fixture.whenStable();
+        expect(component.hasLeftButtons()).toBe(true);
+        expect(component.hasRightButtons()).toBe(true);
+        expect(component.filterButtons('LEFT').length).toBe(1);
+    });
+
+    it('filterButtons returns empty array when no addOnButtons', () => {
+        expect(component.filterButtons('LEFT')).toEqual([]);
+    });
+
+    it('pushUpdate emits dataProviderChange with current value', async () => {
+        const spy = vi.fn();
+        component.dataProviderChange.subscribe(spy);
+        (component as any)._dataProvider.set('abc');
+        component.pushUpdate();
+        expect(spy).toHaveBeenCalledWith('abc');
+    });
+
+    it('buttonClicked fires onAction for a click with no double-click handler', () => {
+        const onAction = vi.fn();
+        fixture.componentRef.setInput('addOnButtons', [
+            { attributes: '', name: 'b', position: 'RIGHT', text: 'B', styleClass: '', imageStyleClass: '', onAction }
+        ]);
+        fixture.detectChanges();
+        component.buttonClicked({ type: 'click' } as any, 'B', 0);
+        expect(onAction).toHaveBeenCalled();
+    });
+
+    it('buttonRightClicked fires onRightClick and preventsDefault', () => {
+        const onRightClick = vi.fn();
+        const preventDefault = vi.fn();
+        fixture.componentRef.setInput('addOnButtons', [
+            { attributes: '', name: 'b', position: 'RIGHT', text: 'B', styleClass: '', imageStyleClass: '', onAction: () => {}, onRightClick }
+        ]);
+        fixture.detectChanges();
+        component.buttonRightClicked({ type: 'contextmenu', preventDefault } as any, 'B', 0);
+        expect(preventDefault).toHaveBeenCalled();
+        expect(onRightClick).toHaveBeenCalled();
+    });
+
+    it('buttonDoubleClicked fires onDoubleClick and prevents the pending single click', () => {
+        const onDoubleClick = vi.fn();
+        fixture.componentRef.setInput('addOnButtons', [
+            { attributes: '', name: 'b', position: 'RIGHT', text: 'B', styleClass: '', imageStyleClass: '', onAction: () => {}, onDoubleClick }
+        ]);
+        fixture.detectChanges();
+        component.buttonDoubleClicked({ type: 'dblclick' } as any, 'B', 0);
+        expect(onDoubleClick).toHaveBeenCalled();
+        expect(component.preventSimpleClick).toBe(true);
+    });
+
+    it('requestFocus focuses the input element', () => {
+        const focusSpy = vi.spyOn(component.getFocusElement(), 'focus');
+        component.requestFocus(true);
+        expect(focusSpy).toHaveBeenCalled();
+        expect(component.mustExecuteOnFocus).toBe(true);
     });
 });

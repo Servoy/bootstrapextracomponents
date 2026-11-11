@@ -197,4 +197,195 @@ describe('ServoyBootstrapExtraNavbar', () => {
             expect(dropdownItems[1].textContent).toContain('Sub B');
         });
     });
+
+    describe('public methods and branches', () => {
+        it('toggleCollapse adds then removes show on .navbar-collapse', async () => {
+            fixture.componentRef.setInput('collapsing', true);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            component.toggleCollapse();
+            const collapse = fixture.nativeElement.querySelector('.navbar-collapse');
+            expect(collapse.classList.contains('show')).toBe(true);
+            component.toggleCollapse();
+            expect(collapse.classList.contains('show')).toBe(false);
+        });
+
+        it('isCollapseIn returns false when no .collapse.in present', () => {
+            expect(component.isCollapseIn()).toBe(false);
+        });
+
+        it('createItemArg maps basic fields', () => {
+            const arg = component.createItemArg({ itemId: 'x', text: 'T', userData: { a: 1 } } as any);
+            expect(arg.itemId).toBe('x');
+            expect(arg.text).toBe('T');
+            expect(arg.userData).toEqual({ a: 1 });
+        });
+
+        it('createItemArg uses dataProvider for INPUT displayType', () => {
+            const arg = component.createItemArg({ itemId: 'i', text: 'label', displayType: 'INPUT', dataProvider: 42 } as any);
+            expect(arg.text).toBe('42');
+        });
+
+        it('makeItemActive sets isActive and calls server api when markClickedItemActive', () => {
+            fixture.componentRef.setInput('markClickedItemActive', true);
+            const spy = vi.spyOn(component.servoyApi(), 'callServerSideApi');
+            const items = component._menuItems();
+            component.makeItemActive(items[0] as any);
+            expect(items[0].isActive).toBe(true);
+            expect(items[1].isActive).toBe(false);
+            expect(spy).toHaveBeenCalledWith('setMenuSelectedInternal', ['1']);
+        });
+
+        it('makeItemActive is a no-op when markClickedItemActive is not set', () => {
+            fixture.componentRef.setInput('markClickedItemActive', false);
+            const spy = vi.spyOn(component.servoyApi(), 'callServerSideApi');
+            component.makeItemActive(component._menuItems()[0] as any);
+            expect(spy).not.toHaveBeenCalled();
+        });
+
+        it('getLocation / getSize return null for unknown item', () => {
+            expect(component.getLocation('nope')).toBeNull();
+            expect(component.getSize('nope')).toBeNull();
+        });
+
+        it('getLocation / getSize return rects for known item', () => {
+            expect(component.getLocation('1')).not.toBeNull();
+            expect(component.getSize('1')).not.toBeNull();
+        });
+
+        it('onInputChange applies via servoyApi when no servoyMenu', () => {
+            const spy = vi.spyOn(component.servoyApi(), 'apply');
+            const item: any = { dataProvider: 'v' };
+            component.onInputChange(item, 0);
+            expect(spy).toHaveBeenCalledWith('menuItems[0].dataProvider', 'v');
+        });
+
+        it('valueChanged sets dataProvider from realValue', () => {
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 'vc', tabindex: '0', text: 'x', enabled: true,
+                userData: null, iconName: null, position: 'LEFT', subMenuItems: null,
+                onAction: null, displayType: 'INPUT', dataProvider: null,
+                inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+                styleClass: '', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            component.valueChanged({ displayValue: 'd', realValue: 7 } as any, 0);
+            expect(component._menuItems()[0].dataProvider).toBe(7);
+            component.valueChanged(null as any, 0);
+            expect(component._menuItems()[0].dataProvider).toBeNull();
+        });
+
+        it('onKeyDown Escape/Enter do not throw', () => {
+            const target = fixture.nativeElement.querySelector('a.svy-navbar-item');
+            expect(() => component.onKeyDown({ key: 'Escape', target, preventDefault: () => {} } as any)).not.toThrow();
+            expect(() => component.onKeyDown({ key: 'Enter', target, preventDefault: () => {} } as any)).not.toThrow();
+        });
+
+        it('resultFormatter handles null/empty/value', () => {
+            expect(component.resultFormatter({ displayValue: null, realValue: 1 } as any)).toBe('');
+            expect(component.resultFormatter({ displayValue: '', realValue: 1 } as any)).toBe('\u00A0');
+            expect(component.resultFormatter({ displayValue: 'hi', realValue: 1 } as any)).toBe('hi');
+        });
+
+        it('isTrustedHTML reflects servoyApi.trustAsHtml', () => {
+            expect(component.isTrustedHTML()).toBe(false);
+        });
+
+        it('copyServoyMenu populates _menuItems from servoyMenu input', async () => {
+            const servoyMenu: any = {
+                name: 'm', styleClass: '',
+                pushDataProviderValue: vi.fn(), setSelectedItem: vi.fn(),
+                items: [{
+                    itemID: 'a', menuText: 'A', styleClass: 'sc', enabled: true,
+                    iconStyleClass: 'ic', tooltipText: 'tt', isSelected: false,
+                    extraProperties: { Navbar: { tabindex: '0', position: 'LEFT', displayType: 'MENU_ITEM' }, Sidenav: null },
+                    items: [{
+                        itemID: 'a1', menuText: 'A1', styleClass: '', enabled: true,
+                        iconStyleClass: '', tooltipText: '', isSelected: false,
+                        extraProperties: { Navbar: { isDivider: false }, Sidenav: null }, items: []
+                    }]
+                }]
+            };
+            fixture.componentRef.setInput('servoyMenu', servoyMenu);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            const items = component._menuItems();
+            expect(items.length).toBe(1);
+            expect(items[0].text).toBe('A');
+            expect(items[0].subMenuItems.length).toBe(1);
+            expect(items[0].subMenuItems[0].text).toBe('A1');
+        });
+
+        it('renders BUTTON displayType item', async () => {
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 'b', tabindex: '0', text: 'Btn', enabled: true,
+                userData: null, iconName: 'fa fa-star', position: 'LEFT', subMenuItems: null,
+                onAction: null, displayType: 'BUTTON', dataProvider: null,
+                inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+                styleClass: 'mybtn', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            expect(fixture.nativeElement.querySelector('.svy-navbar-button .navbar-btn')).not.toBeNull();
+        });
+
+        it('renders TEXT displayType item', async () => {
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 't', tabindex: '0', text: 'SomeText', enabled: true,
+                userData: null, iconName: null, position: 'LEFT', subMenuItems: null,
+                onAction: null, displayType: 'TEXT', dataProvider: null,
+                inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+                styleClass: '', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            expect(fixture.nativeElement.querySelector('.svy-navbar-text').textContent).toContain('SomeText');
+        });
+
+        it('renders INPUT displayType item (no valuelist)', async () => {
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 'in', tabindex: '0', text: 'ph', enabled: true,
+                userData: null, iconName: 'fa fa-search', position: 'LEFT', subMenuItems: null,
+                onAction: null, displayType: 'INPUT', dataProvider: '', inputButtonText: 'Go',
+                inputButtonStyleClass: '', isActive: false, styleClass: '', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            expect(fixture.nativeElement.querySelector('.svy-navbar-input input')).not.toBeNull();
+        });
+
+        it('fires item.onAction when present on click', async () => {
+            const onAction = vi.fn();
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 'act', tabindex: '0', text: 'Act', enabled: true,
+                userData: null, iconName: null, position: 'LEFT', subMenuItems: null,
+                onAction, displayType: 'MENU_ITEM', dataProvider: null,
+                inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+                styleClass: '', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            fixture.nativeElement.querySelector('a.svy-navbar-item').click();
+            fixture.detectChanges();
+            expect(onAction).toHaveBeenCalled();
+        });
+
+        it('openSubMenu / closeSubMenu toggle show on dropdown-menu', async () => {
+            const subMenuItems = [{ text: 'S', itemId: 's1', tabindex: '0', enabled: true, styleClass: '', userData: null, iconName: null, onAction: null, isDivider: false }];
+            fixture.componentRef.setInput('menuItems', [{
+                attributes: null, itemId: 'dd', tabindex: '0', text: 'DD', enabled: true,
+                userData: null, iconName: null, position: 'LEFT', subMenuItems,
+                onAction: null, displayType: 'MENU_ITEM', dataProvider: null,
+                inputButtonText: '', inputButtonStyleClass: '', isActive: false,
+                styleClass: '', tooltip: '', valuelist: null
+            }]);
+            fixture.detectChanges();
+            await fixture.whenStable();
+            component.openSubMenu('dd');
+            const menu = fixture.nativeElement.querySelector('.dropdown-menu');
+            expect(menu.classList.contains('show')).toBe(true);
+            component.closeSubMenu(fixture.nativeElement.querySelector("[data-menu-item-id='dd']"));
+            expect(menu.classList.contains('show')).toBe(false);
+        });
+    });
 });

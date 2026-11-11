@@ -100,4 +100,54 @@ describe('ServoyBootstrapExtraButtonsGroup', () => {
         await fixture.whenStable();
         expect(changeSpy).toHaveBeenCalledWith(2);
     });
+
+    it('hasMultiSelection true when inputType is checkbox', async () => {
+        fixture.componentRef.setInput('inputType', 'checkbox');
+        fixture.detectChanges();
+        expect(component.hasMultiSelection()).toBe(true);
+    });
+
+    it('multi-select appends and removes values (checkbox + TEXT format)', async () => {
+        fixture.componentRef.setInput('inputType', 'checkbox');
+        fixture.componentRef.setInput('format', { type: 'TEXT' } as any);
+        fixture.componentRef.setInput('dataProviderID', '1');
+        fixture.detectChanges();
+        await fixture.whenStable();
+        const changeSpy = vi.fn();
+        component.dataProviderIDChange.subscribe(changeSpy);
+        // select value 2 -> appended
+        component.onClick({ realValue: 2 });
+        expect(changeSpy).toHaveBeenLastCalledWith('1\n2');
+    });
+
+    it('onDataChangeCallback restores old value when returnval is false', () => {
+        component.oldValue = 'prev';
+        const changeSpy = vi.fn();
+        component.dataProviderIDChange.subscribe(changeSpy);
+        component.onDataChangeCallback(null, false);
+        expect(changeSpy).toHaveBeenCalledWith('prev');
+    });
+
+    it('onDataChangeCallback clears oldValue when returnval is truthy', () => {
+        component.oldValue = 'prev';
+        component.onDataChangeCallback(null, true);
+        expect(component.oldValue).toBeNull();
+    });
+
+    it('onClick is a no-op when disabled', () => {
+        fixture.componentRef.setInput('enabled', false);
+        fixture.detectChanges();
+        const changeSpy = vi.fn();
+        component.dataProviderIDChange.subscribe(changeSpy);
+        component.onClick({ realValue: 2 });
+        expect(changeSpy).not.toHaveBeenCalled();
+    });
+
+    it('allowEmptyValuelistItem true when first item is empty', async () => {
+        const vl: any = [{ realValue: '', displayValue: '' }];
+        vl.hasRealValues = () => true;
+        fixture.componentRef.setInput('valuelistID', vl);
+        fixture.detectChanges();
+        expect(component.allowEmptyValuelistItem({})).toBe(true);
+    });
 });
