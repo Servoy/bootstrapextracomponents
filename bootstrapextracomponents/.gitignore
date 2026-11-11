@@ -3,3 +3,5 @@
 /node_modules/
 /bootstrapextracomponents.zip
 /.angular/
+/coverage/
+/coverage-report.md

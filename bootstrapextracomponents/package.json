@@ -8,6 +8,8 @@
     "make_release": "ng build @servoy/bootstrapextracomponents --configuration production && node scripts/build.js",
     "lint": "ng lint",
     "test": "ng test @servoy/bootstrapextracomponents --no-watch",
+    "test:coverage": "ng test @servoy/bootstrapextracomponents --no-watch --coverage --coverage-include \"projects/bootstrapextracomponents/src/**/*.ts\" --coverage-exclude \"**/*.spec.ts\" --coverage-exclude \"**/*.d.ts\" --coverage-exclude \"**/testingutils.ts\" --coverage-exclude \"**/public-api.ts\"",
+    "coverage:summary": "node scripts/coverage-summary.js",
     "test:watch": "ng test @servoy/bootstrapextracomponents",
     "test:ui": "ng test @servoy/bootstrapextracomponents --ui"
   },
@@ -36,6 +38,7 @@
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "4.4.1",
     "@types/luxon": "^3.7.3",
+    "@vitest/coverage-v8": "^4.1.10",
     "adm-zip": "0.6.0",
     "angular-eslint": "22.1.0",
     "eslint": "^10.8.0",
